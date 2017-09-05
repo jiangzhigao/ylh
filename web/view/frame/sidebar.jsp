@@ -116,33 +116,33 @@
                             <a href="javascript:;">会员管理</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:;">会员管理</a>
+                                    <a href="/view/customercenter/membermanagement/memberList.jsp">会员管理</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">交易记录</a>
+                                    <a href="/view/customercenter/membermanagement/transRecordList.jsp">交易记录</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">留言管理</a>
+                                    <a href="/view/customercenter/membermanagement/messageList.jsp">留言管理</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">投诉建议</a>
+                                    <a href="/view/customercenter/membermanagement/complaintAndAdvice.jsp">投诉建议</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="ujavascript:;">律师管理</a>
+                            <a href="javascript:;">律师管理</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:;">律师管理</a>
+                                    <a href="/view/customercenter/lawyermanagement/lawyerManagementList.jsp">律师管理</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">专业领域</a>
+                                    <a href="/view/customercenter/lawyermanagement/professionalFieldList.jsp">专业领域</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">投诉建议</a>
+                                    <a href="/view/customercenter/lawyermanagement/complaintAndAdviceList.jsp">投诉建议</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">收入记录</a>
+                                    <a href="/view/customercenter/lawyermanagement/incomeRecord.jsp">收入记录</a>
                                 </li>
                             </ul>
                         </li>
@@ -158,7 +158,7 @@
                             <a href="javascript:;">分类管理</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:;">分类列表</a>
+                                    <a href="/view/contentmanager/classify/classifyManagerList.jsp">分类列表</a>
                                 </li>
                             </ul>
                         </li>
@@ -166,7 +166,7 @@
                             <a href="javascript:;">资讯动态</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:;">资讯管理</a>
+                                    <a href="/view/contentmanager/consulting/consultingManagerList.jsp">资讯管理</a>
                                 </li>
                                 <li>
                                     <a href="javascript:;">动态管理</a>
@@ -180,10 +180,10 @@
                             <a href="javascript:;">活动管理</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:;">话题管理</a>
+                                    <a href="/view/contentmanager/activity/topicList.jsp">话题管理</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">活动管理</a>
+                                    <a href="/view/contentmanager/activity/activityList.jsp">活动管理</a>
                                 </li>
                             </ul>
                         </li>

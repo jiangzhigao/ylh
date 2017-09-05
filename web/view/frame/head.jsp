@@ -28,6 +28,14 @@
                 "p_doc_entrust_list": "/view/legalcase/publish/docEntrustList.jsp",
                 "p_entrust_add": "/view/legalcase/publish/addEntrust.jsp",
                 "case_clz_list": "/view/legalcase/clz/caseClzList.jsp",
+                "m_transRecordList": "/view/customercenter/membermanagement/transRecordList.jsp",
+                "m_memberList": "/view/customercenter/membermanagement/memberList.jsp",
+                "m_complaintAndAdvice": "/view/customercenter/membermanagement/complaintAndAdvice.jsp",
+                "m_messageList": "/view/customercenter/membermanagement/messageList.jsp",
+                "l_complaintAndAdviceList": "/view/customercenter/lawyermanagement/complaintAndAdviceList.jsp",
+                "l_lawyerManagementList": "/view/customercenter/lawyermanagement/lawyerManagementList.jsp",
+                "l_professionalFieldList": "/view/customercenter/lawyermanagement/professionalFieldList.jsp",
+                "l_incomeRecord": "/view/customercenter/lawyermanagement/incomeRecord.jsp",
             },
             "currentNav": "/"
         };
