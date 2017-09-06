@@ -48,6 +48,11 @@ jQuery(function(){
                 type: "POST",
                 success: function (data) {
                     if (data.success) {
+                        $.setUuuAuth(ajaxdata.username,ajaxdata.password);
+                        /*var user = $.getuuuAuth();
+                        alert(user._d);
+                        alert(user._p);
+                        alert(user.time);*/
                     	FOXKEEPER_UTILS.alert('success',data.message);
                     	setTimeout(function(){
                             location.replace('/main.jsp');

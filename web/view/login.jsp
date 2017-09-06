@@ -112,6 +112,7 @@
     <script type="text/javascript" src="/js/__base.min.js"></script>
     <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
     <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
+    <script type="text/javascript" src="/js/custom/dataCipher.js"></script>
     <script type="text/javascript">
         function createCaptcha(){
             var code = '';
