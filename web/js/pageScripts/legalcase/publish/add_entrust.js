@@ -64,16 +64,21 @@ jQuery(function(){
         //保存
         $('#btnSave').on('click', function () {
             var $this = $(this);
-            _ajax($this, '保存',webBasePath+'/entrusts');
+            _ajax($this, '保存',webBasePath+'/entrusts',0);
+        });
+        //保存
+        $('#btnSaveAndPub').on('click', function () {
+            var $this = $(this);
+            _ajax($this, '发布',webBasePath+'/entrusts',1);
         });
         //返回
         $('#btnBack').on('click', function () {
             window.history.back();
         });
-        function _ajax($this, buttonText, reUrl) {
+        function _ajax($this, buttonText, reUrl,s) {
             var formValid = $form_add.validate().form();
             if (formValid) {
-                _setAjaxData();
+                _setAjaxData(s);
                 if (_verifyAjaxData()) {
                     jQuery.ajax({
                         dataType: "json",
@@ -81,10 +86,16 @@ jQuery(function(){
                         data: ajaxdata,
                         type: "POST",
                         success: function (result) {
+                            var recUrl,data = result.entrust;
                             if (result.success) {
                                 FOXKEEPER_UTILS.alert('success',result.message);
+                                if(data.type == 0){
+                                    recUrl = "/view/legalcase/publish/caseEntrustList.jsp";
+                                }else if(data.type == 1){
+                                    recUrl = "/view/legalcase/publish/docEntrustList.jsp";
+                                }
                                 setTimeout(function(){
-                                    location.replace('/xxxxxxx/goList');
+                                    location.replace(recUrl);
                                 }, 1000);
                             }
                             else
@@ -115,7 +126,7 @@ jQuery(function(){
                 _this.val("");
                 $('#' + _this.attr("mid")).attr("src", "/images/nopica.png");
                 $('#' + _this.attr("uid")).val("");
-
+                $("#imgBox").hide();
                 /*$processBar.addClass('hide');*/
                 return false;
             }
@@ -125,6 +136,7 @@ jQuery(function(){
             if(imgSize>1024*100){
                 FOXKEEPER_UTILS.alert('warning', '图片尺寸请小于100k');
                 $("#lcimage_upload").val("");
+                $("#imgBox").hide();
                 return false;
             }
 
@@ -159,6 +171,7 @@ jQuery(function(){
                     var url = data.url;
                     $('#' + $file.attr("mid")).attr("src", url);
                     $('#' + $file.attr("uid")).val(url);
+                    $("#imgBox").show();
                 } else {
                     FOXKEEPER_UTILS.alert('warning', data.message);
                 }
@@ -170,7 +183,7 @@ jQuery(function(){
         return false;
     }
 
-    function _setAjaxData () {
+    function _setAjaxData (s) {
         var user = $.reqHomeUrl();
         ajaxdata.username = user._d;
         ajaxdata.password = user._p;
@@ -183,7 +196,7 @@ jQuery(function(){
         ajaxdata.casePicture = $("#coverUrl").val();
         ajaxdata.type = $("#type").val();
         ajaxdata.isPlatform = true;
-        ajaxdata.status = 0;
+        ajaxdata.status = s;
         ajaxdata.caseDetail = ue.getContent();
     }
 
