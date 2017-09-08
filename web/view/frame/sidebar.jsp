@@ -14,6 +14,8 @@
                         <i class="fa fa-tachometer"></i>
                         <span class="title">首页</span>
                     </a>
+                    <ul class="sub-menu">
+                    </ul>
                 </li>
                 <li class="">
                     <a href="javascript:;">

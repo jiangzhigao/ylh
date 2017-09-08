@@ -4,7 +4,7 @@
 <meta name="renderer" content="webkit|ie-stand">
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE"/>
 <meta charset="utf-8"/>
-<title>后台管理系统</title>
+<title>一律行后台管理系统</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <meta content="ylx" name="description"/>
 <meta content="ylx" name="author"/>
@@ -13,6 +13,7 @@
 <!-- CSS Style -->
 <link href="/css/__base.min.css" rel="stylesheet">
 <script type="text/javascript" src="/js/__jq.js"></script>
+<script type="text/javascript" src="/js/custom/dataCipher.js"></script>
 <script src="http://pv.sohu.com/cityjson?ie=utf-8" charset="UTF-8"></script>
 
 <script type="text/javascript">
@@ -21,7 +22,7 @@
     var webBasePath = "http://localhost:8888/ylx/api";
     var ___system_navigation_config = {
             "nav": {
-                "home_index": "/",
+                "home_index": "/main.jsp",
                 "c_case_entrust_list": "/view/legalcase/entrust/caseEntrustList.jsp",
                 "c_doc_entrust_list": "/view/legalcase/entrust/docEntrustList.jsp",
                 "p_case_entrust_list": "/view/legalcase/publish/caseEntrustList.jsp",

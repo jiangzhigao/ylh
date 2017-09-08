@@ -32,7 +32,7 @@
         }
         .error-mess .error-icon {
             display: inline-block;
-            background: url('../images/valid-icons.png') no-repeat 0 0;
+            background: url('images/valid-icons.png') no-repeat 0 0;
             width: 16px;
             height: 16px;
             vertical-align: middle;
@@ -72,7 +72,7 @@
                         <section class="box sign-box" style="margin: 80px 0 0 0;">
                             <header class="panel_header" style="background-color: #f1f2f7;border: 0px;border-bottom:0px;">
                                 <div style="width: 100%;">
-                                    <img src="../images/logo/login-logo.png" style="max-width:100%;height:auto;">
+                                    <img src="images/logo/YLX.png" style="max-width:100%;height:auto;">
                                 </div>
                                 <div style="width: 100%;text-align: center;margin-top: 30px;">
                                     <h4 class="" style="font-size: 16px;font-weight: 700;">欢迎登陆一律行管理后台</h4>
@@ -81,7 +81,7 @@
                             <div class="content-body" style="background-color: #f1f2f7;padding: 10px;border: 0px;padding-top: 1px;">
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <form action="../main.jsp" method="post" role="form" id="form_users_signin">
+                                        <form action="main.jsp" method="post" role="form" id="form_users_signin">
                                             <div class="form-group">
                                                 <div class="item">
                                                     <input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名">
@@ -112,7 +112,6 @@
     <script type="text/javascript" src="/js/__base.min.js"></script>
     <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
     <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
-    <script type="text/javascript" src="/js/custom/dataCipher.js"></script>
     <script type="text/javascript">
         function createCaptcha(){
             var code = '';

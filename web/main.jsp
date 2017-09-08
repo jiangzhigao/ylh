@@ -5,18 +5,25 @@
 
 	<style type="text/css">
 		.bus-md-fa{
-			padding: 25px 0 0 0;
+			height: 85px;
+			width: 85px;
+			position: absolute;
+			left: 25%;
 		}
 		.bus-md-title{
-			padding: 10px 0 0 0;
+			margin-top: 51%;
+			width: 100%;
+			padding: 5px 0 0 0;
 		}
 		.bus-md{
+			position: relative;
 			background-color: #fff;
 			height: 150px;
 			width: 15%;
 			text-align: center;
 			margin: 8px;
 			float: left;
+			padding: 25px 0 0 0;
 		}
 		.bus-tab{
 			width: 100%;
@@ -72,7 +79,6 @@
 			right: 22px;
 		}
 */
-
 	</style>
 </head>
 <!-- END HEAD -->
@@ -84,6 +90,9 @@
 <!-- START SIDEBAR -->
 <%@ include file="/view/frame/sidebar.jsp"%>
 <!--  SIDEBAR - END -->
+<script type='text/javascript'>
+    ___system_navigation_config.currentNav = ___system_navigation_config.nav.home_index;
+</script>
 <!-- START CONTENT -->
 <section id="main-content" class=" " style="">
     <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
@@ -97,48 +106,42 @@
 					<div class="">
 						<div class="bus-tab">
 							<div class="bus-md">
-								<div class="bus-md-fa">
-									<i class="fa fa-users icon-xlg icon-info"></i>
+								<div class="bus-md-fa" style="background: url('./images/bz/member.png') 0 0 no-repeat;background-size:85px 85px;">
 								</div>
 								<div class="bus-md-title">
 									<span>会员管理</span>
 								</div>
 							</div>
 							<div class="bus-md">
-								<div class="bus-md-fa">
-									<i class="fa fa-users icon-xlg icon-info"></i>
+								<div class="bus-md-fa" style="background: url('./images/bz/lawyer.png') 0 0 no-repeat;background-size:85px 85px;">
 								</div>
 								<div class="bus-md-title">
 									<span>律师管理</span>
 								</div>
 							</div>
 							<div class="bus-md">
-								<div class="bus-md-fa">
-									<i class="fa fa-database icon-xlg icon-info"></i>
+								<div class="bus-md-fa" style="background: url('./images/bz/ser-order.png') 0 0 no-repeat;background-size:85px 85px;">
 								</div>
 								<div class="bus-md-title">
 									<span>服务订单</span>
 								</div>
 							</div>
-							<div class="bus-md">
-								<div class="bus-md-fa">
-									<i class="fa fa-database icon-xlg icon-info"></i>
+							<div class="bus-md" style="">
+								<div class="bus-md-fa" style="background: url('./images/bz/sub-order.png') 0 0 no-repeat;background-size:85px 85px;">
 								</div>
 								<div class="bus-md-title">
 									<span>预约订单</span>
 								</div>
 							</div>
 							<div class="bus-md">
-								<div class="bus-md-fa">
-									<i class="fa fa-database icon-xlg icon-info"></i>
+								<div class="bus-md-fa" style="background: url('./images/bz/entrust.png') 0 0 no-repeat;background-size:85px 85px;">
 								</div>
 								<div class="bus-md-title">
 									<span>委托订单</span>
 								</div>
 							</div>
 							<div class="bus-md">
-								<div class="bus-md-fa">
-									<i class="fa fa-gear icon-xlg icon-info"></i>
+								<div class="bus-md-fa" style="background: url('./images/bz/site-setting.png') 0 0 no-repeat;background-size:85px 85px;">
 								</div>
 								<div class="bus-md-title">
 									<span>站点设置</span>

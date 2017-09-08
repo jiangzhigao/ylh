@@ -7,9 +7,9 @@
     <div class='quick-area'>
         <div class='pull-left'>
             <ul class="info-menu left-links list-inline list-unstyled" style="padding-right: 0px;">
-                <li class="">
+                <li class="" <%--style="padding-top: 15px;"--%>>
                     <a href="#" data-toggle="sidebar" class="sidebar_toggle">
-                        <i class="fa fa-bars"></i>
+                        <i class="fa fa-bars" style="font-size: 16px;height: 30px;background-color: #23B7E5;width: 34px;padding-top: 8px;color: #ffffff;"></i>
                     </a>
                 </li>
             </ul>
@@ -17,7 +17,7 @@
         <div class='pull-left'>
             <ul class="info-menu left-links list-inline list-unstyled" style="padding-left:0px;">
                 <li class="">
-                    <span style="text-align: center;font-size: 14px;color: #96969E;"><strong>欢迎使用后台管理系统</strong></span>
+                    <span style="text-align: center;font-size: 14px;color: #96969E;"><strong>欢迎使用一律行后台管理系统</strong></span>
                 </li>
             </ul>
         </div>
@@ -56,94 +56,7 @@
                         <span class="badge badge-info" id="nfnRecordNum1" style="margin: 20px 0 0 5px;width: 20px;height: 20px;">4</span>
                     </a>
                     <ul class="dropdown-menu notifications animated fadeIn">
-                        <%--<li class="total">
-                            <span class="small">
-                                	你有  <strong id="nfnRecordNum2">4</strong> 个业务消息, 请及时查看办理.
-                                <!-- <a href="javascript:;" class="pull-right">Mark all as Read</a> -->
-                            </span>
-                        </li>--%>
 
-                        <%--<li class="list ps-container ps-active-y">
-                            <ul class="dropdown-menu-list list-unstyled ps-scrollbar" id="ntnList">
-                                <li class="unread away"> <!-- available: success, warning, info, error -->
-                                    <a href="javascript:;">
-                                        <div class="notice-icon">
-                                            <i class="fa fa-envelope"></i>
-                                        </div>
-                                        <div>
-                                            <a href="javascript:;" bus_id="11" name="noticeBusUrl${s['index']+1}" url="#}">
-                                        	<span class="name">
-                                                <strong>1111111111111111</strong>
-                                                <span class="time small">1 小时以前</span>
-                                            </span>
-                                            </a>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="unread away"> <!-- available: success, warning, info, error -->
-                                    <a href="javascript:;">
-                                        <div class="notice-icon">
-                                            <i class="fa fa-envelope"></i>
-                                        </div>
-                                        <div>
-                                            <a href="javascript:;" bus_id="22" name="noticeBusUrl${s['index']+1}" url="#">
-                                        	<span class="name">
-                                                <strong>2222222222222222</strong>
-                                                <span class="time small">22 小时以前</span>
-                                            </span>
-                                            </a>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="unread away"> <!-- available: success, warning, info, error -->
-                                    <a href="javascript:;">
-                                        <div class="notice-icon">
-                                            <i class="fa fa-envelope"></i>
-                                        </div>
-                                        <div>
-                                            <a href="javascript:;" bus_id="22" name="noticeBusUrl${s['index']+1}" url="#">
-                                        	<span class="name">
-                                                <strong>2222222222222222</strong>
-                                                <span class="time small">22 小时以前</span>
-                                            </span>
-                                            </a>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="unread away"> <!-- available: success, warning, info, error -->
-                                    <a href="javascript:;">
-                                        <div class="notice-icon">
-                                            <i class="fa fa-envelope"></i>
-                                        </div>
-                                        <div>
-                                            <a href="javascript:;" bus_id="22" name="noticeBusUrl${s['index']+1}" url="#">
-                                        	<span class="name">
-                                                <strong>3333333333333333</strong>
-                                                <span class="time small">22 小时以前</span>
-                                            </span>
-                                            </a>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="unread away"> <!-- available: success, warning, info, error -->
-                                    <a href="javascript:;">
-                                        <div class="notice-icon">
-                                            <i class="fa fa-envelope"></i>
-                                        </div>
-                                        <div>
-                                            <a href="javascript:;" bus_id="22" name="noticeBusUrl${s['index']+1}" url="#">
-                                        	<span class="name">
-                                                <strong>444444444444444444</strong>
-                                                <span class="time small">22 小时以前</span>
-                                            </span>
-                                            </a>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div>
-                            <div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px; height: 300px;"><div class="ps-scrollbar-y" style="top: 0px; height: 167px;"></div></div>
-                        </li>--%>
                             <li class="list ps-container ps-active-y">
 
                                 <ul class="dropdown-menu-list list-unstyled ps-scrollbar">
@@ -173,59 +86,7 @@
                                             </div>
                                         </a>
                                     </li>
-                                    <li class=" busy"> <!-- available: success, warning, info, error -->
-                                        <a href="javascript:;">
-                                            <div class="notice-icon">
-                                                <i class="fa fa-times"></i>
-                                            </div>
-                                            <div>
-                                                    <span class="name">
-                                                        <strong>Server IP Blocked</strong>
-                                                        <span class="time small">1 hour ago</span>
-                                                    </span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class=" offline"> <!-- available: success, warning, info, error -->
-                                        <a href="javascript:;">
-                                            <div class="notice-icon">
-                                                <i class="fa fa-user"></i>
-                                            </div>
-                                            <div>
-                                                    <span class="name">
-                                                        <strong>10 Orders Shipped</strong>
-                                                        <span class="time small">5 hours ago</span>
-                                                    </span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class=" offline"> <!-- available: success, warning, info, error -->
-                                        <a href="javascript:;">
-                                            <div class="notice-icon">
-                                                <i class="fa fa-user"></i>
-                                            </div>
-                                            <div>
-                                                    <span class="name">
-                                                        <strong>New Comment on blog</strong>
-                                                        <span class="time small">Yesterday</span>
-                                                    </span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class=" available"> <!-- available: success, warning, info, error -->
-                                        <a href="javascript:;">
-                                            <div class="notice-icon">
-                                                <i class="fa fa-check"></i>
-                                            </div>
-                                            <div>
-                                                    <span class="name">
-                                                        <strong>Great Speed Notify</strong>
-                                                        <span class="time small">14th Mar</span>
-                                                    </span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class=" busy"> <!-- available: success, warning, info, error -->
+                                    <li class=" busy">
                                         <a href="javascript:;">
                                             <div class="notice-icon">
                                                 <i class="fa fa-times"></i>
@@ -238,7 +99,6 @@
                                             </div>
                                         </a>
                                     </li>
-
                                 </ul>
 
                                 <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px; height: 300px;"><div class="ps-scrollbar-y" style="top: 0px; height: 167px;"></div></div></li>

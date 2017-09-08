@@ -3,9 +3,45 @@ jQuery(function(){
     var $form_add = $('#form_add');
     var ajaxdata = {};
     $form_add.validate({
-        rules: {
+        rules:{
+            commisionName:{
+                required:true,
+            },
+            commisionClient:{
+                required:true,
+            },
+            contactPhone:{
+                required:true,
+            },
+            caseAmount:{
+                required:true,
+            },
+            agencyFee:{
+                required:true,
+            }
+        },
+        messages:{
+            commisionName:{
+                required:"委托名称不能为空"
+            },
+            commisionClient:{
+                required:"联系人不能为空"
+            },
+            contactPhone:{
+                required:"联系方式不能为空"
+            },
+            caseAmount:{
+                required:"案件标的不能为空"
+            },
+            agencyFee:{
+                required:"代理费用不能为空"
+            }
         }
     });
+
+    //富文本
+    var ue = new baidu.editor.ui.Editor({ initialFrameHeight:260 });
+    ue.render("editor");
 
     _init();
 
@@ -15,9 +51,7 @@ jQuery(function(){
 
     /** 渲染 **/
     function _render() {
-        //富文本
-        var ue = new baidu.editor.ui.Editor();
-        ue.render("editor");
+
     }
 
     /** 初始化 **/
@@ -30,9 +64,8 @@ jQuery(function(){
         //保存
         $('#btnSave').on('click', function () {
             var $this = $(this);
-            _ajax($this, '保存','/xxxx/add');
+            _ajax($this, '保存',webBasePath+'/entrusts');
         });
-
         //返回
         $('#btnBack').on('click', function () {
             window.history.back();
@@ -48,15 +81,15 @@ jQuery(function(){
                         data: ajaxdata,
                         type: "POST",
                         success: function (result) {
-                            if (result.code == 1) {
-                                FOXKEEPER_UTILS.alert('success',result.msg);
+                            if (result.success) {
+                                FOXKEEPER_UTILS.alert('success',result.message);
                                 setTimeout(function(){
                                     location.replace('/xxxxxxx/goList');
                                 }, 1000);
                             }
                             else
                             {
-                                FOXKEEPER_UTILS.alert('warning',result.msg);
+                                FOXKEEPER_UTILS.alert('warning',result.message);
                                 $this.html(buttonText).attr("disabled", false);
                             }
                         },
@@ -102,41 +135,68 @@ jQuery(function(){
     }
 
     function ajaxFileUpload($file, fileId, $processBar) {
-        $.ajaxFileUpload({
-            url: webBasePath+'/uploadFile',
-            secureuri: false,
-            fileElementId: fileId,
+        var user = $.getuuuAuth();
+        var fileName = $file.val();
+        var fileSuffix = fileName.substring(fileName.indexOf(".") + 1, fileName.length);
+        var data = new FormData($("#formTimeLine")[0]);
+        var formData = new FormData($form_add[0]);
+        formData.append("username", user._d);
+        formData.append("password", user._p);
+        formData.append("userType", "2");
+        formData.append("fileext", fileSuffix);
+        formData.append("filetype", "1");
+        $.ajax({
+            type: 'POST',
+            url: webBasePath+'/uploadFileMultipart',
             dataType: 'json',
-            type: "post",
-            success: function(result) {
-                /*$processBar.addClass('hide');*/
-                var result = JSON.parse(result);
-                if (result.code == 1) {
-                    var url = result.data;
+            cache: false,
+            processData: false,    //需要正确设置此项
+            contentType: false,
+            enctype: 'multipart/form-data',    //需要正确设置此项
+            data: formData,
+            success: function (data) {
+                if (data.success) {
+                    var url = data.url;
                     $('#' + $file.attr("mid")).attr("src", url);
                     $('#' + $file.attr("uid")).val(url);
                 } else {
-                    FOXKEEPER_UTILS.alert('warning', result.msg);
+                    FOXKEEPER_UTILS.alert('warning', data.message);
                 }
             },
-            error: function(e) {
-                /*$processBar.addClass('hide');*/
-                FOXKEEPER_UTILS.alert('warning', '上传出错，请重试');
+            error: function (xhr, status, e) {
+                FOXKEEPER_UTILS.alert('warning', '上传出错，请重试');l
             }
         });
         return false;
     }
 
     function _setAjaxData () {
-        ajaxdata.xxContent = ue.getContent();
+        var user = $.reqHomeUrl();
+        ajaxdata.username = user._d;
+        ajaxdata.password = user._p;
+        ajaxdata.userType = 2;
+        ajaxdata.commisionName = $("#commisionName").val();
+        ajaxdata.commisionClient = $("#commisionClient").val();
+        ajaxdata.contactPhone = $("#contactPhone").val();
+        ajaxdata.caseAmount = $("#caseAmount").val();
+        ajaxdata.agencyFee = $("#agencyFee").val();
+        ajaxdata.casePicture = $("#coverUrl").val();
+        ajaxdata.type = $("#type").val();
+        ajaxdata.isPlatform = true;
+        ajaxdata.status = 0;
+        ajaxdata.caseDetail = ue.getContent();
     }
 
     /** 请求参数验证 */
     function _verifyAjaxData () {
-       /* if (!ajaxdata.XXXX) {
+        if (!ajaxdata.casePicture) {
             FOXKEEPER_UTILS.alert('warning', '请上传图片');
             return false;
-        }*/
+        }
+        if (!ajaxdata.caseDetail) {
+            FOXKEEPER_UTILS.alert('warning', '请填写需求详情');
+            return false;
+        }
         return true;
     }
 });

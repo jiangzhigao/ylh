@@ -60,18 +60,19 @@
             <section class="box ">
                 <header class="panel_header">
                     <h2 class="title pull-left">添加委托</h2>
-                    <div class="actions panel_actions pull-right">
+                    <div class="pull-right">
+                        <div id="page_alert_container"></div>
                     </div>
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
+                        <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label">委托名称</label>
+                                        <label class="col-xs-2 control-label" for="commisionName">委托名称</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入委托名称" value="" name=""
+                                            <input type="text" class="form-control" placeholder="请输入委托名称" value="" id="commisionName" name="commisionName"
                                                    maxlength="20" id="">
                                         </div>
                                     </div>
@@ -80,11 +81,11 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label">委托类型</label>
+                                        <label class="col-xs-2 control-label" for="type">委托类型</label>
                                         <div class="col-xs-5">
-                                            <select class="form-control" id="entrustType" name="entrustType" style="border-color: #e1e1e1;">
-                                                <option value="1" selected>平台案件委托</option>
-                                                <option value="2">平台文书委托</option>
+                                            <select class="form-control" id="type" name="type" style="border-color: #e1e1e1;">
+                                                <option value="0" selected>平台案件委托</option>
+                                                <option value="1">平台文书委托</option>
                                             </select>
                                         </div>
                                     </div>
@@ -93,9 +94,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label">委托人</label>
+                                        <label class="col-xs-2 control-label" for="commisionClient">委托人</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入委托人" value="" name=""
+                                            <input type="text" class="form-control" placeholder="请输入委托人" value="" id="commisionClient" name="commisionClient"
                                                    maxlength="20">
                                         </div>
                                     </div>
@@ -104,9 +105,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label">联系方式</label>
+                                        <label class="col-xs-2 control-label" for="contactPhone">联系方式</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入联系方式" value="" name=""
+                                            <input type="text" class="form-control" placeholder="请输入联系方式" value="" id="contactPhone" name="contactPhone"
                                                    maxlength="20">
                                         </div>
                                     </div>
@@ -115,9 +116,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label">委托时间</label>
+                                        <label class="col-xs-2 control-label" for="caseAmount">案件标的(元)</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入委托时间" value="" name=""
+                                            <input type="text" class="form-control" placeholder="请输入案件标的" value="" id="caseAmount" name="caseAmount"
                                                    maxlength="20">
                                         </div>
                                     </div>
@@ -126,22 +127,18 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label">案件标的(元)</label>
+                                        <label class="col-xs-2 control-label" for="agencyFee">代理费用(元)</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入案件标的" value="" name=""
+                                            <input type="text" class="form-control" placeholder="请输入代理费用" value="" id="agencyFee" name="agencyFee"
                                                    maxlength="20">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label">代理费用(元)</label>
-                                        <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入代理费用" value="" name=""
-                                                   maxlength="20">
-                                        </div>
+                                <div class="col-xs-offset-2 col-xs-12">
+                                    <div class="form-group col-xs-5" style="max-width: 400px;max-height: 300px;">
+                                        <img src="/images/nopica.png" class="img-thumbnail" id="coverImage"/>
                                     </div>
                                 </div>
                             </div>
@@ -153,28 +150,8 @@
                                             <div class="col-xs-1">
                                                 <div class="img-upload">
                                                     <input type="hidden" id="coverUrl" value="" name="coverUrl"/>
-                                                    <img src="/images/nopica.png" class="img-thumbnail" id="coverImage" width="200px" style="display: none;"/>
                                                     <button id="btnSearch" type="button" class="btn btn-primary">点击添加或修改</button>
                                                     <input type="file" class="img-upload-file" id="lcimage_upload" name="lcimage_upload" mid="coverImage" uid="coverUrl">
-                                                </div>
-                                                <div>
-                                                    <%--<img src="/images/nopica.png" class="" width="200px"/>--%>
-                                                    <%--<div class="progress hide" id="lcimage_upload_progress">
-                                                        <div class="progress-bar progre4ss-bar-striped active" role="progressbar" aria-valuenow="80"
-                                                             aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                                            <span class="sr-only">80% ...</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="form-label" for="lcimage_upload">封面大图</label>
-                                                        <span class="desc">格式仅支持. ".jpg,.png, 大小不能超过100k"&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red;">*必填</span></span>
-
-                                                        <div class="controls">
-                                                            <input type="hidden" id="coverUrl" value="" name="coverUrl"/>
-                                                            <img src="/images/nopica.png" class="img-thumbnail" id="coverImage" width="200px"/>
-                                                            <input type="file" value="" id="lcimage_upload" name="lcimage_upload" mid="coverImage" uid="coverUrl" />
-                                                        </div>
-                                                    </div>--%>
                                                 </div>
                                             </div>
                                         </div>
@@ -221,6 +198,8 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
 <script type="text/javascript" src="/js/pageScripts/legalcase/publish/add_entrust.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>

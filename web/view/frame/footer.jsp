@@ -2,21 +2,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <script type="text/javascript">
     $(function () {
-
         var _target = $("#main-menu-wrapper .wraplist li ul>li a[href='" + ___system_navigation_config.currentNav + "']");
-        _target.unbind("click");
-        _target.addClass("active");
-        var $menuLi = _target.parent().parent().parent();
-        $menuLi.addClass('open');
-        _target.parent().parent().attr("style", "display:block;");
+        if(_target.length == 0){
+            _target = $("#main-menu-wrapper .wraplist li a[href='" + ___system_navigation_config.currentNav + "']");
+            _target.parent().addClass("open");
+        }else {
+            _target.addClass("active");
+            var $menuLi = _target.parent().parent().parent();
+            $menuLi.addClass('open');
+            _target.parent().parent().attr("style", "display:block;");
 
-        var $menuLiParents = $menuLi.closest("#main-menu-wrapper .wraplist ul");
-        if($menuLiParents.length ==1){
-            $menuLiParents.attr("style", "display:block;");
-            $menuLiParents.parent().addClass('open');
-            $menuLiParents.parent().children("a").find("span:last").addClass('open');
+            var $menuLiParents = $menuLi.closest("#main-menu-wrapper .wraplist ul");
+            if($menuLiParents.length ==1){
+                $menuLiParents.attr("style", "display:block;");
+                $menuLiParents.parent().addClass('open');
+                $menuLiParents.parent().children("a").find("span:last").addClass('open');
+            }
         }
-        /*$('#main-menu-wrapper li a').trigger("click");*/
+        $('#main-menu-wrapper li a').trigger("click");
     });
 
     $(document).ajaxError( function(event, jqXHR, options, errorMsg){
@@ -34,5 +37,6 @@
             $("#btnSave").html("保存").attr("disabled", false);
         }
     });
+
 </script>
 

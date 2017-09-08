@@ -5,6 +5,7 @@
     $.extend({
 
         secretKey:"ylx9572cipher",
+        homeUrl:"http://localhost:8989/",
         /**
          * 加密
          * @param str
@@ -108,8 +109,12 @@
             var uu=JSON.parse(data);
             //设置过期时间为30分钟
             var exp = 30*60*1000;
+            if(null == uu){
+                return undefined;
+            }
             if(new Date().getTime()-uu.time>exp){
                 console.log("session已过期")
+                localStorage.clear();
                 return undefined;
             }else{
                 uu._d = this.dataDecrypt(uu._d);
@@ -117,6 +122,21 @@
                 return uu;
             }
         }
+        ,uuAuthInterceptor:function(){
+            var winUrl = window.location.href;
+            if((winUrl!=this.homeUrl)||(winUrl!=this.homeUrl&&winUrl.indexOf("login.jsp")== -1)){
+                this.reqHomeUrl();
+            }
+        }
+        ,reqHomeUrl:function(){
+            var user = this.getuuuAuth();
+            if(typeof (user) == 'undefined'){
+                window.location.href = this.homeUrl;
+            }
+            return user;
+        }
     });
 
 })(jQuery);
+
+$.uuAuthInterceptor();
