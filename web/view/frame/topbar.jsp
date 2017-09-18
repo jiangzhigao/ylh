@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<script src="/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js" type="text/javascript"></script>
+<%--<script src="/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js" type="text/javascript"></script>--%>
 <div class='page-topbar'  style="background-color: #f1f4f5;">
     <div class='logo-area'>
     </div>

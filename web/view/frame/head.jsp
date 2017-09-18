@@ -20,6 +20,7 @@
     var clientIp = returnCitySN["cip"];
     /*var webBasePath = "http://120.76.101.46/ylx/api";*/
     var webBasePath = "http://localhost:8888/ylx/api";
+    var homePath = "http://120.76.101.46";
     var ___system_navigation_config = {
             "nav": {
                 "home_index": "/main.jsp",

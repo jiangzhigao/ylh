@@ -2,7 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <head>
     <%@ include file="/view/frame/head.jsp"%>
-
+    <script type="text/javascript" charset="utf-8" src="${webBasePath}/js/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="${webBasePath}/js/ueditor/ueditor.all.js"></script>
     <style type="text/css">
 
         .move40{
@@ -67,113 +68,91 @@
                                 </div>
                             </div>--%>
                             <div class="row">
-                                <div class="col-xs-4">
+                                <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-6 control-label">委托名称</label>
-                                        <div class="col-xs-6">
-                                            <label class="col-xs-3 control-label">XXXXX</label>
+                                        <label class="col-xs-2 control-label">委托名称</label>
+                                        <div class="col-xs-5">
+                                            <label class="control-label" id="commisionName"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-xs-4">
+                                <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-6 control-label">委托人</label>
-                                        <div class="col-xs-6">
-                                            <label class="col-xs-3 control-label">XXXXX</label>
+                                        <label class="col-xs-2 control-label">委托人</label>
+                                        <div class="col-xs-5">
+                                            <label class="control-label" id="commisionClient"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-xs-4">
+                                <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-6 control-label">联系方式</label>
-                                        <div class="col-xs-6">
-                                            <label class="col-xs-3 control-label">XXXXXXXXX</label>
+                                        <label class="col-xs-2 control-label">联系方式</label>
+                                        <div class="col-xs-5">
+                                            <label class="control-label" id="contactPhone"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-xs-4">
+                                <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-6 control-label">委托时间</label>
-                                        <div class="col-xs-6">
-                                            <label class="col-xs-3 control-label">XXXXX</label>
+                                        <label class="col-xs-2 control-label">委托时间</label>
+                                        <div class="col-xs-5">
+                                            <label class="control-label" id="createdTime"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-xs-4">
+                                <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-6 control-label">代理律师</label>
-                                        <div class="col-xs-6">
-                                            <label class="col-xs-3 control-label">XXXXX</label>
+                                        <label class="col-xs-2 control-label">案件标的</label>
+                                        <div class="col-xs-5">
+                                            <label class="control-label" id="caseAmount"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-xs-4">
+                                <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-6 control-label">案件标的</label>
-                                        <div class="col-xs-6">
-                                            <label class="col-xs-3 control-label">XXXXX</label>
+                                        <label class="col-xs-2 control-label">代理费用</label>
+                                        <div class="col-xs-5">
+                                            <label class="control-label" id="agencyFee"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-xs-4">
+                                <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-6 control-label">代理费用</label>
-                                        <div class="col-xs-6">
-                                            <label class="col-xs-3 control-label">XXXXX</label>
+                                        <label class="col-xs-2 control-label">案件详情</label>
+                                        <div class="col-xs-9">
+                                            <script id="editor" type="text/plain"></script>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-xs-4">
+                                <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-6 control-label">案件详情</label>
-                                        <div class="col-xs-6">
-                                            <label class="col-xs-3 control-label">XXXXX</label>
+                                        <label class="col-xs-2 control-label">图片</label>
+                                        <div class="col-xs-5" style="max-width: 400px;max-height: 300px;" id="imgBox">
+                                            <img src="/images/nopica.png" class="img-thumbnail" id="coverImage"/>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-xs-4">
+                                <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-6 control-label">案件图片</label>
-                                        <div class="col-xs-6">
-                                            <%--<label class="col-xs-3 control-label">XXXXX</label>--%>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <div class="form-group">
-                                        <label class="col-xs-6 control-label">案件进度</label>
-                                        <div class="col-xs-6">
-                                            <%--<label class="col-xs-3 control-label">XXXXXXXXXXXXXXXXXX</label>--%>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <div class="form-group">
-                                        <label class="col-xs-6 control-label">参与律师</label>
-                                        <div class="col-xs-5" style="margin-left: -15px;">
-                                            <div class="col-xs-1">
-                                                <button id="btnSearch" data-toggle="modal" href="#lawyerModal" type="button" class="btn btn-primary">点击查看</button>
-                                            </div>
+                                        <label class="col-xs-2 control-label">案件进度</label>
+                                        <div class="col-xs-5">
+                                            <label class="control-label" id="statusTxt"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -211,6 +190,8 @@
 <!-- select lawyer modal end -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/legalcase/publish/case_entrust_detail.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

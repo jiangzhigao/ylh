@@ -40,6 +40,7 @@ jQuery(function(){
         $('#btnSearch').click(function () {
             _initData();
         });
+
         /** 操作列表 */
         $('body').on('click', ".opt li a", function() {
             var $this = $(this);
@@ -74,7 +75,7 @@ jQuery(function(){
         _operHtml.push('<div class="btn-group">');
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">查看详情<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li><a bz-url="/view/legalcase/publish/caseEntrustDetail.jsp" bid="'+id+'">查看详情</a></li>');
+        _operHtml.push('<li><a bz-url="/view/legalcase/publish/docEntrustDetail.jsp" bid="'+id+'">查看详情</a></li>');
         _operHtml.push('<li><a href="javascript:;">审核通过</a></li>');
         _operHtml.push('<li><a href="javascript:;">不通过</a></li>');
         _operHtml.push('<li><a href="javascript:;">结案</a></li>');
@@ -147,7 +148,7 @@ jQuery(function(){
         queryParams.username = user._d;
         queryParams.password = user._p;
         queryParams.userType = 2;
-        queryParams.type = 0;
+        queryParams.type = 1;
         queryParams.isPlatform = true;
     }
 
