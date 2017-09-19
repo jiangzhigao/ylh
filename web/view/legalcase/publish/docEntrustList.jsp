@@ -15,6 +15,14 @@
         a:hover {
             text-decoration: none;
         }
+        table.table tr:nth-child(odd)
+        {
+            background-color:#f9f9f9;
+        }
+        table.table tr:nth-child(even)
+        {
+            background-color:#fff;
+        }
     </style>
 </head>
 <!-- END HEAD -->
@@ -135,8 +143,6 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
-<script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
-<script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
 <script type="text/javascript" src="/js/pageScripts/legalcase/publish/doc_entrust_list_query.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>

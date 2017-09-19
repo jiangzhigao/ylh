@@ -9,12 +9,24 @@
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 100px;
-            width: 90px;
+            min-width: 65px;
+            width: 65px;
         }
         a:hover {
             text-decoration: none;
         }
+        table.table tr:nth-child(odd)
+        {
+            background-color:#f9f9f9;
+        }
+        table.table tr:nth-child(even)
+        {
+            background-color:#fff;
+        }
+        .no-editable{
+            background-color: #cccccc;
+        }
+
     </style>
 </head>
 <!-- END HEAD -->
@@ -41,23 +53,27 @@
                 <header class="panel_header">
                     <h2 class="title pull-left">会员列表</h2>
                     <div class="actions panel_actions pull-right">
+                        <a href="addMember.jsp" class="btn btn-info">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </a>
                     </div>
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
                         <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                             <div class="row">
-                                <div class="col-xs-3 move20">
+                                <div class="col-xs-2 move20">
                                     <input type="text" class="form-control" placeholder="账号">
                                 </div>
-                                <div class="col-xs-3 move20">
+                                <div class="col-xs-2 move20">
                                     <input type="text move20" class="form-control" placeholder="真实姓名">
                                 </div>
                                 <div class="col-xs-2 move20">
                                     <input type="text" class="form-control" placeholder="身份证编号">
                                 </div>
                                 <div class="col-xs-2 move20">
-                                    <select class="form-control" style="border-color: #e1e1e1;" placeholder="状态">
+                                    <select class="form-control" style="border-color: #e1e1e1;">
+                                        <option value="">状态</option>
                                         <option value="0">未审核</option>
                                         <option value="1">审核中</option>
                                     </select>
@@ -77,7 +93,7 @@
                             <tr>
                                 <th>登录账号</th>
                                 <th>昵称</th>
-                                <th>姓名</th>
+                                <th>真实姓名</th>
                                 <th>身份证编号</th>
                                 <th>注册时间</th>
                                 <th>积分</th>
@@ -87,7 +103,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                            <%--<tr>
                                 <td>1</td>
                                 <td>D0001</td>
                                 <td>打官司</td>
@@ -99,43 +115,16 @@
                                 <td>
                                     <div class="btn-group">
                                         <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            查看详情
+                                            编辑
                                             <span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href="/view/legalcase/publish/caseEntrustDetail.jsp?orderCode=D0001">编辑</a></li>
-                                            <li><a href="#">审核通过</a></li>
-                                            <li><a href="#">不通过</a></li>
-                                            <li><a href="#">结案</a></li>
+                                            <li><a href="#">冻结</a></li>
                                         </ul>
                                     </div>
                                 </td>
-                            </tr>
-
-                            <tr>
-                                <td>10</td>
-                                <td>D0001</td>
-                                <td>打官司</td>
-                                <td>王麻子</td>
-                                <td>13901234567</td>
-                                <td>2017-08-28</td>
-                                <td>张三</td>
-
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            查看详情
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/legalcase/publish/caseEntrustDetail.jsp?orderCode=D0001">编辑</a></li>
-                                            <li><a href="#">审核通过</a></li>
-                                            <li><a href="#">不通过</a></li>
-                                            <li><a href="#">结案</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
+                            </tr>--%>
                             </tbody>
                         </table>
                         <div class="row">
@@ -156,6 +145,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/custom/member/member_list_query.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

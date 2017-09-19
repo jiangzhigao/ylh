@@ -127,3 +127,12 @@ Copyright (c) 2014 Daniel Eden
  #main-menu-wrapper li.open .sub-menu li.open a:hover{
 color: #fff;
 }
+
+ table.table tr:nth-child(odd)
+ {
+  background-color:#f9f9f9;
+ }
+ table.table tr:nth-child(even)
+ {
+  background-color:#fff;
+ }
