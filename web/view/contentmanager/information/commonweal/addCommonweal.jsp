@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <head>
     <%@ include file="/view/frame/head.jsp"%>
+    <script type="text/javascript" charset="utf-8" src="${webBasePath}/js/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="${webBasePath}/js/ueditor/ueditor.all.js"></script>
 
     <style type="text/css">
 
@@ -45,20 +47,21 @@
 <%@ include file="/view/frame/sidebar.jsp"%>
 <!--  SIDEBAR - END -->
 <script type='text/javascript'>
-    ___system_navigation_config.currentNav = ___system_navigation_config.nav.m_memberList;
+    ___system_navigation_config.currentNav = ___system_navigation_config.nav.cnt_commonweal_list;
 </script>
 <!-- START CONTENT -->
 <section id="main-content" class=" " style="">
     <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
         <header class="panel_header" style="background-color: #fff;margin-top:45px;">
-            <h4 class="title pull-left" style="font-size: 15px;">客户中心 / 会员管理 / 会员添加</h4>
+            <h4 class="title pull-left" style="font-size: 15px;">内容管理 / 资讯动态 / 添加公益</h4>
         </header>
 
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">会员添加</h2>
-                    <div class="actions panel_actions pull-right">
+                    <h2 class="title pull-left">添加公益</h2>
+                    <div class="pull-right">
+                        <div id="page_alert_container"></div>
                     </div>
                 </header>
                 <div class="content-body">
@@ -67,44 +70,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="userName">手机号</label>
+                                        <label class="col-xs-2 control-label" for="commisionName">标题</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入手机号" value="" id="userName" name="userName"
-                                                   maxlength="11">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <%--<div class="row">
-                                <div class="col-xs-12">
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="type">委托类型</label>
-                                        <div class="col-xs-5">
-                                            <select class="form-control" id="type" name="type" style="border-color: #e1e1e1;">
-                                                <option value="0" selected>平台案件委托</option>
-                                                <option value="1">平台文书委托</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>--%>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="userPassword">密码</label>
-                                        <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入密码" value="" id="userPassword" name="userPassword"
-                                                   maxlength="16">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="name">真实姓名</label>
-                                        <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入真实姓名" value="" id="name" name="name"
+                                            <input type="text" class="form-control" placeholder="请输入标题" value="" id="commisionName" name="commisionName"
                                                    maxlength="20">
                                         </div>
                                     </div>
@@ -113,9 +81,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="nickname">昵称</label>
+                                        <label class="col-xs-2 control-label" for="aa">摘要</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入昵称" value="" id="nickname" name="nickname"
+                                            <input type="text" class="form-control" placeholder="请输入摘要" value="" id="aa" name="aa"
                                                    maxlength="20">
                                         </div>
                                     </div>
@@ -131,7 +99,7 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label">用户头像</label>
+                                        <label class="col-xs-2 control-label">缩略图</label>
                                         <div class="col-xs-5" style="margin-left: -15px;">
                                             <div class="col-xs-1">
                                                 <div class="img-upload">
@@ -147,48 +115,25 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="mobile">附加手机</label>
-                                        <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入附加手机号" value="" id="mobile" name="mobile"
-                                                   maxlength="11">
+                                        <label class="col-xs-2 control-label">内容</label>
+                                        <div class="col-xs-9">
+                                            <script id="editor" type="text/plain"></script>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <%--<div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="email">邮箱</label>
-                                        <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入邮箱" value="" id="email" name="email"
-                                                   maxlength="36">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="idcard">身份证编号</label>
-                                        <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入身份证编号" value="" id="idcard" name="idcard"
-                                                   maxlength="18">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="userPassword">状态</label>
+                                        <label class="col-xs-2 control-label">是否显示</label>
                                         <div class="col-xs-5" style="padding-top: 5px;">
-                                            <input type="radio" class="" value="1" id="status_normal" name="status" checked>正常
+                                            <input type="radio" class="" value="1" id="status_normal" name="status" checked>显示
                                             &nbsp;&nbsp;
-                                            <input type="radio" class="" value="0" id="status_blocked" name="status">冻结
+                                            <input type="radio" class="" value="0" id="status_blocked" name="status">隐藏
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>--%>
 
                             <div class="divider-dotted"></div>
                             <br>
@@ -200,7 +145,8 @@
                                 <div class="col-xs-5">
                                     <div class="form-group">
                                         <div class="controls">
-                                            <button type="button" class="btn btn-info" id="btnSave">保存</button>
+                                            <button type="button" class="btn btn-info" id="btnSave">保存</button>&nbsp;&nbsp;
+                                            <button type="button" class="btn btn-default" id="btnReset">重置</button>
                                         </div>
                                     </div>
                                 </div>
@@ -220,7 +166,7 @@
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
-<script type="text/javascript" src="/js/pageScripts/custom/member/add_member.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/information/commonweal/add_commonweal.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

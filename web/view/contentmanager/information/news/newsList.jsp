@@ -15,6 +15,17 @@
         a:hover {
             text-decoration: none;
         }
+        table.table tr:nth-child(odd)
+        {
+            background-color:#f9f9f9;
+        }
+        table.table tr:nth-child(even)
+        {
+            background-color:#fff;
+        }
+        .no-editable{
+            background-color: #cccccc;
+        }
     </style>
 </head>
 <!-- END HEAD -->
@@ -27,7 +38,7 @@
 <%@ include file="/view/frame/sidebar.jsp"%>
 <!--  SIDEBAR - END -->
 <script type='text/javascript'>
-    ___system_navigation_config.currentNav = ___system_navigation_config.nav.c_classifyManagerList;
+    ___system_navigation_config.currentNav = ___system_navigation_config.nav.cnt_news_list;
 </script>
 <!-- START CONTENT -->
 <section id="main-content" class=" " style="">
@@ -41,7 +52,7 @@
                 <header class="panel_header">
                     <h2 class="title pull-left">资讯管理</h2>
                     <div class="actions panel_actions pull-right">
-                        <a href="addCaseClz.jsp" class="btn btn-info">
+                        <a href="addNews.jsp" class="btn btn-info">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
@@ -50,12 +61,13 @@
                     <div class="dataTables_wrapper no-footer">
                         <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                             <div class="row">
-                                <div class="col-xs-3 move20">
-                                    <input type="text" id="account" class="form-control" placeholder="标题">
+                                <div class="col-xs-2 move20">
+                                    <input type="text" id="account" class="form-control" placeholder="请输入标题">
                                 </div>
 
                                 <div class="col-xs-2 move20">
                                     <select class="form-control" id="status" style="border-color: #e1e1e1;" placeholder="请选择咨询分类">
+                                        <option value="">请选择资讯分类</option>
                                         <option value="0">社会</option>
                                         <option value="1">生活</option>
                                         <option value="2">法务</option>
@@ -67,6 +79,7 @@
                                     <%--<div class="form-group">--%>
                                     <div class="controls">
                                         <button id="btnSearch" type="button" class="btn btn-info">搜索</button>
+                                        <button type="button" class="btn btn-danger">删除</button>
                                     </div>
                                     <%--</div>--%>
                                 </div>
@@ -87,7 +100,7 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td>163</td>
+                                <td>1</td>
                                 <td>最高法、最高检、司法部</td>
                                 <td>法务</td>
                                 <td>2017-08-28</td>
@@ -100,7 +113,67 @@
                                             <span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/legalcase/publish/caseEntrustDetail.jsp?orderCode=D0001">编辑</a></li>
+                                            <li><a href="/view/contentmanager/information/news/editNews.jsp">编辑</a></li>
+                                            <li><a href="#">删除</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>最高法、最高检、司法部</td>
+                                <td>法务</td>
+                                <td>2017-08-28</td>
+                                <td>2017-08-28</td>
+                                <td>显示</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                            编辑
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="/view/contentmanager/information/news/editNews.jsp">编辑</a></li>
+                                            <li><a href="#">删除</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>最高法、最高检、司法部</td>
+                                <td>法务</td>
+                                <td>2017-08-28</td>
+                                <td>2017-08-28</td>
+                                <td>显示</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                            编辑
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="/view/contentmanager/information/news/editNews.jsp">编辑</a></li>
+                                            <li><a href="#">删除</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>最高法、最高检、司法部</td>
+                                <td>法务</td>
+                                <td>2017-08-28</td>
+                                <td>2017-08-28</td>
+                                <td>显示</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                            编辑
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="/view/contentmanager/information/news/editNews.jsp">编辑</a></li>
                                             <li><a href="#">删除</a></li>
                                         </ul>
                                     </div>

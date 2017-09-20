@@ -1,7 +1,7 @@
 jQuery(function(){
     'use strict';
     var $form_edit = $('#form_edit');
-    var ajaxdata = {};
+    var queryParam = {},ajaxdata = {};
     $form_edit.validate({
         rules:{
             userName:{
@@ -51,11 +51,6 @@ jQuery(function(){
         }
     });
 
-    var queryParam = {
-    };
-    var ajaxdata = {
-    };
-
 
     //渲染
     _init();
@@ -74,9 +69,11 @@ jQuery(function(){
     function _bind () {
         //保存
         $('#btnSave').on('click', function () {
+            var id = $("#dataId").val();
             var $this = $(this);
-            _ajax($this, '保存',webBasePath+'/users');
+            _ajax($this, '保存',webBasePath+'/users/'+id);
         });
+
         //返回
         $('#btnBack').on('click', function () {
             window.history.back();
@@ -107,7 +104,8 @@ jQuery(function(){
                         $("#registerTime").text(user.createdTime);
                         $("#score").val(user.score);
 
-                        $("input[name='status']").val(user.status);
+                        $("input[name='status'][value='"+user.status+"']").attr("checked",true);
+                        /*$("input[name='status']").val(user.status);*/
                         $("#coverImage").attr("src",homePath+user.picture);
                         $("#coverUrl").val(homePath+user.picture);
                     }
@@ -137,7 +135,6 @@ jQuery(function(){
                     data: ajaxdata,
                     type: "POST",
                     success: function (result) {
-                        var recUrl,data = result.entrust;
                         if (result.success) {
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
@@ -169,7 +166,7 @@ jQuery(function(){
         ajaxdata.userType = 2;
         ajaxdata.id = $("#dataId").val();
         ajaxdata.userName = $("#userName").val();
-        ajaxdata.userPassword = $("#userPassword").val();
+        ajaxdata.userPassword = ''/*$("#userPassword").val()*/;
         ajaxdata.name = $("#name").val();
         ajaxdata.nickname = $("#nickname").val();
         ajaxdata.idcard = $("#idcard").val();

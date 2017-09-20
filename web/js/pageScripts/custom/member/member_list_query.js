@@ -50,6 +50,10 @@ jQuery(function(){
                 window.location.href = bizUrl+'?dataId='+id;
             }else{//冻结操作
                 //no-editable
+                if(!($this.hasClass("no-editable"))){
+                    var reqUrl = webBasePath+'/users/'+id;
+                    _userBlocked($this,reqUrl);
+                }
             }
         });
     }
@@ -72,13 +76,13 @@ jQuery(function(){
         return totalPages;
     }
 
-    function _optionsHtml(id){
+    function _optionsHtml(id,clz){
         var _operHtml = [];
         _operHtml.push('<div class="btn-group">');
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
         _operHtml.push('<li><a bz-url="/view/customercenter/membermanagement/editMember.jsp" bid="'+id+'">编辑</a></li>');
-        _operHtml.push('<li><a href="javascript:;" bid="'+id+'">冻结</a></li>');
+        _operHtml.push('<li><a href="javascript:;" bid="'+id+'" class="'+clz+'">冻结</a></li>');
         _operHtml.push('</ul></div>');
 
         return  _operHtml.join('');
@@ -97,13 +101,14 @@ jQuery(function(){
                     var $dataList = $('#dataList');
                     var $pageTotalRecord = $('#pageTotalRecord');
                     if (result.users != null && result.users.length > 0) {
-                        var data = result.users;
+                        var data = result.users,clz;
                         var _html = new Array();
                         var statusArray = ['冻结', '正常'];
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
                             var dataId = obj.id;
                             var statusInt = parseInt(obj.status);
+                            clz = statusInt == 0?"no-editable":"";
                             _html.push('<tr>');
                             _html.push('<td>' + obj.userName + '</td>');
                             _html.push('<td>' + obj.nickname + '</td>');
@@ -113,7 +118,7 @@ jQuery(function(){
                             _html.push('<td>' + obj.score + '</td>');
                             _html.push('<td>' + statusArray[statusInt] + '</td>');
 
-                            _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
+                            _html.push('<td>' +  _optionsHtml(dataId,clz) + '</td>');
                             _html.push('</tr>');
                         }
 
@@ -140,16 +145,22 @@ jQuery(function(){
         });
     }
 
-    function _userBlocked($this, buttonText, reUrl){
+    function _userBlocked($this,reUrl){
         var ajaxdata = {};
+        var user = $.getuuuAuth();
+        ajaxdata.username = user._d;
+        ajaxdata.password = user._p;
+        ajaxdata.userType = 2;
+        ajaxdata.status = 0;
         jQuery.ajax({
             dataType: "json",
             url: reUrl,
             data: ajaxdata,
             type: "POST",
             success: function (result) {
-                var recUrl,data = result.entrust;
                 if (result.success) {
+                    $this.addClass("no-editable");
+                    $this.parent().parent().parent().parent().prev().text("冻结")
                     FOXKEEPER_UTILS.alert('success',result.message);
                 }
             }

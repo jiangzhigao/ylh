@@ -24,7 +24,13 @@
             background-color:#fff;
         }
         .no-editable{
-            background-color: #cccccc;
+            color: #ccc;
+        }
+        .no-editable a{
+            color: #ccc;
+        }
+        a {
+             color: #333;
         }
 
     </style>

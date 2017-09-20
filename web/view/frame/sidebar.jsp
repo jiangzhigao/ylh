@@ -55,7 +55,7 @@
                 </li>
                 <li class="">
                     <a href="javascript:;">
-                        <i class="glyphicon glyphicon-briefcase"></i>
+                        <i class="fa fa-suitcase"></i>
                         <span class="title">商务中心</span><span class="arrow"></span>
                     </a>
                     <ul class="sub-menu">
@@ -160,7 +160,7 @@
                             <a href="javascript:;">分类管理</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/contentmanager/classify/classifyManagerList.jsp">分类列表</a>
+                                    <a href="/view/contentmanager/classify/classifyList.jsp">分类列表</a>
                                 </li>
                             </ul>
                         </li>
@@ -168,13 +168,13 @@
                             <a href="javascript:;">资讯动态</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/contentmanager/consulting/consultingManagerList.jsp">资讯管理</a>
+                                    <a href="/view/contentmanager/information/news/newsList.jsp">资讯管理</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">动态管理</a>
+                                    <a href="/view/contentmanager/information/trend/trendList.jsp">动态管理</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">公益管理</a>
+                                    <a href="/view/contentmanager/information/commonweal/commonwealList.jsp">公益管理</a>
                                 </li>
                             </ul>
                         </li>

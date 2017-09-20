@@ -211,9 +211,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="userPassword">状态</label>
+                                        <label class="col-xs-2 control-label">状态</label>
                                         <div class="col-xs-5" style="padding-top: 5px;">
-                                            <input type="radio" class="" value="1" id="status_normal" name="status" checked>正常
+                                            <input type="radio" class="" value="1" id="status_normal" name="status">正常
                                             &nbsp;&nbsp;
                                             <input type="radio" class="" value="0" id="status_blocked" name="status">冻结
                                         </div>

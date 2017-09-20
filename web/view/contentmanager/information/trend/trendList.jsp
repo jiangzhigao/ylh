@@ -15,6 +15,17 @@
         a:hover {
             text-decoration: none;
         }
+        table.table tr:nth-child(odd)
+        {
+            background-color:#f9f9f9;
+        }
+        table.table tr:nth-child(even)
+        {
+            background-color:#fff;
+        }
+        .no-editable{
+            background-color: #cccccc;
+        }
     </style>
 </head>
 <!-- END HEAD -->
@@ -27,21 +38,21 @@
 <%@ include file="/view/frame/sidebar.jsp"%>
 <!--  SIDEBAR - END -->
 <script type='text/javascript'>
-    ___system_navigation_config.currentNav = ___system_navigation_config.nav.c_classifyManagerList;
+    ___system_navigation_config.currentNav = ___system_navigation_config.nav.cnt_trend_list;
 </script>
 <!-- START CONTENT -->
 <section id="main-content" class=" " style="">
     <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
         <header class="panel_header" style="background-color: #fff;margin-top:45px;">
-            <h4 class="title pull-left" style="font-size: 15px;">内容管理 / 咨询动态 / 资讯管理 </h4>
+            <h4 class="title pull-left" style="font-size: 15px;">内容管理 / 咨询动态 / 动态管理 </h4>
         </header>
 
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">资讯管理</h2>
+                    <h2 class="title pull-left">动态管理</h2>
                     <div class="actions panel_actions pull-right">
-                        <a href="addCaseClz.jsp" class="btn btn-info">
+                        <a href="addTrend.jsp" class="btn btn-info">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
@@ -50,23 +61,15 @@
                     <div class="dataTables_wrapper no-footer">
                         <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                             <div class="row">
-                                <div class="col-xs-3 move20">
-                                    <input type="text" id="account" class="form-control" placeholder="标题">
-                                </div>
-
                                 <div class="col-xs-2 move20">
-                                    <select class="form-control" id="status" style="border-color: #e1e1e1;" placeholder="请选择咨询分类">
-                                        <option value="0">社会</option>
-                                        <option value="1">生活</option>
-                                        <option value="2">法务</option>
-                                        <option value="3">财务</option>
-                                    </select>
+                                    <input type="text" id="account" class="form-control" placeholder="请输入标题">
                                 </div>
 
                                 <div class="col-xs-2">
                                     <%--<div class="form-group">--%>
                                     <div class="controls">
                                         <button id="btnSearch" type="button" class="btn btn-info">搜索</button>
+                                        <button type="button" class="btn btn-danger">删除</button>
                                     </div>
                                     <%--</div>--%>
                                 </div>
@@ -78,7 +81,6 @@
                             <tr>
                                 <th>ID</th>
                                 <th>标题</th>
-                                <th>分类</th>
                                 <th>发布时间</th>
                                 <th>更新时间</th>
                                 <th>是否显示</th>
@@ -87,9 +89,8 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td>163</td>
-                                <td>最高法、最高检、司法部</td>
-                                <td>法务</td>
+                                <td>1</td>
+                                <td>天王盖地虎</td>
                                 <td>2017-08-28</td>
                                 <td>2017-08-28</td>
                                 <td>显示</td>
@@ -100,7 +101,64 @@
                                             <span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/legalcase/publish/caseEntrustDetail.jsp?orderCode=D0001">编辑</a></li>
+                                            <li><a href="/view/contentmanager/information/trend/editTrend.jsp">编辑</a></li>
+                                            <li><a href="#">删除</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>天王盖地虎</td>
+                                <td>2017-08-28</td>
+                                <td>2017-08-28</td>
+                                <td>显示</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                            编辑
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="/view/contentmanager/information/trend/editTrend.jsp">编辑</a></li>
+                                            <li><a href="#">删除</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>天王盖地虎</td>
+                                <td>2017-08-28</td>
+                                <td>2017-08-28</td>
+                                <td>显示</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                            编辑
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="/view/contentmanager/information/trend/editTrend.jsp">编辑</a></li>
+                                            <li><a href="#">删除</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>天王盖地虎</td>
+                                <td>2017-08-28</td>
+                                <td>2017-08-28</td>
+                                <td>显示</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                            编辑
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="/view/contentmanager/information/trend/editTrend.jsp">编辑</a></li>
                                             <li><a href="#">删除</a></li>
                                         </ul>
                                     </div>

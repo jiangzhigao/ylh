@@ -38,6 +38,10 @@
                 "l_lawyerManagementList": "/view/customercenter/lawyermanagement/lawyerManagementList.jsp",
                 "l_professionalFieldList": "/view/customercenter/lawyermanagement/professionalFieldList.jsp",
                 "l_incomeRecord": "/view/customercenter/lawyermanagement/incomeRecord.jsp",
+                "cnt_classifyList":"/view/contentmanager/classify/classifyList.jsp",
+                "cnt_news_list":"/view/contentmanager/information/news/newsList.jsp",
+                "cnt_trend_list":"/view/contentmanager/information/trend/trendList.jsp",
+                "cnt_commonweal_list":"/view/contentmanager/information/commonweal/commonwealList.jsp",
             },
             "currentNav": "/"
         };
