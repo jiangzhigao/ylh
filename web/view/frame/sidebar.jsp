@@ -118,16 +118,16 @@
                             <a href="javascript:;">会员管理</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/customercenter/membermanagement/memberList.jsp">会员管理</a>
+                                    <a href="/view/customercenter/membermanagement/member/memberList.jsp">会员管理</a>
                                 </li>
                                 <li>
-                                    <a href="/view/customercenter/membermanagement/transRecordList.jsp">交易记录</a>
+                                    <a href="/view/customercenter/membermanagement/trans/transRecordList.jsp">交易记录</a>
                                 </li>
                                 <li>
-                                    <a href="/view/customercenter/membermanagement/messageList.jsp">留言管理</a>
+                                    <a href="/view/customercenter/membermanagement/message/leaveMessageList.jsp">留言管理</a>
                                 </li>
                                 <li>
-                                    <a href="/view/customercenter/membermanagement/complaintAndAdvice.jsp">投诉建议</a>
+                                    <a href="/view/customercenter/membermanagement/feedback/feedbackList.jsp">投诉建议</a>
                                 </li>
                             </ul>
                         </li>
@@ -138,7 +138,7 @@
                                     <a href="/view/customercenter/lawyermanagement/lawyerManagementList.jsp">律师管理</a>
                                 </li>
                                 <li>
-                                    <a href="/view/customercenter/lawyermanagement/professionalFieldList.jsp">专业领域</a>
+                                    <a href="/view/customercenter/lawyermanagement/speciality/specialityList.jsp">专业领域</a>
                                 </li>
                                 <li>
                                     <a href="/view/customercenter/lawyermanagement/complaintAndAdviceList.jsp">投诉建议</a>

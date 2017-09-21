@@ -15,6 +15,23 @@
         a:hover {
             text-decoration: none;
         }
+        table.table tr:nth-child(odd)
+        {
+            background-color:#f9f9f9;
+        }
+        table.table tr:nth-child(even)
+        {
+            background-color:#fff;
+        }
+        .no-editable{
+            color: #ccc;
+        }
+        .no-editable a{
+            color: #ccc;
+        }
+        a {
+            color: #333;
+        }
     </style>
 </head>
 <!-- END HEAD -->
@@ -27,19 +44,19 @@
 <%@ include file="/view/frame/sidebar.jsp"%>
 <!--  SIDEBAR - END -->
 <script type='text/javascript'>
-    ___system_navigation_config.currentNav = ___system_navigation_config.nav.m_transRecordList;
+    ___system_navigation_config.currentNav = ___system_navigation_config.nav.mc_feedback_list;
 </script>
 <!-- START CONTENT -->
 <section id="main-content" class=" " style="">
     <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
         <header class="panel_header" style="background-color: #fff;margin-top:45px;">
-            <h4 class="title pull-left" style="font-size: 15px;">会员管理 / 留言管理 </h4>
+            <h4 class="title pull-left" style="font-size: 15px;">会员管理 / 投诉建议 </h4>
         </header>
 
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">留言管理</h2>
+                    <h2 class="title pull-left">投诉建议</h2>
                     <div class="actions panel_actions pull-right">
                     </div>
                 </header>
@@ -47,21 +64,17 @@
                     <div class="dataTables_wrapper no-footer">
                         <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                             <div class="row">
-                                <div class="col-xs-3 move20">
-                                    <input type="text" class="form-control" placeholder="会员手机">
-                                </div>
-                                <div class="col-xs-3 move20">
-                                    <input type="text move20" class="form-control" placeholder="会员名称或者昵称">
+                                <div class="col-xs-2 move20">
+                                    <input type="text" id="account" class="form-control" placeholder="账号">
                                 </div>
                                 <div class="col-xs-2 move20">
-                                    <input type="text" class="form-control" placeholder="律师姓名">
-                                </div>
-                                <div class="col-xs-2 move20">
-                                    <select class="form-control" style="border-color: #e1e1e1;" placeholder="全部">
-                                        <option value="0">未查看</option>
-                                        <option value="1">已查看</option>
+                                    <select class="form-control" id="status" style="border-color: #e1e1e1;" placeholder="状态">
+                                        <option value="">状态</option>
+                                        <option value="0">未处理</option>
+                                        <option value="1">已处理</option>
                                     </select>
                                 </div>
+
                                 <div class="col-xs-2">
                                     <%--<div class="form-group">--%>
                                     <div class="controls">
@@ -75,52 +88,61 @@
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
-                                <th>会员账号</th>
-                                <th>会员昵称</th>
-                                <th>律师姓名</th>
-                                <th>是否已查看</th>
-                                <th>是否回复</th>
+                                <th>账号</th>
+                                <th>昵称</th>
+                                <th>投诉建议</th>
+                                <th>积分日期</th>
+                                <th>状态</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>D0001</td>
-                                <td>打官司</td>
-                                <td>王麻子</td>
                                 <td>13901234567</td>
-
+                                <td>王麻子</td>
+                                <td>天王盖地虎</td>
+                                <td>2017-08-28</td>
+                                <td>已处理</td>
                                 <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            查看详情
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/legalcase/publish/caseEntrustDetail.jsp?orderCode=D0001">编辑</a></li>
-                                            <li><a href="#">审核通过</a></li>
-                                            <li><a href="#">不通过</a></li>
-                                            <li><a href="#">结案</a></li>
-                                        </ul>
-                                    </div>
+                                    <a href="feedbackDetail.jsp" style="color: #2aabd2;">
+                                        查看详情
+                                    </a>
                                 </td>
                             </tr>
-
                             <tr>
-                                <td>10</td>
-                                <td>D0001</td>
-                                <td>打官司</td>
-                                <td>王麻子</td>
                                 <td>13901234567</td>
+                                <td>王麻子</td>
+                                <td>天王盖地虎</td>
+                                <td>2017-08-28</td>
+                                <td>已处理</td>
                                 <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            查看留言详情
-                                            <span class="caret"></span>
-                                        </a>
-
-                                    </div>
+                                    <a href="feedbackDetail.jsp" style="color: #2aabd2;">
+                                        查看详情
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>13901234567</td>
+                                <td>王麻子</td>
+                                <td>天王盖地虎</td>
+                                <td>2017-08-28</td>
+                                <td>已处理</td>
+                                <td>
+                                    <a href="feedbackDetail.jsp" style="color: #2aabd2;">
+                                        查看详情
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>13901234567</td>
+                                <td>王麻子</td>
+                                <td>天王盖地虎</td>
+                                <td>2017-08-28</td>
+                                <td>已处理</td>
+                                <td>
+                                    <a href="feedbackDetail.jsp" style="color: #2aabd2;">
+                                        查看详情
+                                    </a>
                                 </td>
                             </tr>
                             </tbody>

@@ -45,19 +45,19 @@
 <%@ include file="/view/frame/sidebar.jsp"%>
 <!--  SIDEBAR - END -->
 <script type='text/javascript'>
-    ___system_navigation_config.currentNav = ___system_navigation_config.nav.m_memberList;
+    ___system_navigation_config.currentNav = ___system_navigation_config.nav.mc_member_list;
 </script>
 <!-- START CONTENT -->
 <section id="main-content" class=" " style="">
     <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
         <header class="panel_header" style="background-color: #fff;margin-top:45px;">
-            <h4 class="title pull-left" style="font-size: 15px;">客户中心 / 会员管理 / 会员添加</h4>
+            <h4 class="title pull-left" style="font-size: 15px;">客户中心 / 会员管理 / 添加会员</h4>
         </header>
 
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">会员添加</h2>
+                    <h2 class="title pull-left">添加会员</h2>
                     <div class="actions panel_actions pull-right">
                     </div>
                 </header>
