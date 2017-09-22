@@ -41,116 +41,86 @@
 <%@ include file="/view/frame/sidebar.jsp"%>
 <!--  SIDEBAR - END -->
 <script type='text/javascript'>
-    ___system_navigation_config.currentNav = ___system_navigation_config.nav.cnt_classifyList;
+    ___system_navigation_config.currentNav = ___system_navigation_config.nav.cnt_help_list;
 </script>
 <!-- START CONTENT -->
 <section id="main-content" class=" " style="">
     <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
         <header class="panel_header" style="background-color: #fff;margin-top:45px;">
-            <h4 class="title pull-left" style="font-size: 15px;">内容管理 / 分类 / 分类列表 </h4>
+            <h4 class="title pull-left" style="font-size: 15px;">内容管理 / 帮助管理 / 协议帮助管理</h4>
         </header>
 
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">分类列表</h2>
-                    <div class="actions panel_actions pull-right">
-                        <a href="addClassify.jsp" class="btn btn-info">
+                    <h2 class="title pull-left">协议帮助管理</h2>
+                    <%--<div class="actions panel_actions pull-right">
+                        <a href="addDiscovery.jsp" class="btn btn-info">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
-                    </div>
+                    </div>--%>
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
+                        <%--<form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
 
                         </form>
-                        <br>
+                        <br>--%>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
-                                <th>分类ID</th>
-                                <th>分类名称</th>
-                                <th>分类颜色</th>
-                                <th>排序</th>
+                                <th>标题</th>
+                                <th>发布时间</th>
                                 <th>更新时间</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>社会</td>
-                                <td style="color: #66CC00;">#66CC00</td>
-                                <td>1</td>
-                                <td>17/08/28 15:30</td>
+                                <td>中华人民共和国</td>
+                                <td>2017-09-03</td>
+                                <td>2017-09-03</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                        <a href="/view/contentmanager/help/editHelp.jsp" style="color: #2aabd2;">
                                             编辑
-                                            <span class="caret"></span>
                                         </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/contentmanager/classify/editClassify.jsp?dataId=1">编辑</a></li>
-                                            <li><a href="#">删除</a></li>
-                                        </ul>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>2</td>
-                                <td>生活</td>
-                                <td style="color: #FFCC33;">#FFCC33</td>
-                                <td>2</td>
-                                <td>17/08/28 15:30</td>
+                                <td>中华人民共和国</td>
+                                <td>2017-09-03</td>
+                                <td>2017-09-03</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                        <a href="/view/contentmanager/help/editHelp.jsp" style="color: #2aabd2;">
                                             编辑
-                                            <span class="caret"></span>
                                         </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/contentmanager/classify/editClassify.jsp?dataId=1">编辑</a></li>
-                                            <li><a href="#">删除</a></li>
-                                        </ul>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>3</td>
-                                <td>法务</td>
-                                <td style="color: #00CCCC;">#00CCCC</td>
-                                <td>3</td>
-                                <td>17/08/28 15:30</td>
+                                <td>中华人民共和国</td>
+                                <td>2017-09-03</td>
+                                <td>2017-09-03</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                        <a href="/view/contentmanager/help/editHelp.jsp" style="color: #2aabd2;">
                                             编辑
-                                            <span class="caret"></span>
                                         </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/contentmanager/classify/editClassify.jsp?dataId=1">编辑</a></li>
-                                            <li><a href="#">删除</a></li>
-                                        </ul>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>4</td>
-                                <td>社会</td>
-                                <td style="color: #FF0000;">#FF0000</td>
-                                <td>4</td>
-                                <td>17/08/28 15:30</td>
+                                <td>中华人民共和国</td>
+                                <td>2017-09-03</td>
+                                <td>2017-09-03</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                        <a href="/view/contentmanager/help/editHelp.jsp" style="color: #2aabd2;">
                                             编辑
-                                            <span class="caret"></span>
                                         </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/contentmanager/classify/editClassify.jsp?dataId=1">编辑</a></li>
-                                            <li><a href="#">删除</a></li>
-                                        </ul>
                                     </div>
                                 </td>
                             </tr>

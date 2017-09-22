@@ -182,7 +182,7 @@
                             <a href="javascript:;">活动管理</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/contentmanager/activity/topicList.jsp">话题管理</a>
+                                    <a href="/view/contentmanager/activity/topic/topicList.jsp">话题管理</a>
                                 </li>
                                 <li>
                                     <a href="/view/contentmanager/activity/activityList.jsp">活动管理</a>
@@ -193,10 +193,10 @@
                             <a href="javascript:;">资源库管理</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:;">发现分类</a>
+                                    <a href="/view/contentmanager/repository/clzdiscovery/clzList.jsp">发现分类</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">发现管理</a>
+                                    <a href="/view/contentmanager/repository/discovery/discoveryList.jsp">发现管理</a>
                                 </li>
                             </ul>
                         </li>
@@ -204,7 +204,7 @@
                             <a href="javascript:;">帮助管理</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:;">协议帮助管理</a>
+                                    <a href="/view/contentmanager/help/helpList.jsp">协议帮助管理</a>
                                 </li>
                             </ul>
                         </li>

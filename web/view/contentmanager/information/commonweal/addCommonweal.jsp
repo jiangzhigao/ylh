@@ -90,7 +90,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-xs-offset-2 col-xs-12">
+                                <div class="col-xs-offset-2 col-xs-10">
                                     <div class="form-group col-xs-5" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox">
                                         <img src="/images/nopica.png" class="img-thumbnail" id="coverImage"/>
                                     </div>

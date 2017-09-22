@@ -15,6 +15,20 @@
         a:hover {
             text-decoration: none;
         }
+        table.table tr:nth-child(odd)
+        {
+            background-color:#f9f9f9;
+        }
+        table.table tr:nth-child(even)
+        {
+            background-color:#fff;
+        }
+        .no-editable{
+            background-color: #cccccc;
+        }
+        a {
+            color: #333;
+        }
     </style>
 </head>
 <!-- END HEAD -->
@@ -27,7 +41,7 @@
 <%@ include file="/view/frame/sidebar.jsp"%>
 <!--  SIDEBAR - END -->
 <script type='text/javascript'>
-    ___system_navigation_config.currentNav = ___system_navigation_config.nav.a_topicList;
+    ___system_navigation_config.currentNav = ___system_navigation_config.nav.cnt_topic_list;
 </script>
 <!-- START CONTENT -->
 <section id="main-content" class=" " style="">
@@ -39,13 +53,39 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">话题管理</h2>
+                    <h2 class="title pull-left">话题列表</h2>
                     <div class="actions panel_actions pull-right">
+                        <a href="addTopic.jsp" class="btn btn-info">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </a>
                     </div>
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
+                        <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
+                            <div class="row">
+                                <div class="col-xs-2 move20">
+                                    <input type="text" id="account" class="form-control" placeholder="请输入标题">
+                                </div>
 
+                                <div class="col-xs-2 move20">
+                                    <select class="form-control" id="status" style="border-color: #e1e1e1;">
+                                        <option value="">请选择状态</option>
+                                        <option value="0">未审核</option>
+                                        <option value="1">审核通过</option>
+                                        <option value="2">审核未通过</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-xs-2">
+                                    <%--<div class="form-group">--%>
+                                    <div class="controls">
+                                        <button id="btnSearch" type="button" class="btn btn-info">搜索</button>
+                                    </div>
+                                    <%--</div>--%>
+                                </div>
+                            </div>
+                        </form>
                         <br>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
@@ -75,13 +115,12 @@
                                 <td>审核通过</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="/view/legalcase/publish/caseEntrustDetail.jsp?orderCode=D0001" class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
                                             编辑
                                             <span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/legalcase/publish/caseEntrustDetail.jsp?orderCode=D0001">编辑</a></li>
-                                            <li><a href="#">删除</a></li>
+                                            <li><a href="/view/contentmanager/activity/topic/editTopic.jsp">编辑</a></li>
                                             <li><a href="#">置顶</a></li>
                                             <li><a href="#">回复管理</a></li>
                                             <li><a href="#">删除</a></li>
@@ -89,7 +128,81 @@
                                     </div>
                                 </td>
                             </tr>
-
+                            <tr>
+                                <td>2</td>
+                                <td>最高人民法院</td>
+                                <td>100</td>
+                                <td>10</td>
+                                <td>2017-09-03</td>
+                                <td>2017-09-03</td>
+                                <td>老蒋</td>
+                                <td>未置顶</td>
+                                <td>审核通过</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                            编辑
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="/view/contentmanager/activity/topic/editTopic.jsp">编辑</a></li>
+                                            <li><a href="#">置顶</a></li>
+                                            <li><a href="#">回复管理</a></li>
+                                            <li><a href="#">删除</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>最高人民法院</td>
+                                <td>100</td>
+                                <td>10</td>
+                                <td>2017-09-03</td>
+                                <td>2017-09-03</td>
+                                <td>老蒋</td>
+                                <td>未置顶</td>
+                                <td>审核通过</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                            编辑
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="/view/contentmanager/activity/topic/editTopic.jsp">编辑</a></li>
+                                            <li><a href="#">置顶</a></li>
+                                            <li><a href="#">回复管理</a></li>
+                                            <li><a href="#">删除</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>最高人民法院</td>
+                                <td>100</td>
+                                <td>10</td>
+                                <td>2017-09-03</td>
+                                <td>2017-09-03</td>
+                                <td>老蒋</td>
+                                <td>未置顶</td>
+                                <td>审核通过</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                            编辑
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="/view/contentmanager/activity/topic/editTopic.jsp">编辑</a></li>
+                                            <li><a href="#">置顶</a></li>
+                                            <li><a href="#">回复管理</a></li>
+                                            <li><a href="#">删除</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
                         <div class="row">

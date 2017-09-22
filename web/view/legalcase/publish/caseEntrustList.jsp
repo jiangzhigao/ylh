@@ -23,6 +23,9 @@
         {
             background-color:#fff;
         }
+        a {
+            color: #333;
+        }
     </style>
 </head>
 <!-- END HEAD -->

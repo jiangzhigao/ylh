@@ -41,21 +41,21 @@
 <%@ include file="/view/frame/sidebar.jsp"%>
 <!--  SIDEBAR - END -->
 <script type='text/javascript'>
-    ___system_navigation_config.currentNav = ___system_navigation_config.nav.cnt_news_list;
+    ___system_navigation_config.currentNav = ___system_navigation_config.nav.cnt_discovery_list;
 </script>
 <!-- START CONTENT -->
 <section id="main-content" class=" " style="">
     <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
         <header class="panel_header" style="background-color: #fff;margin-top:45px;">
-            <h4 class="title pull-left" style="font-size: 15px;">内容管理 / 咨询动态 / 资讯管理 </h4>
+            <h4 class="title pull-left" style="font-size: 15px;">内容管理 / 资源库管理 / 发现管理</h4>
         </header>
 
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">资讯管理</h2>
+                    <h2 class="title pull-left">发现管理</h2>
                     <div class="actions panel_actions pull-right">
-                        <a href="addNews.jsp" class="btn btn-info">
+                        <a href="addDiscovery.jsp" class="btn btn-info">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
@@ -69,12 +69,13 @@
                                 </div>
 
                                 <div class="col-xs-2 move20">
-                                    <select class="form-control" id="status" style="border-color: #e1e1e1;" placeholder="请选择咨询分类">
-                                        <option value="">请选择资讯分类</option>
-                                        <option value="0">社会</option>
-                                        <option value="1">生活</option>
-                                        <option value="2">法务</option>
-                                        <option value="3">财务</option>
+                                    <select class="form-control" id="status" style="border-color: #e1e1e1;">
+                                        <option value="">请选择分类</option>
+                                        <option value="0">财务咨询</option>
+                                        <option value="1">管理资讯</option>
+                                        <option value="2">营销策划</option>
+                                        <option value="3">常用文书</option>
+                                        <option value="4">法律资源库</option>
                                     </select>
                                 </div>
 
@@ -82,7 +83,7 @@
                                     <%--<div class="form-group">--%>
                                     <div class="controls">
                                         <button id="btnSearch" type="button" class="btn btn-info">搜索</button>
-                                        <button type="button" class="btn btn-danger">删除</button>
+                                        <button id="btnDel" type="button" class="btn btn-danger">删除</button>
                                     </div>
                                     <%--</div>--%>
                                 </div>
@@ -92,23 +93,19 @@
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>标题</th>
                                 <th>分类</th>
                                 <th>发布时间</th>
                                 <th>更新时间</th>
-                                <th>是否显示</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>最高法、最高检、司法部</td>
-                                <td>法务</td>
-                                <td>2017-08-28</td>
-                                <td>2017-08-28</td>
-                                <td>显示</td>
+                                <td>中华人民共和国</td>
+                                <td>法律资讯</td>
+                                <td>2017-09-03</td>
+                                <td>2017-09-03</td>
                                 <td>
                                     <div class="btn-group">
                                         <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
@@ -116,19 +113,16 @@
                                             <span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/contentmanager/information/news/editNews.jsp">编辑</a></li>
-                                            <li><a href="#">删除</a></li>
+                                            <li><a href="/view/contentmanager/repository/discovery/editDiscovery.jsp">编辑</a></li>
                                         </ul>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>2</td>
-                                <td>最高法、最高检、司法部</td>
-                                <td>法务</td>
-                                <td>2017-08-28</td>
-                                <td>2017-08-28</td>
-                                <td>显示</td>
+                                <td>中华人民共和国</td>
+                                <td>法律资讯</td>
+                                <td>2017-09-03</td>
+                                <td>2017-09-03</td>
                                 <td>
                                     <div class="btn-group">
                                         <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
@@ -136,19 +130,16 @@
                                             <span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/contentmanager/information/news/editNews.jsp">编辑</a></li>
-                                            <li><a href="#">删除</a></li>
+                                            <li><a href="/view/contentmanager/repository/discovery/editDiscovery.jsp">编辑</a></li>
                                         </ul>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>3</td>
-                                <td>最高法、最高检、司法部</td>
-                                <td>法务</td>
-                                <td>2017-08-28</td>
-                                <td>2017-08-28</td>
-                                <td>显示</td>
+                                <td>中华人民共和国</td>
+                                <td>法律资讯</td>
+                                <td>2017-09-03</td>
+                                <td>2017-09-03</td>
                                 <td>
                                     <div class="btn-group">
                                         <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
@@ -156,19 +147,16 @@
                                             <span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/contentmanager/information/news/editNews.jsp">编辑</a></li>
-                                            <li><a href="#">删除</a></li>
+                                            <li><a href="/view/contentmanager/repository/discovery/editDiscovery.jsp">编辑</a></li>
                                         </ul>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>4</td>
-                                <td>最高法、最高检、司法部</td>
-                                <td>法务</td>
-                                <td>2017-08-28</td>
-                                <td>2017-08-28</td>
-                                <td>显示</td>
+                                <td>中华人民共和国</td>
+                                <td>法律资讯</td>
+                                <td>2017-09-03</td>
+                                <td>2017-09-03</td>
                                 <td>
                                     <div class="btn-group">
                                         <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
@@ -176,8 +164,7 @@
                                             <span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/contentmanager/information/news/editNews.jsp">编辑</a></li>
-                                            <li><a href="#">删除</a></li>
+                                            <li><a href="/view/contentmanager/repository/discovery/editDiscovery.jsp">编辑</a></li>
                                         </ul>
                                     </div>
                                 </td>

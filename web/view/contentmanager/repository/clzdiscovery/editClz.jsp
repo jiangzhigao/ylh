@@ -47,19 +47,19 @@
 <%@ include file="/view/frame/sidebar.jsp"%>
 <!--  SIDEBAR - END -->
 <script type='text/javascript'>
-    ___system_navigation_config.currentNav = ___system_navigation_config.nav.cnt_commonweal_list;
+    ___system_navigation_config.currentNav = ___system_navigation_config.nav.cnt_disclz_list;
 </script>
 <!-- START CONTENT -->
 <section id="main-content" class=" " style="">
     <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
         <header class="panel_header" style="background-color: #fff;margin-top:45px;">
-            <h4 class="title pull-left" style="font-size: 15px;">内容管理 / 资讯动态 / 编辑公益</h4>
+            <h4 class="title pull-left" style="font-size: 15px;">内容管理 / 资源库管理 / 发现分类</h4>
         </header>
 
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">编辑公益</h2>
+                    <h2 class="title pull-left">财务咨询编辑</h2>
                     <div class="pull-right">
                         <div id="page_alert_container"></div>
                     </div>
@@ -73,7 +73,7 @@
                                         <label class="col-xs-2 control-label" for="commisionName">标题</label>
                                         <div class="col-xs-5">
                                             <input type="text" class="form-control" placeholder="请输入标题" value="" id="commisionName" name="commisionName"
-                                                   maxlength="20">
+                                                   maxlength="20" id="">
                                         </div>
                                     </div>
                                 </div>
@@ -81,33 +81,10 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="aa">摘要</label>
+                                        <label class="col-xs-2 control-label" for="commisionClient">热线电话</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入摘要" value="" id="aa" name="aa"
+                                            <input type="text" class="form-control" placeholder="请输入摘要" value="021-11111111" id="commisionClient" name="commisionClient"
                                                    maxlength="20">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-offset-2 col-xs-10">
-                                    <div class="form-group col-xs-5" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox">
-                                        <img src="/images/nopica.png" class="img-thumbnail" id="coverImage"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label">缩略图</label>
-                                        <div class="col-xs-5" style="margin-left: -15px;">
-                                            <div class="col-xs-1">
-                                                <div class="img-upload">
-                                                    <input type="hidden" id="coverUrl" value="" name="coverUrl"/>
-                                                    <button id="btnSearch" type="button" class="btn btn-primary">点击添加或修改</button>
-                                                    <input type="file" class="img-upload-file" id="lcimage_upload" name="lcimage_upload" mid="coverImage" uid="coverUrl">
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -122,18 +99,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <%--<div class="row">
-                                <div class="col-xs-12">
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label">是否显示</label>
-                                        <div class="col-xs-5" style="padding-top: 5px;">
-                                            <input type="radio" class="" value="1" id="status_normal" name="status" checked>显示
-                                            &nbsp;&nbsp;
-                                            <input type="radio" class="" value="0" id="status_blocked" name="status">隐藏
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>--%>
 
                             <div class="divider-dotted"></div>
                             <br>
@@ -166,7 +131,7 @@
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
-<script type="text/javascript" src="/js/pageScripts/content/information/commonweal/add_commonweal.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/information/news/add_news.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

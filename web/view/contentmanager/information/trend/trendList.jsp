@@ -26,6 +26,9 @@
         .no-editable{
             background-color: #cccccc;
         }
+        a {
+            color: #333;
+        }
     </style>
 </head>
 <!-- END HEAD -->
