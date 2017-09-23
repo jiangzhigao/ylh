@@ -27,21 +27,21 @@
 <%@ include file="/view/frame/sidebar.jsp"%>
 <!--  SIDEBAR - END -->
 <script type='text/javascript'>
-    ___system_navigation_config.currentNav = ___system_navigation_config.nav.l_lawyerManagementList;
+    ___system_navigation_config.currentNav = ___system_navigation_config.nav.r_foundManagerList;
 </script>
 <!-- START CONTENT -->
 <section id="main-content" class=" " style="">
     <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
         <header class="panel_header" style="background-color: #fff;margin-top:45px;">
-            <h4 class="title pull-left" style="font-size: 15px;">律师管理 / 律师列表 </h4>
+            <h4 class="title pull-left" style="font-size: 15px;">内容管理 / 资源库管理 / 发现管理 </h4>
         </header>
 
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">律师列表</h2>
+                    <h2 class="title pull-left">发现管理</h2>
                     <div class="actions panel_actions pull-right">
-                        <a href="/view/customercenter/lawyermanagement/addLawyer.jsp" class="btn btn-info">
+                        <a href="addCaseClz.jsp" class="btn btn-info">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
@@ -51,21 +51,16 @@
                         <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-3 move20">
-                                    <input type="text" id="account" class="form-control" placeholder="账号">
+                                    <input type="text" id="account" class="form-control" placeholder="标题">
                                 </div>
-                                <div class="col-xs-3 move20">
-                                    <input type="text" id="realName" class="form-control" placeholder="真实姓名">
-                                </div>
-                                <div class="col-xs-3 move20">
-                                    <input type="text" id="idcard" class="form-control" placeholder="身份证编号">
-                                </div>
-                                <div class="col-xs-3 move20">
-                                    <input type="text" id="licenseid" class="form-control" placeholder="执照编号">
-                                </div>
+
                                 <div class="col-xs-2 move20">
-                                    <select class="form-control" id="status" style="border-color: #e1e1e1;" placeholder="状态">
-                                        <option value="0">异常</option>
-                                        <option value="1">正常</option>
+                                    <select class="form-control" id="status" style="border-color: #e1e1e1;" placeholder="请选择咨询分类">
+                                        <option value="0">财务咨询</option>
+                                        <option value="1">管理咨询</option>
+                                        <option value="2">营销策划</option>
+                                        <option value="3">常用文书</option>
+                                        <option value="3">法律资源库</option>
                                     </select>
                                 </div>
 
@@ -82,30 +77,21 @@
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
-                                <th>登陆账号</th>
-                                <th>真实姓名</th>
-                                <th>身份证编号</th>
-                                <th>执照编号</th>
-                                <th>从业时间</th>
-                                <th>注册时间</th>
-                                <th>账户金额</th>
-                                <th>是否审核</th>
-                                <th>是否签约</th>
-                                <th>用户状态</th>
+                                <th>ID</th>
+                                <th>标题</th>
+                                <th>分类</th>
+                                <th>发布时间</th>
+                                <th>更新时间</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>D0001</td>
-                                <td>打官司</td>
-                                <td>王麻子</td>
-                                <td>13901234567</td>
+                                <td>163</td>
+                                <td>最高法、最高检、司法部</td>
+                                <td>法务</td>
                                 <td>2017-08-28</td>
-                                <td>13901234567</td>
                                 <td>2017-08-28</td>
-                                <td>13901234567</td>
                                 <td>
                                     <div class="btn-group">
                                         <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
@@ -113,7 +99,8 @@
                                             <span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/legalcase/publish/caseEntrustDetail.jsp?orderCode=D0001">查看订单详情</a></li>
+                                            <li><a href="/view/legalcase/publish/caseEntrustDetail.jsp?orderCode=D0001">编辑</a></li>
+                                            <li><a href="#">删除</a></li>
                                         </ul>
                                     </div>
                                 </td>
@@ -138,7 +125,6 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
-<script type="text/javascript" src="/js/pageScripts/customercenter/lawyermanagement/lawyerManagementList.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->
