@@ -54,11 +54,11 @@
             <section class="box ">
                 <header class="panel_header">
                     <h2 class="title pull-left">协议帮助管理</h2>
-                    <%--<div class="actions panel_actions pull-right">
-                        <a href="addDiscovery.jsp" class="btn btn-info">
+                    <div class="actions panel_actions pull-right">
+                        <a href="addHelp.jsp" class="btn btn-info">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
-                    </div>--%>
+                    </div>
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
@@ -76,7 +76,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                           <%-- <tr>
                                 <td>中华人民共和国</td>
                                 <td>2017-09-03</td>
                                 <td>2017-09-03</td>
@@ -123,7 +123,7 @@
                                         </a>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr>--%>
                             </tbody>
                         </table>
                         <div class="row">
@@ -144,6 +144,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/help/query_help.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

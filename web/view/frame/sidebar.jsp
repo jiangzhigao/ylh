@@ -135,16 +135,16 @@
                             <a href="javascript:;">律师管理</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/customercenter/lawyermanagement/lawyerManagementList.jsp">律师管理</a>
+                                    <a href="/view/customercenter/lawyermanagement/lawyer/lawyerManagementList.jsp">律师管理</a>
                                 </li>
                                 <li>
                                     <a href="/view/customercenter/lawyermanagement/speciality/specialityList.jsp">专业领域</a>
                                 </li>
                                 <li>
-                                    <a href="/view/customercenter/lawyermanagement/complaintAndAdviceList.jsp">投诉建议</a>
+                                    <a href="/view/customercenter/lawyermanagement/complaint/complaintAndAdviceList.jsp">投诉建议</a>
                                 </li>
                                 <li>
-                                    <a href="/view/customercenter/lawyermanagement/incomeRecord.jsp">收入记录</a>
+                                    <a href="/view/customercenter/lawyermanagement/income/incomeRecord.jsp">收入记录</a>
                                 </li>
                             </ul>
                         </li>

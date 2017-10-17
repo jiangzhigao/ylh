@@ -4,44 +4,52 @@ jQuery(function(){
     var ajaxdata = {};
     $form_add.validate({
         rules:{
-            commisionName:{
+            userName:{
                 required:true,
             },
-            commisionClient:{
+            userPassword:{
                 required:true,
             },
-            contactPhone:{
+            name:{
                 required:true,
             },
-            caseAmount:{
+            licenseid:{
                 required:true,
             },
-            agencyFee:{
+            mobile:{
+                required:true,
+            },
+            email:{
+                required:true,
+            },
+            idcard:{
                 required:true,
             }
         },
         messages:{
             commisionName:{
-                required:"委托名称不能为空"
+                required:"手机号或账户名不能为空"
             },
-            commisionClient:{
-                required:"联系人不能为空"
+            userPassword:{
+                required:"密码不能为空"
             },
-            contactPhone:{
-                required:"联系方式不能为空"
+            name:{
+                required:"律师姓名不能为空"
             },
-            caseAmount:{
-                required:"案件标的不能为空"
+            licenseid:{
+                required:"执照编号不能为空"
             },
-            agencyFee:{
-                required:"代理费用不能为空"
+            mobile:{
+                required:"备用手机号码不能为空"
+            },
+            email:{
+                required:"电子邮箱不能为空"
+            },
+            idcard:{
+                required:"身份证号不能为空"
             }
         }
     });
-
-    //富文本
-    var ue = new baidu.editor.ui.Editor({ initialFrameHeight:260 });
-    ue.render("editor");
 
     _init();
 
@@ -64,56 +72,12 @@ jQuery(function(){
         //保存
         $('#btnSave').on('click', function () {
             var $this = $(this);
-            _ajax($this, '保存',webBasePath+'/entrusts',0);
-        });
-        //保存
-        $('#btnSaveAndPub').on('click', function () {
-            var $this = $(this);
-            _ajax($this, '发布',webBasePath+'/entrusts',1);
+            _ajax($this, '保存',webBasePath+'/lawyers');
         });
         //返回
         $('#btnBack').on('click', function () {
             window.history.back();
         });
-        function _ajax($this, buttonText, reUrl,s) {
-            var formValid = $form_add.validate().form();
-            if (formValid) {
-                _setAjaxData(s);
-                if (_verifyAjaxData()) {
-                    jQuery.ajax({
-                        dataType: "json",
-                        url: reUrl,
-                        data: ajaxdata,
-                        type: "POST",
-                        success: function (result) {
-                            var recUrl,data = result.entrust;
-                            if (result.success) {
-                                FOXKEEPER_UTILS.alert('success',result.message);
-                                if(data.type == 0){
-                                    recUrl = "/view/legalcase/publish/caseEntrustList.jsp";
-                                }else if(data.type == 1){
-                                    recUrl = "/view/legalcase/publish/docEntrustList.jsp";
-                                }
-                                setTimeout(function(){
-                                    location.replace(recUrl);
-                                }, 1000);
-                            }
-                            else
-                            {
-                                FOXKEEPER_UTILS.alert('warning',result.message);
-                                $this.html(buttonText).attr("disabled", false);
-                            }
-                        },
-                        beforeSend: function () {// 设置表单提交前方法    
-                            $this.html('<i class=\"fa fa-spinner\"></i>&nbsp;正在' + buttonText).attr("disabled", "disabled");
-                        }
-                    });
-                }  else {
-                    return false;
-                }
-            }
-            return false;
-        }
 
         //图片上传
         $('body').on('change', 'input[name$="_upload"]', function(e) {
@@ -133,7 +97,7 @@ jQuery(function(){
 
             //图片大小判断
             var imgSize = document.getElementById("lcimage_upload").files[0].size;
-            if(imgSize>1024*100){
+            if(imgSize>1024*1000){
                 FOXKEEPER_UTILS.alert('warning', '图片尺寸请小于100k');
                 $("#lcimage_upload").val("");
                 $("#imgBox").hide();
@@ -177,9 +141,44 @@ jQuery(function(){
                 }
             },
             error: function (xhr, status, e) {
-                FOXKEEPER_UTILS.alert('warning', '上传出错，请重试');
+                FOXKEEPER_UTILS.alert('warning', '上传出错，请重试');l
             }
         });
+        return false;
+    }
+
+    function _ajax($this, buttonText, reUrl) {
+        var formValid = $form_add.validate().form();
+        if (formValid) {
+            _setAjaxData();
+            if (_verifyAjaxData()) {
+                jQuery.ajax({
+                    dataType: "json",
+                    url: reUrl,
+                    data: ajaxdata,
+                    type: "POST",
+                    success: function (result) {
+                        var recUrl,data = result.entrust;
+                        if (result.success) {
+                            FOXKEEPER_UTILS.alert('success',result.message);
+                            setTimeout(function(){
+                                location.replace("view/customercenter/lawyermanagement/lawyer/lawyerManagementList.jsp");
+                            }, 1000);
+                        }
+                        else
+                        {
+                            FOXKEEPER_UTILS.alert('warning',result.message);
+                            $this.html(buttonText).attr("disabled", false);
+                        }
+                    },
+                    beforeSend: function () {// 设置表单提交前方法    
+                        $this.html('<i class=\"fa fa-spinner\"></i>&nbsp;正在' + buttonText).attr("disabled", "disabled");
+                    }
+                });
+            }  else {
+                return false;
+            }
+        }
         return false;
     }
 
@@ -188,26 +187,21 @@ jQuery(function(){
         ajaxdata.username = user._d;
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
-        ajaxdata.commisionName = $("#commisionName").val();
-        ajaxdata.commisionClient = $("#commisionClient").val();
-        ajaxdata.contactPhone = $("#contactPhone").val();
-        ajaxdata.caseAmount = $("#caseAmount").val();
-        ajaxdata.agencyFee = $("#agencyFee").val();
-        ajaxdata.casePicture = $("#coverUrl").val();
-        ajaxdata.type = $("#type").val();
-        ajaxdata.isPlatform = true;
-        ajaxdata.status = s;
-        ajaxdata.caseDetail = ue.getContent();
+        ajaxdata.userName = $("#userName").val();
+        ajaxdata.userPassword = $("#userPassword").val();
+        ajaxdata.name = $("#name").val();
+        ajaxdata.licenseid = $("#licenseid").val();
+        ajaxdata.idcard = $("#idcard").val();
+        ajaxdata.picture = $("#coverUrl").val();
+        ajaxdata.mobile = $("#mobile").val();
+        ajaxdata.email = $("#email").val();
+        ajaxdata.status = $("input[name='status']:checked").val();
     }
 
     /** 请求参数验证 */
     function _verifyAjaxData () {
-        if (!ajaxdata.casePicture) {
-            FOXKEEPER_UTILS.alert('warning', '请上传图片');
-            return false;
-        }
-        if (!ajaxdata.caseDetail) {
-            FOXKEEPER_UTILS.alert('warning', '请填写需求详情');
+        if (!ajaxdata.picture) {
+            FOXKEEPER_UTILS.alert('warning', '请上传律师头像');
             return false;
         }
         return true;

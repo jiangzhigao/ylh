@@ -178,6 +178,62 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-xs-2 control-label" for="7">所在地址</label>
+                                        <div class="col-xs-5">
+                                            <select class="form-control" id="7" name="type" style="border-color: #e1e1e1;">
+                                                <option value="0" selected>请选择省份</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-xs-2 control-label" for="8"></label>
+                                        <div class="col-xs-5">
+                                            <select class="form-control" id="8" name="type" style="border-color: #e1e1e1;">
+                                                <option value="0" selected>请选择市</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-xs-2 control-label" for="9">律师等级</label>
+                                        <div class="col-xs-5">
+                                            <select class="form-control" id="9" name="type" style="border-color: #e1e1e1;">
+                                                <option value="1" selected>普通</option>
+                                                <option value="2" >中级</option>
+                                                <option value="3" >高级</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-xs-2 control-label" for="10">专业领域</label>
+                                        <div class="col-xs-5">
+                                            <select class="" id="10" multiple="multiple">
+                                                <%--<optgroup label="">
+
+                                                </optgroup>--%>
+                                                <option value="1" >民事诉讼</option>
+                                                <option value="2" >刑事诉讼</option>
+                                                <option value="3" >非诉案件</option>
+                                                <option value="4" >金融保险</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="row">
                                 <div class="col-xs-12">
@@ -222,7 +278,30 @@
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
+<script type="text/javascript" src="/js/plugins/select2/select2.min.js"></script>
 <script type="text/javascript" src="/js/pageScripts/customercenter/lawyermanagement/add_lawyer.js"></script>
+<script type="text/javascript">
+    //日期控件
+    $("#workingTime").datepicker({
+        autoclose: true,
+        clearBtn: true,
+        forceParse: true,
+        format: 'yyyy-mm-dd',
+        language: 'cn',
+        startView: 0,
+        todayBtn: true,
+        todayHighlight: false,
+        weekStart: 1,
+        endDate:'+1',//结束时间，在这时间之后都不可选
+    });
+
+    $("#10").select2({
+        placeholder: '点击选择专业领域',
+        allowClear: true,
+        maximumSelectionLength: 1
+    });
+
+</script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

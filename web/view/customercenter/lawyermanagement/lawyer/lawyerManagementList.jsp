@@ -41,7 +41,7 @@
                 <header class="panel_header">
                     <h2 class="title pull-left">律师列表</h2>
                     <div class="actions panel_actions pull-right">
-                        <a href="/view/customercenter/lawyermanagement/addLawyer.jsp" class="btn btn-info">
+                        <a href="/view/customercenter/lawyermanagement/lawyer/addLawyer.jsp" class="btn btn-info">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
@@ -50,16 +50,16 @@
                     <div class="dataTables_wrapper no-footer">
                         <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                             <div class="row">
-                                <div class="col-xs-3 move20">
+                                <div class="col-xs-2 move20">
                                     <input type="text" id="account" class="form-control" placeholder="账号">
                                 </div>
-                                <div class="col-xs-3 move20">
+                                <div class="col-xs-2 move20">
                                     <input type="text" id="realName" class="form-control" placeholder="真实姓名">
                                 </div>
-                                <div class="col-xs-3 move20">
+                                <div class="col-xs-2 move20">
                                     <input type="text" id="idcard" class="form-control" placeholder="身份证编号">
                                 </div>
-                                <div class="col-xs-3 move20">
+                                <div class="col-xs-2 move20">
                                     <input type="text" id="licenseid" class="form-control" placeholder="执照编号">
                                 </div>
                                 <div class="col-xs-2 move20">
@@ -96,7 +96,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                            <%--<tr>
                                 <td>1</td>
                                 <td>D0001</td>
                                 <td>打官司</td>
@@ -117,7 +117,7 @@
                                         </ul>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr>--%>
                             </tbody>
                         </table>
                         <div class="row">

@@ -34,12 +34,12 @@ jQuery(function(){
         //保存
         $('#btnSave').on('click', function () {
             var $this = $(this);
-            _ajax($this, '保存',webBasePath+'/entrusts',0);
+            _ajax($this, '保存',webBasePath+'/informations',0);
         });
         //保存
         $('#btnSaveAndPub').on('click', function () {
             var $this = $(this);
-            _ajax($this, '发布',webBasePath+'/entrusts',1);
+            _ajax($this, '发布',webBasePath+'/informations',1);
         });
         //返回
         $('#btnBack').on('click', function () {

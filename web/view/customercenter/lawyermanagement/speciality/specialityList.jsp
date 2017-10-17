@@ -41,40 +41,14 @@
                 <header class="panel_header">
                     <h2 class="title pull-left">专业领域</h2>
                     <div class="actions panel_actions pull-right">
-                        <a href="addCaseClz.jsp" class="btn btn-info">
+                        <a href="addspeciality.jsp" class="btn btn-info">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
-                            <div class="row">
-                                <div class="col-xs-2 move20">
-                                    <input type="text" class="form-control" placeholder="账号">
-                                </div>
-                                <div class="col-xs-2 move20">
-                                    <input type="text move20" class="form-control" placeholder="真实姓名">
-                                </div>
-                                <div class="col-xs-2 move20">
-                                    <input type="text" class="form-control" placeholder="身份证编号">
-                                </div>
-                                <div class="col-xs-2 move20">
-                                    <select class="form-control" style="border-color: #e1e1e1;">
-                                        <option value="">状态</option>
-                                        <option value="0">未审核</option>
-                                        <option value="1">审核中</option>
-                                    </select>
-                                </div>
-                                <div class="col-xs-2">
-                                    <%--<div class="form-group">--%>
-                                        <div class="controls">
-                                            <button id="btnSearch" type="button" class="btn btn-info">搜索</button>
-                                        </div>
-                                    <%--</div>--%>
-                                </div>
-                            </div>
-                        </form>
+
                         <br>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
@@ -85,7 +59,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                          <%-- <tr>
                                 <td>民商诉讼</td>
                                 <td>1</td>
                                 <td>
@@ -102,7 +76,7 @@
                                         </ul>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr>--%>
 
                             </tbody>
                         </table>
@@ -124,6 +98,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/custom/lawyer/speciality/query_speciality.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

@@ -66,13 +66,13 @@
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
+                        <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">标题</label>
+                                        <label class="col-xs-2 control-label" for="title">标题</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入标题" value="" id="commisionName" name="commisionName"
+                                            <input type="text" class="form-control" placeholder="请输入标题" value="" id="title" name="title"
                                                    maxlength="20" id="">
                                         </div>
                                     </div>
@@ -81,9 +81,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionClient">摘要</label>
+                                        <label class="col-xs-2 control-label" for="summary">摘要</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入摘要" value="" id="commisionClient" name="commisionClient"
+                                            <input type="text" class="form-control" placeholder="请输入摘要" value="" id="summary" name="summary"
                                                    maxlength="20">
                                         </div>
                                     </div>
@@ -104,9 +104,9 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">是否显示</label>
                                         <div class="col-xs-5" style="padding-top: 5px;">
-                                            <input type="radio" class="" value="1" id="status_normal" name="status" checked>显示
+                                            <input type="radio" class="" value="true" id="status_normal" name="status" checked>显示
                                             &nbsp;&nbsp;
-                                            <input type="radio" class="" value="0" id="status_blocked" name="status">隐藏
+                                            <input type="radio" class="" value="false" id="status_blocked" name="status">隐藏
                                         </div>
                                     </div>
                                 </div>
@@ -143,7 +143,9 @@
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
-<script type="text/javascript" src="/js/pageScripts/content/information/news/add_news.js"></script>
+<script type="text/javascript" src="/js/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/help/edit_help.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

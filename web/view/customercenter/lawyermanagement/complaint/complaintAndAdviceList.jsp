@@ -28,7 +28,7 @@
 <!--  SIDEBAR - END -->
 <script type='text/javascript'>
     ___system_navigation_config.currentNav = ___system_navigation_config.nav.l_complaintAndAdviceList;
-    alert(___system_navigation_config.nav.l_complaintAndAdviceList);
+    //alert(___system_navigation_config.nav.l_complaintAndAdviceList);
 </script>
 <!-- START CONTENT -->
 <section id="main-content" class=" " style="">
@@ -93,7 +93,7 @@
                                             <span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/customercenter/lawyermanagement/complaintAndAdviceDetail.jsp?orderCode=D0001">查看订单详情</a></li>
+                                            <li><a href="/view/customercenter/lawyermanagement/complaint/complaintAndAdviceDetail.jsp?orderCode=D0001">查看订单详情</a></li>
 
                                         </ul>
                                     </div>
@@ -121,6 +121,7 @@
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
+<script type="text/javascript" src="/js/pageScripts/custom/lawyer/complaint/query_complaint.js"></script>
 <!--  FOOTER - END -->
 </body>
 

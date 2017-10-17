@@ -90,9 +90,9 @@
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <div class="form-group">
-                                                    <label class="col-xs-2 control-label">手机号</label>
+                                                    <label class="col-xs-2 control-label" for="userName">手机号</label>
                                                     <div class="col-xs-5">
-                                                        <label class="control-label">13901234567</label>
+                                                        <label class="control-label" id="userName"></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -102,7 +102,7 @@
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label">密码</label>
                                                     <div class="col-xs-5">
-                                                        <button type="button" class="btn btn-primary">修改密码</button>
+                                                        <button id="pwdBtn" type="button" class="btn btn-primary">修改密码</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -112,7 +112,7 @@
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label">账户金额</label>
                                                     <div class="col-xs-5">
-                                                        <button type="button" class="btn btn-primary">100.00</button>
+                                                        <button type="button"  id="account" class="btn btn-primary"></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -120,9 +120,9 @@
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <div class="form-group">
-                                                    <label class="col-xs-2 control-label" for="1">律师名称</label>
+                                                    <label class="col-xs-2 control-label" for="name">律师名称</label>
                                                     <div class="col-xs-5">
-                                                        <input type="text" class="form-control" placeholder="请输入律师名称" value="王麻子" id="1"
+                                                        <input type="text" id="name" class="form-control" placeholder="请输入律师名称" value=""
                                                                maxlength="20">
                                                     </div>
                                                 </div>
@@ -131,9 +131,9 @@
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <div class="form-group">
-                                                    <label class="col-xs-2 control-label" for="2">身份证编号</label>
+                                                    <label class="col-xs-2 control-label" for="idcard">身份证编号</label>
                                                     <div class="col-xs-5">
-                                                        <input type="text" class="form-control" placeholder="请输入身份证编号" value="123456789012345678" id="2"
+                                                        <input type="text" class="form-control" id="idcard"  name="idcard" placeholder="请输入身份证编号" value=""
                                                                maxlength="18">
                                                     </div>
                                                 </div>
@@ -142,9 +142,9 @@
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <div class="form-group">
-                                                    <label class="col-xs-2 control-label" for="3">执照编号</label>
+                                                    <label class="col-xs-2 control-label" for="licenseid">执照编号</label>
                                                     <div class="col-xs-5">
-                                                        <input type="text" class="form-control" placeholder="请输入执照编号" value="1234567890" id="3"
+                                                        <input type="text" class="form-control" placeholder="请输入执照编号"  id="licenseid"
                                                                maxlength="18">
                                                     </div>
                                                 </div>
@@ -153,9 +153,9 @@
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <div class="form-group">
-                                                    <label class="col-xs-2 control-label" for="4">从业时间</label>
+                                                    <label class="col-xs-2 control-label" for="employmentTime">从业时间</label>
                                                     <div class="col-xs-5">
-                                                        <input type="text" class="form-control" placeholder="请输入从业时间" id="4"
+                                                        <input type="text" class="form-control" placeholder="请输入从业时间" id="employmentTime"
                                                                maxlength="18">
                                                     </div>
                                                 </div>
@@ -164,9 +164,9 @@
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <div class="form-group">
-                                                    <label class="col-xs-2 control-label">注册时间</label>
+                                                    <label class="col-xs-2 control-label" for="registerTime">注册时间</label>
                                                     <div class="col-xs-5">
-                                                        <label class="control-label">2017-08-08</label>
+                                                        <label class="control-label" id="registerTime"></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -217,9 +217,9 @@
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <div class="form-group">
-                                                    <label class="col-xs-2 control-label" for="6">所属单位</label>
+                                                    <label class="col-xs-2 control-label" for="company">所属单位</label>
                                                     <div class="col-xs-5">
-                                                        <input type="text" class="form-control" placeholder="请输入所属单位" value="" id="6" name="mobile"
+                                                        <input type="text" class="form-control" placeholder="请输入所属单位"  id="company" name="company"
                                                                maxlength="11">
                                                     </div>
                                                 </div>
@@ -250,9 +250,9 @@
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <div class="form-group">
-                                                    <label class="col-xs-2 control-label" for="7">所在地址</label>
+                                                    <label class="col-xs-2 control-label" for="address">所在地址</label>
                                                     <div class="col-xs-5">
-                                                        <select class="form-control" id="7" name="type" style="border-color: #e1e1e1;">
+                                                        <select class="form-control" id="address" name="type" style="border-color: #e1e1e1;">
                                                             <option value="0" selected>请选择省份</option>
                                                         </select>
                                                     </div>
@@ -262,9 +262,9 @@
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <div class="form-group">
-                                                    <label class="col-xs-2 control-label" for="8"></label>
+                                                    <label class="col-xs-2 control-label" for="city"></label>
                                                     <div class="col-xs-5">
-                                                        <select class="form-control" id="8" name="type" style="border-color: #e1e1e1;">
+                                                        <select class="form-control" id="city" name="type" style="border-color: #e1e1e1;">
                                                             <option value="0" selected>请选择市</option>
                                                         </select>
                                                     </div>
@@ -366,9 +366,9 @@
                                                 <div class="form-group">
                                                     <div class="col-xs-2"></div>
                                                     <div class="col-xs-5">
-                                                        <button type="button" class="btn btn-info" id="btnSave2">保存</button>
+                                                        <button type="button" class="btn btn-info" id="btnSave3">保存</button>
                                                         &nbsp;&nbsp;
-                                                        <button type="button" class="btn btn-danger" id="btnDel">删除</button>
+                                                        <button type="button" class="btn btn-danger" id="btnDel2">删除</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -379,7 +379,7 @@
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <div class="col-xs-2">
-                                                        <button type="button" class="btn btn-info" id="btnAdd">新增</button>
+                                                        <button type="button" class="btn btn-info" id="btnAdd2">新增</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -389,7 +389,7 @@
                                                 <div class="form-group">
                                                     <div class="col-xs-2"></div>
                                                     <div class="col-xs-5">
-                                                        <textarea id="activityDesc" name="activityDesc" maxlength="128" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 120px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
+                                                        <textarea id="activityDesc2" name="activityDesc" maxlength="128" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 120px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -433,8 +433,8 @@
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
 <script type="text/javascript" src="/js/plugins/select2/select2.min.js"></script>
-<%--<script src="/js/plugins/multi-select/js/jquery.multi-select.js" type="text/javascript"></script>
-<script src="/js/plugins/multi-select/js/jquery.quicksearch.js" type="text/javascript"></script>--%>
+<script type="text/javascript" src="/js/pageScripts/custom/lawyer/lawyer/edit_layer.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
 <script type="text/javascript">
     //日期控件
     $("#4").datepicker({
@@ -456,6 +456,8 @@
         maximumSelectionLength: 1
     });
 
+
+
 </script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
@@ -463,4 +465,3 @@
 </body>
 
 </html>
-

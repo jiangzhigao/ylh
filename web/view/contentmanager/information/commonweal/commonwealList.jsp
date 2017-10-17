@@ -93,7 +93,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                           <%-- <tr>
                                 <td>1</td>
                                 <td>做公益</td>
                                 <td>2017-08-28</td>
@@ -164,7 +164,7 @@
                                         </ul>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr>--%>
                             </tbody>
                         </table>
                         <div class="row">
@@ -185,6 +185,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/information/commonweal/query_commonweal.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->
