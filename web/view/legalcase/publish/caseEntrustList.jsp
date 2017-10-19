@@ -9,8 +9,8 @@
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 100px;
-            width: 90px;
+            min-width: 90px;
+            width: 80px;
         }
         a:hover {
             text-decoration: none;
@@ -22,6 +22,12 @@
         table.table tr:nth-child(even)
         {
             background-color:#fff;
+        }
+        .no-editable{
+            color: #ccc;
+        }
+        .no-editable a{
+            color: #ccc;
         }
         a {
             color: #333;
@@ -58,10 +64,10 @@
                     <div class="dataTables_wrapper no-footer">
                         <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                             <div class="row">
-                                <div class="col-xs-3 move20">
+                                <div class="col-xs-2 move20">
                                     <input type="text" class="form-control" placeholder="委托编号或名称">
                                 </div>
-                                <div class="col-xs-3 move20">
+                                <div class="col-xs-2 move20">
                                     <input type="text move20" class="form-control" placeholder="委托人姓名或手机">
                                 </div>
                                 <div class="col-xs-2 move20">
@@ -72,7 +78,7 @@
                                         <option value="">全部</option>
                                         <option value="0">未发布</option>
                                         <option value="1">已发布</option>
-                                        <option value="2">已结案</option>
+                                        <option value="2">已接案</option>
                                         <option value="3">已作废</option>
                                     </select>
                                 </div>
@@ -124,8 +130,6 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
-<script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
-<script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
 <script type="text/javascript" src="/js/pageScripts/legalcase/publish/case_entrust_list_query.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>

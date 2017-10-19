@@ -162,13 +162,13 @@
                             <br>
 
                             <div class="clearfix"></div>
-                            <div class="row">
+                            <div class="row" id="divRevoke">
                                 <div class="col-xs-3">
                                 </div>
                                 <div class="col-xs-5">
                                     <div class="form-group">
                                         <div class="controls">
-                                            <button type="button" class="btn btn-info" id="btnNotApprove">作废</button>
+                                            <button type="button" class="btn btn-info" id="btnRevoke">作废</button>
                                         </div>
                                     </div>
                                 </div>

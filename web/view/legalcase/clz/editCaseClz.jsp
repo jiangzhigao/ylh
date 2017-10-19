@@ -2,8 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <head>
     <%@ include file="/view/frame/head.jsp"%>
-    <script type="text/javascript" charset="utf-8" src="${webBasePath}/js/ueditor/ueditor.config.js"></script>
-    <script type="text/javascript" charset="utf-8" src="${webBasePath}/js/ueditor/ueditor.all.js"></script>
 
     <style type="text/css">
 
@@ -50,13 +48,14 @@
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
+                        <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
+                            <input type="hidden" id="dataId">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">分类ID</label>
-                                        <div class="col-xs-5">
-                                            <label class="control-label">1</label>
+                                        <div class="col-xs-4">
+                                            <label class="control-label" id="id-txt"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -64,9 +63,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label">分类名称</label>
-                                        <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入分类名称" value="XXXX" name=""
+                                        <label class="col-xs-2 control-label" for="name">分类名称</label>
+                                        <div class="col-xs-4">
+                                            <input type="text" class="form-control" placeholder="请输入分类名称" value="" id="name" name="name"
                                                    maxlength="20">
                                         </div>
                                     </div>
@@ -75,10 +74,10 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label">排序</label>
-                                        <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入排序号" value="1" name=""
-                                                   maxlength="20">
+                                        <label class="col-xs-2 control-label" for="sortNo">排序</label>
+                                        <div class="col-xs-4">
+                                            <input type="text" class="form-control" placeholder="请输入排序号" value="" id="sortNo" name="sortNo"
+                                                   maxlength="5">
                                         </div>
                                     </div>
                                 </div>
@@ -86,11 +85,11 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label">状态</label>
-                                        <div class="col-xs-5">
-                                            <select class="form-control" id="entrustType" name="entrustType" style="border-color: #e1e1e1;">
-                                                <option value="1" selected>启用</option>
-                                                <option value="2">未启用</option>
+                                        <label class="col-xs-2 control-label" for="status">状态</label>
+                                        <div class="col-xs-4">
+                                            <select class="form-control" id="status" name="status" style="border-color: #e1e1e1;">
+                                                <option value="1">启用</option>
+                                                <option value="0">冻结</option>
                                             </select>
                                         </div>
                                     </div>
@@ -125,7 +124,10 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
-<script type="text/javascript" src="/js/pageScripts/legalcase/publish/add_entrust.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
+<script type="text/javascript" src="/js/pageScripts/legalcase/clz/edit_clz.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <head>
     <%@ include file="/view/frame/head.jsp"%>
-    <link href="/js/plugins/colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="/js/plugins/xxcolorpicker/css/jquery.bigcolorpicker.css" />
     <style type="text/css">
 
         .move40{
@@ -52,10 +52,10 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="userName">分类名称</label>
-                                        <div class="col-xs-5">
+                                        <label class="col-xs-2 control-label" for="name">分类名称</label>
+                                        <div class="col-xs-4">
                                             <input type="text" class="form-control"
-                                                   placeholder="请输入分类名称" value="" id="userName" name="userName"
+                                                   placeholder="请输入分类名称" value="" id="name" name="name"
                                                    maxlength="24">
                                         </div>
                                     </div>
@@ -64,11 +64,11 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="userPassword">分类颜色</label>
-                                        <div class="col-xs-5">
-                                            <input type="text" class="form-control colorpicker  colorpicker-element" data-horizontal="true"
-                                                   placeholder="请选择分类颜色" value="" id="userPassword" name="userPassword"
-                                                   maxlength="16">
+                                        <label class="col-xs-2 control-label" for="color">分类颜色</label>
+                                        <div class="col-xs-4">
+                                            <input type="text" class="form-control"
+                                                   placeholder="请选择分类颜色" value="" id="color" name="color"
+                                                   maxlength="10">
                                         </div>
                                     </div>
                                 </div>
@@ -76,9 +76,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="name">排序</label>
-                                        <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入排序号" value="" id="name" name="name"
+                                        <label class="col-xs-2 control-label" for="sortNo">排序</label>
+                                        <div class="col-xs-4">
+                                            <input type="text" class="form-control" placeholder="请输入排序号" value="" id="sortNo" name="sortNo"
                                                    maxlength="6">
                                         </div>
                                     </div>
@@ -116,9 +116,12 @@
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
 <%--<script type="text/javascript" src="/js/pageScripts/custom/member/add_member.js"></script>--%>
-<script type="text/javascript" src="/js/plugins/colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<script type="text/javascript" src="/js/plugins/xxcolorpicker/js/jquery.bigcolorpicker.min.js"></script>
 <script type="text/javascript">
-    /*$('.colorpicker').colorpicker();*/
+    $(function(){
+        $("#color").bigColorpicker("color","L",3);
+    });
+
 </script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>

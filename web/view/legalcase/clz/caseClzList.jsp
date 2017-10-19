@@ -50,7 +50,7 @@
                     <div class="dataTables_wrapper no-footer">
                         <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                             <div class="row">
-                                <div class="col-xs-3 move20">
+                                <div class="col-xs-2 move20">
                                     <input type="text" class="form-control" placeholder="案件分类名称">
                                 </div>
                                 <div class="col-xs-2">
@@ -74,7 +74,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                            <%--<tr>
                                 <td>1</td>
                                 <td>X0001</td>
                                 <td>1</td>
@@ -83,75 +83,19 @@
                                     <div class="btn-group">
                                         <a href="editCaseClz.jsp" style="color: #2aabd2;">
                                             编辑
-                                            <%--<span class="caret"></span>--%>
+                                            &lt;%&ndash;<span class="caret"></span>&ndash;%&gt;
                                         </a>
                                     </div>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>X0002</td>
-                                <td>2</td>
-                                <td>启用</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a href="editCaseClz.jsp" style="color: #2aabd2;">
-                                            编辑
-                                            <%--<span class="caret"></span>--%>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>X0003</td>
-                                <td>3</td>
-                                <td>启用</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a href="editCaseClz.jsp" style="color: #2aabd2;">
-                                            编辑
-                                            <%--<span class="caret"></span>--%>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>X0004</td>
-                                <td>4</td>
-                                <td>启用</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a href="editCaseClz.jsp" style="color: #2aabd2;">
-                                            编辑
-                                            <%--<span class="caret"></span>--%>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>X0005</td>
-                                <td>5</td>
-                                <td>启用</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a href="editCaseClz.jsp" style="color: #2aabd2;">
-                                            编辑
-                                            <%--<span class="caret"></span>--%>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                            </tr>--%>
                             </tbody>
                         </table>
-                        <div class="row">
+                        <%--<div class="row">
                             <div class="col-xs-6" id="pageTotalRecord"></div>
                             <div class="col-xs-6">
                                 <div class="dataTables_paginate paging_bootstrap" id="paginationContainer"> </div>
                             </div>
-                        </div>
+                        </div>--%>
                     </div>
                 </div>
             </section>
@@ -164,6 +108,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/legalcase/clz/case_clz_list_query.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

@@ -15,6 +15,23 @@
         a:hover {
             text-decoration: none;
         }
+        table.table tr:nth-child(odd)
+        {
+            background-color:#f9f9f9;
+        }
+        table.table tr:nth-child(even)
+        {
+            background-color:#fff;
+        }
+        .no-editable{
+            color: #ccc;
+        }
+        .no-editable a{
+            color: #ccc;
+        }
+        a {
+            color: #333;
+        }
     </style>
 </head>
 <!-- END HEAD -->
@@ -47,10 +64,10 @@
                     <div class="dataTables_wrapper no-footer">
                         <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                             <div class="row">
-                                <div class="col-xs-3 move20">
+                                <div class="col-xs-2 move20">
                                     <input type="text" class="form-control" placeholder="委托编号或名称">
                                 </div>
-                                <div class="col-xs-3 move20">
+                                <div class="col-xs-2 move20">
                                     <input type="text move20" class="form-control" placeholder="委托人姓名或手机">
                                 </div>
                                 <div class="col-xs-2 move20">
@@ -58,8 +75,11 @@
                                 </div>
                                 <div class="col-xs-2 move20">
                                     <select class="form-control" style="border-color: #e1e1e1;">
-                                        <option value="0">未审核</option>
-                                        <option value="1">审核中</option>
+                                        <option value="">全部</option>
+                                        <option value="0">未发布</option>
+                                        <option value="1">已发布</option>
+                                        <option value="2">已结案</option>
+                                        <option value="3">已作废</option>
                                     </select>
                                 </div>
                                 <div class="col-xs-2">
@@ -89,7 +109,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                            <%--<tr>
                                 <td>1</td>
                                 <td>D0001</td>
                                 <td>打官司</td>
@@ -114,241 +134,7 @@
                                         </ul>
                                     </div>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>D0001</td>
-                                <td>打官司</td>
-                                <td>王麻子</td>
-                                <td>13901234567</td>
-                                <td>2017-08-28</td>
-                                <td>张三</td>
-                                <td>XXXXX</td>
-                                <td>10000.00</td>
-                                <td>审核中</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            查看详情
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/legalcase/entrust/caseEntrustDetail.jsp?orderCode=D0001">查看详情</a></li>
-                                            <li><a href="#">审核通过</a></li>
-                                            <li><a href="#">不通过</a></li>
-                                            <li><a href="#">结案</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>D0001</td>
-                                <td>打官司</td>
-                                <td>王麻子</td>
-                                <td>13901234567</td>
-                                <td>2017-08-28</td>
-                                <td>张三</td>
-                                <td>XXXXX</td>
-                                <td>10000.00</td>
-                                <td>审核中</td>
-                                <td>
-                                    <div class="btn-group">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                        查看详情
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="/view/legalcase/entrust/caseEntrustDetail.jsp?orderCode=D0001">查看详情</a></li>
-                                        <li><a href="#">审核通过</a></li>
-                                        <li><a href="#">不通过</a></li>
-                                        <li><a href="#">结案</a></li>
-                                    </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>D0001</td>
-                                <td>打官司</td>
-                                <td>王麻子</td>
-                                <td>13901234567</td>
-                                <td>2017-08-28</td>
-                                <td>张三</td>
-                                <td>XXXXX</td>
-                                <td>10000.00</td>
-                                <td>审核中</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            查看详情
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/legalcase/entrust/caseEntrustDetail.jsp?orderCode=D0001">查看详情</a></li>
-                                            <li><a href="#">审核通过</a></li>
-                                            <li><a href="#">不通过</a></li>
-                                            <li><a href="#">结案</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>D0001</td>
-                                <td>打官司</td>
-                                <td>王麻子</td>
-                                <td>13901234567</td>
-                                <td>2017-08-28</td>
-                                <td>张三</td>
-                                <td>XXXXX</td>
-                                <td>10000.00</td>
-                                <td>审核中</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            查看详情
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/legalcase/entrust/caseEntrustDetail.jsp?orderCode=D0001">查看详情</a></li>
-                                            <li><a href="#">审核通过</a></li>
-                                            <li><a href="#">不通过</a></li>
-                                            <li><a href="#">结案</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>D0001</td>
-                                <td>打官司</td>
-                                <td>王麻子</td>
-                                <td>13901234567</td>
-                                <td>2017-08-28</td>
-                                <td>张三</td>
-                                <td>XXXXX</td>
-                                <td>10000.00</td>
-                                <td>审核中</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            查看详情
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/legalcase/entrust/caseEntrustDetail.jsp?orderCode=D0001">查看详情</a></li>
-                                            <li><a href="#">审核通过</a></li>
-                                            <li><a href="#">不通过</a></li>
-                                            <li><a href="#">结案</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>D0001</td>
-                                <td>打官司</td>
-                                <td>王麻子</td>
-                                <td>13901234567</td>
-                                <td>2017-08-28</td>
-                                <td>张三</td>
-                                <td>XXXXX</td>
-                                <td>10000.00</td>
-                                <td>审核中</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            查看详情
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/legalcase/entrust/caseEntrustDetail.jsp?orderCode=D0001">查看详情</a></li>
-                                            <li><a href="#">审核通过</a></li>
-                                            <li><a href="#">不通过</a></li>
-                                            <li><a href="#">结案</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>D0001</td>
-                                <td>打官司</td>
-                                <td>王麻子</td>
-                                <td>13901234567</td>
-                                <td>2017-08-28</td>
-                                <td>张三</td>
-                                <td>XXXXX</td>
-                                <td>10000.00</td>
-                                <td>审核中</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            查看详情
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/legalcase/entrust/caseEntrustDetail.jsp?orderCode=D0001">查看详情</a></li>
-                                            <li><a href="#">审核通过</a></li>
-                                            <li><a href="#">不通过</a></li>
-                                            <li><a href="#">结案</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td>D0001</td>
-                                <td>打官司</td>
-                                <td>王麻子</td>
-                                <td>13901234567</td>
-                                <td>2017-08-28</td>
-                                <td>张三</td>
-                                <td>XXXXX</td>
-                                <td>10000.00</td>
-                                <td>审核中</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            查看详情
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/legalcase/entrust/caseEntrustDetail.jsp?orderCode=D0001">查看详情</a></li>
-                                            <li><a href="#">审核通过</a></li>
-                                            <li><a href="#">不通过</a></li>
-                                            <li><a href="#">结案</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>D0001</td>
-                                <td>打官司</td>
-                                <td>王麻子</td>
-                                <td>13901234567</td>
-                                <td>2017-08-28</td>
-                                <td>张三</td>
-                                <td>XXXXX</td>
-                                <td>10000.00</td>
-                                <td>审核中</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            查看详情
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/legalcase/entrust/caseEntrustDetail.jsp?orderCode=D0001">查看详情</a></li>
-                                            <li><a href="#">审核通过</a></li>
-                                            <li><a href="#">不通过</a></li>
-                                            <li><a href="#">结案</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
+                            </tr>--%>
                             </tbody>
                         </table>
                         <div class="row">
@@ -369,6 +155,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/legalcase/entrust/case_entrust_list_query.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

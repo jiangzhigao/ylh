@@ -63,7 +63,7 @@
                             <a class="" href="javascript:;">商品管理</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:;">服务分类</a>
+                                    <a href="/view/business/product/serviceClzList.jsp">服务分类</a>
                                 </li>
                             </ul>
                         </li>
@@ -71,13 +71,13 @@
                             <a class="" href="javascript:;">订单管理</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:;">服务订单</a>
+                                    <a href="/view/business/order/service/serviceOrderList.jsp">服务订单</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">预约订单</a>
+                                    <a href="/view/business/order/reservation/reservationOrderList.jsp">预约订单</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">委托订单</a>
+                                    <a href="/view/business/order/entrust/entrustOrderList.jsp">委托订单</a>
                                 </li>
                             </ul>
                         </li>
@@ -85,10 +85,10 @@
                             <a class="" href="javascript:;">提现管理</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:;">提现申请</a>
+                                    <a href="/view/business/cash/apply/withdrawCashApplyList.jsp">提现申请</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">提现记录</a>
+                                    <a href="/view/business/cash/record/withdrawCashRecordList.jsp">提现记录</a>
                                 </li>
                             </ul>
                         </li>
@@ -96,15 +96,15 @@
                             <a class="" href="javascript:;">退款管理</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:;">退款申请</a>
+                                    <a href="/view/business/refund/apply/refundApplyList.jsp">退款申请</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">退款记录</a>
+                                    <a href="/view/business/refund/record/refundRecordList.jsp">退款记录</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a class="" href="javascript:;">抵用券管理</a>
+                            <a class="" href="/view/business/coupon/couponList.jsp">抵用券管理</a>
                         </li>
                     </ul>
                 </li>
@@ -135,16 +135,16 @@
                             <a href="javascript:;">律师管理</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/customercenter/lawyermanagement/lawyer/lawyerManagementList.jsp">律师管理</a>
+                                    <a href="/view/customercenter/lawyermanagement/lawyerManagementList.jsp">律师管理</a>
                                 </li>
                                 <li>
                                     <a href="/view/customercenter/lawyermanagement/speciality/specialityList.jsp">专业领域</a>
                                 </li>
                                 <li>
-                                    <a href="/view/customercenter/lawyermanagement/complaint/complaintAndAdviceList.jsp">投诉建议</a>
+                                    <a href="/view/customercenter/lawyermanagement/complaintAndAdviceList.jsp">投诉建议</a>
                                 </li>
                                 <li>
-                                    <a href="/view/customercenter/lawyermanagement/income/incomeRecord.jsp">收入记录</a>
+                                    <a href="/view/customercenter/lawyermanagement/incomeRecord.jsp">收入记录</a>
                                 </li>
                             </ul>
                         </li>
@@ -217,16 +217,16 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="javascript:;">app更新设置</a>
+                            <a href="/view/mobile/version/appVersionList.jsp">app更新设置</a>
                         </li>
                         <li>
-                            <a href="javascript:;">app消息群发</a>
+                            <a href="/view/mobile/message/appPushList.jsp">app消息群发</a>
                         </li>
                         <li>
-                            <a href="javascript:;">客户端首页推荐管理</a>
+                            <a href="/view/mobile/recommend/client/appClientList.jsp">客户端首页推荐管理</a>
                         </li>
                         <li>
-                            <a href="javascript:;">律师端首页推荐管理</a>
+                            <a href="/view/mobile/recommend/lawyer/appLawyerList.jsp">律师端首页推荐管理</a>
                         </li>
                     </ul>
                 </li>
@@ -240,22 +240,22 @@
                             <a href="javascript:;">基础设置</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:;">站点设置</a>
+                                    <a href="/view/sys/settings/site/siteSettings.jsp">站点设置</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">密码修改</a>
+                                    <a href="/view/sys/settings/pwd/updatePwd.jsp">密码修改</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">支付设置</a>
+                                    <a href="/view/sys/settings/pay/payTypeList.jsp">支付设置</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">区域设置</a>
+                                    <a href="/view/sys/settings/district/districtList.jsp">区域设置</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">银行编码设置</a>
+                                    <a href="/view/sys/settings/bank/bankCodeList.jsp">银行编码设置</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">抵用券规则设置</a>
+                                    <a href="/view/sys/settings/coupon/couponRuleList.jsp">抵用券规则设置</a>
                                 </li>
                             </ul>
                         </li>
@@ -263,10 +263,10 @@
                             <a href="javascript:;">权限管理</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:;">权限组管理</a>
+                                    <a href="/view/sys/permission/role/roleList.jsp">权限组管理</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">管理员列表</a>
+                                    <a href="/view/sys/permission/user/userList.jsp">管理员列表</a>
                                 </li>
                             </ul>
                         </li>
@@ -282,13 +282,13 @@
                             <a href="javascript:;">基础设置</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:;">站点设置</a>
+                                    <a href="/view/internet/settings/site/siteSettings.jsp">站点设置</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">首页轮播图设置</a>
+                                    <a href="/view/internet/settings/homepage/slideshowSettings.jsp">首页轮播图设置</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">关于设置</a>
+                                    <a href="/view/internet/settings/about/aboutSettings.jsp">关于设置</a>
                                 </li>
                             </ul>
                         </li>
@@ -296,7 +296,7 @@
                             <a href="javascript:;">线下律所管理</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:;">线下律所列表</a>
+                                    <a href="/view/internet/lawfirm/lawFirmList.jsp">线下律所列表</a>
                                 </li>
                             </ul>
                         </li>
@@ -304,7 +304,7 @@
                             <a href="javascript:;">法律咨询管理</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:;">法律咨询列表</a>
+                                    <a href="/view/internet/legaladvice/adviceList.jsp">法律咨询列表</a>
                                 </li>
                             </ul>
                         </li>

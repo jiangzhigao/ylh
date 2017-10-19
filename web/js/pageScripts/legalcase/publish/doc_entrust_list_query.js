@@ -48,6 +48,12 @@ jQuery(function(){
             if($this.parent().index()==0){
                 var bizUrl = $this.attr('bz-url');
                 window.location.href = bizUrl+'?dataId='+id;
+            }else{//作废操作
+                //no-editable
+                if(!($this.hasClass("no-editable"))){
+                    var reqUrl = webBasePath+'/entrusts/'+id;
+                    _userBlocked($this,reqUrl);
+                }
             }
         });
     }
@@ -70,15 +76,13 @@ jQuery(function(){
         return totalPages;
     }
 
-    function _optionsHtml(id){
+    function _optionsHtml(id,clz){
         var _operHtml = [];
         _operHtml.push('<div class="btn-group">');
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">查看详情<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li><a bz-url="/view/legalcase/publish/docEntrustDetail.jsp" bid="'+id+'">查看详情</a></li>');
-        _operHtml.push('<li><a href="javascript:;">审核通过</a></li>');
-        _operHtml.push('<li><a href="javascript:;">不通过</a></li>');
-        _operHtml.push('<li><a href="javascript:;">结案</a></li>');
+        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url="/view/legalcase/publish/docEntrustDetail.jsp" bid="'+id+'">查看详情</a></li>');
+        _operHtml.push('<li><a href="javascript:;" bid="'+id+'" class="'+clz+'">作废</a></li>');
         _operHtml.push('</ul></div>');
 
         return  _operHtml.join('');
@@ -98,12 +102,13 @@ jQuery(function(){
                     var $pageTotalRecord = $('#pageTotalRecord');
                     if (result.entrusts != null && result.entrusts.length > 0) {
                         var data = result.entrusts;
-                        var _html = new Array();
+                        var _html = new Array(),clz;
                         var statusArray = ['未发布', '已发布','已结案','已作废'];
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
                             var dataId = obj.id;
                             var statusInt = parseInt(obj.status);
+                            clz = statusInt == 3?"no-editable":"";
                             _html.push('<tr>');
                             _html.push('<td>' + obj.id + '</td>');
                             _html.push('<td>' + obj.commisionName + '</td>');
@@ -114,7 +119,7 @@ jQuery(function(){
                             _html.push('<td>' + obj.agencyFee + '</td>');
                             _html.push('<td>' + statusArray[statusInt] + '</td>');
 
-                            _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
+                            _html.push('<td style="text-align: right;">' +  _optionsHtml(dataId,clz) + '</td>');
                             _html.push('</tr>');
                         }
 
@@ -136,6 +141,28 @@ jQuery(function(){
 
                 }else{
                     FOXKEEPER_UTILS.alert('warning', result.message);
+                }
+            }
+        });
+    }
+
+    function _userBlocked($this,reUrl){
+        var ajaxdata = {};
+        var user = $.getuuuAuth();
+        ajaxdata.username = user._d;
+        ajaxdata.password = user._p;
+        ajaxdata.userType = 2;
+        ajaxdata.status = 3;
+        jQuery.ajax({
+            dataType: "json",
+            url: reUrl,
+            data: ajaxdata,
+            type: "POST",
+            success: function (result) {
+                if (result.success) {
+                    $this.addClass("no-editable");
+                    $this.parent().parent().parent().parent().prev().text("已作废")
+                    FOXKEEPER_UTILS.alert('success',result.message);
                 }
             }
         });
