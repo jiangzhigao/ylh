@@ -26,7 +26,7 @@ jQuery(function(){
 
     /** 初始化 **/
     function _init(){
-
+        _initInfoTypes();
     }
 
     /** 绑定事件 **/
@@ -87,16 +87,15 @@ jQuery(function(){
                 data: ajaxdata,
                 type: "POST",
                 success: function (result) {
-                    var recUrl,data = result.information;
+                    var recUrl, data = result.information;
                     if (result.success) {
-                        FOXKEEPER_UTILS.alert('success',result.message);
-                        setTimeout(function(){
-                            location.replace("/view/contentmanager/information/commonweal/commonwealList.jsp");
+                        FOXKEEPER_UTILS.alert('success', result.message);
+                        setTimeout(function () {
+                            location.replace("/view/contentmanager/information/news/newsList.jsp");
                         }, 1000);
                     }
-                    else
-                    {
-                        FOXKEEPER_UTILS.alert('warning',result.message);
+                    else {
+                        FOXKEEPER_UTILS.alert('warning', result.message);
                         $this.html(buttonText).attr("disabled", false);
                     }
                 },
@@ -104,6 +103,8 @@ jQuery(function(){
                     $this.html('<i class=\"fa fa-spinner\"></i>&nbsp;正在' + buttonText).attr("disabled", "disabled");
                 }
             });
+        }else {
+            return false;
         }
     }
 
@@ -138,7 +139,7 @@ jQuery(function(){
                 }
             },
             error: function (xhr, status, e) {
-                FOXKEEPER_UTILS.alert('warning', '上传出错，请重试');l
+                FOXKEEPER_UTILS.alert('warning', '上传出错，请重试');
             }
         });
         return false;
@@ -150,12 +151,48 @@ jQuery(function(){
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
 
+        ajaxdata.type = 0;
         ajaxdata.title = $("#title").val();
-        ajaxdata.type = 2;
+        ajaxdata.infoType = $("#classify").val();
+        ajaxdata.picture = $("#coverUrl").val();
         ajaxdata.summary = $("#summary").val();
         ajaxdata.content = ue.getContent();
-        ajaxdata.isDisplay = $("#isDisplay").val();
-
+        // ajaxdata.isDisplay = $("#status").val();
+        ajaxdata.isDisplay = $("input[name='status']:checked").val();
     }
+    /** 请求参数验证 */
+    // function _verifyAjaxData () {
+    //     if (!ajaxdata.picture) {
+    //         FOXKEEPER_UTILS.alert('warning', '请上传缩略图');
+    //         return false;
+    //     }
+    //     return true;
+    // }
 
+    function _initInfoTypes(){
+        var queryInfoData = {};
+        var user = $.getuuuAuth();
+        queryInfoData.username = user._d;
+        queryInfoData.password = user._p;
+        queryInfoData.userType = 1;
+        jQuery.ajax({
+            dataType: "json",
+            url: webBasePath + '/infoTypes',
+            data: queryInfoData,
+            type: "GET",
+            success: function (result) {
+                if (result.success) {
+                    if (result.infoTypes != null && result.infoTypes.length > 0) {
+                        var data = result.infoTypes;
+                        for (var i = 0; i < data.length; i++) {
+                            var obj = data[i];
+                            var dataId = obj.id;
+                            $("#classify").append('<option value="'+dataId+'">'+obj.name+'</option>');
+                        }
+                    }
+
+                }
+            }
+        });
+    }
 });

@@ -80,25 +80,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>D0001</td>
-                                <td>打官司</td>
-                                <td>王麻子</td>
-                                <td>13901234567</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            查看详情
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/customercenter/lawyermanagement/complaint/complaintAndAdviceDetail.jsp?orderCode=D0001">查看订单详情</a></li>
 
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
                             </tbody>
                         </table>
                         <div class="row">

@@ -53,31 +53,42 @@
 <section id="main-content" class=" " style="">
     <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
         <header class="panel_header" style="background-color: #fff;margin-top:45px;">
-            <h4 class="title pull-left" style="font-size: 15px;">内容管理 / 资讯动态 / 添加动态</h4>
+            <h4 class="title pull-left" style="font-size: 15px;">内容管理 / 咨询动态 / 动态编辑</h4>
         </header>
 
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">添加动态</h2>
+                    <h2 class="title pull-left">动态编辑</h2>
                     <div class="pull-right">
                         <div id="page_alert_container"></div>
                     </div>
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
+                        <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">标题</label>
+                                        <label class="col-xs-2 control-label" for="title">标题</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入标题" value="" id="commisionName" name="commisionName"
+                                            <input type="text" class="form-control" placeholder="请输入标题" value="" id="title" name="title"
                                                    maxlength="20" id="">
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <%--<div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-xs-2 control-label" for="summary">摘要</label>
+                                        <div class="col-xs-5">
+                                            <input type="text" class="form-control" placeholder="请输入摘要" value="" id="summary" name="summary"
+                                                   maxlength="20">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>--%>
                             <div class="row">
                                 <div class="col-xs-offset-2 col-xs-10">
                                     <div class="form-group col-xs-5" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox">
@@ -116,9 +127,9 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">是否显示</label>
                                         <div class="col-xs-5" style="padding-top: 5px;">
-                                            <input type="radio" class="" value="1" id="status_normal" name="status" checked>显示
+                                            <input type="radio" class="" value="true" id="status_normal" name="status" checked>显示
                                             &nbsp;&nbsp;
-                                            <input type="radio" class="" value="0" id="status_blocked" name="status">隐藏
+                                            <input type="radio" class="" value="false" id="status_blocked" name="status">隐藏
                                         </div>
                                     </div>
                                 </div>
@@ -155,7 +166,9 @@
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
-<script type="text/javascript" src="/js/pageScripts/content/information/trend/add_trend.js"></script>
+<script type="text/javascript" src="/js/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/information/trend/edit_trend.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

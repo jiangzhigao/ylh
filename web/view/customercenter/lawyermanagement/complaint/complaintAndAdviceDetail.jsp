@@ -66,7 +66,7 @@
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
+                        <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
                             <div class="col-md-12">
                                 <ul class="nav nav-tabs">
                                     <li class="active">
@@ -82,7 +82,7 @@
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label">手机号</label>
                                                     <div class="col-xs-5">
-                                                        <label class="control-label" id="userName" name="userName">13901234567</label>
+                                                        <label class="control-label" id="userName" name="userName"></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -105,7 +105,7 @@
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label" for="content">内容</label>
                                                     <div class="col-xs-5">
-                                                        <input type="text" class="form-control" placeholder="内容" value="123456789012345678" id="content"
+                                                        <input type="text" class="form-control" placeholder="内容" id="content"
                                                                maxlength="18">
                                                     </div>
                                                 </div>
@@ -117,7 +117,7 @@
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label">日期</label>
                                                     <div class="col-xs-5">
-                                                        <label class="control-label" id="createdTime">2017-08-08</label>
+                                                        <label class="control-label" id="createdTime"></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -139,6 +139,7 @@
 
                                     </div>
                             </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -154,8 +155,10 @@
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
-<script type="text/javascript" src="/js/pageScripts/custom/lawyer/complaint/edit_complaint.js"></script>
+<script type="text/javascript" src="/js/plugins/select2/select2.min.js"></script>
 <script type="text/javascript" src="/js/custom/request-util.js"></script>
+<script type="text/javascript" src="/js/pageScripts/custom/lawyer/complaint/edit_complaint.js"></script>
+
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

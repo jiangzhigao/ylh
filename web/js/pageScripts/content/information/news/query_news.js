@@ -1,5 +1,6 @@
 jQuery(function(){
     'use strict';
+
     var $paginationContainer = $('#paginationContainer');
     //分页功能
     var options = {
@@ -46,10 +47,36 @@ jQuery(function(){
             if($this.parent().index()==0){
                 var bizUrl = $this.attr('bz-url');
                 window.location.href = bizUrl+'?dataId='+id;
+            }else{//删除操作
+                //no-editable
+                if(!($this.hasClass("no-editable"))){
+                    var reqUrl = webBasePath+'/informations/'+id;
+                    _userBlocked($this,reqUrl);
+                }
             }
         });
     }
-
+    function _userBlocked($this,reUrl){
+        var ajaxdata = {};
+        var user = $.getuuuAuth();
+        ajaxdata.username = user._d;
+        ajaxdata.password = user._p;
+        ajaxdata.userType = 2;
+        ajaxdata.status = 0;
+        jQuery.ajax({
+            dataType: "json",
+            url: reUrl,
+            data: ajaxdata,
+            type: "POST",
+            success: function (result) {
+                if (result.success) {
+                    $this.addClass("no-editable");
+                    $this.parent().parent().parent().parent().prev().text("删除")
+                    FOXKEEPER_UTILS.alert('success',result.message);
+                }
+            }
+        });
+    }
     function _reset() {
         $('#batchDelete').removeClass('btn-primary').addClass('btn-default');
         $("input:checkbox").prop('checked', false);
@@ -68,22 +95,14 @@ jQuery(function(){
         }
         return totalPages;
     }
-    //
-    // function _optionsHtml(id){
-    //     var _operHtml = [];
-    //     _operHtml.push('<div class="btn-group">');
-    //     _operHtml.push('<a href="/view/customercenter/lawyermanagement/complaint/complaintAndAdviceDetail.jsp?" bid="'+id+'">查看详情</a>');
-    //     _operHtml.push('</div>');
-    //     return  _operHtml.join('');
-    // }
 
     function _optionsHtml(id){
         var _operHtml = [];
         _operHtml.push('<div class="btn-group">');
-         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">编辑<span class="caret"></span></a>');
+        _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li><a bz-url="/view/customercenter/lawyermanagement/complaint/complaintAndAdviceDetail.jsp" bid="'+id+'">查看详情</a></li>');
-        // _operHtml.push('<li><a href="javascript;" bid="'+id+'">删除</a></li>');
+        _operHtml.push('<li><a bz-url="/view/contentmanager/information/news/editNew.jsp" bid="'+id+'">编辑</a></li>');
+        _operHtml.push('<li><a href="javascript;" bid="'+id+'">删除</a></li>');
         _operHtml.push('</ul></div>');
 
         return  _operHtml.join('');
@@ -94,38 +113,35 @@ jQuery(function(){
         _setAjaxData();
         jQuery.ajax({
             dataType: "json",
-            url: webBasePath + '/advices',
+            url: webBasePath + '/informations',
             data: queryParams,
             type: "GET",
             success: function (result) {
                 if (result.success) {
                     var $dataList = $('#dataList');
                     var $pageTotalRecord = $('#pageTotalRecord');
-                    if (result.advices != null && result.advices.length > 0) {
+                    if (result.informations != null && result.informations.length > 0) {
                         var _html = new Array();
-                        var data = result.advices;
+                        var data = result.informations;
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
                             var dataId = obj.id;
                             _html.push('<tr>');
-                            _html.push('<td>' + obj.userName + '</td>');
-                            _html.push('<td>' + obj.nickname + '</td>');
-                            _html.push('<td>' + obj.content + '</td>');
+                            _html.push('<td>' + obj.id + '</td>');
+                            _html.push('<td>' + obj.title + '</td>');
+                            _html.push('<td>' + obj.summary + '</td>');
                             _html.push('<td>' + obj.createdTime + '</td>');
-                            _html.push('<td>' + (obj.status==1?"已处理":"未处理") + '</td>');
+                            _html.push('<td>' + obj.updatedTime + '</td>');
+                            _html.push('<td>' + (obj.isDisplay==1?"显示":"不显示") + '</td>');
                             _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');
                         }
-
                         $dataList.find('tbody').html(_html.join(''));
-
-                        options.totalPages = _sumTotalPages(result.advices.length);
+                        options.totalPages = _sumTotalPages(result.informations.length);
                         $paginationContainer.bootstrapPaginator(options);
-
                         $('#batchDeleteDiv').show();
-
                         $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite"> 共'
-                             + result.advices.length + '条记录，当前为第 ' + options.currentPage + ' 页');
+                            + result.informations.length + '条记录，当前为第 ' + options.currentPage + ' 页');
                     } else {
                         $('#batchDeleteDiv').hide();
                         $dataList.find('tbody').html('');
@@ -147,7 +163,7 @@ jQuery(function(){
         queryParams.username = user._d;
         queryParams.password = user._p;
         queryParams.userType = 2;
-
+        queryParams.type = 0;
     }
 
 });

@@ -47,10 +47,10 @@ jQuery(function(){
             if($this.parent().index()==0){
                 var bizUrl = $this.attr('bz-url');
                 window.location.href = bizUrl+'?dataId='+id;
-            }else{//冻结操作
+            }else{//删除操作
                 //no-editable
                 if(!($this.hasClass("no-editable"))){
-                    var reqUrl = webBasePath+'/lawyers/'+id;
+                    var reqUrl = webBasePath+'/informations/'+id;
                     _userBlocked($this,reqUrl);
                 }
             }
@@ -71,7 +71,7 @@ jQuery(function(){
             success: function (result) {
                 if (result.success) {
                     $this.addClass("no-editable");
-                    $this.parent().parent().parent().parent().prev().text("冻结")
+                    $this.parent().parent().parent().parent().prev().text("删除")
                     FOXKEEPER_UTILS.alert('success',result.message);
                 }
             }
@@ -96,13 +96,13 @@ jQuery(function(){
         return totalPages;
     }
 
-    function _optionsHtml(id,clz){
+    function _optionsHtml(id){
         var _operHtml = [];
         _operHtml.push('<div class="btn-group">');
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li><a bz-url="/view/customercenter/lawyermanagement/lawyer/editLawyer.jsp" bid="'+id+'">编辑</a></li>');
-        _operHtml.push('<li><a href="javascript:;" bid="'+id+'" class="'+clz+'">冻结</a></li>');
+        _operHtml.push('<li><a bz-url="/view/contentmanager/information/trend/editTrend.jsp" bid="'+id+'">编辑</a></li>');
+        _operHtml.push('<li><a href="javascript;" bid="'+id+'">删除</a></li>');
         _operHtml.push('</ul></div>');
 
         return  _operHtml.join('');
@@ -113,47 +113,35 @@ jQuery(function(){
         _setAjaxData();
         jQuery.ajax({
             dataType: "json",
-            url: webBasePath + '/lawyers',
+            url: webBasePath + '/informations',
             data: queryParams,
             type: "GET",
             success: function (result) {
                 if (result.success) {
                     var $dataList = $('#dataList');
                     var $pageTotalRecord = $('#pageTotalRecord');
-                    if (result.lawyers != null && result.lawyers.length > 0) {
-                        var data = result.lawyers,clz;
+                    if (result.informations != null && result.informations.length > 0) {
                         var _html = new Array();
-                        var statusArray = ['冻结', '正常'];
+                        var data = result.informations;
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
                             var dataId = obj.id;
-                            var statusInt = parseInt(obj.status);
-                            clz = statusInt == 0?"no-editable":"";
                             _html.push('<tr>');
-                            _html.push('<td>' + obj.userName + '</td>');
-                            _html.push('<td>' + obj.name + '</td>');
-                            _html.push('<td>' + obj.idcard + '</td>');
-                            _html.push('<td>' + obj.licenseid + '</td>');
-                            _html.push('<td>' + obj.employmentTime + '</td>');
+                            _html.push('<td>' + obj.id + '</td>');
+                            _html.push('<td>' + obj.title + '</td>');
                             _html.push('<td>' + obj.createdTime + '</td>');
-                            _html.push('<td>' + obj.account + '</td>');
-                            _html.push('<td>' + (obj.isVerified==true?"是":"否") + '</td>');
-                            _html.push('<td>' + (obj.isSigned==true?"是":"否") + '</td>');
-                            _html.push('<td>' + statusArray[statusInt] + '</td>');
-
-                            _html.push('<td>' +  _optionsHtml(dataId,clz) + '</td>');
+                            _html.push('<td>' + obj.updatedTime + '</td>');
+                             /*_html.push('<td>' + obj.summary + '</td>');*/
+                            _html.push('<td>' + (obj.isDisplay==1?"显示":"不显示") + '</td>');
+                            _html.push('<td>' + _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');
                         }
-
                         $dataList.find('tbody').html(_html.join(''));
-
-                        options.totalPages = _sumTotalPages(result.count);
+                        options.totalPages = _sumTotalPages(result.informations.length);
                         $paginationContainer.bootstrapPaginator(options);
-
                         $('#batchDeleteDiv').show();
-
                         $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite"> 共'
-                             + result.count + '条记录，当前为第 ' + options.currentPage + ' 页');
+                            + result.informations.length + '条记录，当前为第 ' + options.currentPage + ' 页');
                     } else {
                         $('#batchDeleteDiv').hide();
                         $dataList.find('tbody').html('');
@@ -175,7 +163,7 @@ jQuery(function(){
         queryParams.username = user._d;
         queryParams.password = user._p;
         queryParams.userType = 2;
-
+        queryParams.type = 1;
     }
 
 });

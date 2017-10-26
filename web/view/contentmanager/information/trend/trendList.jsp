@@ -91,82 +91,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>天王盖地虎</td>
-                                <td>2017-08-28</td>
-                                <td>2017-08-28</td>
-                                <td>显示</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            编辑
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/contentmanager/information/trend/editTrend.jsp">编辑</a></li>
-                                            <li><a href="#">删除</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>天王盖地虎</td>
-                                <td>2017-08-28</td>
-                                <td>2017-08-28</td>
-                                <td>显示</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            编辑
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/contentmanager/information/trend/editTrend.jsp">编辑</a></li>
-                                            <li><a href="#">删除</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>天王盖地虎</td>
-                                <td>2017-08-28</td>
-                                <td>2017-08-28</td>
-                                <td>显示</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            编辑
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/contentmanager/information/trend/editTrend.jsp">编辑</a></li>
-                                            <li><a href="#">删除</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>天王盖地虎</td>
-                                <td>2017-08-28</td>
-                                <td>2017-08-28</td>
-                                <td>显示</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            编辑
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/view/contentmanager/information/trend/editTrend.jsp">编辑</a></li>
-                                            <li><a href="#">删除</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
+
                             </tbody>
                         </table>
                         <div class="row">
@@ -187,6 +112,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/information/trend/query_trend.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

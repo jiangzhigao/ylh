@@ -71,7 +71,7 @@ jQuery(function(){
         $('#btnSave').on('click', function () {
             var id = $("#dataId").val();
             var $this = $(this);
-            _ajax($this, '保存',webBasePath+'/lawyers/'+id);
+            _ajax($this, '保存',webBasePath+'/users/'+id);
         });
 
         //返回
@@ -139,7 +139,7 @@ jQuery(function(){
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
 
-                                location.replace("/view/customercenter/lawyermanagement/lawyerManagementList.jsp");
+                                location.replace("/view/customercenter/membermanagement/memberList.jsp");
                             }, 1000);
                         }
                         else
@@ -168,19 +168,18 @@ jQuery(function(){
         ajaxdata.userName = $("#userName").val();
         ajaxdata.userPassword = ''/*$("#userPassword").val()*/;
         ajaxdata.name = $("#name").val();
-        ajaxdata.licenseid = $("#licenseid").val();
+        ajaxdata.nickname = $("#nickname").val();
         ajaxdata.idcard = $("#idcard").val();
         ajaxdata.picture = $("#coverUrl").val();
         ajaxdata.mobile = $("#mobile").val();
         ajaxdata.email = $("#email").val();
         ajaxdata.status = $("input[name='status']:checked").val();
-
     }
 
     /** 请求参数验证 */
     function _verifyAjaxData () {
         if (!ajaxdata.picture) {
-            FOXKEEPER_UTILS.alert('warning', '请上传律师头像');
+            FOXKEEPER_UTILS.alert('warning', '请上传会员头像');
             return false;
         }
         return true;

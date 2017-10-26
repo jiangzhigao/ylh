@@ -48,14 +48,14 @@
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
+                        <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="userName">分类名称</label>
+                                        <label class="col-xs-2 control-label" for="name">分类名称</label>
                                         <div class="col-xs-5">
                                             <input type="text" class="form-control"
-                                                   placeholder="请输入分类名称" value="" id="userName" name="userName"
+                                                   placeholder="请输入分类名称" value="" id="name" name="name"
                                                    maxlength="24">
                                         </div>
                                     </div>
@@ -64,10 +64,10 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="userPassword">分类颜色</label>
+                                        <label class="col-xs-2 control-label" for="color">分类颜色</label>
                                         <div class="col-xs-5">
                                             <input type="text" class="form-control colorpicker  colorpicker-element" data-horizontal="true"
-                                                   placeholder="请选择分类颜色" value="" id="userPassword" name="userPassword"
+                                                   placeholder="请选择分类颜色" value="" id="color" name="color"
                                                    maxlength="16">
                                         </div>
                                     </div>
@@ -76,9 +76,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="name">排序</label>
+                                        <label class="col-xs-2 control-label" for="sortNo">排序</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入排序号" value="" id="name" name="name"
+                                            <input type="text" class="form-control" placeholder="请输入排序号" value="" id="sortNo" name="sortNo"
                                                    maxlength="6">
                                         </div>
                                     </div>
@@ -117,8 +117,9 @@
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
-<%--<script type="text/javascript" src="/js/pageScripts/custom/member/add_member.js"></script>--%>
 <script type="text/javascript" src="/js/plugins/colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/classify/edit_classify.js"></script>
 <script type="text/javascript">
     /*$('.colorpicker').colorpicker();*/
 </script>

@@ -78,7 +78,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                           <%-- <tr>
                                 <td>1</td>
                                 <td>社会</td>
                                 <td style="color: #66CC00;">#66CC00</td>
@@ -153,7 +153,7 @@
                                         </ul>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr>--%>
                             </tbody>
                         </table>
                         <div class="row">
@@ -174,6 +174,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/classify/classifyList.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

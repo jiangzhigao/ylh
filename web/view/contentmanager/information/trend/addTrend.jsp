@@ -70,14 +70,26 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">标题</label>
+                                        <label class="col-xs-2 control-label" for="title">标题</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入标题" value="" id="commisionName" name="commisionName"
-                                                   maxlength="20" id="">
+                                            <input type="text" class="form-control" placeholder="请输入标题" value="" id="title" name="title"
+                                                   maxlength="20">
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <%--<div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-xs-2 control-label" for="summary">摘要</label>
+                                        <div class="col-xs-5">
+                                            <input type="text" class="form-control" placeholder="请输入摘要" value="" id="summary" name="summary"
+                                                   maxlength="20">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>--%>
                             <div class="row">
                                 <div class="col-xs-offset-2 col-xs-10">
                                     <div class="form-group col-xs-5" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox">

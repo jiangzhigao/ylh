@@ -66,7 +66,7 @@
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
+                        <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
                             <div class="col-md-12">
                                 <ul class="nav nav-tabs">
                                     <li class="active">
@@ -110,7 +110,7 @@
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <div class="form-group">
-                                                    <label class="col-xs-2 control-label">账户金额</label>
+                                                    <label class="col-xs-2 control-label" for="account">账户金额</label>
                                                     <div class="col-xs-5">
                                                         <button type="button"  id="account" class="btn btn-primary"></button>
                                                     </div>
@@ -250,9 +250,9 @@
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <div class="form-group">
-                                                    <label class="col-xs-2 control-label" for="address">所在地址</label>
+                                                    <label class="col-xs-2 control-label" for="province">所在地址</label>
                                                     <div class="col-xs-5">
-                                                        <select class="form-control" id="address" name="type" style="border-color: #e1e1e1;">
+                                                        <select class="form-control" id="province" name="city" style="border-color: #e1e1e1;">
                                                             <option value="0" selected>请选择省份</option>
                                                         </select>
                                                     </div>
@@ -264,7 +264,7 @@
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label" for="city"></label>
                                                     <div class="col-xs-5">
-                                                        <select class="form-control" id="city" name="type" style="border-color: #e1e1e1;">
+                                                        <select class="form-control" id="city" name="city" style="border-color: #e1e1e1;">
                                                             <option value="0" selected>请选择市</option>
                                                         </select>
                                                     </div>
@@ -274,9 +274,9 @@
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <div class="form-group">
-                                                    <label class="col-xs-2 control-label" for="9">律师等级</label>
+                                                    <label class="col-xs-2 control-label" for="level">律师等级</label>
                                                     <div class="col-xs-5">
-                                                        <select class="form-control" id="9" name="type" style="border-color: #e1e1e1;">
+                                                        <select class="form-control" id="9" name="level" style="border-color: #e1e1e1;">
                                                             <option value="1" selected>普通</option>
                                                             <option value="2" >中级</option>
                                                             <option value="3" >高级</option>
@@ -288,9 +288,9 @@
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <div class="form-group">
-                                                    <label class="col-xs-2 control-label" for="10">专业领域</label>
+                                                    <label class="col-xs-2 control-label" for="professionalField">专业领域</label>
                                                     <div class="col-xs-5">
-                                                        <select class="" id="10" multiple="multiple">
+                                                        <select class="" id="professionalField" multiple="multiple">
                                                             <%--<optgroup label="">
 
                                                             </optgroup>--%>

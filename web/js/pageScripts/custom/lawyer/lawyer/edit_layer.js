@@ -140,7 +140,7 @@ jQuery(function(){
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
 
-                                location.replace("/view/customercenter/lawyermanagement/lawyer/lawyerManagementList.jsp");
+                                location.replace("/view/custome/lawyer/lawyer/lawyerManagementList.jsp");
                             }, 1000);
                         }
                         else

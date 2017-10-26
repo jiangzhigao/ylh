@@ -41,7 +41,7 @@ jQuery(function(){
         $('#btnSave').on('click', function () {
             var id = $("#dataId").val();
             var $this = $(this);
-            _ajax($this, '保存',webBasePath+'/advices/'+id);
+            _ajax($this, '保存',webBasePath+'/infoTypes/'+id);
         });
 
         //返回
@@ -54,22 +54,17 @@ jQuery(function(){
         _setQueryAjaxData();
         jQuery.ajax({
             dataType: "json",
-            url: webBasePath + '/advices/'+id,
+            url: webBasePath + '/infoTypes/'+id,
             data: queryParam,
             type: "GET",
             success: function (result) {
                 if (result.success) {
-                    var advices = result.advice;
-                    var statusArray = ['未处理', '已处理'];
-                    if(advices){
-                        var statusInt = parseInt(advices.status);
-                        $("#dataId").val(advices.id);
-                        $("#userName").text(advices.userName);
-                        $("#nickname").text(advices.nickname);
-                        $("#content").val(advices.content);
-                        $("#createdTime").text(advices.createdTime);
-                        $("#status").val(statusArray[statusInt]);
-                        // $("#status").val(advices.status);
+                    var infoTypes = result.infoType;
+                    if(infoTypes){
+                        $("#dataId").val(infoTypes.id);
+                        $("#name").val(infoTypes.name);
+                        $("#color").val(infoTypes.color);
+                        $("#sortNo").val(infoTypes.sortNo);
                     }
                 }else{
                     FOXKEEPER_UTILS.alert('warning', result.message);
@@ -80,10 +75,40 @@ jQuery(function(){
 
     //封装ajax提交数据
     function _setQueryAjaxData () {
-        var professionalField = $.getuuuAuth();
-        queryParam.username = professionalField._d;
-        queryParam.password = professionalField._p;
+        var infoTypes = $.getuuuAuth();
+        queryParam.username = infoTypes._d;
+        queryParam.password = infoTypes._p;
         queryParam.userType = 2;
+    }
+
+    function _ajax($this, buttonText, reUrl) {
+        var formValid = $form_edit.validate().form();
+        if (formValid) {
+            _setAjaxData();
+                jQuery.ajax({
+                    dataType: "json",
+                    url: reUrl,
+                    data: ajaxdata,
+                    type: "POST",
+                    success: function (result) {
+                        if (result.success) {
+                            FOXKEEPER_UTILS.alert('success',result.message);
+                            setTimeout(function(){
+                                location.replace("/view/contentmanager/classify/classifyList.jsp");
+                            }, 1000);
+                        }else
+                        {
+                            FOXKEEPER_UTILS.alert('warning',result.message);
+                            $this.html(buttonText).attr("disabled", false);
+                        }
+                    },
+                    beforeSend: function () {// 设置表单提交前方法    
+                        $this.html('<i class=\"fa fa-spinner\"></i>&nbsp;正在' + buttonText).attr("disabled", "disabled");
+                    }
+                });
+            }
+
+        return false;
     }
 
     function _setAjaxData () {
@@ -94,5 +119,7 @@ jQuery(function(){
         ajaxdata.id = $("#dataId").val();
         ajaxdata.name = $("#name").val();
         ajaxdata.sortNo = $("#sortNo").val();
+        ajaxdata.color = $("#color").val();
+        ajaxdata.updatedTime = $("#updatedTime").val();
     }
 });

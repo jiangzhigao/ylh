@@ -115,8 +115,8 @@
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
-<%--<script type="text/javascript" src="/js/pageScripts/custom/member/add_member.js"></script>--%>
 <script type="text/javascript" src="/js/plugins/xxcolorpicker/js/jquery.bigcolorpicker.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/classify/add_classify.js"></script>
 <script type="text/javascript">
     $(function(){
         $("#color").bigColorpicker("color","L",3);

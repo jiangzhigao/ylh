@@ -64,7 +64,7 @@ jQuery(function(){
 
     /** 初始化 **/
     function _init(){
-
+        _initProvince();
     }
 
     /** 绑定事件 **/
@@ -77,6 +77,9 @@ jQuery(function(){
         //返回
         $('#btnBack').on('click', function () {
             window.history.back();
+        });
+        $('#province').change('click', function () {
+            _initProvinces($(this));
         });
 
         //图片上传
@@ -158,11 +161,11 @@ jQuery(function(){
                     data: ajaxdata,
                     type: "POST",
                     success: function (result) {
-                        var recUrl,data = result.entrust;
+                        var recUrl,data = result.lawyers;
                         if (result.success) {
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
-                                location.replace("view/customercenter/lawyermanagement/lawyer/lawyerManagementList.jsp");
+                                location.replace("/view/customercenter/lawyermanagement/lawyer/lawyerManagementList.jsp");
                             }, 1000);
                         }
                         else
@@ -196,6 +199,14 @@ jQuery(function(){
         ajaxdata.mobile = $("#mobile").val();
         ajaxdata.email = $("#email").val();
         ajaxdata.status = $("input[name='status']:checked").val();
+        ajaxdata.company = $("#company").val();
+        ajaxdata.province = $("#province").val();
+        ajaxdata.city = $("#city").val();
+        ajaxdata.employmentTime = $("#employmentTime").val();
+        ajaxdata.account = $("#account").val();
+        ajaxdata.level = $("#level").val();
+
+
     }
 
     /** 请求参数验证 */
@@ -205,5 +216,62 @@ jQuery(function(){
             return false;
         }
         return true;
+    }
+
+    function _initProvince(){
+        var queryInfoData = {};
+        var user = $.getuuuAuth();
+        queryInfoData.username = user._d;
+        queryInfoData.password = user._p;
+        queryInfoData.userType = 2;
+        jQuery.ajax({
+            dataType: "json",
+            url: webBasePath + '/provinces',
+            data: queryInfoData,
+            type: "GET",
+            success: function (result) {
+                if (result.success) {
+                    if (result.provinces != null && result.provinces.length > 0) {
+                        var data = result.provinces;
+                        for (var i = 0; i < data.length; i++) {
+                            var obj = data[i];
+                            var dataId = obj.id;
+                            $("#province").append('<option value="'+dataId+'">'+obj.name+'</option>');
+                        }
+                    }
+
+                }
+            }
+        });
+    }
+
+    function _initProvinces(ele){
+        var queryInfoData = {};
+        var user = $.getuuuAuth();
+        queryInfoData.username = user._d;
+        queryInfoData.password = user._p;
+        queryInfoData.userType = 2;
+        queryInfoData.provinceId  = ele.val();
+        jQuery.ajax({
+            dataType: "json",
+            url: webBasePath + '/citys',
+            data: queryInfoData,
+            type: "GET",
+            success: function (result) {
+                if (result.success) {
+                    if (result.citys != null && result.citys.length > 0) {
+                        var data = result.citys;
+                        $("#city").find("option:not(:first)").remove();
+                        for (var i = 0; i < data.length; i++) {
+                            var obj = data[i];
+                            var dataId = obj.id;
+                           /* $("#province").append('<option value="'+dataId+'">'+obj.name+'</option>');*/
+                            $("#city").append('<option value="'+dataId+'">'+obj.name+'</option>');
+                        }
+                    }
+
+                }
+            }
+        });
     }
 });

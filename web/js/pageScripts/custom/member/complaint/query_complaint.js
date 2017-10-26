@@ -46,10 +46,36 @@ jQuery(function(){
             if($this.parent().index()==0){
                 var bizUrl = $this.attr('bz-url');
                 window.location.href = bizUrl+'?dataId='+id;
+            }else{//删除操作
+                //no-editable
+                if(!($this.hasClass("no-editable"))){
+                    var reqUrl = webBasePath+'/professionalFields/'+id;
+                    _userBlocked($this,reqUrl);
+                }
             }
         });
     }
-
+    function _userBlocked($this,reUrl){
+        var ajaxdata = {};
+        var user = $.getuuuAuth();
+        ajaxdata.username = user._d;
+        ajaxdata.password = user._p;
+        ajaxdata.userType = 2;
+        ajaxdata.status = 0;
+        jQuery.ajax({
+            dataType: "json",
+            url: reUrl,
+            data: ajaxdata,
+            type: "POST",
+            success: function (result) {
+                if (result.success) {
+                    $this.addClass("no-editable");
+                    $this.parent().parent().parent().parent().prev().text("删除")
+                    FOXKEEPER_UTILS.alert('success',result.message);
+                }
+            }
+        });
+    }
     function _reset() {
         $('#batchDelete').removeClass('btn-primary').addClass('btn-default');
         $("input:checkbox").prop('checked', false);
@@ -68,24 +94,13 @@ jQuery(function(){
         }
         return totalPages;
     }
-    //
-    // function _optionsHtml(id){
-    //     var _operHtml = [];
-    //     _operHtml.push('<div class="btn-group">');
-    //     _operHtml.push('<a href="/view/customercenter/lawyermanagement/complaint/complaintAndAdviceDetail.jsp?" bid="'+id+'">查看详情</a>');
-    //     _operHtml.push('</div>');
-    //     return  _operHtml.join('');
-    // }
 
     function _optionsHtml(id){
         var _operHtml = [];
         _operHtml.push('<div class="btn-group">');
-         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">编辑<span class="caret"></span></a>');
-        _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li><a bz-url="/view/customercenter/lawyermanagement/complaint/complaintAndAdviceDetail.jsp" bid="'+id+'">查看详情</a></li>');
-        // _operHtml.push('<li><a href="javascript;" bid="'+id+'">删除</a></li>');
-        _operHtml.push('</ul></div>');
-
+        _operHtml.push('<a href="/view/customercenter/lawyermanagement/complaint/complaintAndAdviceDetail.jsp?" bid="'+id+'">查看详情</a>');
+        /*_operHtml.push('<li><a bz-url="/view/customercenter/lawyermanagement/speciality/editspeciality.jsp" bid="'+id+'">编辑</a></li>');*/
+        _operHtml.push('</div>');
         return  _operHtml.join('');
     }
 

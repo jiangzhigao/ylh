@@ -132,6 +132,7 @@ jQuery(function(){
                             _html.push('<td>' + obj.summary + '</td>');
                             _html.push('<td>' + obj.createdTime + '</td>');
                             _html.push('<td>' + obj.updatedTime + '</td>');
+                            _html.push('<td>' + (obj.isDisplay==1?"显示":"不显示") + '</td>');
                             _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');
                         }
