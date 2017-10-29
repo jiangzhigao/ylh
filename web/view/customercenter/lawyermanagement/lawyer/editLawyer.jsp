@@ -252,7 +252,7 @@
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label" for="province">所在地址</label>
                                                     <div class="col-xs-5">
-                                                        <select class="form-control" id="province" name="city" style="border-color: #e1e1e1;">
+                                                        <select class="form-control" id="province" name="province" style="border-color: #e1e1e1;">
                                                             <option value="0" selected>请选择省份</option>
                                                         </select>
                                                     </div>

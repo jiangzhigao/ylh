@@ -63,7 +63,7 @@
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
+                        <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
@@ -127,9 +127,9 @@
                                         <div class="col-xs-5" style="margin-left: -15px;">
                                             <div class="col-xs-1">
                                                 <div class="img-upload">
-                                                    <input type="hidden" id="coverUrl" value="" name="coverUrl"/>
-                                                    <button id="btnSearch" type="button" class="btn btn-primary">点击添加或修改</button>
-                                                    <input type="file" class="img-upload-file" id="lcimage_upload" name="lcimage_upload" mid="coverImage" uid="coverUrl">
+                                                    <input type="hidden" id="coverUrl1" value="" name="coverUrl"/>
+                                                    <button id="btnSearch1" type="button" class="btn btn-primary">点击添加或修改</button>
+                                                    <input type="file" class="img-upload-file" id="lcimage_upload1" name="lcimage_upload" mid="coverImage" uid="coverUrl">
                                                 </div>
                                             </div>
                                         </div>
@@ -138,8 +138,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-offset-2 col-xs-12">
-                                    <div class="form-group col-xs-5" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox">
-                                        <img src="/images/nopica.png" class="img-thumbnail" id="coverImage"/>
+                                    <div class="form-group col-xs-5" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox1">
+                                        <img src="/images/nopica.png" class="img-thumbnail" id="coverImage1"/>
                                     </div>
                                 </div>
                             </div>
@@ -150,9 +150,9 @@
                                         <div class="col-xs-5" style="margin-left: -15px;">
                                             <div class="col-xs-1">
                                                 <div class="img-upload">
-                                                    <input type="hidden" id="coverUrl" value="" name="coverUrl"/>
-                                                    <button id="btnSearch" type="button" class="btn btn-primary">点击添加或修改</button>
-                                                    <input type="file" class="img-upload-file" id="lcimage_upload" name="lcimage_upload" mid="coverImage" uid="coverUrl">
+                                                    <input type="hidden" id="coverUrl2" value="" name="coverUrl"/>
+                                                    <button id="btnSearch2" type="button" class="btn btn-primary">点击添加或修改</button>
+                                                    <input type="file" class="img-upload-file" id="lcimage_upload2" name="lcimage_upload" mid="coverImage" uid="coverUrl">
                                                 </div>
                                             </div>
                                         </div>
@@ -161,17 +161,17 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-offset-2 col-xs-12">
-                                    <div class="form-group col-xs-5" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox">
-                                        <img src="/images/nopica.png" class="img-thumbnail" id="coverImage"/>
+                                    <div class="form-group col-xs-5" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox2">
+                                        <img src="/images/nopica.png" class="img-thumbnail" id="coverImage2"/>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="endTime">用户端下载地址（Android）</label>
+                                        <label class="col-xs-2 control-label" for="androidDownload">用户端下载地址（Android）</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入用户端安卓端下载地址" id="endTime" name="endTime"
+                                            <input type="text" class="form-control" placeholder="请输入用户端安卓端下载地址" id="androidDownload" name="androidDownload"
                                                    value="" maxlength="20">
                                         </div>
                                     </div>
@@ -180,9 +180,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="endTime">用户端下载地址（IOS）</label>
+                                        <label class="col-xs-2 control-label" for="appleDownload">用户端下载地址（IOS）</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入用户端苹果端下载地址" id="endTime" name="endTime"
+                                            <input type="text" class="form-control" placeholder="请输入用户端苹果端下载地址" id="appleDownload" name="appleDownload"
                                                    value="" maxlength="20">
                                         </div>
                                     </div>
@@ -191,9 +191,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">首页线下律所文案</label>
+                                        <label class="col-xs-2 control-label" for="lawFirmDesc">首页线下律所文案</label>
                                         <div class="col-xs-6">
-                                            <textarea id="" name="" maxlength="256" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
+                                            <textarea id="lawFirmDesc" name="lawFirmDesc" maxlength="256" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -201,9 +201,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">首页律师团队文案</label>
+                                        <label class="col-xs-2 control-label" for="lawyerTeamDesc">首页律师团队文案</label>
                                         <div class="col-xs-6">
-                                            <textarea id="" name="" maxlength="256" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
+                                            <textarea id="lawyerTeamDesc" name="lawyerTeamDesc" maxlength="256" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -211,9 +211,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">首页APP下载文案</label>
+                                        <label class="col-xs-2 control-label" for="appDownloadDesc">首页APP下载文案</label>
                                         <div class="col-xs-6">
-                                            <textarea id="" name="" maxlength="256" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
+                                            <textarea id="appDownloadDesc" name="appDownloadDesc" maxlength="256" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -221,9 +221,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">首页法律咨询文案</label>
+                                        <label class="col-xs-2 control-label" for="lawAdviceDesc">首页法律咨询文案</label>
                                         <div class="col-xs-6">
-                                            <textarea id="" name="" maxlength="256" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
+                                            <textarea id="lawAdviceDesc" name="lawAdviceDesc" maxlength="256" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
                                         </div>
                                     </div>
                                 </div>

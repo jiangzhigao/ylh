@@ -53,27 +53,27 @@
 <section id="main-content" class=" " style="">
     <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
         <header class="panel_header" style="background-color: #fff;margin-top:45px;">
-            <h4 class="title pull-left" style="font-size: 15px;">网站管理 / 线下律所管理 / 添加律师</h4>
+            <h4 class="title pull-left" style="font-size: 15px;">网站管理 / 线下律所管理 / 律所编辑</h4>
         </header>
 
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">添加律师</h2>
+                    <h2 class="title pull-left">律所编辑</h2>
                     <div class="pull-right">
                         <div id="page_alert_container"></div>
                     </div>
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
+                        <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">律师名称</label>
+                                        <label class="col-xs-2 control-label" for="name">律所名称</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入律师名称" value="" id="commisionName" name="commisionName"
-                                                   maxlength="20" id="">
+                                            <input type="text" class="form-control" placeholder="请输入律所名称" value="" id="name" name="name"
+                                                   maxlength="20">
                                         </div>
                                     </div>
                                 </div>
@@ -81,10 +81,10 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">律师简介</label>
+                                        <label class="col-xs-2 control-label" for="description">律所简介</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入律师简介" value="" id="commisionName" name="commisionName"
-                                                   maxlength="20" id="">
+                                            <input type="text" class="form-control" placeholder="请输入律所简介" value="" id="description" name="description"
+                                                   maxlength="20">
                                         </div>
                                     </div>
                                 </div>
@@ -92,15 +92,15 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="type">排序</label>
+                                        <label class="col-xs-2 control-label" for="sortNo">排序</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入排序" value="" id="commisionName" name="commisionName"
+                                            <input type="text" class="form-control" placeholder="请输入排序" value="" id="sortNo" name="sortNo"
                                                    maxlength="20" id="">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                           <%-- <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label" for="commisionClient">摘要</label>
@@ -110,7 +110,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>--%>
                             <div class="row">
                                 <div class="col-xs-offset-2 col-xs-10">
                                     <div class="form-group col-xs-5" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox">
@@ -176,7 +176,8 @@
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
-<script type="text/javascript" src="/js/pageScripts/content/information/news/add_news.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
+<script type="text/javascript" src="/js/pageScripts/web/lawFirm/edit_lawFirm.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

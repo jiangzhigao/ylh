@@ -66,7 +66,7 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label" for="color">分类颜色</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control colorpicker  colorpicker-element" data-horizontal="true"
+                                            <input type="color" class="form-control colorpicker  colorpicker-element" data-horizontal="true"
                                                    placeholder="请选择分类颜色" value="" id="color" name="color"
                                                    maxlength="16">
                                         </div>

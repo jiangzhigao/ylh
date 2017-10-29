@@ -4,49 +4,25 @@ jQuery(function(){
     var ajaxdata = {};
     $form_add.validate({
         rules:{
-            userName:{
+          title:{
                 required:true,
             },
-            userPassword:{
+            content:{
                 required:true,
             },
             name:{
-                required:true,
-            },
-            licenseid:{
-                required:true,
-            },
-            mobile:{
-                required:true,
-            },
-            email:{
-                required:true,
-            },
-            idcard:{
                 required:true,
             }
         },
         messages:{
-            commisionName:{
-                required:"手机号或账户名不能为空"
+            title:{
+                required:"标题不能为空"
             },
-            userPassword:{
-                required:"密码不能为空"
+            content:{
+                required:"内容不能为空"
             },
             name:{
-                required:"律师姓名不能为空"
-            },
-            licenseid:{
-                required:"执照编号不能为空"
-            },
-            mobile:{
-                required:"备用手机号码不能为空"
-            },
-            email:{
-                required:"电子邮箱不能为空"
-            },
-            idcard:{
-                required:"身份证号不能为空"
+                required:"律所名称不能为空"
             }
         }
     });
@@ -61,10 +37,13 @@ jQuery(function(){
     function _render() {
 
     }
+    //富文本
+    var ue = new baidu.editor.ui.Editor({ initialFrameHeight:260 });
+    ue.render("editor");
 
     /** 初始化 **/
     function _init(){
-        _initProvince();
+
     }
 
     /** 绑定事件 **/
@@ -72,16 +51,12 @@ jQuery(function(){
         //保存
         $('#btnSave').on('click', function () {
             var $this = $(this);
-            _ajax($this, '保存',webBasePath+'/lawyers');
+            _ajax($this, '保存',webBasePath+'/lawFirms');
         });
         //返回
         $('#btnBack').on('click', function () {
             window.history.back();
         });
-        $('#province').change('click', function () {
-            _initProvinces($(this));
-        });
-
         //图片上传
         $('body').on('change', 'input[name$="_upload"]', function(e) {
             var _this = $(this);
@@ -97,7 +72,6 @@ jQuery(function(){
                 /*$processBar.addClass('hide');*/
                 return false;
             }
-
             //图片大小判断
             var imgSize = document.getElementById("lcimage_upload").files[0].size;
             if(imgSize>1024*1000){
@@ -106,13 +80,12 @@ jQuery(function(){
                 $("#imgBox").hide();
                 return false;
             }
-
             if (fileName != "") {
                 return ajaxFileUpload(_this, _this.attr("id"), null);
             }
         });
     }
-
+    // 上传文件
     function ajaxFileUpload($file, fileId, $processBar) {
         var user = $.getuuuAuth();
         var fileName = $file.val();
@@ -154,20 +127,20 @@ jQuery(function(){
         var formValid = $form_add.validate().form();
         if (formValid) {
             _setAjaxData();
-            if (_verifyAjaxData()) {
                 jQuery.ajax({
                     dataType: "json",
                     url: reUrl,
                     data: ajaxdata,
                     type: "POST",
                     success: function (result) {
-                        var recUrl,data = result.lawyers;
+                        var recUrl,data = result.lawFirms;
                         if (result.success) {
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
-                                location.replace("/view/customercenter/lawyermanagement/lawyer/lawyerManagementList.jsp");
+                                location.replace("/view/internet/lawfirm/lawFirmList.jsp");
                             }, 1000);
-                        } else
+                        }
+                        else
                         {
                             FOXKEEPER_UTILS.alert('warning',result.message);
                             $this.html(buttonText).attr("disabled", false);
@@ -177,11 +150,7 @@ jQuery(function(){
                         $this.html('<i class=\"fa fa-spinner\"></i>&nbsp;正在' + buttonText).attr("disabled", "disabled");
                     }
                 });
-            }  else {
-                return false;
-            }
         }
-        return false;
     }
 
     function _setAjaxData () {
@@ -189,86 +158,12 @@ jQuery(function(){
         ajaxdata.username = user._d;
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
-        ajaxdata.userName = $("#userName").val();
-        ajaxdata.userPassword = $("#userPassword").val();
         ajaxdata.name = $("#name").val();
-        ajaxdata.licenseid = $("#licenseid").val();
-        ajaxdata.idcard = $("#idcard").val();
-        ajaxdata.picture = $("#coverUrl").val();
-        ajaxdata.mobile = $("#mobile").val();
-        ajaxdata.email = $("#email").val();
-        ajaxdata.status = $("input[name='status']:checked").val();
-        ajaxdata.company = $("#company").val();
-        ajaxdata.province = $("#province").val();
-        ajaxdata.city = $("#city").val();
-        ajaxdata.employmentTime = $("#employmentTime").val();
-        ajaxdata.account = $("#account").val();
-        ajaxdata.level = $("#level").val();
+        ajaxdata.summary = $("#summary").val();
+        ajaxdata.content = ue.getContent();
+        ajaxdata.isDisplay = $("#isDisplay").val();
 
-    }
 
-    /** 请求参数验证 */
-    function _verifyAjaxData () {
-        if (!ajaxdata.picture) {
-            FOXKEEPER_UTILS.alert('warning', '请上传律师头像');
-            return false;
-        }
-        return true;
-    }
 
-    function _initProvince(){
-        var queryInfoData = {};
-        var user = $.getuuuAuth();
-        queryInfoData.username = user._d;
-        queryInfoData.password = user._p;
-        queryInfoData.userType = 2;
-        jQuery.ajax({
-            dataType: "json",
-            url: webBasePath + '/provinces',
-            data: queryInfoData,
-            type: "GET",
-            success: function (result) {
-                if (result.success) {
-                    if (result.provinces != null && result.provinces.length > 0) {
-                        var data = result.provinces;
-                        for (var i = 0; i < data.length; i++) {
-                            var obj = data[i];
-                            var dataId = obj.id;
-                            $("#province").append('<option value="'+dataId+'">'+obj.name+'</option>');
-                        }
-                    }
-
-                }
-            }
-        });
-    }
-
-    function _initProvinces(ele){
-        var queryInfoData = {};
-        var user = $.getuuuAuth();
-        queryInfoData.username = user._d;
-        queryInfoData.password = user._p;
-        queryInfoData.userType = 2;
-        queryInfoData.provinceId  = ele.val();
-        jQuery.ajax({
-            dataType: "json",
-            url: webBasePath + '/citys',
-            data: queryInfoData,
-            type: "GET",
-            success: function (result) {
-                if (result.success) {
-                    if (result.citys != null && result.citys.length > 0) {
-                        var data = result.citys;
-                        $("#city").find("option:not(:first)").remove();
-                        for (var i = 0; i < data.length; i++) {
-                            var obj = data[i];
-                            var dataId = obj.id;
-                           /* $("#province").append('<option value="'+dataId+'">'+obj.name+'</option>');*/
-                            $("#city").append('<option value="'+dataId+'">'+obj.name+'</option>');
-                        }
-                    }
-                }
-            }
-        });
     }
 });

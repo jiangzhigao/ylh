@@ -94,9 +94,9 @@
                                         <div class="col-xs-5" style="margin-left: -15px;">
                                             <div class="col-xs-1">
                                                 <div class="img-upload">
-                                                    <input type="hidden" id="coverUrl" value="" name="coverUrl"/>
-                                                    <button id="btnSearch" type="button" class="btn btn-primary">点击添加或修改</button>
-                                                    <input type="file" class="img-upload-file" id="lcimage_upload" name="lcimage_upload" mid="coverImage" uid="coverUrl">
+                                                    <input type="hidden" id="coverUrl1" value="" name="coverUrl"/>
+                                                    <button id="btnSearch1" type="button" class="btn btn-primary">点击添加或修改</button>
+                                                    <input type="file" class="img-upload-file" id="lcimage_upload1" name="lcimage_upload" mid="coverImage" uid="coverUrl">
                                                 </div>
                                             </div>
                                         </div>
@@ -105,8 +105,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-offset-2 col-xs-12">
-                                    <div class="form-group col-xs-5" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox">
-                                        <img src="/images/nopica.png" class="img-thumbnail" id="coverImage"/>
+                                    <div class="form-group col-xs-5" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox1">
+                                        <img src="/images/nopica.png" class="img-thumbnail" id="coverImage1"/>
                                     </div>
                                 </div>
                             </div>
@@ -117,9 +117,9 @@
                                         <div class="col-xs-5" style="margin-left: -15px;">
                                             <div class="col-xs-1">
                                                 <div class="img-upload">
-                                                    <input type="hidden" id="coverUrl" value="" name="coverUrl"/>
-                                                    <button id="btnSearch" type="button" class="btn btn-primary">点击添加或修改</button>
-                                                    <input type="file" class="img-upload-file" id="lcimage_upload" name="lcimage_upload" mid="coverImage" uid="coverUrl">
+                                                    <input type="hidden" id="coverUrl2" value="" name="coverUrl"/>
+                                                    <button id="btnSearch2" type="button" class="btn btn-primary">点击添加或修改</button>
+                                                    <input type="file" class="img-upload-file" id="lcimage_upload2" name="lcimage_upload" mid="coverImage" uid="coverUrl">
                                                 </div>
                                             </div>
                                         </div>
@@ -128,8 +128,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-offset-2 col-xs-12">
-                                    <div class="form-group col-xs-5" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox">
-                                        <img src="/images/nopica.png" class="img-thumbnail" id="coverImage"/>
+                                    <div class="form-group col-xs-5" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox2">
+                                        <img src="/images/nopica.png" class="img-thumbnail" id="coverImage2"/>
                                     </div>
                                 </div>
                             </div>
