@@ -67,9 +67,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="title">公司电话</label>
+                                        <label class="col-xs-2 control-label" for="telephone">公司电话</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入公司电话" id="title" name="title"
+                                            <input type="text" class="form-control" placeholder="请输入公司电话" id="telephone" name="telephone"
                                                    value=""  maxlength="20">
                                         </div>
                                     </div>
@@ -78,9 +78,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="amount">公司邮箱</label>
+                                        <label class="col-xs-2 control-label" for="email">公司邮箱</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入公司邮箱" id="amount" name="amount"
+                                            <input type="text" class="form-control" placeholder="请输入公司邮箱" id="email" name="email"
                                                    value=""  maxlength="20">
                                         </div>
                                     </div>
@@ -89,9 +89,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="startTime">公司地址</label>
+                                        <label class="col-xs-2 control-label" for="address">公司地址</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入公司地址" id="startTime" name="startTime"
+                                            <input type="text" class="form-control" placeholder="请输入公司地址" id="address" name="address"
                                                    value="" maxlength="20">
                                         </div>
                                     </div>
@@ -257,6 +257,8 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/sys/basic/site/siteSetting.js"></script>
+
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

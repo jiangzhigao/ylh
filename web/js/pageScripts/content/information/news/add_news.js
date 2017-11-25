@@ -34,20 +34,16 @@ jQuery(function(){
         //保存
         $('#btnSave').on('click', function () {
             var $this = $(this);
-            _ajax($this, '保存',webBasePath+'/informations',0);
+            _ajax($this, '保存',webBasePath+'/informations');
         });
-        //保存
-        $('#btnSaveAndPub').on('click', function () {
-            var $this = $(this);
-            _ajax($this, '发布',webBasePath+'/informations',1);
-        });
+
         //返回
         $('#btnBack').on('click', function () {
             window.history.back();
         });
 
         //图片上传
-        $('body').on('change', 'input[name$="_upload"]', function(e) {
+        $('body').on('change', 'input[name$="_upload"]', function() {
             var _this = $(this);
             var fileName = $(this).val();
             /*var $processBar = _this.parent().parent().prev('div');*/

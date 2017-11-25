@@ -63,13 +63,13 @@
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
+                        <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="title">初始管理员密码</label>
+                                        <label class="col-xs-2 control-label" for="initPassword">初始管理员密码</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入初始管理员密码" id="title" name="title"
+                                            <input type="text" class="form-control" placeholder="请输入初始管理员密码" id="initPassword" name="initPassword"
                                                    value=""  maxlength="20">
                                         </div>
                                     </div>
@@ -78,9 +78,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="amount">平台400电话</label>
+                                        <label class="col-xs-2 control-label" for="telephone400">平台400电话</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入平台400电话" id="amount" name="amount"
+                                            <input type="text" class="form-control" placeholder="请输入平台400电话" id="telephone400" name="telephone400"
                                                    value=""  maxlength="20">
                                         </div>
                                     </div>
@@ -89,9 +89,20 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="startTime">优惠券抵扣比例</label>
+                                        <label class="col-xs-2 control-label" for="deductionProp">优惠券抵扣比例</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入优惠券抵扣比例" id="startTime" name="startTime"
+                                            <input type="text" class="form-control" placeholder="请输入优惠券抵扣比例" id="deductionProp" name="deductionProp"
+                                                   value="" maxlength="6">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-xs-2 control-label" for="bonusProp1">系统占分红比例1</label>
+                                        <div class="col-xs-4">
+                                            <input type="text" class="form-control" placeholder="请输入系统占分红比例" id="bonusProp1" name="bonusProp1"
                                                    value="" maxlength="20">
                                         </div>
                                     </div>
@@ -100,9 +111,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="endTime">系统占分红比例1</label>
+                                        <label class="col-xs-2 control-label" for="bonusProp2">系统占分红比例2</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入系统占分红比例" id="endTime" name="endTime"
+                                            <input type="text" class="form-control" placeholder="请输入系统占分红比例" id="bonusProp2" name="bonusProp2"
                                                    value="" maxlength="20">
                                         </div>
                                     </div>
@@ -111,9 +122,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="endTime">系统占分红比例2</label>
+                                        <label class="col-xs-2 control-label" for="bonusProp3">系统占分红比例3</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入系统占分红比例" id="endTime" name="endTime"
+                                            <input type="text" class="form-control" placeholder="请输入系统占分红比例" id="bonusProp3" name="bonusProp3"
                                                    value="" maxlength="20">
                                         </div>
                                     </div>
@@ -122,10 +133,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="endTime">系统占分红比例2</label>
+                                        <label class="col-xs-2 control-label" for="serviceDesc">服务顾问介绍</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入系统占分红比例" id="endTime" name="endTime"
-                                                   value="" maxlength="20">
+                                            <textarea id="serviceDesc" name="serviceDesc" maxlength="256" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -133,19 +143,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">服务顾问介绍</label>
+                                        <label class="col-xs-2 control-label" for="serviceStandard">服务顾问标准</label>
                                         <div class="col-xs-4">
-                                            <textarea id="" name="" maxlength="256" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">服务顾问标准</label>
-                                        <div class="col-xs-4">
-                                            <textarea id="" name="" maxlength="256" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
+                                            <textarea id="serviceStandard" name="serviceStandard" maxlength="256" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -176,9 +176,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">律师预约介绍</label>
+                                        <label class="col-xs-2 control-label" for="lawyerDesc">律师预约介绍</label>
                                         <div class="col-xs-4">
-                                            <textarea id="" name="" maxlength="256" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
+                                            <textarea id="lawyerDesc" name="lawyerDesc" maxlength="256" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -186,9 +186,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">律师预约标准</label>
+                                        <label class="col-xs-2 control-label" for="lawyerStandard">律师预约标准</label>
                                         <div class="col-xs-4">
-                                            <textarea id="" name="" maxlength="256" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
+                                            <textarea id="lawyerStandard" name="lawyerStandard" maxlength="256" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -222,6 +222,12 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
+<script type="text/javascript" src="/js/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
+<script type="text/javascript" src="/js/pageScripts/sys/basic/site/siteSetting.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

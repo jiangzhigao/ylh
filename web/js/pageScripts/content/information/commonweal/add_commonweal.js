@@ -149,12 +149,12 @@ jQuery(function(){
         ajaxdata.username = user._d;
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
-
         ajaxdata.title = $("#title").val();
         ajaxdata.type = 2;
+        ajaxdata.type = 2;
         ajaxdata.summary = $("#summary").val();
-        ajaxdata.content = ue.getContent();
         ajaxdata.isDisplay = $("#isDisplay").val();
+        ajaxdata.content = ue.getContent();
 
     }
 

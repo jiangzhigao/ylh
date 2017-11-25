@@ -4,28 +4,31 @@ jQuery(function(){
     var queryParam = {},ajaxdata = {};
     $form_edit.validate({
         rules:{
-            title:{
+            name:{
                 required:true,
             },
-            content:{
+            provinceName:{
                 required:true,
             },
-            summary:{
+            sortNo:{
                 required:true,
             },
-            isDisplay:{
+            status:{
                 required:true,
             }
         },
         messages:{
-            title:{
-                required:"标题不能为空"
+            name:{
+                required:"城市名称不能为空"
             },
-            content:{
-                required:"内容不能为空"
+            provinceName:{
+                required:"省份名称不能为空"
             },
-            summary:{
-                required:"摘要不能为空"
+            sortNo:{
+                required:"排序不能为空"
+            },
+            status:{
+                required:"状态不能为空"
             }
         }
     });
@@ -34,8 +37,6 @@ jQuery(function(){
     _init();
     //绑定
     _bind();
-    //富文本
-    var ue = new baidu.editor.ui.Editor({ initialFrameHeight:260 });
 
     function _init(){
         //初始化列表
@@ -52,7 +53,7 @@ jQuery(function(){
             var parameter = $.getParameters();
             var id = parameter.dataId;
             var $this = $(this);
-            _ajax($this, '保存',webBasePath+'/agreementHelps/'+id);
+            _ajax($this, '保存',webBasePath+'/citys/'+id);
         });
 
         //返回
@@ -65,24 +66,19 @@ jQuery(function(){
         _setQueryAjaxData();
         jQuery.ajax({
             dataType: "json",
-            url: webBasePath + '/agreementHelps/'+id,
+            url: webBasePath + '/citys/'+id,
             data: queryParam,
             type: "GET",
             success: function (result) {
                 if (result.success) {
-                    var agreementHelps = result.agreementHelp;
-                    if(agreementHelps){
-                        $("#dataId").val(agreementHelps.id);
-                        $("#title").val(agreementHelps.title);
+                    var citys = result.city;
+                    if(citys){
+                        $("#dataId").val(citys.id);
+                        $("#provinceName").text(citys.provinceName);
+                        $("#name").val(citys.name);
+                        $("#sortNo").val(citys.sortNo);
+                        $("option[name='status'][value='"+citys.status+"']").attr("selected","selected");
 
-                        $("#summary").val(agreementHelps.summary);
-                        $("input[name='status'][value='"+agreementHelps.isDisplay+"']").attr("checked","checked");
-
-                        ue.render("editor");
-                        var ueContentHtml = agreementHelps.content;
-                        ue.addListener("ready", function () {
-                            ue.setContent(ueContentHtml, false);
-                        });
                     }
                 }else{
                     FOXKEEPER_UTILS.alert('warning', result.message);
@@ -112,7 +108,7 @@ jQuery(function(){
                         if (result.success) {
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
-                                location.replace("/view/contentmanager/help/helpList.jsp ");
+                                location.replace("/view/sys/settings/district/districtList.jsp");
                             }, 1000);
                         }else
                         {
@@ -135,9 +131,13 @@ jQuery(function(){
         ajaxdata.password = professionalField._p;
         ajaxdata.userType = 2;
         ajaxdata.id = $("#dataId").val();
-        ajaxdata.title = $("#title").val();
-        ajaxdata.summary = $("#summary").val();
-        ajaxdata.content = ue.getContent();
+        ajaxdata.name = $("#name").val();
+        ajaxdata.provinceName = $("#provinceName").val();
+        ajaxdata.status = $("#status").val();
+        ajaxdata.sortNo = $("#sortNo").val();
+        // ajaxdata.provinceName = $("#provinceName").val();
+        // ajaxdata.name = $("#name").val();
+        // ajaxdata.provinceName = $("#provinceName").val();
 
     }
 });

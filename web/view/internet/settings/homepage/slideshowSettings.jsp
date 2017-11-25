@@ -63,7 +63,7 @@
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
+                        <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
@@ -73,7 +73,7 @@
                                                 <div class="img-upload">
                                                     <input type="hidden" id="coverUrl" value="" name="coverUrl"/>
                                                     <button id="btnSearch" type="button" class="btn btn-primary">点击添加或修改</button>
-                                                    <input type="file" class="img-upload-file" id="lcimage_upload" name="lcimage_upload" mid="coverImage" uid="coverUrl">
+                                                    <input type="file" class="img-upload-file" id="1_upload" name="1_upload" mid="coverImage" uid="coverUrl">
                                                 </div>
                                             </div>
                                         </div>
@@ -94,9 +94,9 @@
                                         <div class="col-xs-5" style="margin-left: -15px;">
                                             <div class="col-xs-1">
                                                 <div class="img-upload">
-                                                    <input type="hidden" id="coverUrl1" value="" name="coverUrl"/>
+                                                    <input type="hidden" id="coverUrl1" value="" name="coverUrl1"/>
                                                     <button id="btnSearch1" type="button" class="btn btn-primary">点击添加或修改</button>
-                                                    <input type="file" class="img-upload-file" id="lcimage_upload1" name="lcimage_upload" mid="coverImage" uid="coverUrl">
+                                                    <input type="file" class="img-upload-file" id="2_upload" name="2_upload" mid="coverImage1" uid="coverUrl1">
                                                 </div>
                                             </div>
                                         </div>
@@ -117,9 +117,9 @@
                                         <div class="col-xs-5" style="margin-left: -15px;">
                                             <div class="col-xs-1">
                                                 <div class="img-upload">
-                                                    <input type="hidden" id="coverUrl2" value="" name="coverUrl"/>
+                                                    <input type="hidden" id="coverUrl2" value="" name="coverUrl2"/>
                                                     <button id="btnSearch2" type="button" class="btn btn-primary">点击添加或修改</button>
-                                                    <input type="file" class="img-upload-file" id="lcimage_upload2" name="lcimage_upload" mid="coverImage" uid="coverUrl">
+                                                    <input type="file" class="img-upload-file" id="3_upload" name="3_upload" mid="coverImage2" uid="coverUrl2">
                                                 </div>
                                             </div>
                                         </div>
@@ -162,6 +162,11 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
+<script type="text/javascript" src="/js/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
+<script type="text/javascript" src="/js/pageScripts/internet/basic/slideshow/slideShowSettiong.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

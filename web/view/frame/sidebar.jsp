@@ -185,7 +185,7 @@
                                     <a href="/view/contentmanager/activity/topic/topicList.jsp">话题管理</a>
                                 </li>
                                 <li>
-                                    <a href="/view/contentmanager/activity/activityList.jsp">活动管理</a>
+                                    <a href="/view/contentmanager/activity/activity/activityList.jsp">活动管理</a>
                                 </li>
                             </ul>
                         </li>

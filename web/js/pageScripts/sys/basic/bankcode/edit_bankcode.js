@@ -4,28 +4,31 @@ jQuery(function(){
     var queryParam = {},ajaxdata = {};
     $form_edit.validate({
         rules:{
-            title:{
+            id:{
                 required:true,
             },
-            content:{
+            name:{
                 required:true,
             },
-            summary:{
+            sortNo:{
                 required:true,
             },
-            isDisplay:{
+            status:{
                 required:true,
             }
         },
         messages:{
-            title:{
-                required:"标题不能为空"
+            id:{
+                required:"银行编码不能为空"
             },
-            content:{
-                required:"内容不能为空"
+            name:{
+                required:"银行名称不能为空"
             },
-            summary:{
-                required:"摘要不能为空"
+            sortNo:{
+                required:"排序不能为空"
+            },
+            status:{
+                required:"状态不能为空"
             }
         }
     });
@@ -34,11 +37,8 @@ jQuery(function(){
     _init();
     //绑定
     _bind();
-    //富文本
-    var ue = new baidu.editor.ui.Editor({ initialFrameHeight:260 });
 
     function _init(){
-        _initInfoTypes();
         //初始化列表
         var parameter = $.getParameters();
         var id = parameter.dataId;
@@ -53,7 +53,7 @@ jQuery(function(){
             var parameter = $.getParameters();
             var id = parameter.dataId;
             var $this = $(this);
-            _ajax($this, '保存',webBasePath+'/informations/'+id);
+            _ajax($this, '保存',webBasePath+'/banks/'+id);
         });
 
         //返回
@@ -66,27 +66,19 @@ jQuery(function(){
         _setQueryAjaxData();
         jQuery.ajax({
             dataType: "json",
-            url: webBasePath + '/informations/'+id,
+            url: webBasePath + '/banks/'+id,
             data: queryParam,
             type: "GET",
             success: function (result) {
                 if (result.success) {
-                    var informations = result.information;
-                    if(informations){
-                        $("#dataId").val(informations.id);
-                        $("#title").val(informations.title);
-                        $("#summary").val(informations.summary);
-                        $("#infoType").val(informations.infoType.id);
-                        $("#coverImage").attr("src",homePath+informations.picture);
-                        $("#coverUrl").val(homePath+informations.picture);
-                        // $("#infoType option[value='"+informations.infoType.id()+"']").attr("selected", true);
-                        $("input[name='status'][value='"+informations.isDisplay+"']").attr("checked","checked");
+                    var banks = result.bank;
+                    if(banks){
+                        $("#bankCode").val(banks.id);
+                        $("#provinceName").text(banks.provinceName);
+                        $("#name").val(banks.name);
+                        $("#sortNo").val(banks.sortNo);
+                        $("option[name='status'][value='"+banks.status+"']").attr("selected","selected");
 
-                        ue.render("editor");
-                        var ueContentHtml = informations.content;
-                        ue.addListener("ready", function () {
-                            ue.setContent(ueContentHtml, false);
-                        });
                     }
                 }else{
                     FOXKEEPER_UTILS.alert('warning', result.message);
@@ -116,7 +108,7 @@ jQuery(function(){
                         if (result.success) {
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
-                                location.replace("/view/contentmanager/news/newsList.jsp");
+                                location.replace("/view/sys/settings/bank/bankCodeList.jsp");
                             }, 1000);
                         }else
                         {
@@ -138,43 +130,10 @@ jQuery(function(){
         ajaxdata.username = professionalField._d;
         ajaxdata.password = professionalField._p;
         ajaxdata.userType = 2;
-        ajaxdata.id = $("#dataId").val();
-        ajaxdata.type = 0;
-        ajaxdata.title = $("#title").val();
-        ajaxdata.infoType = $("#infoType").val();
-        ajaxdata.picture = $("#coverUrl").val();
-        ajaxdata.summary = $("#summary").val();
-        ajaxdata.content = ue.getContent();
-        ajaxdata.isDisplay = $("input[name='status']:checked").val();
+        ajaxdata.id = $("#bankCode").val();
+        ajaxdata.name = $("#name").val();
+        ajaxdata.status = $("#status").val();
+        ajaxdata.sortNo = $("#sortNo").val();
 
     }
-
-    //分类ID
-    function _initInfoTypes(){
-        var queryInfoData = {};
-        var user = $.getuuuAuth();
-        queryInfoData.username = user._d;
-        queryInfoData.password = user._p;
-        queryInfoData.userType = 2;
-        jQuery.ajax({
-            dataType: "json",
-            url: webBasePath + '/infoTypes',
-            data: queryInfoData,
-            type: "GET",
-            success: function (result) {
-                if (result.success) {
-                    if (result.infoTypes != null && result.infoTypes.length > 0) {
-                        var data = result.infoTypes;
-                        for (var i = 0; i < data.length; i++) {
-                            var obj = data[i];
-                            var dataId = obj.id;
-                            $("#infoType").append('<option value="'+dataId+'">'+obj.name+'</option>');
-                        }
-                    }
-
-                }
-            }
-        });
-    }
-
 });

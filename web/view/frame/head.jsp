@@ -45,7 +45,7 @@
                 "cnt_trend_list":"/view/contentmanager/information/trend/trendList.jsp",
                 "cnt_commonweal_list":"/view/contentmanager/information/commonweal/commonwealList.jsp",
                 "cnt_topic_list":"/view/contentmanager/activity/topic/topicList.jsp",
-                "cnt_activity_list":"/view/contentmanager/activity/activityList.jsp",
+                "cnt_activity_list":"/view/contentmanager/activity/activity/activityList.jsp",
                 "cnt_discovery_list":"/view/contentmanager/repository/discovery/discoveryList.jsp",
                 "cnt_disclz_list":"/view/contentmanager/repository/clzdiscovery/clzList.jsp",
                 "cnt_help_list":"/view/contentmanager/help/helpList.jsp",

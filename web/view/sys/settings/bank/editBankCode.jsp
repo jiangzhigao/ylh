@@ -49,13 +49,13 @@
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
+                        <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="amount">银行编码</label>
+                                        <label class="col-xs-2 control-label" for="bankCode">银行编码</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" id="amount" name="amount"
+                                            <input type="text" class="form-control" id="bankCode" name="bankCode"
                                                    value=""  maxlength="20">
                                         </div>
                                     </div>
@@ -64,9 +64,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="amount">银行名称</label>
+                                        <label class="col-xs-2 control-label" for="name">银行名称</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" id="amount" name="amount"
+                                            <input type="text" class="form-control" id="name" name="name"
                                                    value=""  maxlength="20">
                                         </div>
                                     </div>
@@ -75,9 +75,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="amount">排序</label>
+                                        <label class="col-xs-2 control-label" for="sortNo">排序</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" id="amount" name="amount"
+                                            <input type="text" class="form-control" id="sortNo" name="sortNo"
                                                    value=""  maxlength="20">
                                         </div>
                                     </div>
@@ -86,11 +86,11 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="startTime">类型</label>
+                                        <label class="col-xs-2 control-label" for="status">类型</label>
                                         <div class="col-xs-4">
-                                            <select class="form-control" style="border-color: #e1e1e1;">
-                                                <option value="1">开启</option>
-                                                <option value="0">停用</option>
+                                            <select class="form-control" id="status" style="border-color: #e1e1e1;">
+                                                <option value="1" id="status_1" name="status">开启</option>
+                                                <option value="0" id="status_0" name="status">停用</option>
                                             </select>
                                         </div>
                                     </div>
@@ -128,8 +128,12 @@
 
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
+<script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
+<script type="text/javascript" src="/js/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
+<script type="text/javascript" src="/js/pageScripts/sys/basic/bankcode/edit_bankcode.js"></script>
 <!--  FOOTER - END -->
 </body>
 

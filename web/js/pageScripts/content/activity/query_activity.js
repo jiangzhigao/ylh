@@ -101,8 +101,8 @@ jQuery(function(){
         _operHtml.push('<div class="btn-group">');
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li><a bz-url="/view/customercenter/lawyermanagement/speciality/editspeciality.jsp" bid="'+id+'">编辑</a></li>');
-        _operHtml.push('<li><a href="javascript:_delete()" bid="'+id+'">删除</a></li>');
+        _operHtml.push('<li><a bz-url="/view/contentmanager/activity/editActivity.jsp" bid="'+id+'">编辑</a></li>');
+        _operHtml.push('<li><a href="javascript:" bid="'+id+'">删除</a></li>');
         _operHtml.push('</ul></div>');
 
         return  _operHtml.join('');
@@ -127,8 +127,16 @@ jQuery(function(){
                             var obj = data[i];
                             var dataId = obj.id;
                             _html.push('<tr>');
-                            _html.push('<td>' + obj.name + '</td>');
-                            _html.push('<td>' + obj.sortNo + '</td>');
+                            _html.push('<td>' + obj.id + '</td>');
+                            _html.push('<td>' + obj.title + '</td>');
+                            _html.push('<td>' + obj.announceUser + '</td>');
+                            _html.push('<td>' + obj.createdTime + '</td>');
+                            _html.push('<td>' + obj.updatedTime + '</td>');
+                            _html.push('<td>' + obj.userId + '</td>');
+                            // _html.push('<td>' + obj.isTop + '</td>');
+                            _html.push('<td>' + (obj.isTop==1?"置顶":"不置顶") + '</td>');
+                            _html.push('<td>' + (obj.status==1?"显示":"不显示") + '</td>');
+                            // _html.push('<td>' + (obj.isDisplay==1?"显示":"不显示") + '</td>');
                             _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');
                         }

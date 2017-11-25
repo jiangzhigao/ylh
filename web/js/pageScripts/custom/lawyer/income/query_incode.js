@@ -95,12 +95,20 @@ jQuery(function(){
         return totalPages;
     }
 
-    function _optionsHtml(id){
+    function _optionsHtml(orderId,orderType){
         var _operHtml = [];
-        _operHtml.push('<div class="btn-group">');
-        _operHtml.push('<a href="/view/customercenter/lawyermanagement/income/incomeRecord.jsp?" bid="'+id+'">查看订单详情</a>');
-        /*_operHtml.push('<li><a bz-url="/view/customercenter/lawyermanagement/speciality/editspeciality.jsp" bid="'+id+'">编辑</a></li>');*/
-        _operHtml.push('</div>');
+        var bizUrl;
+        if(orderType == 0){
+            bizUrl = "/view/business/order/service/serviceOrderDetail.jsp?dataId="+orderId;
+        }else if(orderType == 1){
+            bizUrl = "/view/business/order/reservation/reservationOrderDetail.jsp?dataId="+orderId;
+        } else if(orderType == 1){
+            bizUrl = "/view/business/order/entrust/entrustOrderDetail.jsp?dataId="+orderId;
+        }else{
+            bizUrl = "#";
+        }
+        _operHtml.push('<a href="'+bizUrl+'" style="color: #2aabd2;">查看订单详情</a>');
+
         return  _operHtml.join('');
     }
 
@@ -127,31 +135,19 @@ jQuery(function(){
                             _html.push('<td>' + obj.name + '</td>');
                             _html.push('<td>' + obj.dealDesc + '</td>');
                             _html.push('<td>' + obj.type + '</td>');
-                            _html.push('<td>' + obj.orderId + '</td>');
+                            _html.push('<td>' + obj.type + '</td>');
+                          /*  _html.push('<td>' + obj.orderId + '</td>');*/
                             _html.push('<td>' + obj.amount + '</td>');
                             _html.push('<td>' + obj.createdTime + '</td>');
                             // _html.push('<td>' + (obj.status==1?"已处理":"未处理") + '</td>');
-                            _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
+                            _html.push('<td>' +  _optionsHtml(obj.orderId,obj.type) + '</td>');
 
-                            // createdTime
-                            // dealDesc
-                            // id
-                            // lawyerId
-                            // name
-                            // orderId
-                            // type
-                            // userName
-                            // version
                             _html.push('</tr>');
                         }
-
                         $dataList.find('tbody').html(_html.join(''));
-
                         options.totalPages = _sumTotalPages(result.incomes.length);
                         $paginationContainer.bootstrapPaginator(options);
-
                         $('#batchDeleteDiv').show();
-
                         $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite"> 共'
                              + result.incomes.length + '条记录，当前为第 ' + options.currentPage + ' 页');
                     } else {
@@ -160,7 +156,6 @@ jQuery(function(){
                         $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite">无查询记录</div>');
                         $paginationContainer.html('');
                     }
-
                 }else{
                     FOXKEEPER_UTILS.alert('warning', result.message);
                 }
@@ -176,6 +171,18 @@ jQuery(function(){
         queryParams.password = user._p;
         queryParams.userType = 2;
 
+    }
+
+    //封装ajax提交数据
+    function _setAjaxData1 () {
+        queryParams.pageNo = options.currentPage;
+        var user = $.getuuuAuth();
+        queryParams.username = user._d;
+        queryParams.password = user._p;
+        queryParams.userType = 2;
+        queryParams.userName = $("#userName").val();
+        queryParams.name = $("#name").val();
+        queryParams.type = $("#type").val();
     }
 
 });

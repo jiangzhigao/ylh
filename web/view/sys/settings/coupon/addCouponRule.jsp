@@ -53,9 +53,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="amount">区间最小金额</label>
+                                        <label class="col-xs-2 control-label" for="minAmount">区间最小金额</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" id="amount" name="amount"
+                                            <input type="text" class="form-control" id="minAmount" name="minAmount"
                                                    value=""  maxlength="20">
                                         </div>
                                         <div class="col-xs-4" style="padding-top: 5px;margin-left: -20px;">
@@ -68,9 +68,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="amount">区间最大金额</label>
+                                        <label class="col-xs-2 control-label" for="maxAmount">区间最大金额</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" id="amount" name="amount"
+                                            <input type="text" class="form-control" id="maxAmount" name="maxAmount"
                                                    value=""  maxlength="20">
                                         </div>
                                         <div class="col-xs-4" style="padding-top: 5px;margin-left: -20px;">
@@ -83,9 +83,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="amount">使用比例</label>
+                                        <label class="col-xs-2 control-label" for="usingProp">使用比例</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" id="amount" name="amount"
+                                            <input type="text" class="form-control" id="usingProp" name="usingProp"
                                                    value=""  maxlength="20">
                                         </div>
                                         <div class="col-xs-4" style="padding-top: 5px;margin-left: -20px;">
@@ -98,9 +98,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="amount">最高限额</label>
+                                        <label class="col-xs-2 control-label" for="maxLimit">最高限额</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" id="amount" name="amount"
+                                            <input type="text" class="form-control" id="maxLimit" name="maxLimit"
                                                    value=""  maxlength="20">
                                         </div>
                                         <div class="col-xs-4" style="padding-top: 5px;margin-left: -20px;">
@@ -112,9 +112,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="aaa">状态</label>
+                                        <label class="col-xs-2 control-label">状态</label>
                                         <div class="col-xs-5" style="padding-top: 5px;">
-                                            <input type="radio" class="" value="1" id="status_normal" name="status" checked="">启用
+                                            <input type="radio" class="" value="1" id="status_normal" name="status" >启用
                                             &nbsp;&nbsp;
                                             <input type="radio" class="" value="0" id="status_blocked" name="status">停用
                                         </div>
@@ -155,8 +155,12 @@
 
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
+<script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
+<script type="text/javascript" src="/js/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
+<script type="text/javascript" src="/js/pageScripts/sys/basic/couponRule/add_couponRule.js"></script>
 <!--  FOOTER - END -->
 </body>
 

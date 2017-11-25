@@ -101,7 +101,7 @@ jQuery(function(){
         _operHtml.push('<div class="btn-group">');
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li><a bz-url="/view/contentmanager/information/news/editNew.jsp" bid="'+id+'">编辑</a></li>');
+        _operHtml.push('<li><a bz-url="/view/contentmanager/information/news/editNews.jsp" bid="'+id+'">编辑</a></li>');
         _operHtml.push('<li><a href="javascript;" bid="'+id+'">删除</a></li>');
         _operHtml.push('</ul></div>');
 

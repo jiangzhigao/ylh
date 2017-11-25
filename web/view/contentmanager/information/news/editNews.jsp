@@ -70,9 +70,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">标题</label>
+                                        <label class="col-xs-2 control-label" for="title">标题</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入标题" value="" id="commisionName" name="commisionName"
+                                            <input type="text" class="form-control" placeholder="请输入标题" value="" id="title" name="title"
                                                    maxlength="20" id="">
                                         </div>
                                     </div>
@@ -81,14 +81,14 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="type">分类</label>
+                                        <label class="col-xs-2 control-label" for="infoType">分类</label>
                                         <div class="col-xs-5">
-                                            <select class="form-control" id="type" name="type" style="border-color: #e1e1e1;">
-                                                <option value="" selected>请选择分类</option>
-                                                <option value="0">社会</option>
+                                            <select class="form-control" id="infoType" name="infoType" style="border-color: #e1e1e1;">
+                                                <option value="">请选择分类</option>
+                                                <%--<option value="0">社会</option>
                                                 <option value="1">生活</option>
                                                 <option value="2">法务</option>
-                                                <option value="3">财务</option>
+                                                <option value="3">财务</option>--%>
                                             </select>
                                         </div>
                                     </div>
@@ -97,9 +97,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionClient">摘要</label>
+                                        <label class="col-xs-2 control-label" for="summary">摘要</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入摘要" value="" id="commisionClient" name="commisionClient"
+                                            <input type="text" class="form-control" placeholder="请输入摘要" value="" id="summary" name="summary"
                                                    maxlength="20">
                                         </div>
                                     </div>

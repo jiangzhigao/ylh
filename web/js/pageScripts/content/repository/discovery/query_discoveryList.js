@@ -128,6 +128,7 @@ jQuery(function(){
                             var dataId = obj.id;
                             _html.push('<tr>');
                             _html.push('<td>' + obj.title + '</td>');
+                            _html.push('<td>' + obj.title + '</td>');
                             _html.push('<td>' + obj.createdTime + '</td>');
                             _html.push('<td>' + obj.updatedTime + '</td>');
                             _html.push('<td>' +  _optionsHtml(dataId) + '</td>');

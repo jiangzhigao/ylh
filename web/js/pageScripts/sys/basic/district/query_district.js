@@ -50,7 +50,7 @@ jQuery(function(){
             }else{//删除操作
                 //no-editable
                 if(!($this.hasClass("no-editable"))){
-                    var reqUrl = webBasePath+'/lawFirms/'+id;
+                    var reqUrl = webBasePath+'/citys/'+id;
                     _userBlocked($this,reqUrl);
                 }
             }
@@ -88,7 +88,7 @@ jQuery(function(){
         var pageSize = 10;
         if(count != 'NaN'){
             if(count%pageSize != 0){
-                totalPages = count/pageSize+1;
+                totalPages = parseInt(count/pageSize)+1;
             }else{
                 totalPages = count/pageSize;
             }
@@ -101,7 +101,7 @@ jQuery(function(){
         _operHtml.push('<div class="btn-group">');
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li><a bz-url="/view/contentmanager/help/editHelp.jsp" bid="'+id+'">编辑</a></li>');
+        _operHtml.push('<li><a bz-url="/view/sys/settings/district/editDistrict.jsp" bid="'+id+'">编辑</a></li>');
         _operHtml.push('<li><a href="javascript;" bid="'+id+'">删除</a></li>');
         _operHtml.push('</ul></div>');
 
@@ -113,32 +113,37 @@ jQuery(function(){
         _setAjaxData();
         jQuery.ajax({
             dataType: "json",
-            url: webBasePath + '/lawFirms',
+            url: webBasePath + '/citys',
             data: queryParams,
             type: "GET",
             success: function (result) {
                 if (result.success) {
                     var $dataList = $('#dataList');
                     var $pageTotalRecord = $('#pageTotalRecord');
-                    if (result.lawFirms != null && result.lawFirms.length > 0) {
+                    if (result.citys != null && result.citys.length > 0) {
                         var _html = new Array();
-                        var data = result.lawFirm;
+                        var data = result.citys;
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
                             var dataId = obj.id;
                             _html.push('<tr>');
-                            _html.push('<td>' + obj.title + '</td>');
-                            _html.push('<td>' + obj.createdTime + '</td>');
-                            _html.push('<td>' + obj.updatedTime + '</td>');
+                            _html.push('<td>' + obj.id + '</td>');
+                            _html.push('<td>' + obj.provinceName + '</td>');
+                            _html.push('<td>' + obj.name + '</td>');
+                            _html.push('<td>' + obj.sortNo + '</td>');
+                            // _html.push('<td>' + obj.status + '</td>');
+                            _html.push('<td>' + (obj.status==1?"启用":"停用") + '</td>');
+                            // _html.push('<td>' + obj.createdTime + '</td>');
+                            // _html.push('<td>' + obj.updatedTime + '</td>');
                             _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');
                         }
                         $dataList.find('tbody').html(_html.join(''));
-                        options.totalPages = _sumTotalPages(result.lawFirms.length);
+                        options.totalPages = _sumTotalPages(result.citys.length);
                         $paginationContainer.bootstrapPaginator(options);
                         $('#batchDeleteDiv').show();
                         $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite"> 共'
-                             + result.lawFirms.length + '条记录，当前为第 ' + options.currentPage + ' 页');
+                             + result.citys.length + '条记录，当前为第 ' + options.currentPage + ' 页');
                     } else {
                         $('#batchDeleteDiv').hide();
                         $dataList.find('tbody').html('');

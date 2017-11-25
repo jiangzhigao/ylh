@@ -40,14 +40,14 @@ jQuery(function(){
             _initData();
         });
         /** 操作列表 */
-        $('body').on('click', ".opt li a", function() {
-            var $this = $(this);
-            var id = $this.attr('bid');
-            if($this.parent().index()==0){
-                var bizUrl = $this.attr('bz-url');
-                window.location.href = bizUrl+'?dataId='+id;
-            }
-        });
+        // $('body').on('click', ".opt li a", function() {
+        //     var $this = $(this);
+        //     var id = $this.attr('bid');
+        //     if($this.parent().index()==0){
+        //         var bizUrl = $this.attr('bz-url');
+        //         window.location.href = bizUrl+'?dataId='+id;
+        //     }
+        // });
     }
 
     function _reset() {
@@ -79,13 +79,7 @@ jQuery(function(){
 
     function _optionsHtml(id){
         var _operHtml = [];
-        _operHtml.push('<div class="btn-group">');
-         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">编辑<span class="caret"></span></a>');
-        _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li><a bz-url="/view/customercenter/lawyermanagement/complaint/complaintAndAdviceDetail.jsp" bid="'+id+'">查看详情</a></li>');
-        // _operHtml.push('<li><a href="javascript;" bid="'+id+'">删除</a></li>');
-        _operHtml.push('</ul></div>');
-
+        _operHtml.push('<a href="/view/customercenter/lawyermanagement/complaint/complaintAndAdviceDetail.jsp?dataId='+id+'" style="color: #2aabd2;">查看详情</a>');
         return  _operHtml.join('');
     }
 

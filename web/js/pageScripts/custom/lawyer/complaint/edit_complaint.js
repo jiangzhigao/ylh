@@ -65,7 +65,7 @@ jQuery(function(){
                         var statusInt = parseInt(advices.status);
                         $("#dataId").val(advices.id);
                         $("#userName").text(advices.userName);
-                        $("#nickname").text(advices.nickname);
+                        $("#nickName").val(advices.nickname);
                         $("#content").val(advices.content);
                         $("#createdTime").text(advices.createdTime);
                         $("#status").val(statusArray[statusInt]);

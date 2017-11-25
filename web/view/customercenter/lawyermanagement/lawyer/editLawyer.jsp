@@ -253,7 +253,7 @@
                                                     <label class="col-xs-2 control-label" for="province">所在地址</label>
                                                     <div class="col-xs-5">
                                                         <select class="form-control" id="province" name="province" style="border-color: #e1e1e1;">
-                                                            <option value="0" selected>请选择省份</option>
+                                                            <option value="0" >请选择省份</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -265,7 +265,7 @@
                                                     <label class="col-xs-2 control-label" for="city"></label>
                                                     <div class="col-xs-5">
                                                         <select class="form-control" id="city" name="city" style="border-color: #e1e1e1;">
-                                                            <option value="0" selected>请选择市</option>
+                                                            <option value="0" >请选择市</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -276,7 +276,7 @@
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label" for="level">律师等级</label>
                                                     <div class="col-xs-5">
-                                                        <select class="form-control" id="9" name="level" style="border-color: #e1e1e1;">
+                                                        <select class="form-control" id="level" name="level" style="border-color: #e1e1e1;">
                                                             <option value="1" selected>普通</option>
                                                             <option value="2" >中级</option>
                                                             <option value="3" >高级</option>

@@ -92,34 +92,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>100</td>
-                                <td>1000</td>
-                                <td>1%</td>
-                                <td>1000</td>
-                                <td>启用</td>
-                                <td>2017-08-08 15:30:30</td>
-                                <td>
-                                    <a href="editCouponRule.jsp" style="color: #2aabd2;">
-                                        编辑
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>100</td>
-                                <td>1000</td>
-                                <td>1%</td>
-                                <td>1000</td>
-                                <td>启用</td>
-                                <td>2017-08-08 15:30:30</td>
-                                <td>
-                                    <a href="editCouponRule.jsp" style="color: #2aabd2;">
-                                        编辑
-                                    </a>
-                                </td>
-                            </tr>
+
                             </tbody>
                         </table>
                         <div class="row">
@@ -140,6 +113,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/sys/basic/couponRule/query_couponRuleList.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

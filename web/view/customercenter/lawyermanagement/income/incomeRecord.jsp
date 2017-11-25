@@ -15,6 +15,20 @@
         a:hover {
             text-decoration: none;
         }
+        table.table tr:nth-child(odd)
+        {
+            background-color:#f9f9f9;
+        }
+        table.table tr:nth-child(even)
+        {
+            background-color:#fff;
+        }
+        .no-editable{
+            background-color: #cccccc;
+        }
+        a {
+            color: #333;
+        }
     </style>
 </head>
 <!-- END HEAD -->
@@ -48,14 +62,14 @@
                         <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-3 move20">
-                                    <input type="text" class="form-control" placeholder="律师账号">
+                                    <input type="text" id = "userName" class="form-control" placeholder="律师账号">
                                 </div>
 
                                 <div class="col-xs-2 move20">
-                                    <input type="text" class="form-control" placeholder="律师姓名">
+                                    <input type="text"  id = "name" class="form-control" placeholder="律师姓名">
                                 </div>
                                 <div class="col-xs-2 move20">
-                                    <select class="form-control" style="border-color: #e1e1e1;" placeholder="状态">
+                                    <select class="form-control" id = "type" style="border-color: #e1e1e1;" placeholder="状态">
                                         <option value="0">状态</option>
                                         <option value="1">预约</option>
                                         <option value="2">案件委托</option>

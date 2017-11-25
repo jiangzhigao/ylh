@@ -89,28 +89,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>11001</td>
-                                <td>中国农业银行</td>
-                                <td>1</td>
-                                <td>开启</td>
-                                <td>
-                                    <a href="editBankCode.jsp" style="color: #2aabd2;">
-                                        编辑
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>11002</td>
-                                <td>上海浦东发展银行</td>
-                                <td>2</td>
-                                <td>开启</td>
-                                <td>
-                                    <a href="editBankCode.jsp" style="color: #2aabd2;">
-                                        编辑
-                                    </a>
-                                </td>
-                            </tr>
+
                             </tbody>
                         </table>
                         <div class="row">
@@ -131,6 +110,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/sys/basic/bankcode/query_bankCodeList.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

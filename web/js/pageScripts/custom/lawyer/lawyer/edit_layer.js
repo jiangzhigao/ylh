@@ -169,6 +169,8 @@ jQuery(function(){
                         $("#idcard").val(lawyer.idcard);
                         $("#mobile").val(lawyer.mobile);
                         $("#email").val(lawyer.email);
+                        $("#province").val(lawyer.province);
+                        $("#city").val(lawyer.city);
                         $("#employmentTime").val(lawyer.employmentTime);
                         $("#lastLoginIp").val(lawyer.loginIP);
                         $("#registerTime").val(lawyer.createdTime);

@@ -65,10 +65,10 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="userName">标题</label>
+                                        <label class="col-xs-2 control-label" for="title">标题</label>
                                         <div class="col-xs-5">
                                             <input type="text" class="form-control"
-                                                   placeholder="请输入标题" value="" id="userName" name="userName"
+                                                   placeholder="请输入标题" value="" id="title" name="title"
                                                    maxlength="24">
                                         </div>
                                     </div>
@@ -77,9 +77,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="activityDesc">内容</label>
+                                        <label class="col-xs-2 control-label" for="content">内容</label>
                                         <div class="col-xs-5">
-                                            <textarea id="activityDesc" name="activityDesc" maxlength="128" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 120px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
+                                            <textarea id="content" name="content" maxlength="128" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 120px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -138,7 +138,7 @@
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
-<%--<script type="text/javascript" src="/js/pageScripts/custom/member/add_member.js"></script>--%>
+<script type="text/javascript" src="/js/pageScripts/content/activity/add_activlity.js"></script>
 <script type="text/javascript">
     /*$('.colorpicker').colorpicker();*/
 </script>

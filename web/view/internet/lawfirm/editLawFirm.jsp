@@ -177,7 +177,7 @@
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
 <script type="text/javascript" src="/js/custom/request-util.js"></script>
-<script type="text/javascript" src="/js/pageScripts/web/lawFirm/edit_lawFirm.js"></script>
+<script type="text/javascript" src="/js/pageScripts/internet/lawFirm/edit_lawFirm.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

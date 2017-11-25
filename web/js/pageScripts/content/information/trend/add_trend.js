@@ -34,13 +34,9 @@ jQuery(function(){
         //保存
         $('#btnSave').on('click', function () {
             var $this = $(this);
-            _ajax($this, '保存',webBasePath+'/informations',0);
+            _ajax($this, '保存',webBasePath+'/informations');
         });
-        //保存
-        $('#btnSaveAndPub').on('click', function () {
-            var $this = $(this);
-            _ajax($this, '发布',webBasePath+'/informations',1);
-        });
+
         //返回
         $('#btnBack').on('click', function () {
             window.history.back();
@@ -156,6 +152,7 @@ jQuery(function(){
         // ajaxdata.infoType = $("#classify").val();
         ajaxdata.picture = $("#coverUrl").val();
         //ajaxdata.summary = $("#summary").val();
+        // ajaxdata.content = ue.getContent();
         ajaxdata.content = ue.getContent();
         // ajaxdata.isDisplay = $("#status").val();
         ajaxdata.isDisplay = $("input[name='status']:checked").val();

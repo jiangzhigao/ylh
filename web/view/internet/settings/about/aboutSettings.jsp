@@ -106,7 +106,7 @@
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
 <script type="text/javascript" src="/js/plugins/select2/select2.min.js"></script>
 <script type="text/javascript" src="/js/custom/request-util.js"></script>
-<script type="text/javascript" src="/js/pageScripts/web/basic/about/edit_about.js"></script>
+<script type="text/javascript" src="/js/pageScripts/internet/basic/about/edit_about.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

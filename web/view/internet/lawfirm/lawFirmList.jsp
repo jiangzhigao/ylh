@@ -130,7 +130,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
-<script type="text/javascript" src="/js/pageScripts/web/lawFirm/query_lawFirmList.js"></script>
+<script type="text/javascript" src="/js/pageScripts/internet/lawFirm/query_lawFirmList.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

@@ -50,7 +50,7 @@ jQuery(function(){
             }else{//删除操作
                 //no-editable
                 if(!($this.hasClass("no-editable"))){
-                    var reqUrl = webBasePath+'/infoTypes/'+id;
+                    var reqUrl = webBasePath+'/lawQuestions/'+id;
                     _userBlocked($this,reqUrl);
                 }
             }
@@ -62,7 +62,7 @@ jQuery(function(){
         ajaxdata.username = user._d;
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
-        ajaxdata._method = 'delete'
+        ajaxdata.status = 0;
         jQuery.ajax({
             dataType: "json",
             url: reUrl,
@@ -71,7 +71,7 @@ jQuery(function(){
             success: function (result) {
                 if (result.success) {
                     $this.addClass("no-editable");
-                    $this.parent().parent().parent().parent().parent().remove();
+                    $this.parent().parent().parent().parent().prev().text("删除")
                     FOXKEEPER_UTILS.alert('success',result.message);
                 }
             }
@@ -101,8 +101,8 @@ jQuery(function(){
         _operHtml.push('<div class="btn-group">');
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li><a bz-url="/view/contentmanager/classify/editClassify.jsp" bid="'+id+'">编辑</a></li>');
-        _operHtml.push('<li><a href="javascript:;"bid="'+id+'" >删除</a></li>');
+        _operHtml.push('<li><a bz-url="/view/internet/lawfirm/editLawFirm.jsp" bid="'+id+'">编辑</a></li>');
+        _operHtml.push('<li><a href="javascript;" bid="'+id+'">删除</a></li>');
         _operHtml.push('</ul></div>');
 
         return  _operHtml.join('');
@@ -113,38 +113,38 @@ jQuery(function(){
         _setAjaxData();
         jQuery.ajax({
             dataType: "json",
-            url: webBasePath + '/infoTypes',
+            url: webBasePath + '/lawQuestions',
             data: queryParams,
             type: "GET",
             success: function (result) {
                 if (result.success) {
                     var $dataList = $('#dataList');
                     var $pageTotalRecord = $('#pageTotalRecord');
-                    if (result.infoTypes != null && result.infoTypes.length > 0) {
+                    if (result.lawQuestions != null && result.lawQuestions.length > 0) {
                         var _html = new Array();
-                        var data = result.infoTypes;
+                        var data = result.lawQuestions;
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
                             var dataId = obj.id;
                             _html.push('<tr>');
                             _html.push('<td>' + obj.id + '</td>');
                             _html.push('<td>' + obj.name + '</td>');
-                            _html.push('<td>' + obj.color + '</td>');
-                            _html.push('<td>' + obj.sortNo + '</td>');
-                            _html.push('<td>' + obj.updatedTime + '</td>');
+                            _html.push('<td>' + obj.telephone + '</td>');
+                            _html.push('<td>' + obj.email + '</td>');
+                            _html.push('<td>' + obj.caseType + '</td>');
+                            _html.push('<td>' + obj.content + '</td>');
+                            _html.push('<td>' + (obj.isDealed==1?"已处理":"未处理") + '</td>');
+                            _html.push('<td>' + obj.memo + '</td>');
+                            _html.push('<td>' + obj.device + '</td>');
                             _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');
                         }
-
                         $dataList.find('tbody').html(_html.join(''));
-
-                        options.totalPages = _sumTotalPages(result.infoTypes.length);
+                        options.totalPages = _sumTotalPages(result.lawFirms.length);
                         $paginationContainer.bootstrapPaginator(options);
-
                         $('#batchDeleteDiv').show();
-
                         $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite"> 共'
-                             + result.infoTypes.length + '条记录，当前为第 ' + options.currentPage + ' 页');
+                             + result.lawQuestions.length + '条记录，当前为第 ' + options.currentPage + ' 页');
                     } else {
                         $('#batchDeleteDiv').hide();
                         $dataList.find('tbody').html('');
@@ -158,7 +158,6 @@ jQuery(function(){
             }
         });
     }
-
 
     //封装ajax提交数据
     function _setAjaxData () {

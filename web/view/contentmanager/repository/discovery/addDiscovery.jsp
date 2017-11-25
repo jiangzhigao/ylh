@@ -111,9 +111,9 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">是否文档</label>
                                         <div class="col-xs-5" style="padding-top: 5px;">
-                                            <input type="radio" class="" value="1" id="status_1" name="status" checked>是
+                                            <input type="radio" class="" value="1" id="status_1" name="isDocument" checked>是
                                             &nbsp;&nbsp;
-                                            <input type="radio" class="" value="0" id="status_2" name="status">否
+                                            <input type="radio" class="" value="0" id="status_2" name="isDocument">否
                                         </div>
                                     </div>
                                 </div>
@@ -125,6 +125,11 @@
                                         <div class="col-xs-5">
                                             <select class="form-control" id="documentType" name="documentType" style="border-color: #e1e1e1;">
                                                 <option value="">请选择分类</option>
+                                                <option value="0">doc</option>
+                                                <option value="1">docx</option>
+                                                <option value="2">xls</option>
+                                                <option value="3">xlsx</option>
+                                                <option value="4">pdf</option>
                                             </select>
                                         </div>
                                     </div>
@@ -216,7 +221,7 @@
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
-<script type="text/javascript" src="/js/pageScripts/content/information/news/add_news.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/repository/discovery/add_discovery.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->
