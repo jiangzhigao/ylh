@@ -9,8 +9,8 @@
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 100px;
-            width: 90px;
+            min-width: 65px;
+            width: 100%;
         }
         a:hover {
             text-decoration: none;
@@ -24,10 +24,11 @@
             background-color:#fff;
         }
         .no-editable{
-            background-color: #cccccc;
+            color: #ccc;
         }
+
         a {
-            color: #333;
+            color: #666666;
         }
     </style>
 </head>
@@ -53,7 +54,7 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">退款申请</h2>
+                    <h4 class="title pull-left">退款申请</h4>
                     <div class="actions panel_actions pull-right">
                     </div>
                 </header>
@@ -74,7 +75,7 @@
                                     <select class="form-control" id="status1" style="border-color: #e1e1e1;">
                                         <option value="">请选择状态</option>
                                         <option value="0">未审核</option>
-                                        <option value="1">已通过</option>
+                                        <option value="1">审核通过</option>
                                         <option value="2">已驳回</option>
                                     </select>
                                 </div>
@@ -88,7 +89,6 @@
                                 </div>
                             </div>
                         </form>
-                        <br>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
@@ -102,7 +102,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                            <%--<tr>
                                 <td>110066</td>
                                 <td>20170000001</td>
                                 <td>想要退款</td>
@@ -111,7 +111,7 @@
                                 <td>已通过</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">
                                             查看详情
                                             <span class="caret"></span>
                                         </a>
@@ -123,73 +123,7 @@
                                         </ul>
                                     </div>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td>110066</td>
-                                <td>20170000001</td>
-                                <td>想要退款</td>
-                                <td>2017-08-08</td>
-                                <td>1000.00</td>
-                                <td>已通过</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            查看详情
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="applyDetail.jsp">查看详情</a></li>
-                                            <li><a href="#">审核通过</a></li>
-                                            <li><a href="#">驳回</a></li>
-                                            <li><a href="#">退款</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>110066</td>
-                                <td>20170000001</td>
-                                <td>想要退款</td>
-                                <td>2017-08-08</td>
-                                <td>1000.00</td>
-                                <td>已通过</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            查看详情
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="applyDetail.jsp">查看详情</a></li>
-                                            <li><a href="#">审核通过</a></li>
-                                            <li><a href="#">驳回</a></li>
-                                            <li><a href="#">退款</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>110066</td>
-                                <td>20170000001</td>
-                                <td>想要退款</td>
-                                <td>2017-08-08</td>
-                                <td>1000.00</td>
-                                <td>已通过</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            查看详情
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="applyDetail.jsp">查看详情</a></li>
-                                            <li><a href="#">审核通过</a></li>
-                                            <li><a href="#">驳回</a></li>
-                                            <li><a href="#">退款</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
+                            </tr>--%>
                             </tbody>
                         </table>
                         <div class="row">
@@ -210,6 +144,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/business/refund/apply/list_query.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

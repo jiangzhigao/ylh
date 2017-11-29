@@ -27,7 +27,7 @@
             background-color: #cccccc;
         }
         a {
-            color: #333;
+            color: #666666;
         }
     </style>
 </head>
@@ -113,7 +113,7 @@
                                 <td>审核通过</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">
                                             编辑
                                             <span class="caret"></span>
                                         </a>

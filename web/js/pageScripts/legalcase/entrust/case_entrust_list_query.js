@@ -45,14 +45,32 @@ jQuery(function(){
         $('body').on('click', ".opt li a", function() {
             var $this = $(this);
             var id = $this.attr('bid');
-            if($this.parent().index()==0){
+            var s = $this.attr('s');
+            if($this.parent().index()==0){//查看详情
                 var bizUrl = $this.attr('bz-url');
-                window.location.href = bizUrl+'?dataId='+id;
-            }else{//作废操作
+                /*if(s == '0'){
+                    bizUrl = "/view/legalcase/entrust/tempCaseEntrustDetail.jsp";
+                }else{
+                    bizUrl = "/view/legalcase/entrust/caseEntrustDetail.jsp";
+                }*/
+                bizUrl = "/view/legalcase/entrust/caseEntrustDetail.jsp";
+                window.location.href = bizUrl+'?dataId='+id+'&status='+s;
+            }else if($this.parent().index()==1){//审核通过
                 //no-editable
                 if(!($this.hasClass("no-editable"))){
                     var reqUrl = webBasePath+'/entrusts/'+id;
-                    _userBlocked($this,reqUrl);
+                    _updateEntrustStatus($this,reqUrl,1);
+                }
+            }else if($this.parent().index()==2){//审核驳回
+                //no-editable
+                if(!($this.hasClass("no-editable"))){
+                    var reqUrl = webBasePath+'/entrusts/'+id;
+                    _updateEntrustStatus($this,reqUrl,5);
+                }
+            }else if($this.parent().index()==3){
+                if(!($this.hasClass("no-editable"))){//结案
+                    var reqUrl = webBasePath+'/entrusts/'+id;
+                    _updateEntrustStatus($this,reqUrl,4);
                 }
             }
         });
@@ -76,15 +94,14 @@ jQuery(function(){
         return totalPages;
     }
 
-    function _optionsHtml(id,clz){
+    function _optionsHtml(id,clz,s){
         var _operHtml = [];
-        _operHtml.push('<div class="btn-group">');
-        _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">查看详情<span class="caret"></span></a>');
+        _operHtml.push('<div class="btn-group" >');
+        _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">查看详情<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url="/view/legalcase/publish/caseEntrustDetail.jsp" bid="'+id+'">查看详情</a></li>');
-        _operHtml.push('<li><a href="javascript:;" bid="'+id+'" class="'+clz+'">审核通过</a></li>');
-        _operHtml.push('<li><a href="javascript:;" bid="'+id+'" class="'+clz+'">不通过</a></li>');
+        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="#" bid="'+id+'" s="'+s+'">查看详情</a></li>');
         _operHtml.push('<li><a href="javascript:;" bid="'+id+'" class="'+clz+'">结案</a></li>');
+        _operHtml.push('<li><a href="javascript:;" bid="'+id+'" class="'+clz+'">作废</a></li>');
         _operHtml.push('</ul></div>');
 
         return  _operHtml.join('');
@@ -104,26 +121,49 @@ jQuery(function(){
                     var $pageTotalRecord = $('#pageTotalRecord');
                     if (result.entrusts != null && result.entrusts.length > 0) {
                         var data = result.entrusts;
-                        var _html = new Array(),clz;
-                        var statusArray = ['未发布', '已发布','已结案','已作废'];
+                        var _html = new Array(),clz="";
+                        var statusArray = ['审核中', '审核通过','已受理','进行中','已结案','审核驳回'];
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
                             var dataId = obj.id;
                             var statusInt = parseInt(obj.status);
-                            clz = statusInt == 3?"no-editable":"";
                             _html.push('<tr>');
                             _html.push('<td>' + obj.id + '</td>');
-                            _html.push('<td>'+obj.orderNo+'</td>');
+                            _html.push('<td>' + obj.orderNo + '</td>');
                             _html.push('<td>' + obj.commisionName + '</td>');
                             _html.push('<td>' + obj.commisionClient + '</td>');
                             _html.push('<td>' + obj.contactPhone + '</td>');
                             _html.push('<td>' + obj.createdTime + '</td>');
-                            _html.push('<td>王子</td>');
+                            _html.push('<td>' +(null != (obj.lawyer)?(obj.lawyer.name):'')+ '</td>');
                             _html.push('<td>' + obj.caseAmount + '</td>');
                             _html.push('<td>' + obj.agencyFee + '</td>');
                             _html.push('<td>' + statusArray[statusInt] + '</td>');
 
-                            _html.push('<td style="text-align: right;">' +  _optionsHtml(dataId,clz) + '</td>');
+                            var _operHtml = [];
+                            _operHtml.push('<div class="btn-group">');
+                            _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">查看详情<span class="caret"></span></a>');
+                            _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
+                            _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="#" bid="'+dataId+'" s="'+statusInt+'">查看详情</a></li>');
+                            if(statusInt == 0){
+                                _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="'+dataId+'" s="'+statusInt+'" class="">审核通过</a></li>');
+                                _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="'+dataId+'" s="'+statusInt+'" class="">审核驳回</a></li>');
+                            }else{
+                                _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="'+dataId+'" s="'+statusInt+'" class="no-editable">审核通过</a></li>');
+                                _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="'+dataId+'" s="'+statusInt+'" class="no-editable">审核驳回</a></li>');
+                            }
+                            if(statusInt == 3){
+                                _operHtml.push('<li><a href="javascript:;" bid="'+dataId+'" s="'+statusInt+'" class="">结案</a></li>');
+                            }else{
+                                _operHtml.push('<li><a href="javascript:;" bid="'+dataId+'" s="'+statusInt+'" class="no-editable">结案</a></li>');
+                            }
+                            /*if(statusInt == 5){
+                                _operHtml.push('<li><a href="javascript:;" bid="'+dataId+'" s="'+statusInt+'" class="no-editable">审核通过</a></li>');
+                                _operHtml.push('<li><a href="javascript:;" bid="'+dataId+'" s="'+statusInt+'" class="no-editable">审核驳回</a></li>');
+                                _operHtml.push('<li><a href="javascript:;" bid="'+dataId+'" s="'+statusInt+'" class="no-editable">结案</a></li>');
+                            }*/
+                            _operHtml.push('</ul></div>');
+
+                            _html.push('<td style="text-align: right;">' +  _operHtml.join('') + '</td>');
                             _html.push('</tr>');
                         }
 
@@ -135,7 +175,7 @@ jQuery(function(){
                         $('#batchDeleteDiv').show();
 
                         $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite"> 共'
-                             + result.count + '条记录，当前为第 ' + options.currentPage + ' 页');
+                            + result.count + '条记录，当前为第 ' + options.currentPage + ' 页');
                     } else {
                         $('#batchDeleteDiv').hide();
                         $dataList.find('tbody').html('');
@@ -150,13 +190,19 @@ jQuery(function(){
         });
     }
 
-    function _updateEntrustStatus($this,reUrl){
+    /**
+     * 案件作废/结案
+     * @param $this
+     * @param reUrl
+     * @private
+     */
+    function _updateEntrustStatus($this,reUrl,s){
         var ajaxdata = {};
         var user = $.getuuuAuth();
         ajaxdata.username = user._d;
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
-        ajaxdata.status = 3;
+        ajaxdata.status = s;
         jQuery.ajax({
             dataType: "json",
             url: reUrl,
@@ -165,7 +211,19 @@ jQuery(function(){
             success: function (result) {
                 if (result.success) {
                     $this.addClass("no-editable");
-                    $this.parent().parent().parent().parent().prev().text("已作废")
+                    var status = parseInt(result.entrust.status);
+                    if(status == 4){//结案
+                        $this.parent().prev().prev().find("a").addClass("no-editable");
+                        $this.parent().prev().find("a").addClass("no-editable");
+                        $this.parent().parent().parent().parent().prev().text("已结案");
+                    }else if(status == 5){//驳回
+                        $this.parent().next().find("a").addClass("no-editable");
+                        $this.parent().prev().find("a").addClass("no-editable");
+                        $this.parent().parent().parent().parent().prev().text("审核驳回");
+                    }else if(status == 1){//通过
+                        $this.parent().next().find("a").addClass("no-editable");
+                        $this.parent().parent().parent().parent().prev().text("审核通过");
+                    }
                     FOXKEEPER_UTILS.alert('success',result.message);
                 }
             }
@@ -180,7 +238,7 @@ jQuery(function(){
         queryParams.password = user._p;
         queryParams.userType = 2;
         queryParams.type = 0;
-        queryParams.isPlatform = true;
+        queryParams.isPlatform = false;
     }
 
 });

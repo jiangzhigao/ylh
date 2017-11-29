@@ -50,14 +50,15 @@
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
                         <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
+                            <input type="hidden" id="dataId">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label" for="type">APP</label>
                                         <div class="col-xs-4">
                                             <select class="form-control" id="type" name="type" style="border-color: #e1e1e1;">
-                                                <option value="0">律师端</option>
-                                                <option value="1">用户端</option>
+                                                <option value="0">用户端</option>
+                                                <option value="1">律师端</option>
                                             </select>
                                         </div>
                                     </div>
@@ -66,9 +67,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionClient">安卓最新版本号</label>
+                                        <label class="col-xs-2 control-label" for="androidVersion">安卓最新版本号</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入安卓最新版本号" value="1.0" id="" name=""
+                                            <input type="text" class="form-control" placeholder="请输入安卓最新版本号" id="androidVersion" name="androidVersion"
                                                    maxlength="20">
                                         </div>
                                     </div>
@@ -77,9 +78,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionClient">安卓版本更新时间</label>
+                                        <label class="col-xs-2 control-label" for="androidUpdatedTime">安卓版本更新时间</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入安卓版本更新时间" value="2017-08-08" id="1" name=""
+                                            <input type="text" class="form-control" placeholder="请输入安卓版本更新时间" id="androidUpdatedTime" name="androidUpdatedTime"
                                                    maxlength="20">
                                         </div>
                                     </div>
@@ -88,9 +89,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionClient">安卓更细地址</label>
+                                        <label class="col-xs-2 control-label" for="androidUrl">安卓更细地址</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入安卓更细地址" value="http://" id="" name=""
+                                            <input type="text" class="form-control" placeholder="请输入安卓更细地址" id="androidUrl" name="androidUrl"
                                                    maxlength="20">
                                         </div>
                                     </div>
@@ -99,9 +100,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionClient">IOS最新版本号</label>
+                                        <label class="col-xs-2 control-label" for="iosVersion">IOS最新版本号</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入IOS最新版本号" value="1.0" id="" name=""
+                                            <input type="text" class="form-control" placeholder="请输入IOS最新版本号" id="iosVersion" name="iosVersion"
                                                    maxlength="20">
                                         </div>
                                     </div>
@@ -110,9 +111,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionClient">IOS版本更新时间</label>
+                                        <label class="col-xs-2 control-label" for="iosUpdatedTime">IOS版本更新时间</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入IOS版本更新时间" value="2017-08-08" id="2" name=""
+                                            <input type="text" class="form-control" placeholder="请输入IOS版本更新时间" id="iosUpdatedTime" name="iosUpdatedTime"
                                                    maxlength="20">
                                         </div>
                                     </div>
@@ -121,9 +122,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionClient">IOS苹果商店更细地址</label>
+                                        <label class="col-xs-2 control-label" for="iosUrl">IOS苹果商店更细地址</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入IOS苹果商店更细地址" value="http://" id="" name=""
+                                            <input type="text" class="form-control" placeholder="请输入IOS苹果商店更细地址" id="iosUrl" name="iosUrl"
                                                    maxlength="20">
                                         </div>
                                     </div>
@@ -159,7 +160,7 @@
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript">
     //日期控件
-    $("#1,#2").datepicker({
+    $("#androidUpdatedTime,#iosUpdatedTime").datepicker({
         autoclose: true,
         clearBtn: true,
         forceParse: true,
@@ -169,11 +170,16 @@
         todayBtn: true,
         todayHighlight: false,
         weekStart: 1,
-        endDate:'+1',//结束时间，在这时间之后都不可选
+        /*endDate:'+1',*///结束时间，在这时间之后都不可选
     });
 </script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
+<script type="text/javascript" src="/js/pageScripts/mobile/version/list_query.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
+<script type="text/javascript" src="/js/pageScripts/mobile/version/edit_app_version.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
 <!--  FOOTER - END -->
 </body>
 

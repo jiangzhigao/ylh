@@ -53,9 +53,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionClient">标题</label>
+                                        <label class="col-xs-2 control-label" for="title">标题</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入标题" value="" id="" name=""
+                                            <input type="text" class="form-control" placeholder="请输入标题" id="title" name="title"
                                                    maxlength="20">
                                         </div>
                                     </div>
@@ -64,9 +64,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">内容</label>
+                                        <label class="col-xs-2 control-label" for="content">内容</label>
                                         <div class="col-xs-4">
-                                            <textarea id="" name="" maxlength="128" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 120px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
+                                            <textarea id="content" name="content" maxlength="128" class="bootstrap-wysihtml5-textarea" placeholder="请输入消息内容" style="width: 100%; height: 120px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -77,8 +77,8 @@
                                         <label class="col-xs-2 control-label" for="type">APP</label>
                                         <div class="col-xs-4">
                                             <select class="form-control" id="type" name="type" style="border-color: #e1e1e1;">
-                                                <option value="0">律师端</option>
-                                                <option value="1">用户端</option>
+                                                <option value="0">用户端</option>
+                                                <option value="1">律师端</option>
                                             </select>
                                         </div>
                                     </div>
@@ -112,23 +112,11 @@
 </div>
 <!-- END CONTAINER -->
 <script type="text/javascript" src="/js/__base.min.js"></script>
-<script type="text/javascript">
-    //日期控件
-    $("#1,#2").datepicker({
-        autoclose: true,
-        clearBtn: true,
-        forceParse: true,
-        format: 'yyyy-mm-dd',
-        language: 'cn',
-        startView: 0,
-        todayBtn: true,
-        todayHighlight: false,
-        weekStart: 1,
-        endDate:'+1',//结束时间，在这时间之后都不可选
-    });
-</script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
+<script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
+<script type="text/javascript" src="/js/pageScripts/mobile/message/push_message.js"></script>
 <!--  FOOTER - END -->
 </body>
 

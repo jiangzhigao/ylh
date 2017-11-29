@@ -79,9 +79,9 @@ jQuery(function(){
     function _optionsHtml(id,clz){
         var _operHtml = [];
         _operHtml.push('<div class="btn-group">');
-        _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">编辑<span class="caret"></span></a>');
+        _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li><a bz-url="/view/customercenter/membermanagement/member/editMember.jsp" bid="'+id+'">编辑</a></li>');
+        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;" class="'+clz+'"><a bz-url="/view/customercenter/membermanagement/member/editMember.jsp" bid="'+id+'">编辑</a></li>');
         _operHtml.push('<li><a href="javascript:;" bid="'+id+'" class="'+clz+'">冻结</a></li>');
         _operHtml.push('</ul></div>');
 
@@ -118,7 +118,7 @@ jQuery(function(){
                             _html.push('<td>' + obj.score + '</td>');
                             _html.push('<td>' + statusArray[statusInt] + '</td>');
 
-                            _html.push('<td>' +  _optionsHtml(dataId,clz) + '</td>');
+                            _html.push('<td style="text-align: right;">' +  _optionsHtml(dataId,clz) + '</td>');
                             _html.push('</tr>');
                         }
 

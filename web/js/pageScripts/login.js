@@ -48,7 +48,13 @@ jQuery(function(){
                 type: "POST",
                 success: function (data) {
                     if (data.success) {
-                        $.setUuuAuth(ajaxdata.username,ajaxdata.password);
+                        var u = {},menus;
+                        u.u = ajaxdata.username;
+                        u.k = ajaxdata.password;
+                        u.g = data.manager.id;
+                        u.n = data.manager.name;
+                        menus = data.manager.menus;
+                        $.setUuuAuth(u,menus);
                         /*var user = $.getuuuAuth();
                         alert(user._d);
                         alert(user._p);
@@ -67,6 +73,9 @@ jQuery(function(){
                     _this.find(".form_submit_handle").html('<i class=\"fa fa-spinner\"></i>&nbsp;正在登录').attr("disabled", "disabled");
                 },
                 complete: function () { // 设置表单提交后方法   
+                    /*_this.find(".form_submit_handle").html('登录').removeAttr("disabled");*/
+                },
+                error: function () {
                     _this.find(".form_submit_handle").html('登录').removeAttr("disabled");
                 }
             });

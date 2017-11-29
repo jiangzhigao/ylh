@@ -9,8 +9,8 @@
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 100px;
-            width: 90px;
+            min-width: 70px;
+            width: 100%;
         }
         a:hover {
             text-decoration: none;
@@ -30,7 +30,7 @@
             color: #ccc;
         }
         a {
-            color: #333;
+            color: #666666;
         }
     </style>
 </head>
@@ -56,8 +56,9 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">文书委托</h2>
+                    <h4 class="title pull-left">文书委托</h4>
                     <div class="actions panel_actions pull-right">
+                        <%--<div id="page_alert_container"></div>--%>
                     </div>
                 </header>
                 <div class="content-body">
@@ -79,7 +80,9 @@
                                         <option value="0">未发布</option>
                                         <option value="1">已发布</option>
                                         <option value="2">已接案</option>
-                                        <option value="3">已作废</option>
+                                        <option value="3">进行中</option>
+                                        <option value="4">已结案</option>
+                                        <option value="5">已作废</option>
                                     </select>
                                 </div>
                                 <div class="col-xs-2">
@@ -91,7 +94,6 @@
                                 </div>
                             </div>
                         </form>
-                        <br>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>

@@ -51,7 +51,7 @@
                 "cnt_help_list":"/view/contentmanager/help/helpList.jsp",
                 "bz_service_clz_List":"/view/business/product/serviceClzList.jsp",
                 "bz_service_order_List":"/view/business/order/service/serviceOrderList.jsp",
-                "bz_reservation_order_List":"/view/business/order/reservation/reservationOrderList.jsp",
+                "bz_reservation_order_List":"/view/business/order/reservation/orderList.jsp",
                 "bz_entrust_order_List":"/view/business/order/entrust/entrustOrderList.jsp",
                 "bz_withdraw_cash_apply_List":"/view/business/cash/apply/withdrawCashApplyList.jsp",
                 "bz_withdraw_cash_record_List":"/view/business/cash/record/withdrawCashRecordList.jsp",

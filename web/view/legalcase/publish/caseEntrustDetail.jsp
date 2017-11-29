@@ -19,6 +19,20 @@
         .divider-dotted{
             width: 100%;border:1px dashed #e8e8e8
         }
+        .img-upload .img-upload-file{
+            width: 135px;
+            height: 35px;
+            cursor: pointer;
+            font-size: 23px;
+            outline: medium none;
+            position: absolute;
+            filter:alpha(opacity=0);
+            -moz-opacity:0;
+            opacity:0;
+            left:0px;
+            top: 0px;
+            padding: 7px 18px;
+        }
     </style>
 </head>
 <!-- END HEAD -->
@@ -51,79 +65,88 @@
                     <div class="dataTables_wrapper no-footer">
                         <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                             <input type="hidden" id="status-tag">
-                            <%--<div class="row">
-                                <div class="col-xs-4">
-                                    <div class="form-group">
-                                        <label class="col-xs-6 control-label">订单编号</label>
-                                        <div class="col-xs-6">
-                                            <label class="col-xs-3 control-label">D00000000000001</label>
+                            <input type="hidden" id="dataId">
+                            <div class="row" id="orderCode" style="display: none;">
+                                <div class="col-xs-12">
+                                    <div class="form-group btom">
+                                        <label class="col-xs-2 control-label">订单编号</label>
+                                        <div class="col-xs-2" style="margin-right: -40px;">
+                                            <label class="control-label" id="orderNo" style="font-weight: 500;"></label>
+                                        </div>
+                                        <div class="col-xs-1">
+                                            <div class="controls">
+                                                <a href="#" class="btn btn-primary" id="orderDtl">查看订单</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xs-1">
-                                    &lt;%&ndash;<div class="form-group">&ndash;%&gt;
-                                        <div class="controls">
-                                            <button id="btnSearch" type="button" class="btn btn-primary">查看订单</button>
-                                        </div>
-                                    &lt;%&ndash;</div>&ndash;%&gt;
-                                </div>
-                            </div>--%>
+                            </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">委托名称</label>
                                         <div class="col-xs-5">
-                                            <label class="control-label" id="commisionName"></label>
+                                            <label class="control-label" id="commisionName" style="font-weight: 500;"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">委托人</label>
                                         <div class="col-xs-5">
-                                            <label class="control-label" id="commisionClient"></label>
+                                            <label class="control-label" id="commisionClient" style="font-weight: 500;"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">联系方式</label>
                                         <div class="col-xs-5">
-                                            <label class="control-label" id="contactPhone"></label>
+                                            <label class="control-label" id="contactPhone" style="font-weight: 500;"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">委托时间</label>
                                         <div class="col-xs-5">
-                                            <label class="control-label" id="createdTime"></label>
+                                            <label class="control-label" id="createdTime" style="font-weight: 500;"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" id="agentLawyerRow" style="display: none;">
+                                <div class="col-xs-12">
+                                    <div class="form-group btom">
+                                        <label class="col-xs-2 control-label">代理律师</label>
+                                        <div class="col-xs-5">
+                                            <label class="control-label" id="agentLawyer" style="font-weight: 500;"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">案件标的</label>
                                         <div class="col-xs-5">
-                                            <label class="control-label" id="caseAmount"></label>
+                                            <label class="control-label" id="caseAmount" style="font-weight: 500;"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">代理费用</label>
                                         <div class="col-xs-5">
-                                            <label class="control-label" id="agencyFee"></label>
+                                            <label class="control-label" id="agencyFee" style="font-weight: 500;"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -132,16 +155,16 @@
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">案件详情</label>
-                                        <div class="col-xs-9">
-                                            <script id="editor" type="text/plain"></script>
+                                        <div class="col-xs-9" style="margin-top: 7px;margin-bottom: 7px;text-align: left;font-weight: 500;" id="editor">
+                                            <%--<script id="editor" type="text/plain"></script>--%>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label">图片</label>
+                                    <div class="form-group btom">
+                                        <label class="col-xs-2 control-label" id="picDtl">图片</label>
                                         <div class="col-xs-5" style="max-width: 400px;max-height: 300px;" id="imgBox">
                                             <img src="/images/nopica.png" class="img-thumbnail" id="coverImage"/>
                                         </div>
@@ -153,7 +176,22 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">案件进度</label>
                                         <div class="col-xs-5">
-                                            <label class="control-label" id="statusTxt"></label>
+                                            <label class="control-label" id="statusTxt" style="font-weight: 500;"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" id="lawyerList" style="display: none;">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-xs-2 control-label">参与律师</label>
+                                        <div class="col-xs-1">
+                                            <label class="control-label" id="lawyerNum"></label>
+                                        </div>
+                                        <div class="col-xs-1">
+                                            <div class="controls">
+                                                <button id="btnSlSearch" type="button" class="btn btn-primary" data-toggle="modal" data-target="#lawyerModal">点击查看</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -169,7 +207,7 @@
                                 <div class="col-xs-5">
                                     <div class="form-group">
                                         <div class="controls">
-                                            <button type="button" class="btn btn-info" id="btnRevoke">作废</button>
+                                                <button type="button" class="btn btn-info" style="display: none" id="btnRevoke">作废</button>
                                         </div>
                                     </div>
                                 </div>
@@ -184,16 +222,21 @@
 </section>
 <!-- END CONTENT -->
 </div>
-<!-- END CONTAINER -->
-
 <!-- select lawyer modal start -->
 <%@ include file="/view/legalcase/publish/selectLawyerModal.jsp"%>
 <!-- select lawyer modal end -->
-
-<script type="text/javascript" src="/js/__base.min.js"></script>
-<script type="text/javascript" src="/js/pageScripts/legalcase/publish/case_entrust_detail.js"></script>
-<script type="text/javascript" src="/js/custom/request-util.js"></script>
 <!-- START FOOTER -->
+<!-- END CONTAINER -->
+<script type="text/javascript" src="/js/__base.min.js"></script>
+<script src="/js/custom/hashMap.js" type="text/javascript"></script>
+<script type="text/javascript">
+    /** 待选择律师集合 */
+    var sltLawyerMap = new Map();
+</script>
+<script type="text/javascript" src="/js/pageScripts/legalcase/publish/case_entrust_detail.js"></script>
+<script type="text/javascript" src="/js/pageScripts/legalcase/inc/select_lawyer_list_query.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
+
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->
 </body>

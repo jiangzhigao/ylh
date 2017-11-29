@@ -9,8 +9,8 @@
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 100px;
-            width: 90px;
+            min-width: 65px;
+            width: 100%;
         }
         a:hover {
             text-decoration: none;
@@ -24,10 +24,13 @@
             background-color:#fff;
         }
         .no-editable{
-            background-color: #cccccc;
+            color: #ccc;
+        }
+        .no-editable a{
+            color: #ccc;
         }
         a {
-            color: #333;
+            color: #666666;
         }
     </style>
 </head>
@@ -48,12 +51,15 @@
     <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
         <header class="panel_header" style="background-color: #fff;margin-top:45px;">
             <h4 class="title pull-left" style="font-size: 15px;">商务中心 / 提现管理 / 提现申请 </h4>
+            <div class="actions panel_actions pull-right">
+                <%--<div id="page_alert_container"></div>--%>
+            </div>
         </header>
 
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">提现申请</h2>
+                    <h4 class="title pull-left">提现申请</h4>
                     <div class="actions panel_actions pull-right">
                     </div>
                 </header>
@@ -87,7 +93,6 @@
                                 </div>
                             </div>
                         </form>
-                        <br>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
@@ -97,6 +102,7 @@
                                 <th>申请时间</th>
                                 <th>提现金额</th>
                                 <th>提现状态</th>
+                                <th>申请状态</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
@@ -147,6 +153,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/business/cash/apply/list_query.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

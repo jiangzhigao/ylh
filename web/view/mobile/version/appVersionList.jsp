@@ -27,7 +27,7 @@
             background-color: #cccccc;
         }
         a {
-            color: #333;
+            color: #666666;
         }
     </style>
 </head>
@@ -53,7 +53,7 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">APP版本列表</h2>
+                    <h4 class="title pull-left">APP版本列表</h4>
                     <div class="actions panel_actions pull-right">
                     </div>
                 </header>
@@ -77,7 +77,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                            <%--<tr>
                                 <td>律师端</td>
                                 <td>1.0</td>
                                 <td>2017-08-08</td>
@@ -90,21 +90,7 @@
                                         编辑
                                     </a>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td>用户端</td>
-                                <td>1.0</td>
-                                <td>2017-08-08</td>
-                                <td>http://</td>
-                                <td>1.0</td>
-                                <td>2017-08-08</td>
-                                <td>http://</td>
-                                <td>
-                                    <a href="editAppVersion.jsp" style="color: #2aabd2;">
-                                        编辑
-                                    </a>
-                                </td>
-                            </tr>
+                            </tr>--%>
                             </tbody>
                         </table>
                         <div class="row">
@@ -125,6 +111,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/mobile/version/list_query.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

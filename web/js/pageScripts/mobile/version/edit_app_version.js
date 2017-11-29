@@ -4,49 +4,43 @@ jQuery(function(){
     var queryParam = {},ajaxdata = {};
     $form_edit.validate({
         rules:{
-            userName:{
+            androidVersion:{
                 required:true,
             },
-            userPassword:{
+            androidUpdatedTime:{
                 required:true,
             },
-            name:{
+            androidUrl:{
                 required:true,
             },
-            nickname:{
+            iosVersion:{
                 required:true,
             },
-            mobile:{
+            iosUpdatedTime:{
                 required:true,
             },
-            email:{
-                required:true,
-            },
-            idcard:{
+            iosUrl:{
                 required:true,
             }
         },
         messages:{
-            commisionName:{
-                required:"手机号或账户名不能为空"
+            androidVersion:{
+                required:"请输入安卓最新版本号"
             },
-            userPassword:{
-                required:"密码不能为空"
+            androidUpdatedTime:{
+                required:"请输入安卓版本更新时间"
             },
-            name:{
-                required:"真实姓名不能为空"
+            androidUrl:{
+                required:"请输入安卓更细地址"
             },
-            nickname:{
-                required:"昵称不能为空"
+            iosVersion:{
+                required:"请输入IOS最新版本号"
             },
-            mobile:{
-                required:"备用手机号码不能为空"
+            iosUpdatedTime:{
+                required:"请输入IOS版本更新时间"
             },
-            email:{
-                required:"电子邮箱不能为空"
-            },
-            idcard:{
-                required:"身份证号不能为空"
+            iosUrl:{
+                required:"请输入IOS苹果商店更细地址"
             }
         }
     });
@@ -71,12 +65,17 @@ jQuery(function(){
         $('#btnSave').on('click', function () {
             var id = $("#dataId").val();
             var $this = $(this);
-            _ajax($this, '保存',webBasePath+'/users/'+id);
+            _ajax($this, '保存',webBasePath+'/serviceTypes/'+id);
         });
 
         //返回
-        $('#btnBack').on('click', function () {
+        /*$('#btnBack').on('click', function () {
             window.history.back();
+        });*/
+        /** 删除 */
+        $('#btnDel').on('click', function () {
+            var id = $("#dataId").val();
+            _delete(id);
         });
     }
 
@@ -84,30 +83,21 @@ jQuery(function(){
         _setQueryAjaxData();
         jQuery.ajax({
             dataType: "json",
-            url: webBasePath + '/users/'+id,
+            url: webBasePath + '/versions/'+id,
             data: queryParam,
             type: "GET",
             success: function (result) {
                 if (result.success) {
-                    var user = result.user;
-                    if(user){
-                        $("#dataId").val(user.id);
-                        $("#userName").text(user.userName);
-                        $("#userPassword").val(user.userPassword);
-                        $("#name").text(user.name);
-                        $("#nickname").val(user.nickname);
-                        $("#idcard").val(user.idcard);
-                        $("#mobile").val(user.mobile);
-                        $("#email").val(user.email);
-                        $("#lastLoginTime").text(user.lastLoginTime);
-                        $("#lastLoginIp").text(user.loginIP);
-                        $("#registerTime").text(user.createdTime);
-                        $("#score").val(user.score);
-
-                        $("input[name='status'][value='"+user.status+"']").attr("checked",true);
-                        /*$("input[name='status']").val(user.status);*/
-                        $("#coverImage").attr("src",homePath+user.picture);
-                        $("#coverUrl").val(homePath+user.picture);
+                    var version = result.version;
+                    if(version){
+                        $("#dataId").val(version.id);
+                        $("#type").val(version.type);
+                        $("#androidVersion").val(version.androidVersion);
+                        $("#androidUpdatedTime").val(version.androidUpdatedTime);
+                        $("#androidUrl").val(version.androidUrl);
+                        $("#iosVersion").val(version.androidVersion);
+                        $("#iosUpdatedTime").val(version.androidUpdatedTime);
+                        $("#iosUrl").val(version.androidUrl);
                     }
                 }else{
                     FOXKEEPER_UTILS.alert('warning', result.message);
@@ -138,8 +128,7 @@ jQuery(function(){
                         if (result.success) {
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
-
-                                location.replace("/view/customercenter/membermanagement/memberList.jsp");
+                                location.replace("/view/mobile/version/appVersionList.jsp");
                             }, 1000);
                         }
                         else
@@ -165,23 +154,17 @@ jQuery(function(){
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
         ajaxdata.id = $("#dataId").val();
-        ajaxdata.userName = $("#userName").val();
-        ajaxdata.userPassword = ''/*$("#userPassword").val()*/;
-        ajaxdata.name = $("#name").val();
-        ajaxdata.nickname = $("#nickname").val();
-        ajaxdata.idcard = $("#idcard").val();
-        ajaxdata.picture = $("#coverUrl").val();
-        ajaxdata.mobile = $("#mobile").val();
-        ajaxdata.email = $("#email").val();
-        ajaxdata.status = $("input[name='status']:checked").val();
+        ajaxdata.type = $("#type").val();
+        ajaxdata.androidVersion = ("#androidVersion").val();
+        ajaxdata.androidUpdatedTime = $("#androidUpdatedTime").val();
+        ajaxdata.androidUrl = $("#androidUrl").val();
+        ajaxdata.iosVersion = $("#iosVersion").val();
+        ajaxdata.iosUpdatedTime = $("#iosUpdatedTime").val();
+        ajaxdata.iosUrl = $("#iosUrl").val();
     }
 
     /** 请求参数验证 */
     function _verifyAjaxData () {
-        if (!ajaxdata.picture) {
-            FOXKEEPER_UTILS.alert('warning', '请上传会员头像');
-            return false;
-        }
         return true;
     }
 

@@ -42,8 +42,8 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">新增</h2>
-                    <div class="actions panel_actions pull-right">
+                    <h4 class="title pull-left">新增</h4>
+                    <div class="actions panel_actions pull-right" style="line-height: 23px;">
                     </div>
                 </header>
                 <div class="content-body">
@@ -95,7 +95,7 @@
                                 <div class="col-xs-4">
                                     <div class="form-group">
                                         <div class="controls">
-                                            <button type="button" class="btn btn-info" id="btnSave">保存</button>
+                                            <button type="button" class="btn btn-info" id="btnSave">确认添加</button>
                                         </div>
                                     </div>
                                 </div>

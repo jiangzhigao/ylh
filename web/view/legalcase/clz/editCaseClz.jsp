@@ -55,7 +55,7 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">分类ID</label>
                                         <div class="col-xs-4">
-                                            <label class="control-label" id="id-txt"></label>
+                                            <label class="control-label" id="id-txt" style="font-weight: 500;"></label>
                                         </div>
                                     </div>
                                 </div>

@@ -93,7 +93,7 @@
                                 <td>1</td>
                                 <td>启用</td>
                                 <td>
-                                    <a href="editPayType.jsp" style="color: #2aabd2;">
+                                    <a href="editPayType.jsp" style="color: #337AB7;">
                                         编辑
                                     </a>
                                 </td>
@@ -111,7 +111,7 @@
                                 <td>1</td>
                                 <td>启用</td>
                                 <td>
-                                    <a href="editPayType.jsp" style="color: #2aabd2;">
+                                    <a href="editPayType.jsp" style="color: #337AB7;">
                                         编辑
                                     </a>
                                 </td>

@@ -150,7 +150,6 @@ jQuery(function(){
         var user = $.getuuuAuth();
         var fileName = $file.val();
         var fileSuffix = fileName.substring(fileName.indexOf(".") + 1, fileName.length);
-        var data = new FormData($("#formTimeLine")[0]);
         var formData = new FormData($form_add[0]);
         formData.append("username", user._d);
         formData.append("password", user._p);

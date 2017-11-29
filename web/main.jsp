@@ -34,12 +34,12 @@
 		.menu-lb div{
 			border: 1px solid #e8e8e8;
 			background-color: #fff;
+			margin: 10px 13px 0px 6px;
 			padding-left: 15px;
-			margin: 15px 13px 0px 6px;
 		}
 		.menu-lb div h4{
 			font-size: 15px;
-			line-height: 30px;
+			line-height: 20px;
 			color: #676767;
 		}
 		.m-chart{

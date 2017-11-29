@@ -54,8 +54,8 @@
             <section class="box ">
                 <header class="panel_header">
                     <h2 class="title pull-left">线下律所列表</h2>
-                    <div class="actions panel_actions pull-right">
-                        <a href="addLawFirm.jsp" class="btn btn-info">
+                    <div class="actions panel_actions pull-right" style="line-height: 23px;">
+                        <a href="addLawFirm.jsp" class="btn btn-info"style="padding: 3px 6px;margin-top:9px;">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
@@ -76,7 +76,6 @@
                                 </div>
                             </div>
                         </form>
-                        <br>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>

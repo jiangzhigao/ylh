@@ -9,8 +9,8 @@
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 100px;
-            width: 90px;
+            min-width: 90px;
+            width: 80px;
         }
         a:hover {
             text-decoration: none;
@@ -24,10 +24,13 @@
             background-color:#fff;
         }
         .no-editable{
-            background-color: #cccccc;
+            color: #ccc;
+        }
+        .no-editable a{
+            color: #ccc;
         }
         a {
-            color: #333;
+            color: #666666;
         }
     </style>
 </head>
@@ -53,8 +56,9 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">服务订单列表</h2>
+                    <h4 class="title pull-left">服务订单列表</h4>
                     <div class="actions panel_actions pull-right">
+                        <%--<div id="page_alert_container"></div>--%>
                     </div>
                 </header>
                 <div class="content-body">
@@ -88,7 +92,6 @@
                                 </div>
                             </div>
                         </form>
-                        <br>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>

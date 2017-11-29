@@ -38,7 +38,78 @@
         }
     });
 
+    /*$(function () {
+        var menus =  $.getMenuList();
+        var $menu = $("#menuList");
+        var _html = new Array();
+        function _buildMenu(menus){
+            if (menus != null && menus.length > 0) {
+                for (var i = 0; i < menus.length; i++) {
+                    var m = menus[i];
+                    _html.push('<li class="">');
+                    _html.push('<a href="' + m.url + '">');
+                    _html.push('<i class="' + m.picture + '"></i>');
+                    _html.push('<span class="title">' + m.name + '</span><span class="arrow"></span>');
+                    _html.push('</a>');
+                    /!*var subList = m.sub
+                    if(){
+
+                    }*!/
+                }
+            }
+
+            $menu.html(_html.join(''));
+        }
+
+        _buildMenu(menus);*/
+        /*if (menus != null && menus.length > 0) {
+            var _html = new Array();
+            for (var i = 0; i < menus.length; i++) {
+                var m = menus[i];
+                _html.push('<li class="">');
+                _html.push('<a href="'+m.url+'">');
+                _html.push('<i class="'+m.picture+'"></i>');
+                _html.push('<span class="title">'+m.name+'</span><span class="arrow"></span>');
+                _html.push('</a>');
 
 
+                /!*_html.push('<ul class="sub-menu">');
+
+                for(){
+
+                }
+
+                _html.push('</ul>');*!/
+            }*/
+        /*}*/
+
+        <%--<c:forEach items="${menus}" var="menu">
+        <li class="">
+            <a href="${menu.menuUrl}">
+            <i class="fa ${menu.menuClassName}"></i>
+            <span class="title">${menu.menuName}</span><span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+            <c:forEach items="${menu.subMenuList}" var="subMenu">
+            <li>
+            <a class="${subMenu.menuClassName}" href="${subMenu.menuUrl}">${subMenu.menuName}</a>
+            </li>
+            </c:forEach>
+            </ul>
+        </li>
+        </c:forEach>--%>
+
+    /*});*/
+
+    function _loginOut(){
+        $.loginOut();
+    }
+
+    function _initManagerName(){
+        var user = $.reqHomeUrl();
+        $("#mName").text(user._n);
+    }
+
+    _initManagerName();
 </script>
 

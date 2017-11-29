@@ -4,31 +4,31 @@ jQuery(function(){
     var queryParam = {},ajaxdata = {};
     $form_edit.validate({
         rules:{
-            type:{
+            title:{
                 required:true,
             },
-            duration:{
+            amount:{
                 required:true,
             },
-            fee:{
+            startTime:{
                 required:true,
             },
-            sortNo:{
+            endTime:{
                 required:true,
             }
         },
         messages:{
-            type:{
-                required:"请选择服务类型"
+            title:{
+                required:"请输入抵用券标题"
             },
-            duration:{
-                required:"服务时长不能为空"
+            amount:{
+                required:"请输入抵用券面额"
             },
-            fee:{
-                required:"费用不能为空"
+            startTime:{
+                required:"请输入抵用券有效开始时间"
             },
-            sortNo:{
-                required:"排序号不能为空"
+            endTime:{
+                required:"请输入抵用券有效截止时间"
             }
         }
     });
@@ -53,38 +53,32 @@ jQuery(function(){
         $('#btnSave').on('click', function () {
             var id = $("#dataId").val();
             var $this = $(this);
-            _ajax($this, '保存',webBasePath+'/serviceTypes/'+id);
+            _ajax($this, '保存',webBasePath+'/vouchers/'+id);
         });
 
         //返回
         /*$('#btnBack').on('click', function () {
             window.history.back();
         });*/
-        /** 删除 */
-        $('#btnDel').on('click', function () {
-            var id = $("#dataId").val();
-            _delete(id);
-        });
     }
 
     function _initData (id) {
         _setQueryAjaxData();
         jQuery.ajax({
             dataType: "json",
-            url: webBasePath + '/serviceTypes/'+id,
+            url: webBasePath + '/vouchers/'+id,
             data: queryParam,
             type: "GET",
             success: function (result) {
                 if (result.success) {
-                    var serviceType = result.serviceType;
-                    if(serviceType){
-                        $("#dataId").val(serviceType.id);
-                        $("#type").val(serviceType.type);
-                        $("#duration").val(serviceType.duration);
-                        $("#fee").val(serviceType.fee);
-                        $("#sortNo").val(serviceType.sortNo);
-                        $("#publishTime").text(serviceType.createdTime);
-                        $("#updateTime").text(serviceType.updatedTime);
+                    var voucher = result.voucher;
+                    if(voucher){
+                        $("#dataId").val(voucher.id);
+                        $("#title").val(voucher.title);
+                        $("#amount").val(voucher.amount);
+                        $("#startTime").val(voucher.startTime);
+                        $("#endTime").val(voucher.endTime);
+                        $("input[name='status'][value='"+voucher.status+"']").attr("checked",true);
                     }
                 }else{
                     FOXKEEPER_UTILS.alert('warning', result.message);
@@ -115,7 +109,7 @@ jQuery(function(){
                         if (result.success) {
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
-                                location.replace("/view/business/product/serviceClzList.jsp");
+                                location.replace("/view/business/coupon/couponList.jsp");
                             }, 1000);
                         }
                         else
@@ -140,66 +134,16 @@ jQuery(function(){
         ajaxdata.username = user._d;
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
-        ajaxdata.id = $("#dataId").val();
-        ajaxdata.type = $("#type").val();
-        ajaxdata.duration = $("#duration").val();
-        ajaxdata.sortNo = $("#sortNo").val();
-        ajaxdata.fee = $("#fee").val();
+        ajaxdata.title = $("#title").val();
+        ajaxdata.amount = $("#amount").val();
+        ajaxdata.startTime = $("#startTime").val();
+        ajaxdata.endTime = $("#endTime").val();
+        ajaxdata.status = $("input[name='status']:checked").val();
     }
 
     /** 请求参数验证 */
     function _verifyAjaxData () {
         return true;
-    }
-
-
-    function _delete(id) {
-        var delData = {};
-        var user = $.reqHomeUrl();
-        delData.username = user._d;
-        delData.password = user._p;
-        delData.userType = 2;
-        delData.id = id;
-        delData.status = 0;
-        bootbox.dialog({
-            title: "",
-            message: '<div class="row">  ' +
-            '<div class="col-xs-12"> ' +
-            '请确认是否删除该服务分类？' +
-            '</div></div>',
-            buttons: {
-                cancel: {
-                    label: "取消操作",
-                    className: "btn-cancel",
-                    callback: $.noop
-                },
-                confirm: {
-                    label: "确定删除",
-                    className: "btn-success",
-                    callback: function () {
-                        jQuery.ajax({
-                            dataType: "json",
-                            url: webBasePath+'/serviceTypes/'+id,
-                            data: delData,
-                            type: "POST",
-                            success: function (result) {
-                                if (result.success) {
-                                    FOXKEEPER_UTILS.alert('success', result.message);
-                                    setTimeout(function(){
-                                        location.replace("/view/business/product/serviceClzList.jsp");
-                                    }, 500);
-                                }
-                                else
-                                {
-                                    FOXKEEPER_UTILS.alert('warning', result.message);
-                                }
-                            }
-                        });
-                        return true;
-                    }
-                }
-            }
-        })
     }
 
 });

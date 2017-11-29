@@ -48,50 +48,50 @@
                         <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">订单号</label>
-                                        <div class="col-xs-4">
-                                            <label class="control-label">20170000000001</label>
+                                        <div class="col-xs-2">
+                                            <label class="control-label" id="orderNo" style="font-weight: 500;"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">时长</label>
                                         <div class="col-xs-4">
-                                            <label class="control-label">6个月</label>
+                                            <label class="control-label" id="duration" style="font-weight: 500;"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">客户</label>
                                         <div class="col-xs-4">
-                                            <label class="control-label">13861234567</label>
+                                            <label class="control-label" id="userId" style="font-weight: 500;"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">订单金额</label>
                                         <div class="col-xs-4">
-                                            <label class="control-label">100.00</label>
+                                            <label class="control-label" id="totalAmount" style="font-weight: 500;"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">下单时间</label>
                                         <div class="col-xs-4">
-                                            <label class="control-label">2017-08-08</label>
+                                            <label class="control-label" id="orderTime" style="font-weight: 500;"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -101,7 +101,7 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">订单状态</label>
                                         <div class="col-xs-4">
-                                            <label class="control-label">未支付</label>
+                                            <label class="control-label" id="orderStatus" style="font-weight: 500;"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -111,6 +111,21 @@
                             <br>
 
                             <div class="clearfix"></div>
+                            <div class="row" id="optionsBtn" style="display: none;">
+                                <div class="col-xs-3">
+                                </div>
+                                <div class="col-xs-5">
+                                    <div class="form-group">
+                                        <div class="controls">
+                                            <button type="button" class="btn btn-danger" id="btn25">2.5:7.5分红</button>
+                                            &nbsp;&nbsp;
+                                            <button type="button" class="btn btn-danger" id="btn35">3.5:6.5分红</button>
+                                            &nbsp;&nbsp;
+                                            <button type="button" class="btn btn-danger" id="btn100">10:0分红</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -124,6 +139,8 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/business/order/service/order_detail.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

@@ -56,9 +56,9 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">管理员列表</h2>
-                    <div class="actions panel_actions pull-right">
-                        <a href="addSysUser.jsp" class="btn btn-info">
+                    <h4 class="title pull-left">管理员列表</h4>
+                    <div class="actions panel_actions pull-right" style="line-height: 23px;">
+                        <a href="addSysUser.jsp" class="btn btn-info" style="padding: 3px 6px;margin-top:9px;">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
@@ -87,7 +87,6 @@
                                 </div>
                             </div>
                         </form>
-                        <br>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
@@ -102,7 +101,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                            <%--<tr>
                                 <td>admin</td>
                                 <td>王麻子</td>
                                 <td>超级管理员</td>
@@ -112,7 +111,7 @@
                                 <td>正常</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;" aria-expanded="false">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;" aria-expanded="false">
                                             编辑
                                             <span class="caret"></span>
                                         </a>
@@ -129,35 +128,7 @@
                                         </ul>
                                     </div>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td>admin</td>
-                                <td>王麻子</td>
-                                <td>超级管理员</td>
-                                <td>10.0.0.1</td>
-                                <td>2017-08-08 15:30:30</td>
-                                <td>10</td>
-                                <td>正常</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;" aria-expanded="false">
-                                            编辑
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu opt" role="menu">
-                                            <li>
-                                                <a href="editSysUser.jsp" bz-url="editSysUser.jsp" bid="12">编辑</a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:;" bid="12" class="">删除</a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:;" bid="12" class="">重置密码</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
+                            </tr>--%>
                             </tbody>
                         </table>
                         <div class="row">
@@ -178,6 +149,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/sys/permission/user/list_query.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

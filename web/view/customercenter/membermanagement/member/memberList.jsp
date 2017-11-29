@@ -9,8 +9,8 @@
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 65px;
-            width: 65px;
+            min-width: 45px;
+            width: 100%;
         }
         a:hover {
             text-decoration: none;
@@ -30,7 +30,7 @@
             color: #ccc;
         }
         a {
-             color: #333;
+             color: #666666;
         }
 
     </style>
@@ -58,8 +58,8 @@
             <section class="box ">
                 <header class="panel_header">
                     <h2 class="title pull-left">会员列表</h2>
-                    <div class="actions panel_actions pull-right">
-                        <a href="addMember.jsp" class="btn btn-info">
+                    <div class="actions panel_actions pull-right" style="line-height: 23px;">
+                        <a href="addMember.jsp" class="btn btn-info" style="padding: 3px 6px;margin-top:9px;">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
@@ -80,8 +80,8 @@
                                 <div class="col-xs-2 move20">
                                     <select class="form-control" style="border-color: #e1e1e1;">
                                         <option value="">状态</option>
-                                        <option value="0">未审核</option>
-                                        <option value="1">审核中</option>
+                                        <option value="0">冻结</option>
+                                        <option value="1">正常</option>
                                     </select>
                                 </div>
                                 <div class="col-xs-2">
@@ -93,7 +93,6 @@
                                 </div>
                             </div>
                         </form>
-                        <br>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
@@ -120,7 +119,7 @@
 
                                 <td>
                                     <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">
                                             编辑
                                             <span class="caret"></span>
                                         </a>

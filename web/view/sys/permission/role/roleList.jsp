@@ -27,7 +27,7 @@
             background-color: #cccccc;
         }
         a {
-            color: #333;
+            color: #666666;
         }
     </style>
 </head>
@@ -53,9 +53,9 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">用户组列表</h2>
-                    <div class="actions panel_actions pull-right">
-                        <a href="addRoleResources.jsp" class="btn btn-info">
+                    <h4 class="title pull-left">用户组列表</h4>
+                    <div class="actions panel_actions pull-right" style="line-height: 23px;">
+                        <a href="addRoleResources.jsp" class="btn btn-info" style="padding: 3px 6px;margin-top:9px;">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
@@ -77,7 +77,6 @@
                                 </div>
                             </div>
                         </form>
-                        <br>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
@@ -90,30 +89,18 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                            <%--<tr>
                                 <td>测试</td>
                                 <td>测试用户</td>
                                 <td>1</td>
                                 <td>2017-08-08 15:30:30</td>
                                 <td>2017-08-08 15:30:30</td>
                                 <td>
-                                    <a href="editRoleResources.jsp" style="color: #2aabd2;">
+                                    <a href="editRoleResources.jsp" style="color: #337AB7;">
                                         编辑
                                     </a>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td>超级管理员</td>
-                                <td>超级管理员</td>
-                                <td>2</td>
-                                <td>2017-08-08 15:30:30</td>
-                                <td>2017-08-08 15:30:30</td>
-                                <td>
-                                    <a href="editRoleResources.jsp" style="color: #2aabd2;">
-                                        编辑
-                                    </a>
-                                </td>
-                            </tr>
+                            </tr>--%>
                             </tbody>
                         </table>
                         <div class="row">
@@ -134,6 +121,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/sys/permission/role/list_query.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

@@ -79,7 +79,7 @@ jQuery(function(){
 
     function _optionsHtml(id){
         var _operHtml = [];
-        _operHtml.push('<a href="/view/customercenter/lawyermanagement/complaint/complaintAndAdviceDetail.jsp?dataId='+id+'" style="color: #2aabd2;">查看详情</a>');
+        _operHtml.push('<a href="/view/customercenter/lawyermanagement/complaint/complaintAndAdviceDetail.jsp?dataId='+id+'" style="color: #337AB7;">查看详情</a>');
         return  _operHtml.join('');
     }
 

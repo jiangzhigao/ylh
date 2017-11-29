@@ -9,8 +9,8 @@
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 100px;
-            width: 90px;
+            min-width: 70px;
+            width: 100%;
         }
         a:hover {
             text-decoration: none;
@@ -30,7 +30,7 @@
             color: #ccc;
         }
         a {
-            color: #333;
+            color: #666666;
         }
     </style>
 </head>
@@ -56,8 +56,9 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">案件委托</h2>
-                    <div class="actions panel_actions pull-right">
+                    <h4 class="title pull-left">案件委托</h4>
+                    <div class="actions panel_actions pull-right" style="line-height: 23px;">
+                        <%--<div id="page_alert_container"></div>--%>
                     </div>
                 </header>
                 <div class="content-body">
@@ -76,10 +77,12 @@
                                 <div class="col-xs-2 move20">
                                     <select class="form-control" style="border-color: #e1e1e1;">
                                         <option value="">全部</option>
-                                        <option value="0">未发布</option>
-                                        <option value="1">已发布</option>
-                                        <option value="2">已结案</option>
-                                        <option value="3">已作废</option>
+                                        <option value="0">未审核</option>
+                                        <option value="1">审核通过</option>
+                                        <option value="5">审核驳回</option>
+                                        <option value="2">已受理</option>
+                                        <option value="3">进行中</option>
+                                        <option value="4">已结案</option>
                                     </select>
                                 </div>
                                 <div class="col-xs-2">
@@ -91,7 +94,6 @@
                                 </div>
                             </div>
                         </form>
-                        <br>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
@@ -122,7 +124,7 @@
                                 <td>审核中</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">
                                             查看详情
                                             <span class="caret"></span>
                                         </a>

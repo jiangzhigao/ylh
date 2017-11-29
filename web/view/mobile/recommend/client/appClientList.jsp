@@ -27,7 +27,7 @@
             background-color: #cccccc;
         }
         a {
-            color: #333;
+            color: #666666;
         }
     </style>
 </head>
@@ -53,9 +53,9 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">客户端首页推荐列表</h2>
-                    <div class="actions panel_actions pull-right">
-                        <a href="addRecommendPage.jsp" class="btn btn-info">
+                    <h4 class="title pull-left">客户端首页推荐列表</h4>
+                    <div class="actions panel_actions pull-right" style="line-height: 23px;">
+                        <a href="addRecommendPage.jsp" class="btn btn-info" style="padding: 3px 6px;margin-top:9px;">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
@@ -80,7 +80,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                            <%--<tr>
                                 <td>客户端</td>
                                 <td width="120px;">
                                     <div class="profile-image">
@@ -93,31 +93,12 @@
                                 <td>1</td>
                                 <td>显示</td>
                                 <td>
-                                    <a href="editRecommendPage.jsp" style="color: #2aabd2;">
+                                    <a href="editRecommendPage.jsp" style="color: #337AB7;">
                                         编辑
                                         <span class="caret"></span>
                                     </a>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td>客户端</td>
-                                <td width="120px;">
-                                    <div class="profile-image">
-                                        <img src="/images/user.png" class="" style="width: 80%;" />
-                                    </div>
-                                </td>
-                                <td>站内</td>
-                                <td>2017-08-08</td>
-                                <td>2017-08-08</td>
-                                <td>1</td>
-                                <td>显示</td>
-                                <td>
-                                    <a href="editRecommendPage.jsp" style="color: #2aabd2;">
-                                        编辑
-                                        <span class="caret"></span>
-                                    </a>
-                                </td>
-                            </tr>
+                            </tr>--%>
                             </tbody>
                         </table>
                         <div class="row">
@@ -138,6 +119,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/mobile/recommend/client/list_query.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

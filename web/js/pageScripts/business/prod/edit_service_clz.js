@@ -175,7 +175,7 @@ jQuery(function(){
                 },
                 confirm: {
                     label: "确定删除",
-                    className: "btn-success",
+                    className: "btn-info",
                     callback: function () {
                         jQuery.ajax({
                             dataType: "json",

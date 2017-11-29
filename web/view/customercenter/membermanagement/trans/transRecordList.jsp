@@ -9,8 +9,8 @@
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 100px;
-            width: 90px;
+            min-width: 70px;
+            width: 100%;
         }
         a:hover {
             text-decoration: none;
@@ -30,7 +30,7 @@
             color: #ccc;
         }
         a {
-            color: #333;
+            color: #666666;
         }
     </style>
 </head>
@@ -56,7 +56,7 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">交易记录</h2>
+                    <h4 class="title pull-left">交易记录</h4>
                     <div class="actions panel_actions pull-right">
                     </div>
                 </header>
@@ -84,7 +84,6 @@
                                 </div>
                             </div>
                         </form>
-                        <br>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
@@ -106,7 +105,7 @@
                                 <td>5000.00</td>
                                 <td>2017-08-28</td>
                                 <td>
-                                    <a href="" style="color: #2aabd2;">
+                                    <a href="" style="color: #337AB7;">
                                         查看订单详情
                                     </a>
                                 </td>
@@ -119,7 +118,7 @@
                                 <td>5000.00</td>
                                 <td>2017-08-28</td>
                                 <td>
-                                    <a class="" style="color: #2aabd2;">
+                                    <a class="" style="color: #337AB7;">
                                         查看订单详情
                                     </a>
                                 </td>
@@ -132,7 +131,7 @@
                                 <td>5000.00</td>
                                 <td>2017-08-28</td>
                                 <td>
-                                    <a class="" style="color: #2aabd2;">
+                                    <a class="" style="color: #337AB7;">
                                         查看订单详情
                                     </a>
                                 </td>
@@ -145,7 +144,7 @@
                                 <td>5000.00</td>
                                 <td>2017-08-28</td>
                                 <td>
-                                    <a class="" style="color: #2aabd2;">
+                                    <a class="" style="color: #337AB7;">
                                         查看订单详情
                                     </a>
                                 </td>

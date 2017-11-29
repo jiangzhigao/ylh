@@ -71,7 +71,7 @@
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label" for="commisionName">委托名称</label>
-                                        <div class="col-xs-5">
+                                        <div class="col-xs-4">
                                             <input type="text" class="form-control" placeholder="请输入委托名称" value="" id="commisionName" name="commisionName"
                                                    maxlength="20" id="">
                                         </div>
@@ -82,7 +82,7 @@
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label" for="type">委托类型</label>
-                                        <div class="col-xs-5">
+                                        <div class="col-xs-4">
                                             <select class="form-control" id="type" name="type" style="border-color: #e1e1e1;">
                                                 <option value="0" selected>平台案件委托</option>
                                                 <option value="1">平台文书委托</option>
@@ -95,7 +95,7 @@
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label" for="commisionClient">委托人</label>
-                                        <div class="col-xs-5">
+                                        <div class="col-xs-4">
                                             <input type="text" class="form-control" placeholder="请输入委托人" value="" id="commisionClient" name="commisionClient"
                                                    maxlength="20">
                                         </div>
@@ -106,7 +106,7 @@
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label" for="contactPhone">联系方式</label>
-                                        <div class="col-xs-5">
+                                        <div class="col-xs-4">
                                             <input type="text" class="form-control" placeholder="请输入联系方式" value="" id="contactPhone" name="contactPhone"
                                                    maxlength="20">
                                         </div>
@@ -117,7 +117,7 @@
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label" for="caseAmount">案件标的(元)</label>
-                                        <div class="col-xs-5">
+                                        <div class="col-xs-4">
                                             <input type="text" class="form-control" placeholder="请输入案件标的" value="" id="caseAmount" name="caseAmount"
                                                    maxlength="20">
                                         </div>
@@ -128,7 +128,7 @@
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label" for="agencyFee">代理费用(元)</label>
-                                        <div class="col-xs-5">
+                                        <div class="col-xs-4">
                                             <input type="text" class="form-control" placeholder="请输入代理费用" value="" id="agencyFee" name="agencyFee"
                                                    maxlength="20">
                                         </div>
@@ -137,7 +137,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-offset-2 col-xs-12">
-                                    <div class="form-group col-xs-5" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox">
+                                    <div class="form-group col-xs-4" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox">
                                         <img src="/images/nopica.png" class="img-thumbnail" id="coverImage"/>
                                     </div>
                                 </div>
@@ -146,7 +146,7 @@
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">图片</label>
-                                        <div class="col-xs-5" style="margin-left: -15px;">
+                                        <div class="col-xs-4" style="margin-left: -15px;">
                                             <div class="col-xs-1">
                                                 <div class="img-upload">
                                                     <input type="hidden" id="coverUrl" value="" name="coverUrl"/>

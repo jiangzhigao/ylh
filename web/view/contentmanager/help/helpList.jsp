@@ -27,7 +27,7 @@
             background-color: #cccccc;
         }
         a {
-            color: #333;
+            color: #666666;
         }
     </style>
 </head>
@@ -82,7 +82,7 @@
                                 <td>2017-09-03</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="/view/contentmanager/help/editHelp.jsp" style="color: #2aabd2;">
+                                        <a href="/view/contentmanager/help/editHelp.jsp" style="color: #337AB7;">
                                             编辑
                                         </a>
                                     </div>

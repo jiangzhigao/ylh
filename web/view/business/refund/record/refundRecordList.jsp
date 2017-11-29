@@ -9,8 +9,8 @@
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 100px;
-            width: 90px;
+            min-width: 65px;
+            width: 100%;
         }
         a:hover {
             text-decoration: none;
@@ -24,10 +24,11 @@
             background-color:#fff;
         }
         .no-editable{
-            background-color: #cccccc;
+            color: #ccc;
         }
+
         a {
-            color: #333;
+            color: #666666;
         }
     </style>
 </head>
@@ -53,7 +54,7 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">退款记录列表</h2>
+                    <h4 class="title pull-left">退款记录列表</h4>
                     <div class="actions panel_actions pull-right">
                     </div>
                 </header>
@@ -70,14 +71,6 @@
                                 <div class="col-xs-2 move20">
                                     <input type="text" id="" class="form-control" placeholder="退款原因">
                                 </div>
-                                <div class="col-xs-2 move20">
-                                    <select class="form-control" id="status1" style="border-color: #e1e1e1;">
-                                        <option value="">请选择状态</option>
-                                        <option value="0">未审核</option>
-                                        <option value="1">已通过</option>
-                                        <option value="2">已驳回</option>
-                                    </select>
-                                </div>
 
                                 <div class="col-xs-2">
                                     <%--<div class="form-group">--%>
@@ -88,7 +81,6 @@
                                 </div>
                             </div>
                         </form>
-                        <br>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
@@ -110,7 +102,7 @@
                                 <td>1000.00</td>
                                 <td>已通过</td>
                                 <td>
-                                    <a href="recordDetail.jsp" style="color: #2aabd2;">
+                                    <a href="recordDetail.jsp" style="color: #337AB7;">
                                         查看详情
                                     </a>
                                 </td>
@@ -123,7 +115,7 @@
                                 <td>1000.00</td>
                                 <td>已通过</td>
                                 <td>
-                                    <a href="recordDetail.jsp" style="color: #2aabd2;">
+                                    <a href="recordDetail.jsp" style="color: #337AB7;">
                                         查看详情
                                     </a>
                                 </td>
@@ -136,7 +128,7 @@
                                 <td>1000.00</td>
                                 <td>已通过</td>
                                 <td>
-                                    <a href="recordDetail.jsp" style="color: #2aabd2;">
+                                    <a href="recordDetail.jsp" style="color: #337AB7;">
                                         查看详情
                                     </a>
                                 </td>
@@ -149,7 +141,7 @@
                                 <td>1000.00</td>
                                 <td>已通过</td>
                                 <td>
-                                    <a href="recordDetail.jsp" style="color: #2aabd2;">
+                                    <a href="recordDetail.jsp" style="color: #337AB7;">
                                         查看详情
                                     </a>
                                 </td>
@@ -174,6 +166,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/business/refund/record/list_query.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

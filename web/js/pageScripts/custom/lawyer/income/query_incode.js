@@ -107,7 +107,7 @@ jQuery(function(){
         }else{
             bizUrl = "#";
         }
-        _operHtml.push('<a href="'+bizUrl+'" style="color: #2aabd2;">查看订单详情</a>');
+        _operHtml.push('<a href="'+bizUrl+'" style="color: #337AB7;">查看订单详情</a>');
 
         return  _operHtml.join('');
     }

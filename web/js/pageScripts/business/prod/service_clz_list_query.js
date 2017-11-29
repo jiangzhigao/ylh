@@ -62,7 +62,7 @@ jQuery(function(){
 
     function _optionsHtml(id,clz){
         var _operHtml = [];
-        _operHtml.push('<a href="editServiceClz.jsp?dataId='+id+'" style="color: #2aabd2;">编辑</a>');
+        _operHtml.push('<a href="editServiceClz.jsp?dataId='+id+'" style="color: #337AB7;">编辑</a>');
         return  _operHtml.join('');
     }
 

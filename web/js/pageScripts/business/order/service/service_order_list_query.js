@@ -1,3 +1,5 @@
+
+
 jQuery(function(){
     'use strict';
 
@@ -62,7 +64,7 @@ jQuery(function(){
 
     function _optionsHtml(id,clz){
         var _operHtml = [];
-        _operHtml.push('<a href="serviceOrderDetail.jsp?dataId='+id+'" style="color: #2aabd2;">详情</a>');
+        _operHtml.push('<a href="serviceOrderDetail.jsp?dataId='+id+'" style="color: #337AB7;">详情</a>');
         return  _operHtml.join('');
     }
 
@@ -82,23 +84,25 @@ jQuery(function(){
                     if (result.orders != null && result.orders.length > 0) {
                         var data = result.orders,clz;
                         var _html = new Array();
-                        var typeArray = ['服务', '预约'];
+                        var payArray = ['支付宝', '微信', '现金'];
+                        var orderArray = ['未支付','已支付','已分红','已退款','已取消'];
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
                             var dataId = obj.id;
-                            var typeInt = parseInt(obj.type);
-                            var ff = 0 == typeInt?"月":"小时";
+                            var orderStatus = parseInt(obj.orderStatus);
+                            var payType = parseInt(obj.payType);
+                            var ff = 0 == orderStatus?"月":"小时";
                             _html.push('<tr>');
-                            _html.push('<td>' + obj.duration+ff+ '</td>');
+                            _html.push('<td>' + obj.orderNo+ '</td>');
                             _html.push('<td>' + obj.duration+ff+ '</td>');
                             _html.push('<td>' + obj.userId + '</td>');
                             _html.push('<td>' + obj.totalAmount + '</td>');
-                            _html.push('<td>' + obj.totalAmount + '</td>');
-                            _html.push('<td>' + obj.totalAmount + '</td>');
-                            _html.push('<td>' + obj.totalAmount + '</td>');
-                            _html.push('<td>' + obj.totalAmount + '</td>');
-                            _html.push('<td>' + obj.totalAmount + '</td>');
-                            _html.push('<td>' + obj.totalAmount + '</td>');
+                            _html.push('<td>' + payArray[payType] + '</td>');
+                            _html.push('<td>' + obj.discountAmount + '</td>');
+                            _html.push('<td>' + obj.payAmount + '</td>');
+                            _html.push('<td>' + obj.orderTime + '</td>');
+                            _html.push('<td>' + obj.payTime + '</td>');
+                            _html.push('<td>' + orderArray[orderStatus] + '</td>');
 
                             _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');
@@ -106,13 +110,13 @@ jQuery(function(){
                         count = result.orders.length;
                         $dataList.find('tbody').html(_html.join(''));
 
-                        options.totalPages = _sumTotalPages(result.serviceTypes.length);
+                        options.totalPages = _sumTotalPages(result.orders.length);
                         $paginationContainer.bootstrapPaginator(options);
 
                         $('#batchDeleteDiv').show();
 
                         $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite"> 共'
-                             + count + '条记录，当前为第 ' + options.currentPage + ' 页');
+                            + count + '条记录，当前为第 ' + options.currentPage + ' 页');
                     } else {
                         $('#batchDeleteDiv').hide();
                         $dataList.find('tbody').html('');
@@ -134,6 +138,7 @@ jQuery(function(){
         queryParams.username = user._d;
         queryParams.password = user._p;
         queryParams.userType = 2;
-        queryParams.type = 0;
+        queryParams.orderType = 0;
     }
 });
+

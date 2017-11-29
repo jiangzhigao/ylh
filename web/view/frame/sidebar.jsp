@@ -74,7 +74,7 @@
                                     <a href="/view/business/order/service/serviceOrderList.jsp">服务订单</a>
                                 </li>
                                 <li>
-                                    <a href="/view/business/order/reservation/reservationOrderList.jsp">预约订单</a>
+                                    <a href="/view/business/order/reservation/orderList.jsp">预约订单</a>
                                 </li>
                                 <li>
                                     <a href="/view/business/order/entrust/entrustOrderList.jsp">委托订单</a>

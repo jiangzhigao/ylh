@@ -27,7 +27,7 @@
             background-color: #cccccc;
         }
         a {
-            color: #333;
+            color: #666666;
         }
     </style>
 </head>
@@ -53,7 +53,7 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">法律咨询列表</h2>
+                    <h4 class="title pull-left">法律咨询列表</h4>
                     <%--<div class="actions panel_actions pull-right">
                         <a href="addAdvice.jsp" class="btn btn-info">
                             <span class="glyphicon glyphicon-plus"></span>
@@ -76,7 +76,6 @@
                                 </div>
                             </div>
                         </form>
-                        <br>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
@@ -102,7 +101,7 @@
                                 <td>网页</td>
                                 <td>未处理</td>
                                 <td>
-                                    <a href="adviceDetail.jsp" style="color: #2aabd2;">
+                                    <a href="adviceDetail.jsp" style="color: #337AB7;">
                                         编辑
                                     </a>
                                 </td>
@@ -117,7 +116,7 @@
                                 <td>网页</td>
                                 <td>未处理</td>
                                 <td>
-                                    <a href="adviceDetail.jsp" style="color: #2aabd2;">
+                                    <a href="adviceDetail.jsp" style="color: #337AB7;">
                                         编辑
                                     </a>
                                 </td>

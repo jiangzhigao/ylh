@@ -40,7 +40,7 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">投诉建议</h2>
+                    <h4 class="title pull-left">投诉建议</h4>
                     <div class="actions panel_actions pull-right">
                     </div>
                 </header>
@@ -67,7 +67,6 @@
                                 </div>
                             </div>
                         </form>
-                        <br>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>

@@ -62,7 +62,7 @@ jQuery(function(){
 
     function _optionsHtml(id,clz){
         var _operHtml = [];
-        _operHtml.push('<a href="editServiceClz.jsp?dataId='+id+'" style="color: #2aabd2;">编辑</a>');
+        _operHtml.push('<a href="editCoupon.jsp?dataId='+id+'" style="color: #337AB7;">编辑</a>');
         return  _operHtml.join('');
     }
 
@@ -91,16 +91,17 @@ jQuery(function(){
                             _html.push('<td>' + dataId + '</td>');
                             _html.push('<td>' + obj.title+ '</td>');
                             _html.push('<td>' + obj.amount + '</td>');
-                            _html.push('<td>' + obj.startTime-obj.endTime + '</td>');
+                            _html.push('<td>' + obj.startTime+' - '+obj.endTime + '</td>');
                             _html.push('<td>' + statusArray[statusInt] + '</td>');
 
-                            _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
+                            _html.push('<td style="text-align: right;">' +  _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');
                         }
+
                         count = result.vouchers.length;
                         $dataList.find('tbody').html(_html.join(''));
 
-                        options.totalPages = _sumTotalPages(result.serviceTypes.length);
+                        options.totalPages = _sumTotalPages(result.vouchers.length);
                         $paginationContainer.bootstrapPaginator(options);
 
                         $('#batchDeleteDiv').show();

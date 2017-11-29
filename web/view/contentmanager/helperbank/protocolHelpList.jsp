@@ -39,17 +39,15 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">协议帮助管理</h2>
-                    <div class="actions panel_actions pull-right">
-                        <a href="addCaseClz.jsp" class="btn btn-info">
+                    <h4 class="title pull-left">协议帮助管理</h4>
+                    <div class="actions panel_actions pull-right" style="line-height: 23px;">
+                        <a href="addCaseClz.jsp" class="btn btn-info" style="padding: 3px 6px;margin-top:9px;">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-
-                        <br>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
@@ -66,7 +64,7 @@
                                 <td>2017-08-28</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">
                                             编辑
                                             <span class="caret"></span>
                                         </a>

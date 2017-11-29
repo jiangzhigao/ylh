@@ -48,100 +48,99 @@
                         <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">订单号</label>
                                         <div class="col-xs-4">
-                                            <label class="control-label">20170000000001</label>
+                                            <a style="font-weight: 500;color: #337AB7;padding-top: 7px;text-align: right;display: inline-block;max-width: 100%;" id="orderNo"></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">持卡人姓名</label>
                                         <div class="col-xs-4">
-                                            <label class="control-label">王小二</label>
+                                            <label class="control-label" style="font-weight: 500;" id="cardholder"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">银行账号</label>
                                         <div class="col-xs-4">
-                                            <label class="control-label">123111110000</label>
+                                            <label class="control-label" style="font-weight: 500;" id="bankAccount"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">开户银行</label>
                                         <div class="col-xs-4">
-                                            <label class="control-label">永和路支行</label>
+                                            <label class="control-label" style="font-weight: 500;" id="bankAddress"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">退款金额</label>
                                         <div class="col-xs-4">
-                                            <label class="control-label">100.00</label>
+                                            <label class="control-label" style="font-weight: 500;" id="amount"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">退款理由</label>
-                                        <div class="col-xs-4">
-                                            <label class="control-label">想退款</label>
+                                        <div class="col-xs-8"  style="font-weight: 500;padding-top: 7px;margin-bottom: 0;" id="reason">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">申请用户</label>
                                         <div class="col-xs-4">
-                                            <label class="control-label">王麻子</label>
+                                            <label class="control-label" style="font-weight: 500;" id="userName"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">状态</label>
                                         <div class="col-xs-4">
-                                            <label class="control-label">已通过</label>
+                                            <label class="control-label" style="font-weight: 500;" id="status"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">申请时间</label>
                                         <div class="col-xs-4">
-                                            <label class="control-label">2017-08-08</label>
+                                            <label class="control-label" style="font-weight: 500;" id="createdTime"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group ">
                                         <label class="col-xs-2 control-label">最后操作时间</label>
                                         <div class="col-xs-4">
-                                            <label class="control-label">2017-08-08</label>
+                                            <label class="control-label" style="font-weight: 500;" id="updatedTime"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -157,7 +156,7 @@
                                 <div class="col-xs-5">
                                     <div class="form-group">
                                         <div class="controls">
-                                            <button type="button" class="btn btn-info" id="btnRefund">退款</button>
+                                            <button type="button" class="btn btn-info" id="btnRefund" style="display: none;">退款</button>
                                         </div>
                                     </div>
                                 </div>
@@ -175,6 +174,8 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/business/refund/apply/detail.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

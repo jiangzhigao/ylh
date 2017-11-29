@@ -53,9 +53,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="title">用户名</label>
+                                        <label class="col-xs-2 control-label" for="userName">用户名</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入用户名" id="title" name="title"
+                                            <input type="text" class="form-control" placeholder="请输入用户名" id="userName" name="userName"
                                                    value=""  maxlength="20">
                                         </div>
                                     </div>
@@ -64,9 +64,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="title">密码</label>
+                                        <label class="col-xs-2 control-label" for="userPassword">密码</label>
                                         <div class="col-xs-4">
-                                            <input type="password" class="form-control" placeholder="请输入密码" id="title" name="title"
+                                            <input type="password" class="form-control" placeholder="请输入密码" id="userPassword" name="userPassword"
                                                    value=""  maxlength="20">
                                         </div>
                                     </div>
@@ -75,9 +75,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="title">确认密码</label>
+                                        <label class="col-xs-2 control-label" for="reuserPassword">确认密码</label>
                                         <div class="col-xs-4">
-                                            <input type="password" class="form-control" placeholder="请输入确认密码" id="title" name="title"
+                                            <input type="password" class="form-control" placeholder="请输入确认密码" id="reuserPassword" name="reuserPassword"
                                                    value=""  maxlength="20">
                                         </div>
                                     </div>
@@ -86,9 +86,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="title">真实姓名</label>
+                                        <label class="col-xs-2 control-label" for="name">真实姓名</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入真实姓名" id="title" name="title"
+                                            <input type="text" class="form-control" placeholder="请输入真实姓名" id="name" name="name"
                                                    value=""  maxlength="20">
                                         </div>
                                     </div>
@@ -97,7 +97,7 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="aaa">状态</label>
+                                        <label class="col-xs-2 control-label">状态</label>
                                         <div class="col-xs-5" style="padding-top: 5px;">
                                             <input type="radio" class="" value="1" id="status_normal" name="status" checked="">正常
                                             &nbsp;&nbsp;
@@ -109,11 +109,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="startTime">用户组</label>
+                                        <label class="col-xs-2 control-label" for="userGroupId">用户组</label>
                                         <div class="col-xs-4">
-                                            <select class="form-control" style="border-color: #e1e1e1;">
-                                                <option value="1">测试用户</option>
-                                                <option value="0">超级管理员</option>
+                                            <select class="form-control" style="border-color: #e1e1e1;" id="userGroupId">
                                             </select>
                                         </div>
                                     </div>
@@ -122,9 +120,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">备注</label>
+                                        <label class="col-xs-2 control-label" for="memo">备注</label>
                                         <div class="col-xs-4">
-                                            <textarea id="" name="" maxlength="256" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
+                                            <textarea id="memo" name="memo" maxlength="256" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -157,6 +155,9 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
+<script type="text/javascript" src="/js/pageScripts/sys/permission/user/add_user.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

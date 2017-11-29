@@ -45,14 +45,25 @@ jQuery(function(){
         $('body').on('click', ".opt li a", function() {
             var $this = $(this);
             var id = $this.attr('bid');
-            if($this.parent().index()==0){
+            var s = $this.attr('s');
+            if($this.parent().index()==0){//查看详情
                 var bizUrl = $this.attr('bz-url');
-                window.location.href = bizUrl+'?dataId='+id;
-            }else{//作废操作
+                if(s == '0'){
+                    bizUrl = "/view/legalcase/publish/tempDocEntrustDetail.jsp";
+                }else{
+                    bizUrl = "/view/legalcase/publish/docEntrustDetail.jsp";
+                }
+                window.location.href = bizUrl+'?dataId='+id+'&status='+s;
+            }else if($this.parent().index()==1){//结案
                 //no-editable
                 if(!($this.hasClass("no-editable"))){
                     var reqUrl = webBasePath+'/entrusts/'+id;
-                    _userBlocked($this,reqUrl);
+                    _updateEntrustStatus($this,reqUrl,4);
+                }
+            }else if($this.parent().index()==2){
+                if(!($this.hasClass("no-editable"))){//作废
+                    var reqUrl = webBasePath+'/entrusts/'+id;
+                    _updateEntrustStatus($this,reqUrl,5);
                 }
             }
         });
@@ -79,7 +90,7 @@ jQuery(function(){
     function _optionsHtml(id,clz){
         var _operHtml = [];
         _operHtml.push('<div class="btn-group">');
-        _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">查看详情<span class="caret"></span></a>');
+        _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">查看详情<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
         _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url="/view/legalcase/publish/docEntrustDetail.jsp" bid="'+id+'">查看详情</a></li>');
         _operHtml.push('<li><a href="javascript:;" bid="'+id+'" class="'+clz+'">作废</a></li>');
@@ -103,12 +114,11 @@ jQuery(function(){
                     if (result.entrusts != null && result.entrusts.length > 0) {
                         var data = result.entrusts;
                         var _html = new Array(),clz;
-                        var statusArray = ['未发布', '已发布','已结案','已作废'];
+                        var statusArray = ['未发布', '已发布','已接案','进行中','已结案','已作废'];
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
                             var dataId = obj.id;
                             var statusInt = parseInt(obj.status);
-                            clz = statusInt == 3?"no-editable":"";
                             _html.push('<tr>');
                             _html.push('<td>' + obj.id + '</td>');
                             _html.push('<td>' + obj.commisionName + '</td>');
@@ -119,7 +129,24 @@ jQuery(function(){
                             _html.push('<td>' + obj.agencyFee + '</td>');
                             _html.push('<td>' + statusArray[statusInt] + '</td>');
 
-                            _html.push('<td style="text-align: right;">' +  _optionsHtml(dataId,clz) + '</td>');
+                            var _operHtml = [];
+                            _operHtml.push('<div class="btn-group">');
+                            _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">查看详情<span class="caret"></span></a>');
+                            _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
+                            _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="#" bid="'+dataId+'" s="'+statusInt+'">查看详情</a></li>');
+                            if(statusInt == 3){
+                                _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="'+dataId+'" s="'+statusInt+'" class="">结案</a></li>');
+                            }else{
+                                _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="'+dataId+'" s="'+statusInt+'" class="no-editable">结案</a></li>');
+                            }
+                            if(statusInt <= 3){
+                                _operHtml.push('<li><a href="javascript:;" bid="'+dataId+'" s="'+statusInt+'" class="">作废</a></li>');
+                            }else{
+                                _operHtml.push('<li><a href="javascript:;" bid="'+dataId+'" s="'+statusInt+'" class="no-editable">作废</a></li>');
+                            }
+                            _operHtml.push('</ul></div>');
+
+                            _html.push('<td style="text-align: right;">' +  _operHtml.join('') + '</td>');
                             _html.push('</tr>');
                         }
 
@@ -146,13 +173,19 @@ jQuery(function(){
         });
     }
 
-    function _userBlocked($this,reUrl){
+    /**
+     * 案件作废/结案
+     * @param $this
+     * @param reUrl
+     * @private
+     */
+    function _updateEntrustStatus($this,reUrl,s){
         var ajaxdata = {};
         var user = $.getuuuAuth();
         ajaxdata.username = user._d;
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
-        ajaxdata.status = 3;
+        ajaxdata.status = s;
         jQuery.ajax({
             dataType: "json",
             url: reUrl,
@@ -161,7 +194,14 @@ jQuery(function(){
             success: function (result) {
                 if (result.success) {
                     $this.addClass("no-editable");
-                    $this.parent().parent().parent().parent().prev().text("已作废")
+                    var status = parseInt(result.entrust.status);
+                    if(status == 4){//结案
+                        $this.parent().next().find("a").addClass("no-editable");
+                        $this.parent().parent().parent().parent().prev().text("已结案")
+                    }else if(status == 5){
+                        $this.parent().prev().find("a").addClass("no-editable");
+                        $this.parent().parent().parent().parent().prev().text("已作废")
+                    }
                     FOXKEEPER_UTILS.alert('success',result.message);
                 }
             }

@@ -56,7 +56,7 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">留言管理</h2>
+                    <h4 class="title pull-left">留言管理</h4>
                     <div class="actions panel_actions pull-right">
                     </div>
                 </header>
@@ -89,7 +89,6 @@
                                 </div>
                             </div>
                         </form>
-                        <br>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
@@ -102,54 +101,18 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                            <%--<tr>
                                 <td>13901234567</td>
                                 <td>小二</td>
                                 <td>周润发</td>
                                 <td>已经查看</td>
                                 <td>已经回复</td>
                                 <td>
-                                    <a href="leaveMessageDetail.jsp" style="color: #2aabd2;">
+                                    <a href="leaveMessageDetail.jsp" style="color: #337AB7;">
                                         查看留言详情
                                     </a>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td>13901234567</td>
-                                <td>小二</td>
-                                <td>周润发</td>
-                                <td>已经查看</td>
-                                <td>已经回复</td>
-                                <td>
-                                    <a href="leaveMessageDetail.jsp" style="color: #2aabd2;">
-                                        查看留言详情
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>13901234567</td>
-                                <td>小二</td>
-                                <td>周润发</td>
-                                <td>已经查看</td>
-                                <td>已经回复</td>
-                                <td>
-                                    <a href="leaveMessageDetail.jsp" style="color: #2aabd2;">
-                                        查看留言详情
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>13901234567</td>
-                                <td>小二</td>
-                                <td>周润发</td>
-                                <td>已经查看</td>
-                                <td>已经回复</td>
-                                <td>
-                                    <a href="leaveMessageDetail.jsp" style="color: #2aabd2;">
-                                        查看留言详情
-                                    </a>
-                                </td>
-                            </tr>
+                            </tr>--%>
                             </tbody>
                         </table>
                         <div class="row">
@@ -170,6 +133,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/custom/member/message/list_query.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

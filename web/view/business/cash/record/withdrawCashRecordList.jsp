@@ -9,8 +9,8 @@
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 100px;
-            width: 90px;
+            min-width: 65px;
+            width: 100%;
         }
         a:hover {
             text-decoration: none;
@@ -27,7 +27,7 @@
             background-color: #cccccc;
         }
         a {
-            color: #333;
+            color: #666666;
         }
     </style>
 </head>
@@ -53,7 +53,7 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">提现申请</h2>
+                    <h4 class="title pull-left">提现申请</h4>
                     <div class="actions panel_actions pull-right">
                     </div>
                 </header>
@@ -80,7 +80,6 @@
                                 </div>
                             </div>
                         </form>
-                        <br>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
@@ -94,7 +93,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                            <%--<tr>
                                 <td>201700000001</td>
                                 <td>王麻子</td>
                                 <td>13861234567</td>
@@ -106,46 +105,7 @@
                                         查看详情
                                     </a>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td>201700000001</td>
-                                <td>王麻子</td>
-                                <td>13861234567</td>
-                                <td>2017-08-08</td>
-                                <td>1000.00</td>
-                                <td>已支付</td>
-                                <td>
-                                    <a href="recordDetail.jsp" style="color: #2aabd2;">
-                                        查看详情
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>201700000001</td>
-                                <td>王麻子</td>
-                                <td>13861234567</td>
-                                <td>2017-08-08</td>
-                                <td>1000.00</td>
-                                <td>已支付</td>
-                                <td>
-                                    <a href="recordDetail.jsp" style="color: #2aabd2;">
-                                        查看详情
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>201700000001</td>
-                                <td>王麻子</td>
-                                <td>13861234567</td>
-                                <td>2017-08-08</td>
-                                <td>1000.00</td>
-                                <td>已支付</td>
-                                <td>
-                                    <a href="recordDetail.jsp" style="color: #2aabd2;">
-                                        查看详情
-                                    </a>
-                                </td>
-                            </tr>
+                            </tr>--%>
                             </tbody>
                         </table>
                         <div class="row">
@@ -166,6 +126,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/business/cash/record/list_query.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

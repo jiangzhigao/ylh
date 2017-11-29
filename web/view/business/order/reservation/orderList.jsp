@@ -9,8 +9,8 @@
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 100px;
-            width: 90px;
+            min-width: 75px;
+            width: 100%;
         }
         a:hover {
             text-decoration: none;
@@ -24,10 +24,13 @@
             background-color:#fff;
         }
         .no-editable{
-            background-color: #cccccc;
+            color: #ccc;
+        }
+        .no-editable a{
+            color: #ccc;
         }
         a {
-            color: #333;
+            color: #666666;
         }
     </style>
 </head>
@@ -53,8 +56,9 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">预约订单列表</h2>
+                    <h4 class="title pull-left">预约订单列表</h4>
                     <div class="actions panel_actions pull-right">
+                        <%--<div id="page_alert_container"></div>--%>
                     </div>
                 </header>
                 <div class="content-body">
@@ -101,7 +105,6 @@
                                 </div>
                             </div>
                         </form>
-                        <br>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
@@ -121,7 +124,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                            <%--<tr>
                                 <td>201700000001</td>
                                 <td>13861234567</td>
                                 <td>王麻子</td>
@@ -136,7 +139,7 @@
                                 <td>未沟通</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">
                                             查看详情
                                             <span class="caret"></span>
                                         </a>
@@ -149,94 +152,7 @@
                                         </ul>
                                     </div>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td>201700000001</td>
-                                <td>13861234567</td>
-                                <td>王麻子</td>
-                                <td>1年</td>
-                                <td>100.00</td>
-                                <td>微信</td>
-                                <td>0</td>
-                                <td>100.00</td>
-                                <td>2017-08-08</td>
-                                <td>2017-08-08</td>
-                                <td>已支付</td>
-                                <td>未沟通</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            查看详情
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="reservationOrderDetail.jsp">查看详情</a></li>
-                                            <li><a href="#">沟通时间</a></li>
-                                            <li><a href="#">2.5:7.5分红</a></li>
-                                            <li><a href="#">3.5:6.5分红</a></li>
-                                            <li><a href="#">10:0分红</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>201700000001</td>
-                                <td>13861234567</td>
-                                <td>王麻子</td>
-                                <td>1年</td>
-                                <td>100.00</td>
-                                <td>微信</td>
-                                <td>0</td>
-                                <td>100.00</td>
-                                <td>2017-08-08</td>
-                                <td>2017-08-08</td>
-                                <td>已支付</td>
-                                <td>未沟通</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            查看详情
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="reservationOrderDetail.jsp">查看详情</a></li>
-                                            <li><a href="#">沟通时间</a></li>
-                                            <li><a href="#">2.5:7.5分红</a></li>
-                                            <li><a href="#">3.5:6.5分红</a></li>
-                                            <li><a href="#">10:0分红</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>201700000001</td>
-                                <td>13861234567</td>
-                                <td>王麻子</td>
-                                <td>1年</td>
-                                <td>100.00</td>
-                                <td>微信</td>
-                                <td>0</td>
-                                <td>100.00</td>
-                                <td>2017-08-08</td>
-                                <td>2017-08-08</td>
-                                <td>已支付</td>
-                                <td>未沟通</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            查看详情
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="reservationOrderDetail.jsp">查看详情</a></li>
-                                            <li><a href="#">沟通时间</a></li>
-                                            <li><a href="#">2.5:7.5分红</a></li>
-                                            <li><a href="#">3.5:6.5分红</a></li>
-                                            <li><a href="#">10:0分红</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
+                            </tr>--%>
                             </tbody>
                         </table>
                         <div class="row">
@@ -257,6 +173,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/business/order/reservation/list_query.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

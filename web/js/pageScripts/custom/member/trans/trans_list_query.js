@@ -76,15 +76,17 @@ jQuery(function(){
         return totalPages;
     }
 
-    function _optionsHtml(id){
-        var _operHtml = [];
-        _operHtml.push('<div class="btn-group">');
-        _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">编辑<span class="caret"></span></a>');
-        _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li><a bz-url="/view/customercenter/membermanagement/member/editMember.jsp" bid="'+id+'">编辑</a></li>');
-
-        _operHtml.push('</ul></div>');
-
+    function _optionsHtml(id,type){
+        var _operHtml = [],bizUrl;
+        type = parseInt(type);
+        if(type == 0){
+            bizUrl = "/view/business/order/service/serviceOrderList.jsp?dataId="+id;
+        }else if(type == 1){
+            bizUrl = "/view/business/order/reservation/orderList.jsp?dataId="+id;
+        }else if(type == 2){
+            bizUrl = "/view/business/order/entrust/entrustOrderList.jsp?dataId="+id;
+        }
+        _operHtml.push('<a href="'+bizUrl+'" style="color: #337AB7;">查看订单详情</a>');
         return  _operHtml.join('');
     }
 
@@ -101,23 +103,22 @@ jQuery(function(){
                     var $dataList = $('#dataList');
                     var $pageTotalRecord = $('#pageTotalRecord');
                     if (result.deals != null && result.deals.length > 0) {
-                        var data = result.deals;
+                        var data = result.deals,orderType,orderId;
                         var _html = new Array();
-                        // var statusArray = ['冻结', '正常'];
+                        var typeArray = ['服务顾问', '律师预约','委托'];
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
                             var dataId = obj.id;
-
+                            var type = parseInt(obj.type);
                             _html.push('<tr>');
                             _html.push('<td>' + obj.userName + '</td>');
-                            _html.push('<td>' + obj.nickname + '</td>');
-                            _html.push('<td>' + obj.name + '</td>');
-                            _html.push('<td>' + obj.idcard + '</td>');
+                            _html.push('<td>' + obj.user.name + '</td>');
+                            _html.push('<td>' + obj.user.nickname + '</td>');
+                            _html.push('<td>' + typeArray[type] + '</td>');
+                            _html.push('<td>' + obj.amount + '</td>');
                             _html.push('<td>' + obj.createdTime + '</td>');
-                            _html.push('<td>' + obj.score + '</td>');
-                            // _html.push('<td>' + statusArray[statusInt] + '</td>');
 
-                            _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
+                            _html.push('<td>' +  _optionsHtml(orderId,orderType) + '</td>');
                             _html.push('</tr>');
                         }
 

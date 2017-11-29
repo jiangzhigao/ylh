@@ -27,7 +27,7 @@
             background-color: #cccccc;
         }
         a {
-            color: #333;
+            color: #666666;
         }
     </style>
 </head>
@@ -54,8 +54,8 @@
             <section class="box ">
                 <header class="panel_header">
                     <h2 class="title pull-left">资讯管理</h2>
-                    <div class="actions panel_actions pull-right">
-                        <a href="addNews.jsp" class="btn btn-info">
+                    <div class="actions panel_actions pull-right" style="line-height: 23px;">
+                        <a href="addNews.jsp" class="btn btn-info" style="padding: 3px 6px;margin-top:9px;">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
@@ -88,7 +88,6 @@
                                 </div>
                             </div>
                         </form>
-                        <br>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>

@@ -53,7 +53,7 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">发现分类列表</h2>
+                    <h4 class="title pull-left">发现分类列表</h4>
                     <%--<div class="actions panel_actions pull-right">
                         <a href="editClz.jsp" class="btn btn-info">
                             <span class="glyphicon glyphicon-plus"></span>
@@ -79,7 +79,7 @@
                                 <td>财务咨询</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">
                                             编辑
                                             <span class="caret"></span>
                                         </a>
@@ -95,7 +95,7 @@
                                 <td>财务咨询</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">
                                             编辑
                                             <span class="caret"></span>
                                         </a>
@@ -111,7 +111,7 @@
                                 <td>财务咨询</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">
                                             编辑
                                             <span class="caret"></span>
                                         </a>
@@ -127,7 +127,7 @@
                                 <td>财务咨询</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">
                                             编辑
                                             <span class="caret"></span>
                                         </a>

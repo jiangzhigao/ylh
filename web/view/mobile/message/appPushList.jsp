@@ -27,7 +27,7 @@
             background-color: #cccccc;
         }
         a {
-            color: #333;
+            color: #666666;
         }
     </style>
 </head>
@@ -53,9 +53,9 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">推送列表</h2>
-                    <div class="actions panel_actions pull-right">
-                        <a href="addPushMessage.jsp" class="btn btn-info">
+                    <h4 class="title pull-left">推送列表</h4>
+                    <div class="actions panel_actions pull-right" style="line-height: 23px;">
+                        <a href="addPushMessage.jsp" class="btn btn-info" style="padding: 3px 6px;margin-top:9px;">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
@@ -67,8 +67,8 @@
                                 <div class="col-xs-2 move20">
                                     <select class="form-control" id="status1" style="border-color: #e1e1e1;">
                                         <option value="">请选择APP</option>
-                                        <option value="0">律师端</option>
-                                        <option value="1">用户端</option>
+                                        <option value="0">用户端</option>
+                                        <option value="1">律师端</option>
                                     </select>
                                 </div>
                                 <div class="col-xs-2 move20">
@@ -88,7 +88,6 @@
                                 </div>
                             </div>
                         </form>
-                        <br>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
@@ -102,7 +101,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                            <%--<tr>
                                 <td>律师端</td>
                                 <td>APP律师端上线啦</td>
                                 <td>APP律师端上线啦，欧耶</td>
@@ -110,16 +109,7 @@
                                 <td>2017-08-08</td>
                                 <td>已推送</td>
                                 <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>用户端</td>
-                                <td>APP客户端上线啦</td>
-                                <td>APP客户端上线啦，欧耶</td>
-                                <td>2017-08-08</td>
-                                <td>2017-08-08</td>
-                                <td>已推送</td>
-                                <td>-</td>
-                            </tr>
+                            </tr>--%>
                             </tbody>
                         </table>
                         <div class="row">
@@ -140,6 +130,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/mobile/message/list_query.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

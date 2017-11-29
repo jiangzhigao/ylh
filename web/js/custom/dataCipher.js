@@ -5,7 +5,8 @@
     $.extend({
 
         secretKey:"ylx9572cipher",
-        homeUrl:"http://localhost:8989/",
+        /*homeUrl:"http://106.14.10.28:8080/",*/
+        homeUrl:"http://localhost:8080/",
         /**
          * 加密
          * @param str
@@ -95,10 +96,11 @@
             }
             return decodeURIComponent(encStr);
         }
-        ,setUuuAuth:function(u,k){
+        ,setUuuAuth:function(user,menus){
             localStorage.clear();
             var curTime=new Date().getTime();
-            localStorage.setItem("_uu",JSON.stringify({_d:this.dataEncrypt(u),_p:this.dataEncrypt(k),time:curTime}))
+            localStorage.setItem("_uu",JSON.stringify({_g:this.dataEncrypt(user.g),_d:this.dataEncrypt(user.u),_p:this.dataEncrypt(user.k),_n:this.dataEncrypt(user.n),time:curTime}))
+            localStorage.setItem("_ms",JSON.stringify({_m:menus,time:curTime}))
             /*minutes=parseInt(minutes);
             var   interTimes=minutes*60*1000;
             interTimes=parseInt(interTimes);
@@ -119,6 +121,8 @@
             }else{
                 uu._d = this.dataDecrypt(uu._d);
                 uu._p = this.dataDecrypt(uu._p);
+                uu._g = this.dataDecrypt(uu._g);
+                uu._n = this.dataDecrypt(uu._n);
                 return uu;
             }
         }
@@ -134,6 +138,26 @@
                 window.location.href = this.homeUrl;
             }
             return user;
+        }
+        ,loginOut:function(){
+            localStorage.clear();
+            window.location.href = this.homeUrl;
+        }
+        ,getMenuList:function () {
+            var data=localStorage.getItem("_ms");
+            var ms=JSON.parse(data);
+            //设置过期时间为30分钟
+            var exp = 30*60*1000;
+            if(null == ms){
+                return undefined;
+            }
+            if(new Date().getTime()-ms.time>exp){
+                console.log("session已过期")
+                localStorage.clear();
+                return undefined;
+            }else{
+                return ms._m;
+            }
         }
     });
 

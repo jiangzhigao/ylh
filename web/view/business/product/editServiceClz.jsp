@@ -100,7 +100,7 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">发布时间</label>
                                         <div class="col-xs-4">
-                                            <label class="control-label" id="publishTime"></label>
+                                            <label class="control-label" id="publishTime" style="font-weight: 500;"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -110,7 +110,7 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">更新时间</label>
                                         <div class="col-xs-4">
-                                            <label class="control-label" id="updateTime"></label>
+                                            <label class="control-label" id="updateTime" style="font-weight: 500;"></label>
                                         </div>
                                     </div>
                                 </div>

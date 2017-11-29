@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%--<script src="/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js" type="text/javascript"></script>--%>
-<div class='page-topbar'  style="background-color: #f1f4f5;">
+<div class='page-topbar'  style="background-color: #f3f3f4;">
     <div class='logo-area'>
     </div>
     <div class='quick-area'>
@@ -14,10 +14,10 @@
                 </li>
             </ul>
         </div>
-        <div class='pull-left'>
+        <div class='pull-left' style="margin-left: 6px;">
             <ul class="info-menu left-links list-inline list-unstyled" style="padding-left:0px;">
                 <li class="">
-                    <span style="text-align: center;font-size: 14px;color: #96969E;"><strong>欢迎使用一律行后台管理系统</strong></span>
+                    <span style="text-align: center;font-size: 14px;color: #666666;"><strong>欢迎使用一律行后台管理系统</strong></span>
                 </li>
             </ul>
         </div>
@@ -25,9 +25,9 @@
             <ul class="info-menu right-links list-inline list-unstyled">
                 <li class="profile">
                     <a href="javascript:;" data-toggle="dropdown" class="toggle">
-                        <span>你好，王麻子<i class="fa fa-angle-down"></i></span>
+                        <span style="font-size: 12px;color: #666666;" id="mName">你好，王麻子<%--<i class="fa fa-angle-down"></i>--%></span>
                     </a>
-                    <ul class="dropdown-menu profile animated fadeIn">
+                    <%--<ul class="dropdown-menu profile animated fadeIn">
                         <li class="hidden">
                             <a href="#settings">
                                 <i class="fa fa-cog"></i> 设置
@@ -48,31 +48,17 @@
                                 <i class="fa fa-sign-out"></i> 注销
                             </a>
                         </li>
-                    </ul>
+                    </ul>--%>
                 </li>
                 <li class="">
                     <a href="#" data-toggle="dropdown" class="toggle" style="width: 40px;padding: 0;text-align: left;">
                         <i class="fa fa-bell" style="margin-right: 5px;"></i>
-                        <span class="badge badge-info" id="nfnRecordNum1" style="margin: 20px 0 0 5px;width: 20px;height: 20px;">4</span>
+                        <span class="badge badge-info" id="nfnRecordNum1" style="margin: 20px 0 0 5px;width: 20px;height: 20px;border-radius:3px;">4</span>
                     </a>
                     <ul class="dropdown-menu notifications animated fadeIn">
 
-                            <li class="list ps-container ps-active-y">
-
+                            <li class="">
                                 <ul class="dropdown-menu-list list-unstyled ps-scrollbar">
-                                    <li class="unread available"> <!-- available: success, warning, info, error -->
-                                        <a href="javascript:;">
-                                            <div class="notice-icon">
-                                                <i class="fa fa-check"></i>
-                                            </div>
-                                            <div>
-                                                    <span class="name">
-                                                        <strong>Server needs to reboot</strong>
-                                                        <span class="time small">15 mins ago</span>
-                                                    </span>
-                                            </div>
-                                        </a>
-                                    </li>
                                     <li class="unread away"> <!-- available: success, warning, info, error -->
                                         <a href="javascript:;">
                                             <div class="notice-icon">
@@ -101,19 +87,19 @@
                                     </li>
                                 </ul>
 
-                                <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px; height: 300px;"><div class="ps-scrollbar-y" style="top: 0px; height: 167px;"></div></div></li>
-                        <li class="external">
+                                <%--<div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px; height: 300px;"><div class="ps-scrollbar-y" style="top: 0px; height: 167px;"></div></div></li>
+                        --%><%--<li class="external">
                             <a href="javascript:;">
                                 <span>未读消息通知</span>
                             </a>
-                        </li>
+                        </li>--%>
                     </ul>
                 </li>
 
-                <li class="">
-                    <a href="/logout" style="color: #96969E;">
+                <li class="" style="margin-left: 5px;margin-right: 15px;">
+                    <a href="javascript:_loginOut();" style="color: #96969E;">
                         <i class="fa fa-sign-out" style="margin-right: 5px;"></i>
-                        <span >登出</span>
+                        <strong>登出</strong>
                     </a>
                 </li>
             </ul>

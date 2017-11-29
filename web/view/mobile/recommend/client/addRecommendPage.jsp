@@ -68,10 +68,10 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">标题</label>
+                                        <label class="col-xs-2 control-label" for="title">标题</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入标题" value="" id="commisionName" name="commisionName"
-                                                   maxlength="20" id="">
+                                            <input type="text" class="form-control" placeholder="请输入标题" id="title" name="title"
+                                                   maxlength="20">
                                         </div>
                                     </div>
                                 </div>
@@ -79,9 +79,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">描述</label>
+                                        <label class="col-xs-2 control-label" for="desc">描述</label>
                                         <div class="col-xs-5">
-                                            <textarea id="" name="" maxlength="128" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 120px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
+                                            <textarea id="desc" name="desc" maxlength="128" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 120px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -114,9 +114,9 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">链接类型</label>
                                         <div class="col-xs-5" style="padding-top: 5px;">
-                                            <input type="radio" class="" value="1" id="typel" name="status" checked>站内
+                                            <input type="radio" class="" value="0" id="typel" name="linkType" checked>站内
                                             &nbsp;&nbsp;
-                                            <input type="radio" class="" value="0" id="type2" name="status">站外
+                                            <input type="radio" class="" value="1" id="type2" name="linkType">站外
                                         </div>
                                     </div>
                                 </div>
@@ -124,12 +124,15 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="type">站内链接模块</label>
+                                        <label class="col-xs-2 control-label" for="linkModule">站内链接模块</label>
                                         <div class="col-xs-5">
-                                            <select class="form-control" id="type" name="type" style="border-color: #e1e1e1;">
+                                            <select class="form-control" id="linkModule" name="linkModule" style="border-color: #e1e1e1;">
                                                 <option value="" selected>请选择站内链接模块</option>
-                                                <option value="0">律师详情</option>
-                                                <option value="1">资讯</option>
+                                                <option value="0">资讯</option>
+                                                <option value="1">律师详情（用户端）, 最新案件详情（律师端）</option>
+                                                <option value="2">律师活动</option>
+                                                <option value="3">律师话题</option>
+                                                <option value="4">动态</option>
                                             </select>
                                         </div>
                                     </div>
@@ -138,10 +141,10 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">跳转链接</label>
+                                        <label class="col-xs-2 control-label" for="jumpLink">跳转链接</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入跳转链接" value="" id="commisionName" name="commisionName"
-                                                   maxlength="20" id="">
+                                            <input type="text" class="form-control" placeholder="请输入跳转链接" id="jumpLink" name="jumpLink"
+                                                   maxlength="20">
                                         </div>
                                     </div>
                                 </div>
@@ -149,32 +152,22 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">排序</label>
+                                        <label class="col-xs-2 control-label" for="sortNo">排序</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入排序" value="" id="commisionName" name="commisionName"
-                                                   maxlength="20" id="">
+                                            <input type="text" class="form-control" placeholder="请输入排序" id="sortNo" name="sortNo"
+                                                   maxlength="20">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <%--<div class="row">
-                                <div class="col-xs-12">
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label">内容</label>
-                                        <div class="col-xs-9">
-                                            <script id="editor" type="text/plain"></script>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>--%>
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">是否显示</label>
                                         <div class="col-xs-5" style="padding-top: 5px;">
-                                            <input type="radio" class="" value="1" id="status_normal" name="status" checked>显示
+                                            <input type="radio" class="" value="1" id="status_normal" name="isDisplay" checked>显示
                                             &nbsp;&nbsp;
-                                            <input type="radio" class="" value="0" id="status_blocked" name="status">隐藏
+                                            <input type="radio" class="" value="0" id="status_blocked" name="isDisplay">隐藏
                                         </div>
                                     </div>
                                 </div>
@@ -209,6 +202,9 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
+<script type="text/javascript" src="/js/pageScripts/mobile/recommend/client/add_recommend_page.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

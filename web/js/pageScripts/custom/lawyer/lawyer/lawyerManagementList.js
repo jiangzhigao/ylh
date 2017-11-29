@@ -99,7 +99,7 @@ jQuery(function(){
     function _optionsHtml(id,clz){
         var _operHtml = [];
         _operHtml.push('<div class="btn-group">');
-        _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">编辑<span class="caret"></span></a>');
+        _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
         _operHtml.push('<li><a bz-url="/view/customercenter/lawyermanagement/lawyer/editLawyer.jsp" bid="'+id+'">编辑</a></li>');
         _operHtml.push('<li><a href="javascript:;" bid="'+id+'" class="'+clz+'">冻结</a></li>');

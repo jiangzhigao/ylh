@@ -18,18 +18,17 @@
         <div class="modal-content xxx">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="padding-bottom: 10px;">×</button>
-                <h4 class="modal-title"></h4>
+                <h4 class="modal-title">请选择律师</h4>
             </div>
             <div class="modal-body" style="padding: 15px;">
                 <div class="dataTables_wrapper no-footer">
                     <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
+                        <input type="hidden" id="lawName">
                         <div class="row">
                             <div class="col-xs-2">
-                                <%--<div class="form-group">--%>
                                 <div class="controls">
-                                    <button type="button" class="btn btn-info">选择律师</button>
+                                    <button type="button" class="btn btn-info" id="sltLawyerBtn">选择律师</button>
                                 </div>
-                                <%--</div>--%>
                             </div>
                         </div>
                         <br>
@@ -50,14 +49,13 @@
                             <div class="col-xs-2">
                                 <%--<div class="form-group">--%>
                                 <div class="controls">
-                                    <button id="btnSearch" type="button" class="btn btn-info">搜索</button>
+                                    <button id="btnLySearch" type="button" class="btn btn-info">搜索</button>
                                 </div>
                                 <%--</div>--%>
                             </div>
                         </div>
                     </form>
-                    <br>
-                    <table class="table table-bordered table-hover" id="dataList">
+                    <table class="table table-bordered table-hover" id="syLawyerList">
                         <thead>
                         <tr>
                             <th>#</th>
@@ -71,7 +69,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
+                        <%--<tr>
                             <td style="vertical-align:middle;"><input type="radio" name="lawyerId"></td>
                             <td>王麻子</td>
                             <td>13901234567</td>
@@ -85,7 +83,7 @@
                             <td>2017-08-28</td>
                             <td>
                                 <div class="btn-group">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">
                                         查看详情
                                         <span class="caret"></span>
                                     </a>
@@ -97,67 +95,13 @@
                                     </ul>
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
-                            <td style="vertical-align:middle;"><input type="radio" name="lawyerId"></td>
-                            <td>王麻子</td>
-                            <td>13901234567</td>
-                            <td width="120px;">
-                                <div class="profile-image">
-                                    <img src="/images/user.png" class="" style="width: 80%;" />
-                                </div>
-                            </td>
-                            <td>2017-08-28</td>
-                            <td>审核中</td>
-                            <td>2017-08-28</td>
-                            <td>
-                                <div class="btn-group">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                        查看详情
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="/view/legalcase/publish/caseEntrustDetail.jsp?orderCode=D0001">查看详情</a></li>
-                                        <li><a href="#">审核通过</a></li>
-                                        <li><a href="#">不通过</a></li>
-                                        <li><a href="#">结案</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="vertical-align:middle;"><input type="radio" name="lawyerId"></td>
-                            <td>王麻子</td>
-                            <td>13901234567</td>
-                            <td width="120px;">
-                                <div class="profile-image">
-                                    <img src="/images/user.png" class="" style="width: 80%;" />
-                                </div>
-                            </td>
-                            <td>2017-08-28</td>
-                            <td>审核中</td>
-                            <td>2017-08-28</td>
-                            <td>
-                                <div class="btn-group">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                        查看详情
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="/view/legalcase/publish/caseEntrustDetail.jsp?orderCode=D0001">查看详情</a></li>
-                                        <li><a href="#">审核通过</a></li>
-                                        <li><a href="#">不通过</a></li>
-                                        <li><a href="#">结案</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
+                        </tr>--%>
                         </tbody>
                     </table>
                     <div class="row">
-                        <div class="col-xs-6" id="pageTotalRecord"></div>
+                        <div class="col-xs-6" id="slPageTotalRecord"></div>
                         <div class="col-xs-6">
-                            <div class="dataTables_paginate paging_bootstrap" id="paginationContainer"> </div>
+                            <div class="dataTables_paginate paging_bootstrap" id="slPaginationContainer"> </div>
                         </div>
                     </div>
                 </div>
@@ -168,3 +112,5 @@
         </div>
     </div>
 </div>
+
+
