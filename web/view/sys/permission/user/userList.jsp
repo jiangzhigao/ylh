@@ -4,13 +4,12 @@
     <%@ include file="/view/frame/head.jsp"%>
 
     <style type="text/css">
-
         .move20{
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 90px;
-            width: 80px;
+            min-width: 62px;
+            width: 100%;
         }
         a:hover {
             text-decoration: none;
@@ -30,7 +29,26 @@
             color: #ccc;
         }
         a {
-            color: #333;
+            color: #666666;
+        }
+
+        .modal-dialog {
+            width: 260px;
+        }
+
+        .modal-header {
+            line-height: 40px;
+            padding: 10px;
+        }
+        .modal-body {
+            padding: 10px;
+        }
+        .modal-footer {
+            padding: 5px 15px;
+            border-top: 0px;
+        }
+        . but{
+            padding: 3px 6px!important;
         }
     </style>
 </head>

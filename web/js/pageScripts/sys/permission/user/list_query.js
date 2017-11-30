@@ -51,6 +51,9 @@ jQuery(function(){
                 window.location.href = bizUrl+'?dataId='+id;
             }else if(index == 1){//删除
                 _delete(id,$this);
+            }else if(index==2){
+                var txt = $this.attr("us");
+                _resetPwd(id,$this,txt);
             }
         });
     }
@@ -73,16 +76,22 @@ jQuery(function(){
         return totalPages;
     }
 
-    function _optionsHtml(id,clz){
+    function _optionsHtml(id,clz,u){
         var _operHtml = [];
         _operHtml.push('<div class="btn-group">');
-        _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">编辑<span class="caret"></span></a>');
+        _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown"  style="color: #337AB7;" >编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
         _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="editSysUser.jsp?dataId='+id+'">编辑</a></li>');
         _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url="javascript:;" bid="'+id+'">删除</a></li>');
-        _operHtml.push('<li><a href="javascript:;" bid="'+id+'" class="'+clz+'">重置密码</a></li>');
+        _operHtml.push('<li><a href="javascript:;" bid="'+id+'" us="'+u+'">重置密码</a></li>');
         _operHtml.push('</ul></div>');
 
+        return  _operHtml.join('');
+    }
+
+    function _notEditor(){
+        var _operHtml = [];
+        _operHtml.push('<a href="javascript:;" style="color: #676A6C;" >编辑<span class="caret"></span></a>');
         return  _operHtml.join('');
     }
 
@@ -116,7 +125,11 @@ jQuery(function(){
                             _html.push('<td>' + obj.loginCount + '</td>');
                             _html.push('<td>' + statusArray[statusInt] + '</td>');
 
-                            _html.push('<td style="text-align: right">' +  _optionsHtml(dataId,clz) + '</td>');
+                            if(parseInt(dataId)==1){//管理员
+                                _html.push('<td style="text-align: right">' +  _notEditor() + '</td>');
+                            }else{
+                                _html.push('<td style="text-align: right">' +  _optionsHtml(dataId,clz,obj.userName) + '</td>');
+                            }
                             _html.push('</tr>');
                         }
                         var len = null != result.managers?result.managers.length:0;
@@ -181,7 +194,7 @@ jQuery(function(){
         delData.username = user._d;
         delData.password = user._p;
         delData.userType = 2;
-        delData.method = "delete";
+        delData._method = "delete";
         bootbox.dialog({
             title: "",
             message: '<div class="row">  ' +
@@ -207,6 +220,50 @@ jQuery(function(){
                                 if (result.success) {
                                     FOXKEEPER_UTILS.alert('success', result.message);
                                     $this.parent().parent().parent().parent().parent().remove();
+                                }
+                                else
+                                {
+                                    FOXKEEPER_UTILS.alert('warning', result.message);
+                                }
+                            }
+                        });
+                        return true;
+                    }
+                }
+            }
+        })
+    }
+
+    function _resetPwd(id,$this,txt) {
+        var delData = {};
+        var user = $.reqHomeUrl();
+        delData.username = user._d;
+        delData.password = user._p;
+        delData.userType = 2;
+        bootbox.dialog({
+            title: "信息",
+            message: '<div class="row">  ' +
+            '<div class="col-xs-12"> ' +
+            '确认重置用户【'+txt+'】的密码吗？' +
+            '</div></div>',
+            buttons: {
+                cancel: {
+                    label: "否",
+                    className: "btn-cancel but",
+                    callback: $.noop
+                },
+                confirm: {
+                    label: "是",
+                    className: "btn-info but",
+                    callback: function () {
+                        jQuery.ajax({
+                            dataType: "json",
+                            url: webBasePath+'/managers/'+id+'/resetPassword',
+                            data: delData,
+                            type: "POST",
+                            success: function (result) {
+                                if (result.success) {
+                                    FOXKEEPER_UTILS.alert('success', result.message);
                                 }
                                 else
                                 {

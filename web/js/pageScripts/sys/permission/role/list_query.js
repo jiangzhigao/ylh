@@ -42,16 +42,13 @@ jQuery(function(){
         });
 
         /** 操作列表 */
-        $('body').on('click', ".opt li a", function() {
+        $('body').on('click', ".opt", function() {
             var $this = $(this);
             var id = $this.attr('bid');
-            var index = $this.parent().index();
-            if(index==0){//编辑操作
-                var bizUrl = $this.attr('bz-url');
-                window.location.href = bizUrl+'?dataId='+id;
-            }else if(index == 1){//删除
-                _delete(id,$this);
-            }
+             if(!($this.attr("is")==1)) {
+                 var bizUrl = $this.attr('biz-url');
+                 window.location.href = bizUrl;
+             }
         });
     }
     function _reset() {
@@ -74,8 +71,11 @@ jQuery(function(){
     }
 
     function _optionsHtml(id,clz){
-        var _operHtml = [];
-        _operHtml.push('<a href="editRoleResources.jsp?dataId='+id+'" style="color: #337AB7;">编辑</a>');
+        var _operHtml = [],is = 0;
+        if(id == 1){
+            is = 1;
+        }
+        _operHtml.push('<a href="javascript:;" biz-url="/view/sys/permission/role/editRoleResources.jsp?dataId='+id+'" class="opt" is="'+is+'" style="color: '+clz+'">编辑</a>');
         return  _operHtml.join('');
     }
 
@@ -94,12 +94,11 @@ jQuery(function(){
                     if (result.userGroups != null && result.userGroups.length > 0) {
                         var data = result.userGroups,clz;
                         var _html = new Array();
-                        var statusArray = ['冻结', '正常'];
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
                             var dataId = obj.id;
-                            var statusInt = parseInt(obj.status);
-                            clz = statusInt == 0?"no-editable":"";
+                            var statusInt = parseInt(dataId);
+                            clz = statusInt == 1?"#676A6C":"#337AB7";
                             _html.push('<tr>');
                             _html.push('<td>' + obj.name + '</td>');
                             _html.push('<td>' + obj.description + '</td>');
@@ -107,10 +106,10 @@ jQuery(function(){
                             _html.push('<td>' + obj.createdTime + '</td>');
                             _html.push('<td>' + obj.updatedTime + '</td>');
 
-                            _html.push('<td style="">' +  _optionsHtml(dataId,clz) + '</td>');
+                            _html.push('<td>' +  _optionsHtml(statusInt,clz) + '</td>');
                             _html.push('</tr>');
                         }
-                        var len = null != result.managers?result.userGroups.length:0;
+                        var len = result.userGroups.length;
                         $dataList.find('tbody').html(_html.join(''));
 
                         options.totalPages = _sumTotalPages(len);

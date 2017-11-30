@@ -48,7 +48,7 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">编辑用户组</h2>
+                    <h2 class="title pull-left title-bold">编辑用户组</h2>
                     <div class="pull-right">
                         <div id="page_alert_container"></div>
                     </div>
@@ -99,8 +99,8 @@
         <div class="col-xs-12">
             <section class="box " style="margin-top: -13px;">
                 <header class="panel_header">
-                    <h2 class="title pull-left">权限分配</h2>
-                    <span class="desc" style="display: inline-block;margin-top: 20px;">（说明: 由于用户默认进入后台首页，所以用户默认会有后台 "首页" 权限）</span>
+                    <h2 class="title pull-left title-bold">权限分配</h2>
+                    <span class="desc" style="display: inline-block;margin-top: 10px;">（说明: 由于用户默认进入后台首页，所以用户默认会有后台 "首页" 权限）</span>
                     <div class="pull-right">
                         <%--<div id="page_alert_container"></div>--%>
                     </div>

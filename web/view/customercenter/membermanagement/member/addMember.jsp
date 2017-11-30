@@ -59,6 +59,7 @@
                 <header class="panel_header">
                     <h2 class="title pull-left title-bold">添加会员</h2>
                     <div class="actions panel_actions pull-right">
+                        <div id="page_alert_container"></div>
                     </div>
                 </header>
                 <div class="content-body">

@@ -18,19 +18,11 @@
         <div class="modal-content xxx">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="padding-bottom: 10px;">×</button>
-                <h4 class="modal-title title-bold">请选择律师</h4>
+                <h4 class="modal-title title-bold">信息</h4>
             </div>
             <div class="modal-body" style="padding: 15px;">
                 <div class="dataTables_wrapper no-footer">
                     <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
-                        <input type="hidden" id="lawName">
-                        <div class="row">
-                            <div class="col-xs-2">
-                                <div class="controls">
-                                    <button type="button" class="btn btn-info" id="sltLawyerBtn">选择律师</button>
-                                </div>
-                            </div>
-                        </div>
                         <div class="row" style="margin-bottom: -10px;">
                             <div class="col-xs-3 move20">
                                 <input type="text" class="form-control" placeholder="律师姓名">
