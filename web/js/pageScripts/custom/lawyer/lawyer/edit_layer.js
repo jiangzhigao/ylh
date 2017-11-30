@@ -51,20 +51,20 @@ jQuery(function(){
         }
     });
 
-
     //渲染
     _init();
     //绑定
     _bind();
 
     function _init(){
+        _initProvince();
         //初始化列表
         var parameter = $.getParameters();
         var id = parameter.dataId;
         if(id){
             _initData(id);
         }
-        _initProvince();
+
     }
 
     function _bind () {
@@ -79,7 +79,8 @@ jQuery(function(){
             window.history.back();
         });
         $('#province').change('click', function () {
-            _initProvinces($(this));
+            var province = $('#province').val();
+            _initProvinces(province);
         });
         //图片上传
         $('body').on('change', 'input[name$="_upload"]', function(e) {
@@ -92,24 +93,26 @@ jQuery(function(){
                 _this.val("");
                 $('#' + _this.attr("mid")).attr("src", "/images/nopica.png");
                 $('#' + _this.attr("uid")).val("");
-                $("#imgBox").hide();
+                $("#imgBox").show();
                 /*$processBar.addClass('hide');*/
                 return false;
             }
+
             //图片大小判断
             var imgSize = document.getElementById("lcimage_upload").files[0].size;
             if(imgSize>1024*1000){
                 FOXKEEPER_UTILS.alert('warning', '图片尺寸请小于1M');
                 $("#lcimage_upload").val("");
-                $("#imgBox").hide();
+                $("#imgBox").show();
                 return false;
             }
+
             if (fileName != "") {
                 return ajaxFileUpload(_this, _this.attr("id"), null);
             }
         });
     }
-    //文件上传
+
     function ajaxFileUpload($file, fileId, $processBar) {
         var user = $.getuuuAuth();
         var fileName = $file.val();
@@ -141,15 +144,23 @@ jQuery(function(){
                 }
             },
             error: function (xhr, status, e) {
-                FOXKEEPER_UTILS.alert('warning', '上传出错，请重试');l
+                FOXKEEPER_UTILS.alert('warning', '上传出错，请重试');
             }
         });
         return false;
     }
+    /** 请求参数验证 */
+    function _verifyAjaxData () {
+        if (!ajaxdata.picture) {
+            FOXKEEPER_UTILS.alert('warning', '请上传律师头像');
+            return false;
+        }
+        return true;
+    }
 
     //加载编辑数据
     function _initData (id) {
-        _initProvince();
+        // _initProvince();
         _setQueryAjaxData();
         jQuery.ajax({
             dataType: "json",
@@ -159,27 +170,31 @@ jQuery(function(){
             success: function (result) {
                 if (result.success) {
                     var lawyer = result.lawyer;
+                    _initProvinces(lawyer.province);
                     if(lawyer){
                         $("#dataId").val(lawyer.id);
                         $("#userName").text(lawyer.userName);
+                        $("#password").val(lawyer.password);
                         $("#account").text(lawyer.account);
-                        $("#userPassword").val(lawyer.password);
+                        // $("#userPassword").val(lawyer.password);
                         $("#name").val(lawyer.name);
                         $("#nickname").val(lawyer.nickname);
                         $("#idcard").val(lawyer.idcard);
+                        $("#licenseid").val(lawyer.licenseid);
                         $("#mobile").val(lawyer.mobile);
                         $("#email").val(lawyer.email);
-                        $("#province").val(lawyer.province);
+                        $("#province").val(lawyer.province).attr("checked",true);
+                        //$("#city option [value='"+lawyer.city+"']").attr("selected",true);
                         $("#city").val(lawyer.city);
                         $("#employmentTime").val(lawyer.employmentTime);
                         $("#lastLoginIp").val(lawyer.loginIP);
-                        $("#registerTime").val(lawyer.createdTime);
+                        $("#registerTime").text(lawyer.createdTime);
+                        $("#lastLoginTime").text(lawyer.lastLoginTime);
                         $("#score").val(lawyer.score);
-
                         $("input[name='status'][value='"+lawyer.status+"']").attr("checked",true);
-                        /*$("input[name='status']").val(user.status);*/
                         $("#coverImage").attr("src",homePath+lawyer.picture);
                         $("#coverUrl").val(homePath+lawyer.picture);
+                        $("#imgBox").show();
                     }
                 }else{
                     FOXKEEPER_UTILS.alert('warning', result.message);
@@ -237,6 +252,8 @@ jQuery(function(){
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
         ajaxdata.userName = $("#userName").val();
+        ajaxdata.password = $("#password").val();
+        ajaxdata.account = $("#account").val();
         ajaxdata.userPassword = $("#userPassword").val();
         ajaxdata.name = $("#name").val();
         ajaxdata.licenseid = $("#licenseid").val();
@@ -249,7 +266,6 @@ jQuery(function(){
         ajaxdata.province = $("#province").val();
         ajaxdata.city = $("#city").val();
         ajaxdata.employmentTime = $("#employmentTime").val();
-        ajaxdata.account = $("#account").val();
         ajaxdata.level = $("#level").val();
 
     }
@@ -262,6 +278,7 @@ jQuery(function(){
         }
         return true;
     }
+
     /** 加载省份信息*/
     function _initProvince(){
         var queryInfoData = {};
@@ -269,6 +286,8 @@ jQuery(function(){
         queryInfoData.username = user._d;
         queryInfoData.password = user._p;
         queryInfoData.userType = 2;
+        queryInfoData.pageNo = 1;
+        queryInfoData.pageSize = 1000;
         jQuery.ajax({
             dataType: "json",
             url: webBasePath + '/provinces',
@@ -278,7 +297,7 @@ jQuery(function(){
                 if (result.success) {
                     if (result.provinces != null && result.provinces.length > 0) {
                         var data = result.provinces;
-                        $("#province").find("option:not(:first)").remove();
+                        $("#province").find("option:not(:first)").remove()
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
                             var dataId = obj.id;
@@ -291,13 +310,15 @@ jQuery(function(){
         });
     }
     /** 加载省份对应的市信息*/
-    function _initProvinces(ele){
+    function _initProvinces(provinceId){
         var queryInfoData = {};
         var user = $.getuuuAuth();
         queryInfoData.username = user._d;
         queryInfoData.password = user._p;
         queryInfoData.userType = 2;
-        queryInfoData.provinceId  = ele.val();
+        queryInfoData.pageNo = 1;
+        queryInfoData.pageSize = 1000;
+        queryInfoData.provinceId  = provinceId;
         jQuery.ajax({
             dataType: "json",
             url: webBasePath + '/citys',
@@ -311,7 +332,6 @@ jQuery(function(){
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
                             var dataId = obj.id;
-                            /* $("#province").append('<option value="'+dataId+'">'+obj.name+'</option>');*/
                             $("#city").append('<option value="'+dataId+'">'+obj.name+'</option>');
                         }
                     }

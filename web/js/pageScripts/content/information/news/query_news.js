@@ -63,6 +63,7 @@ jQuery(function(){
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
         ajaxdata.status = 0;
+        ajaxdata._method = 'delete'
         jQuery.ajax({
             dataType: "json",
             url: reUrl,
@@ -71,7 +72,7 @@ jQuery(function(){
             success: function (result) {
                 if (result.success) {
                     $this.addClass("no-editable");
-                    $this.parent().parent().parent().parent().prev().text("删除")
+                    $this.parent().parent().parent().parent().parent().remove();
                     FOXKEEPER_UTILS.alert('success',result.message);
                 }
             }
@@ -102,7 +103,7 @@ jQuery(function(){
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
         _operHtml.push('<li><a bz-url="/view/contentmanager/information/news/editNews.jsp" bid="'+id+'">编辑</a></li>');
-        _operHtml.push('<li><a href="javascript;" bid="'+id+'">删除</a></li>');
+        _operHtml.push('<li><a href="javascript:;"bid="'+id+'" >删除</a></li>');
         _operHtml.push('</ul></div>');
 
         return  _operHtml.join('');
@@ -129,7 +130,7 @@ jQuery(function(){
                             _html.push('<tr>');
                             _html.push('<td>' + obj.id + '</td>');
                             _html.push('<td>' + obj.title + '</td>');
-                            _html.push('<td>' + obj.summary + '</td>');
+                            _html.push('<td>' + obj.infoType.id + '</td>');
                             _html.push('<td>' + obj.createdTime + '</td>');
                             _html.push('<td>' + obj.updatedTime + '</td>');
                             _html.push('<td>' + (obj.isDisplay==1?"显示":"不显示") + '</td>');

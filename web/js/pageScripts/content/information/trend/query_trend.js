@@ -23,18 +23,14 @@ jQuery(function(){
         page : 1,
         pageSize : 10
     };
-
-
     //渲染
     _init();
     //绑定
     _bind();
-
     function _init(){
         //初始化列表
         _initData();
     }
-
     function _bind () {
         /**  检索 */
         $('#btnSearch').click(function () {
@@ -63,6 +59,7 @@ jQuery(function(){
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
         ajaxdata.status = 0;
+        ajaxdata._method = 'delete'
         jQuery.ajax({
             dataType: "json",
             url: reUrl,
@@ -71,7 +68,7 @@ jQuery(function(){
             success: function (result) {
                 if (result.success) {
                     $this.addClass("no-editable");
-                    $this.parent().parent().parent().parent().prev().text("删除")
+                    $this.parent().parent().parent().parent().parent().remove();
                     FOXKEEPER_UTILS.alert('success',result.message);
                 }
             }
@@ -102,9 +99,8 @@ jQuery(function(){
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
         _operHtml.push('<li><a bz-url="/view/contentmanager/information/trend/editTrend.jsp" bid="'+id+'">编辑</a></li>');
-        _operHtml.push('<li><a href="javascript;" bid="'+id+'">删除</a></li>');
+        _operHtml.push('<li><a href="javascript:;"bid="'+id+'" >删除</a></li>');
         _operHtml.push('</ul></div>');
-
         return  _operHtml.join('');
     }
 

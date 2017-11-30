@@ -129,7 +129,7 @@ jQuery(function(){
                             _html.push('<tr>');
                             _html.push('<td>' + obj.id + '</td>');
                             _html.push('<td>' + obj.name + '</td>');
-                            _html.push('<td>' + obj.color + '</td>');
+                            _html.push('<td style="color:# '+obj.color+'">' + obj.color + '</td>');
                             _html.push('<td>' + obj.sortNo + '</td>');
                             _html.push('<td>' + obj.updatedTime + '</td>');
                             _html.push('<td>' +  _optionsHtml(dataId) + '</td>');

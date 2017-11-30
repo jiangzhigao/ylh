@@ -79,7 +79,7 @@ jQuery(function(){
             window.history.back();
         });
         $('#province').change('click', function () {
-            _initProvinces($(this));
+            _initProvinceCity($(this));
         });
 
         //图片上传
@@ -222,6 +222,8 @@ jQuery(function(){
         queryInfoData.username = user._d;
         queryInfoData.password = user._p;
         queryInfoData.userType = 2;
+        queryInfoData.pageNo = 1;
+        queryInfoData.pageSize = 1000;
         jQuery.ajax({
             dataType: "json",
             url: webBasePath + '/provinces',
@@ -242,13 +244,15 @@ jQuery(function(){
             }
         });
     }
-
-    function _initProvinces(ele){
+    //根据省份获取市区信息
+    function _initProvinceCity(ele){
         var queryInfoData = {};
         var user = $.getuuuAuth();
         queryInfoData.username = user._d;
         queryInfoData.password = user._p;
         queryInfoData.userType = 2;
+        queryInfoData.pageNo = 1;
+        queryInfoData.pageSize = 1000;
         queryInfoData.provinceId  = ele.val();
         jQuery.ajax({
             dataType: "json",

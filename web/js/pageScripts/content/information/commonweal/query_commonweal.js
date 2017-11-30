@@ -63,6 +63,7 @@ jQuery(function(){
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
         ajaxdata.status = 0;
+        ajaxdata._method = 'delete'
         jQuery.ajax({
             dataType: "json",
             url: reUrl,
@@ -71,7 +72,7 @@ jQuery(function(){
             success: function (result) {
                 if (result.success) {
                     $this.addClass("no-editable");
-                    $this.parent().parent().parent().parent().prev().text("删除")
+                    $this.parent().parent().parent().parent().parent().remove();
                     FOXKEEPER_UTILS.alert('success',result.message);
                 }
             }
@@ -101,8 +102,8 @@ jQuery(function(){
         _operHtml.push('<div class="btn-group">');
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li><a bz-url="/view/contentmanager/help/editHelp.jsp" bid="'+id+'">编辑</a></li>');
-        _operHtml.push('<li><a href="javascript;" bid="'+id+'">删除</a></li>');
+        _operHtml.push('<li><a bz-url="/view/contentmanager/information/commonweal/editCommonweal.jsp" bid="'+id+'">编辑</a></li>');
+        _operHtml.push('<li><a href="javascript:;"bid="'+id+'" >删除</a></li>');
         _operHtml.push('</ul></div>');
 
         return  _operHtml.join('');
@@ -129,10 +130,10 @@ jQuery(function(){
                             _html.push('<tr>');
                             _html.push('<td>' + obj.id + '</td>');
                             _html.push('<td>' + obj.title + '</td>');
-                            _html.push('<td>' + obj.summary + '</td>');
+                            // _html.push('<td>' + obj.infoType.name + '</td>');
                             _html.push('<td>' + obj.createdTime + '</td>');
                             _html.push('<td>' + obj.updatedTime + '</td>');
-                            _html.push('<td>' + (obj.isDisplay==1?"显示":"不显示") + '</td>');
+                            // _html.push('<td>' + (obj.isDisplay==1?"显示":"不显示") + '</td>');
                             _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');
                         }
@@ -141,7 +142,7 @@ jQuery(function(){
                         $paginationContainer.bootstrapPaginator(options);
                         $('#batchDeleteDiv').show();
                         $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite"> 共'
-                             + result.informations.length + '条记录，当前为第 ' + options.currentPage + ' 页');
+                            + result.informations.length + '条记录，当前为第 ' + options.currentPage + ' 页');
                     } else {
                         $('#batchDeleteDiv').hide();
                         $dataList.find('tbody').html('');

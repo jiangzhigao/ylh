@@ -76,37 +76,6 @@ jQuery(function(){
             }
         });
     }
-
-    function _ajax($this, buttonText, reUrl) {
-        var formValid = $form_add.validate().form();
-        if (formValid) {
-            _setAjaxData();
-            jQuery.ajax({
-                dataType: "json",
-                url: reUrl,
-                data: ajaxdata,
-                type: "POST",
-                success: function (result) {
-                    var recUrl,data = result.information;
-                    if (result.success) {
-                        FOXKEEPER_UTILS.alert('success',result.message);
-                        setTimeout(function(){
-                            location.replace("/view/contentmanager/information/commonweal/commonwealList.jsp");
-                        }, 1000);
-                    }
-                    else
-                    {
-                        FOXKEEPER_UTILS.alert('warning',result.message);
-                        $this.html(buttonText).attr("disabled", false);
-                    }
-                },
-                beforeSend: function () {// 设置表单提交前方法    
-                    $this.html('<i class=\"fa fa-spinner\"></i>&nbsp;正在' + buttonText).attr("disabled", "disabled");
-                }
-            });
-        }
-    }
-
     function ajaxFileUpload($file, fileId, $processBar) {
         var user = $.getuuuAuth();
         var fileName = $file.val();
@@ -138,10 +107,40 @@ jQuery(function(){
                 }
             },
             error: function (xhr, status, e) {
-                FOXKEEPER_UTILS.alert('warning', '上传出错，请重试');l
+                FOXKEEPER_UTILS.alert('warning', '上传出错，请重试');
             }
         });
         return false;
+    }
+
+    function _ajax($this, buttonText, reUrl) {
+        var formValid = $form_add.validate().form();
+        if (formValid) {
+            _setAjaxData();
+            jQuery.ajax({
+                dataType: "json",
+                url: reUrl,
+                data: ajaxdata,
+                type: "POST",
+                success: function (result) {
+                    var recUrl,data = result.information;
+                    if (result.success) {
+                        FOXKEEPER_UTILS.alert('success',result.message);
+                        setTimeout(function(){
+                            location.replace("/view/contentmanager/information/commonweal/commonwealList.jsp");
+                        }, 1000);
+                    }
+                    else
+                    {
+                        FOXKEEPER_UTILS.alert('warning',result.message);
+                        $this.html(buttonText).attr("disabled", false);
+                    }
+                },
+                beforeSend: function () {// 设置表单提交前方法    
+                    $this.html('<i class=\"fa fa-spinner\"></i>&nbsp;正在' + buttonText).attr("disabled", "disabled");
+                }
+            });
+        }
     }
 
     function _setAjaxData () {
@@ -149,10 +148,10 @@ jQuery(function(){
         ajaxdata.username = user._d;
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
+        ajaxdata.type = 2;
         ajaxdata.title = $("#title").val();
-        ajaxdata.type = 2;
-        ajaxdata.type = 2;
         ajaxdata.summary = $("#summary").val();
+        ajaxdata.picture = $("#coverUrl").val();
         ajaxdata.isDisplay = $("#isDisplay").val();
         ajaxdata.content = ue.getContent();
 

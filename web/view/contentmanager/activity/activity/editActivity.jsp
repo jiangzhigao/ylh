@@ -61,14 +61,14 @@
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
+                        <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="userName">标题</label>
+                                        <label class="col-xs-2 control-label" for="title">标题</label>
                                         <div class="col-xs-5">
                                             <input type="text" class="form-control"
-                                                   placeholder="请输入标题" value="" id="userName" name="userName"
+                                                   placeholder="请输入标题" value="" id="title" name="title"
                                                    maxlength="24">
                                         </div>
                                     </div>
@@ -77,9 +77,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="activityDesc">内容</label>
+                                        <label class="col-xs-2 control-label" for="content">内容</label>
                                         <div class="col-xs-5">
-                                            <textarea id="activityDesc" name="activityDesc" maxlength="128" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 120px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
+                                            <textarea id="content" name="content" maxlength="128" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 120px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -112,7 +112,7 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">参与人数</label>
                                         <div class="col-xs-5">
-                                            <label class="control-label">100</label>
+                                            <label id="praiseNumber" name="praiseNumber" class="control-label"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -122,7 +122,7 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">发布时间</label>
                                         <div class="col-xs-5">
-                                            <label class="control-label">2017-08-08 15:30:20</label>
+                                            <label id="createdTime" name="createdTime" class="control-label"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -132,7 +132,7 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">更新时间</label>
                                         <div class="col-xs-5">
-                                            <label class="control-label">2017-08-08 15:30:20</label>
+                                            <label id="updatedTime" name="updatedTime" class="control-label"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -142,7 +142,7 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">发布人</label>
                                         <div class="col-xs-5">
-                                            <label class="control-label">王麻子</label>
+                                            <label id="announceUser" name="announceUser" class="control-label"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -152,7 +152,7 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">置顶</label>
                                         <div class="col-xs-5">
-                                            <label class="control-label">未置顶</label>
+                                            <label id="isTop" name="isTop" class="control-label"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -162,7 +162,7 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">审核状态</label>
                                         <div class="col-xs-5">
-                                            <label class="control-label">审核通过</label>
+                                            <label id="status" name="status" class="control-label"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -200,7 +200,9 @@
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
-<%--<script type="text/javascript" src="/js/pageScripts/custom/member/add_member.js"></script>--%>
+<script type="text/javascript" src="/js/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/activity/activity/edit_activity.js"></script>
 <script type="text/javascript">
     /*$('.colorpicker').colorpicker();*/
 </script>

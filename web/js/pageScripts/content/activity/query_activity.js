@@ -101,7 +101,8 @@ jQuery(function(){
         _operHtml.push('<div class="btn-group">');
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li><a bz-url="/view/contentmanager/activity/editActivity.jsp" bid="'+id+'">编辑</a></li>');
+        _operHtml.push('<li><a bz-url="/view/contentmanager/activity/activity/editActivity.jsp" bid="'+id+'">编辑</a></li>');
+        _operHtml.push('<li><a href="javascript:" bid="'+id+'">置顶</a></li>');
         _operHtml.push('<li><a href="javascript:" bid="'+id+'">删除</a></li>');
         _operHtml.push('</ul></div>');
 
@@ -123,8 +124,10 @@ jQuery(function(){
                     if (result.activitys != null && result.activitys.length > 0) {
                         var _html = new Array();
                         var data = result.activitys;
+                        var  statusArray = ["未审核","审核通过","审核未通过"]
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
+                            var statusInt = parseInt(obj.status);
                             var dataId = obj.id;
                             _html.push('<tr>');
                             _html.push('<td>' + obj.id + '</td>');
@@ -133,10 +136,8 @@ jQuery(function(){
                             _html.push('<td>' + obj.createdTime + '</td>');
                             _html.push('<td>' + obj.updatedTime + '</td>');
                             _html.push('<td>' + obj.userId + '</td>');
-                            // _html.push('<td>' + obj.isTop + '</td>');
                             _html.push('<td>' + (obj.isTop==1?"置顶":"不置顶") + '</td>');
-                            _html.push('<td>' + (obj.status==1?"显示":"不显示") + '</td>');
-                            // _html.push('<td>' + (obj.isDisplay==1?"显示":"不显示") + '</td>');
+                            _html.push('<td>' + (statusArray[statusInt]) + '</td>');
                             _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');
                         }

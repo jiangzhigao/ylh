@@ -138,7 +138,7 @@
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
-<script type="text/javascript" src="/js/pageScripts/content/activity/add_activlity.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/activity/activity/add_activlity.js"></script>
 <script type="text/javascript">
     /*$('.colorpicker').colorpicker();*/
 </script>
