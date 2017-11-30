@@ -93,10 +93,10 @@ jQuery(function(){
                         $("#dataId").val(version.id);
                         $("#type").val(version.type);
                         $("#androidVersion").val(version.androidVersion);
-                        $("#androidUpdatedTime").val(version.androidUpdatedTime);
+                        $("#androidUpdatedTime").text(version.androidUpdatedTime);
                         $("#androidUrl").val(version.androidUrl);
                         $("#iosVersion").val(version.androidVersion);
-                        $("#iosUpdatedTime").val(version.androidUpdatedTime);
+                        $("#iosUpdatedTime").text(version.androidUpdatedTime);
                         $("#iosUrl").val(version.androidUrl);
                     }
                 }else{
@@ -155,11 +155,11 @@ jQuery(function(){
         ajaxdata.userType = 2;
         ajaxdata.id = $("#dataId").val();
         ajaxdata.type = $("#type").val();
-        ajaxdata.androidVersion = ("#androidVersion").val();
-        ajaxdata.androidUpdatedTime = $("#androidUpdatedTime").val();
+        ajaxdata.androidVersion = $("#androidVersion").val();
+        /*ajaxdata.androidUpdatedTime = $("#androidUpdatedTime").val();*/
         ajaxdata.androidUrl = $("#androidUrl").val();
         ajaxdata.iosVersion = $("#iosVersion").val();
-        ajaxdata.iosUpdatedTime = $("#iosUpdatedTime").val();
+        /*ajaxdata.iosUpdatedTime = $("#iosUpdatedTime").val();*/
         ajaxdata.iosUrl = $("#iosUrl").val();
     }
 

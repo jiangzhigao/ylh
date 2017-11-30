@@ -80,7 +80,7 @@ jQuery(function(){
                     var $pageTotalRecord = $('#pageTotalRecord');
                     var count = 0;
                     if (result.versions != null && result.versions.length > 0) {
-                        var data = result.vouchers,clz;
+                        var data = result.versions,clz;
                         var _html = new Array();
                         var typeArray = ['用户端', '律师端'];
                         for (var i = 0; i < data.length; i++) {
@@ -99,7 +99,7 @@ jQuery(function(){
                             _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');
                         }
-                        count = result.vouchers.length;
+                        count = result.versions.length;
                         $dataList.find('tbody').html(_html.join(''));
 
                         options.totalPages = _sumTotalPages(result.versions.length);

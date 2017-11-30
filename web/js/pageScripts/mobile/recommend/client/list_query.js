@@ -92,10 +92,10 @@ jQuery(function(){
                             _html.push('<tr>');
                             _html.push('<td>' + obj.title+ '</td>');
                             var _imageHtml = [];
-                            _imageHtml.push('<div class="profile-image">');
-                            _imageHtml.push('<img src="' + obj.pic + '" class="" style="width: 80%;" />');
+                            _imageHtml.push('<div class="profile-image" style="max-width: 70px;">');
+                            _imageHtml.push('<img src="' + obj.pic + '" class="" style="width: 100%;height: 45px;" />');
                             _imageHtml.push('</div>');
-                            _html.push('<td width="120px;">' + _imageHtml.join('') + '</td>');
+                            _html.push('<td>' + _imageHtml.join('') + '</td>');
                             _html.push('<td>' + (linkType == 0?'站内':'站外') + '</td>');
                             _html.push('<td>' + obj.createdTime + '</td>');
                             _html.push('<td>' + obj.updatedTime + '</td>');

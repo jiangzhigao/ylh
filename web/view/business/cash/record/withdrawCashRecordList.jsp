@@ -53,7 +53,7 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h4 class="title pull-left">提现申请</h4>
+                    <h4 class="title pull-left title-bold">提现申请</h4>
                     <div class="actions panel_actions pull-right">
                     </div>
                 </header>

@@ -26,7 +26,7 @@ FOXKEEPER_UTILS.alert = function(type, info) {
        
     }
 
-    var _html = '<div class="alert alert-'+type+' alert-dismissible fade in">'+
+    var _html = '<div style="line-height: 23px;" class="alert alert-'+type+' alert-dismissible fade in">'+
                                             '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>'+
                                             '<strong>'+_code+'：</strong> '+info+'</div>';
     $('#page_alert_container').html(_html);

@@ -80,11 +80,11 @@ jQuery(function(){
         var _operHtml = [],bizUrl;
         type = parseInt(type);
         if(type == 0){
-            bizUrl = "/view/business/order/service/serviceOrderList.jsp?dataId="+id;
+            bizUrl = "/view/business/order/service/serviceOrderDetail.jsp?dataId="+id;
         }else if(type == 1){
-            bizUrl = "/view/business/order/reservation/orderList.jsp?dataId="+id;
+            bizUrl = "/view/business/order/reservation/orderDetail.jsp?dataId="+id;
         }else if(type == 2){
-            bizUrl = "/view/business/order/entrust/entrustOrderList.jsp?dataId="+id;
+            bizUrl = "/view/business/order/entrust/entrustOrderDetail.jsp?dataId="+id;
         }
         _operHtml.push('<a href="'+bizUrl+'" style="color: #337AB7;">查看订单详情</a>');
         return  _operHtml.join('');
@@ -118,7 +118,7 @@ jQuery(function(){
                             _html.push('<td>' + obj.amount + '</td>');
                             _html.push('<td>' + obj.createdTime + '</td>');
 
-                            _html.push('<td>' +  _optionsHtml(orderId,orderType) + '</td>');
+                            _html.push('<td>' +  _optionsHtml(obj.order.id,obj.order.orderStatus) + '</td>');
                             _html.push('</tr>');
                         }
 

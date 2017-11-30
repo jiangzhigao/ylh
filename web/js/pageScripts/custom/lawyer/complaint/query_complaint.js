@@ -79,7 +79,7 @@ jQuery(function(){
 
     function _optionsHtml(id){
         var _operHtml = [];
-        _operHtml.push('<a href="/view/customercenter/lawyermanagement/complaint/complaintAndAdviceDetail.jsp?dataId='+id+'" style="color: #337AB7;">查看详情</a>');
+        _operHtml.push('<a href="/view/customercenter/lawyermanagement/complaint/feedbackDetail.jsp?dataId='+id+'" style="color: #337AB7;">查看详情</a>');
         return  _operHtml.join('');
     }
 
@@ -141,7 +141,7 @@ jQuery(function(){
         queryParams.username = user._d;
         queryParams.password = user._p;
         queryParams.userType = 2;
-
+        queryParams.type = 1;
     }
 
 });

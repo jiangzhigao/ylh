@@ -29,13 +29,13 @@
 <%@ include file="/view/frame/sidebar.jsp"%>
 <!--  SIDEBAR - END -->
 <script type='text/javascript'>
-    ___system_navigation_config.currentNav = ___system_navigation_config.nav.mc_feedback_list;
+    ___system_navigation_config.currentNav = ___system_navigation_config.nav.l_complaintAndAdviceList;
 </script>
 <!-- START CONTENT -->
 <section id="main-content" class=" " style="">
     <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
         <header class="panel_header" style="background-color: #fff;margin-top:45px;">
-            <h4 class="title pull-left" style="font-size: 15px;">会员管理 / 投诉建议 / 投诉建议详情</h4>
+            <h4 class="title pull-left" style="font-size: 15px;">律师管理 / 投诉建议 / 投诉建议详情</h4>
         </header>
 
         <div class="col-xs-12">

@@ -9,12 +9,30 @@
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 100px;
-            width: 90px;
+            min-width: 45px;
+            width: 100%;
         }
         a:hover {
             text-decoration: none;
         }
+        table.table tr:nth-child(odd)
+        {
+            background-color:#f9f9f9;
+        }
+        table.table tr:nth-child(even)
+        {
+            background-color:#fff;
+        }
+        .no-editable{
+            color: #ccc;
+        }
+        .no-editable a{
+            color: #ccc;
+        }
+        a {
+            color: #666666;
+        }
+
     </style>
 </head>
 <!-- END HEAD -->
@@ -39,7 +57,7 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h4 class="title pull-left">律师列表</h4>
+                    <h4 class="title pull-left title-bold">律师列表</h4>
                     <div class="actions panel_actions pull-right" style="line-height: 23px;">
                         <a href="/view/customercenter/lawyermanagement/lawyer/addLawyer.jsp" class="btn btn-info" style="padding: 3px 6px;margin-top:9px;">
                             <span class="glyphicon glyphicon-plus"></span>
@@ -63,8 +81,9 @@
                                     <input type="text" id="licenseid" class="form-control" placeholder="执照编号">
                                 </div>
                                 <div class="col-xs-2 move20">
-                                    <select class="form-control" id="status" style="border-color: #e1e1e1;" placeholder="状态">
-                                        <option value="0">异常</option>
+                                    <select class="form-control" id="status" style="border-color: #e1e1e1;">
+                                        <option value="">状态</option>
+                                        <option value="0">冻结</option>
                                         <option value="1">正常</option>
                                     </select>
                                 </div>

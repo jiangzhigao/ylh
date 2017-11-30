@@ -91,8 +91,8 @@ jQuery(function(){
 
             //图片大小判断
             var imgSize = document.getElementById("lcimage_upload").files[0].size;
-            if(imgSize>1024*100){
-                FOXKEEPER_UTILS.alert('warning', '图片尺寸请小于100k');
+            if(imgSize>1024*1024){
+                FOXKEEPER_UTILS.alert('warning', '图片尺寸请小于1M');
                 $("#lcimage_upload").val("");
                 $("#imgBox").hide();
                 return false;

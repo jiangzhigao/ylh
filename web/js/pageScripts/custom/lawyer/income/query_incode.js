@@ -101,8 +101,8 @@ jQuery(function(){
         if(orderType == 0){
             bizUrl = "/view/business/order/service/serviceOrderDetail.jsp?dataId="+orderId;
         }else if(orderType == 1){
-            bizUrl = "/view/business/order/reservation/reservationOrderDetail.jsp?dataId="+orderId;
-        } else if(orderType == 1){
+            bizUrl = "/view/business/order/reservation/orderDetail.jsp?dataId="+orderId;
+        } else if(orderType == 2){
             bizUrl = "/view/business/order/entrust/entrustOrderDetail.jsp?dataId="+orderId;
         }else{
             bizUrl = "#";

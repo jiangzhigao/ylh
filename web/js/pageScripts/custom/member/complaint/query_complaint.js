@@ -98,8 +98,7 @@ jQuery(function(){
     function _optionsHtml(id){
         var _operHtml = [];
         _operHtml.push('<div class="btn-group">');
-        _operHtml.push('<a href="/view/customercenter/lawyermanagement/complaint/complaintAndAdviceDetail.jsp?" bid="'+id+'">查看详情</a>');
-        /*_operHtml.push('<li><a bz-url="/view/customercenter/lawyermanagement/speciality/editspeciality.jsp" bid="'+id+'">编辑</a></li>');*/
+        _operHtml.push('<a style="color: #337AB7;" href="/view/customercenter/membermanagement/feedback/feedbackDetail.jsp?dataId='+id+'">查看详情</a>');
         _operHtml.push('</div>');
         return  _operHtml.join('');
     }
@@ -162,7 +161,7 @@ jQuery(function(){
         queryParams.username = user._d;
         queryParams.password = user._p;
         queryParams.userType = 2;
-
+        queryParams.type = 0;
     }
 
 });

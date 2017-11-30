@@ -57,7 +57,7 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">会员列表</h2>
+                    <h2 class="title pull-left title-bold">会员列表</h2>
                     <div class="actions panel_actions pull-right" style="line-height: 23px;">
                         <a href="addMember.jsp" class="btn btn-info" style="padding: 3px 6px;margin-top:9px;">
                             <span class="glyphicon glyphicon-plus"></span>

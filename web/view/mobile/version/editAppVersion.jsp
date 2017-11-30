@@ -42,14 +42,14 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">修改数据</h2>
+                    <h2 class="title pull-left title-bold">修改数据</h2>
                     <div class="pull-right">
                         <div id="page_alert_container"></div>
                     </div>
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
+                        <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
                             <input type="hidden" id="dataId">
                             <div class="row">
                                 <div class="col-xs-12">
@@ -80,8 +80,7 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label" for="androidUpdatedTime">安卓版本更新时间</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入安卓版本更新时间" id="androidUpdatedTime" name="androidUpdatedTime"
-                                                   maxlength="20">
+                                            <label class="control-label" id="androidUpdatedTime" style="font-weight: 500;"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -91,8 +90,7 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label" for="androidUrl">安卓更细地址</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入安卓更细地址" id="androidUrl" name="androidUrl"
-                                                   maxlength="20">
+                                            <input type="text" class="form-control" placeholder="请输入安卓更细地址" id="androidUrl" name="androidUrl">
                                         </div>
                                     </div>
                                 </div>
@@ -113,8 +111,7 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label" for="iosUpdatedTime">IOS版本更新时间</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入IOS版本更新时间" id="iosUpdatedTime" name="iosUpdatedTime"
-                                                   maxlength="20">
+                                            <label class="control-label" id="iosUpdatedTime" style="font-weight: 500;"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -124,8 +121,7 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label" for="iosUrl">IOS苹果商店更细地址</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入IOS苹果商店更细地址" id="iosUrl" name="iosUrl"
-                                                   maxlength="20">
+                                            <input type="text" class="form-control" placeholder="请输入IOS苹果商店更细地址" id="iosUrl" name="iosUrl">
                                         </div>
                                     </div>
                                 </div>

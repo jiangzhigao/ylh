@@ -54,7 +54,7 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h4 class="title pull-left">退款记录列表</h4>
+                    <h4 class="title pull-left title-bold">退款记录列表</h4>
                     <div class="actions panel_actions pull-right">
                     </div>
                 </header>
@@ -81,7 +81,7 @@
                                 </div>
                             </div>
                         </form>
-                        <table class="table table-bordered table-hover" id="dataList">
+                        <table class="table table-bordered table-hover" id="dataList" style="table-layout: fixed;">
                             <thead>
                             <tr>
                                 <th>申请客户</th>

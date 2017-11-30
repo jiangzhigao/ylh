@@ -97,7 +97,6 @@ jQuery(function(){
                             _html.push('<td style="text-align: right;">' +  _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');
                         }
-
                         count = result.vouchers.length;
                         $dataList.find('tbody').html(_html.join(''));
 

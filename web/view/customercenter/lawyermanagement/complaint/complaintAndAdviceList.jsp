@@ -40,7 +40,7 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h4 class="title pull-left">投诉建议</h4>
+                    <h4 class="title pull-left title-bold">投诉建议</h4>
                     <div class="actions panel_actions pull-right">
                     </div>
                 </header>
@@ -48,14 +48,14 @@
                     <div class="dataTables_wrapper no-footer">
                         <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                             <div class="row">
-                                <div class="col-xs-3 move20">
+                                <div class="col-xs-2 move20">
                                     <input type="text" class="form-control" placeholder="账号">
                                 </div>
                                 <div class="col-xs-2 move20">
-                                    <select class="form-control" style="border-color: #e1e1e1;" placeholder="状态">
-                                        <option value="0">状态</option>
+                                    <select class="form-control" style="border-color: #e1e1e1;">
+                                        <option value="">状态</option>
+                                        <option value="0">未处理</option>
                                         <option value="1">已处理</option>
-                                        <option value="2">未处理</option>
                                     </select>
                                 </div>
                                 <div class="col-xs-2">

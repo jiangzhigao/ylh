@@ -18,7 +18,7 @@
         <div class="modal-content xxx">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="padding-bottom: 10px;">×</button>
-                <h4 class="modal-title">请选择律师</h4>
+                <h4 class="modal-title title-bold">请选择律师</h4>
             </div>
             <div class="modal-body" style="padding: 15px;">
                 <div class="dataTables_wrapper no-footer">

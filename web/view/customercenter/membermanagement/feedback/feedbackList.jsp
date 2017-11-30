@@ -9,8 +9,8 @@
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 100px;
-            width: 90px;
+            min-width: 75px;
+            width: 100%;
         }
         a:hover {
             text-decoration: none;
@@ -30,7 +30,7 @@
             color: #ccc;
         }
         a {
-            color: #333;
+            color: #666666;
         }
     </style>
 </head>
@@ -56,7 +56,7 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h4 class="title pull-left">投诉建议</h4>
+                    <h4 class="title pull-left title-bold">投诉建议</h4>
                     <div class="actions panel_actions pull-right">
                     </div>
                 </header>

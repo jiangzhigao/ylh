@@ -4,13 +4,12 @@
     <%@ include file="/view/frame/head.jsp"%>
 
     <style type="text/css">
-
         .move20{
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 100px;
-            width: 90px;
+            min-width: 45px;
+            width: 100%;
         }
         a:hover {
             text-decoration: none;
@@ -24,10 +23,13 @@
             background-color:#fff;
         }
         .no-editable{
-            background-color: #cccccc;
+            color: #ccc;
+        }
+        .no-editable a{
+            color: #ccc;
         }
         a {
-            color: #333;
+            color: #666666;
         }
     </style>
 </head>
@@ -53,7 +55,7 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h4 class="title pull-left">专业领域</h4>
+                    <h4 class="title pull-left title-bold">专业领域</h4>
                     <div class="actions panel_actions pull-right" style="line-height: 23px;">
                         <a href="addspeciality.jsp" class="btn btn-info" style="padding: 3px 6px;margin-top:9px;">
                             <span class="glyphicon glyphicon-plus"></span>

@@ -116,7 +116,7 @@ jQuery(function(){
                             _html.push('<tr>');
                             _html.push('<td>' + obj.userName + '</td>');
                             _html.push('<td><a style="color: #337AB7;" href="'+ _buildOrderUrl(obj.orderId,obj.orderType) +'">' + obj.orderNo+ '</a></td>');
-                            _html.push('<td>' + obj.reason+ '</td>');
+                            _html.push('<td  style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">' + obj.reason+ '</td>');
                             _html.push('<td>' + obj.createdTime+ '</td>');
                             _html.push('<td>' + obj.amount + '</td>');
                             _html.push('<td>' + statusArray[statusInt] + '</td>');

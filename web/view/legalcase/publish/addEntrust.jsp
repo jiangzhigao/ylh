@@ -59,7 +59,7 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">添加委托</h2>
+                    <h2 class="title pull-left title-bold">添加委托</h2>
                     <div class="pull-right">
                         <div id="page_alert_container"></div>
                     </div>

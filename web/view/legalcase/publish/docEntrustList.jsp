@@ -56,7 +56,7 @@
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h4 class="title pull-left">文书委托</h4>
+                    <h4 class="title pull-left title-bold">文书委托</h4>
                     <div class="actions panel_actions pull-right">
                         <%--<div id="page_alert_container"></div>--%>
                     </div>

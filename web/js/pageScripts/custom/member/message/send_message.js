@@ -43,14 +43,15 @@ jQuery(function(){
         if(i == 0){
             c = 'margin-top: 35px;';
         }
+        ///images/user.png
         _fromHtml.push('<div class="msg-from" style="'+c+'">');
         _fromHtml.push('<div class="col-xs-12" style="text-align: center;line-height: 16px;font-size: 14px;">'+message.createdTime+'</div>');
         _fromHtml.push('<div class="comment comment-input" style="margin-top: 10px">');
         _fromHtml.push('<div class="pic-wrapper text-center" style="width: 28px;height: 28px;float: left;background-color: #ffffff;">');
-        _fromHtml.push('<img data-src-retina="/images/user.png" data-src="/images/user.png" src="/images/user.png" alt="">');
+        _fromHtml.push('<img data-src-retina="/images/user.png" data-src="/images/user.png" src="'+message.user.picture+'" alt="">');
         _fromHtml.push('</div>');
         _fromHtml.push('<div class="info-wrapper" style="margin-left: 5px;float: left;width: 10%">');
-        _fromHtml.push('<span>Mark</span>');
+        _fromHtml.push('<span>'+message.user.nickname+'</span>');
         _fromHtml.push('</div>');
         _fromHtml.push('<div class="info-wrapper" style="float: right;width: 86.5%;">');
         _fromHtml.push('<div class="input-group primary" style="width: 100%;">');
