@@ -198,7 +198,7 @@ jQuery(function(){
                         $("#serviceStandard").val(basic.serviceStandard);
                         $("#lawyerDesc").val(basic.lawyerDesc);
                         $("#lawyerStandard").val(basic.lawyerStandard);
-                        $("#coverImage").attr("src",homePath + basic.servicePic);
+                        $("#coverImage").attr("src",homePath + basic.image);
                         // $("#coverUrl").val(homePath + loopImage.picture);
                         // $("#coverImage1").attr("src",homePath + loopImage.image2);
                         // $("#coverUrl1").val(homePath + loopImage.picture);

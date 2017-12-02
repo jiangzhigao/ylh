@@ -149,6 +149,7 @@ jQuery(function(){
         ajaxdata.username = user._d;
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
+        ajaxdata.type = 1;
         ajaxdata.title = $("#title").val();
         ajaxdata.content = $("#content").val();
         ajaxdata.picture = $("#coverUrl").val();

@@ -1,6 +1,5 @@
 jQuery(function(){
     'use strict';
-
     var $paginationContainer = $('#paginationContainer');
     //分页功能
     var options = {
@@ -44,17 +43,66 @@ jQuery(function(){
         $('body').on('click', ".opt li a", function() {
             var $this = $(this);
             var id = $this.attr('bid');
-            if($this.parent().index()==0){
+            var index = $this.parent().index();
+            if(index==0){
                 var bizUrl = $this.attr('bz-url');
                 window.location.href = bizUrl+'?dataId='+id;
-            }else{//删除操作
+            }else if(index==1){//删除操作
                 //no-editable
-                if(!($this.hasClass("no-editable"))){
-                    var reqUrl = webBasePath+'/activitys/'+id;
-                    _userBlocked($this,reqUrl);
-                }
+                // if(!($this.hasClass("no-editable"))){
+                //     var reqUrl = webBasePath+'/activitys/'+id;
+                //     _userBlocked($this,reqUrl);
+                // }
+                _delete(id,$this);
+            }else if(index==2){
+                isTop(id);
             }
         });
+    }
+
+    function _delete(id,$this) {
+        var delData = {};
+        var user = $.reqHomeUrl();
+        delData.username = user._d;
+        delData.password = user._p;
+        delData.userType = 2;
+        delData._method = "delete";
+        bootbox.dialog({
+            title: "",
+            message: '<div class="row">  ' +
+            '<div class="col-xs-12"> ' +
+            '请确认是否删除该管理员？' +
+            '</div></div>',
+            buttons: {
+                cancel: {
+                    label: "取消操作",
+                    className: "btn-cancel",
+                    callback: $.noop
+                },
+                confirm: {
+                    label: "确定删除",
+                    className: "btn-info",
+                    callback: function () {
+                        jQuery.ajax({
+                            dataType: "json",
+                            url: webBasePath + '/activitys/' + id,
+                            data: delData,
+                            type: "POST",
+                            success: function (result) {
+                                if (result.success) {
+                                    FOXKEEPER_UTILS.alert('success', result.message);
+                                    $this.parent().parent().parent().parent().parent().remove();
+                                }
+                                else {
+                                    FOXKEEPER_UTILS.alert('warning', result.message);
+                                }
+                            }
+                        });
+                        return true;
+                    }
+                }
+            }
+        })
     }
     function _userBlocked($this,reUrl){
         var ajaxdata = {};
@@ -62,7 +110,8 @@ jQuery(function(){
         ajaxdata.username = user._d;
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
-        ajaxdata.status = 0;
+        // ajaxdata.status = 0;
+        ajaxdata._method = 'delete';
         jQuery.ajax({
             dataType: "json",
             url: reUrl,
@@ -71,8 +120,38 @@ jQuery(function(){
             success: function (result) {
                 if (result.success) {
                     $this.addClass("no-editable");
-                    $this.parent().parent().parent().parent().prev().text("删除")
+                    $this.parent().parent().parent().parent().parent().remove();
                     FOXKEEPER_UTILS.alert('success',result.message);
+                }
+            }
+        });
+    }
+
+    //置顶
+    function isTop(id) {
+        // var parameter = $.getParameters();
+        // var id = parameter.dataId;
+        var ajaxdata = {};
+        var user = $.getuuuAuth();
+        ajaxdata.username = user._d;
+        ajaxdata.password = user._p;
+        ajaxdata.userType = 2;
+        ajaxdata.type = 1;
+        ajaxdata.istop =true;
+        jQuery.ajax({
+            dataType: "json",
+            url: webBasePath+'/activitys/'+id,
+            data: ajaxdata,
+            type: "POST",
+            success: function (result) {
+                if (result.success) {
+                    FOXKEEPER_UTILS.alert('success',result.message);
+                    var strStatus= ["未置顶","置顶"];
+                    $("#isTop").val(1)
+                    $("#isTop").text(strStatus[1]);
+                }else{
+                    FOXKEEPER_UTILS.alert('warning',result.message);
+                    $this.html(buttonText).attr("disabled", false);
                 }
             }
         });
@@ -102,7 +181,7 @@ jQuery(function(){
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
         _operHtml.push('<li><a bz-url="/view/contentmanager/activity/activity/editActivity.jsp" bid="'+id+'">编辑</a></li>');
-        _operHtml.push('<li><a href="javascript:" bid="'+id+'">置顶</a></li>');
+        _operHtml.push('<li><a no-editable href="javascript:'+isTop(id)+'">置顶</a></li>');
         _operHtml.push('<li><a href="javascript:" bid="'+id+'">删除</a></li>');
         _operHtml.push('</ul></div>');
 
@@ -174,5 +253,7 @@ jQuery(function(){
         queryParams.userType = 2;
         queryParams.type = 1;
     }
-
 });
+
+
+

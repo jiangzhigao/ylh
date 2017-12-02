@@ -39,7 +39,9 @@ jQuery(function(){
     function _bind () {
         //保存
         $('#btnSave').on('click', function () {
-            var id = $("#dataId").val();
+            var parameter = $.getParameters();
+            var id = parameter.dataId;
+            var $this = $(this);
             var $this = $(this);
             _ajax($this, '保存',webBasePath+'/infoTypes/'+id);
         });

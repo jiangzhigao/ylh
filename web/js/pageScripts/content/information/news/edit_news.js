@@ -26,6 +26,12 @@ jQuery(function(){
             },
             summary:{
                 required:"摘要不能为空"
+            },
+            isDisplay:{
+                required:true,
+            },
+            infoType:{
+                required:"摘要不能为空"
             }
         }
     });

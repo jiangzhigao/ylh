@@ -214,7 +214,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
-        <script type="text/javascript" src="/js/pageScripts/content/activity/activity/query_activity.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/activity/activity/query_activity.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

@@ -26,7 +26,10 @@ jQuery(function(){
             },
             summary:{
                 required:"摘要不能为空"
-            }
+            },
+            infoType:{
+            required:"请选择分类"
+    }
         }
     });
 
@@ -174,7 +177,7 @@ jQuery(function(){
                     if (result.success) {
                         FOXKEEPER_UTILS.alert('success',result.message);
                         setTimeout(function(){
-                            location.replace("/view/contentmanager/information/news/newsList.jsp");
+                            location.replace("/view/contentmanager/information/trend/trendList.jsp");
                         }, 1000);
                     }else
                     {
