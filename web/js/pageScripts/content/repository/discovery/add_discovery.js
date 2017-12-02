@@ -69,24 +69,22 @@ jQuery(function(){
         $('body').on('change', 'input[name$="_upload"]', function() {
             var _this = $(this);
             var fileName = $(this).val();
-            /*var $processBar = _this.parent().parent().prev('div');*/
-            /*$processBar.removeClass('hide');*/
-            if (!fileName.match('\\.(gif|png|jpe?g)$')) {
-                FOXKEEPER_UTILS.alert('warning', '只能上传图片格式，如：gif,png,jpg,jpeg!');
+            if (!fileName.match('\\.(doc|docx|xls|xlsx、pdf)$')) {
+                FOXKEEPER_UTILS.alert('warning', '只能上传图片格式，如：doc、docx、xls、xlsx、pdf!');
                 _this.val("");
                 $('#' + _this.attr("mid")).attr("src", "/images/nopica.png");
                 $('#' + _this.attr("uid")).val("");
                 $("#imgBox").hide();
-                /*$processBar.addClass('hide');*/
+
                 return false;
             }
 
-            //图片大小判断
+            //文件大小判断
             var imgSize = document.getElementById("lcimage_upload").files[0].size;
-            if(imgSize>1024*2000){
+            if(imgSize>1024*20000){
                 FOXKEEPER_UTILS.alert('warning', '图片尺寸请小于2M');
                 $("#lcimage_upload").val("");
-                $("#imgBox").hide();
+                $("#imgBox").show();
                 return false;
             }
 
@@ -105,7 +103,7 @@ jQuery(function(){
         formData.append("password", user._p);
         formData.append("userType", "2");
         formData.append("fileext", fileSuffix);
-        formData.append("filetype", "1");
+        formData.append("filetype", "3");
         $.ajax({
             type: 'POST',
             url: webBasePath+'/uploadFileMultipart',
@@ -170,7 +168,8 @@ jQuery(function(){
 
         ajaxdata.title = $("#title").val();
         ajaxdata.type = $("#type").val();
-        ajaxdata.picture = $("#coverUrl").val();
+        ajaxdata.documentUrl = $("#coverUrl").val();
+        ajaxdata.pageUrl =$("#pageUrl").val();
         ajaxdata.summary = $("#summary").val();
         ajaxdata.content = ue.getContent();
         ajaxdata.documentType = $("#documentType").val();

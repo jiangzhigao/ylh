@@ -100,7 +100,7 @@ jQuery(function(){
         _operHtml.push('<div class="btn-group">');
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li><a bz-url="/view/sys/settings/bank/editBankCode.jsp" bid="'+id+'">编辑</a></li>');
+        _operHtml.push('<li><a bz-url="/view/sys/settings/coupon/editCouponRule.jsp" bid="'+id+'">编辑</a></li>');
         _operHtml.push('<li><a href="#" bid="'+id+'">删除</a></li>');
         _operHtml.push('</ul></div>');
 
@@ -127,11 +127,12 @@ jQuery(function(){
                             var dataId = obj.id;
                             _html.push('<tr>');
                             _html.push('<td>' + obj.id + '</td>');
-                            // _html.push('<td>' + obj.provinceName + '</td>');
-                            _html.push('<td>' + obj.name + '</td>');
-                            _html.push('<td>' + obj.sortNo + '</td>');
+                            _html.push('<td>' + obj.minAmount + '</td>');
+                            _html.push('<td>' + obj.maxAmount + '</td>');
+                            _html.push('<td>' + obj.usingProp + '</td>');
+                            _html.push('<td>' + obj.maxLimit + '</td>');
                             _html.push('<td>' + (obj.status==1?"启用":"停用") + '</td>');
-
+                            _html.push('<td>' + obj.updatedTime + '</td>');
                             _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');
                         }

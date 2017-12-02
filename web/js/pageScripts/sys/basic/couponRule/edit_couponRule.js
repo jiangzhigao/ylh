@@ -53,7 +53,7 @@ jQuery(function(){
             var parameter = $.getParameters();
             var id = parameter.dataId;
             var $this = $(this);
-            _ajax($this, '保存',webBasePath+'/banks/'+id);
+            _ajax($this, '保存',webBasePath+'/voucherRules/'+id);
         });
 
         //返回
@@ -66,19 +66,19 @@ jQuery(function(){
         _setQueryAjaxData();
         jQuery.ajax({
             dataType: "json",
-            url: webBasePath + '/banks/'+id,
+            url: webBasePath + '/voucherRules/'+id,
             data: queryParam,
             type: "GET",
             success: function (result) {
                 if (result.success) {
-                    var banks = result.bank;
-                    if(banks){
-                        $("#bankCode").val(banks.id);
-                        $("#provinceName").text(banks.provinceName);
-                        $("#name").val(banks.name);
-                        $("#sortNo").val(banks.sortNo);
-                        $("option[name='status'][value='"+banks.status+"']").attr("selected","selected");
-
+                    var voucherRules = result.voucherRule;
+                    if(voucherRules){
+                        $("#minAmount").val(voucherRules.minAmount);
+                        $("#maxAmount").val(voucherRules.maxAmount);
+                        $("#usingProp").val(voucherRules.usingProp);
+                        $("#maxLimit").val(voucherRules.maxLimit);
+                        $("#sortNo").val(voucherRules.sortNo);
+                        $("option[name='status'][value='"+voucherRules.status+"']").attr("selected","selected");
                     }
                 }else{
                     FOXKEEPER_UTILS.alert('warning', result.message);
@@ -130,8 +130,11 @@ jQuery(function(){
         ajaxdata.username = professionalField._d;
         ajaxdata.password = professionalField._p;
         ajaxdata.userType = 2;
-        ajaxdata.id = $("#bankCode").val();
-        ajaxdata.name = $("#name").val();
+        ajaxdata.id = $("#dataId").val();
+        ajaxdata.minAmount = $("#minAmount").val();
+        ajaxdata.maxAmount = $("#maxAmount").val();
+        ajaxdata.usingProp = $("#usingProp").val();
+        ajaxdata.maxLimit = $("#maxLimit").val();
         ajaxdata.status = $("#status").val();
         ajaxdata.sortNo = $("#sortNo").val();
 

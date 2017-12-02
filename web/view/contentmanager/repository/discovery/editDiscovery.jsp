@@ -122,10 +122,16 @@
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label" for="documentType">文档类型</label>
-                                        <select class="form-control" id="documentType" name="documentType" style="border-color: #e1e1e1;">
-                                        <option value="">请选择分类</option>
-                                        </select>
-
+                                        <div class="col-xs-5">
+                                            <select class="form-control" id="documentType" name="documentType" style="border-color: #e1e1e1;">
+                                                <option value="">请选择分类</option>
+                                                <option value="0">doc</option>
+                                                <option value="1">docx</option>
+                                                <option value="2">xls</option>
+                                                <option value="3">xlsx</option>
+                                                <option value="4">pdf</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -154,7 +160,7 @@
                                         <label class="col-xs-2 control-label"></label>
                                         <div class="col-xs-5">
                                             <div class="form-group">
-                                                <%--<label class="form-label" for="field-1">Name</label>--%>
+                                                <label class="form-label" id="fileName" name="fileName" ></label>
                                                 <span class="desc" style="color: red;">* 文件大小不能超过20M,支持doc、docx、xls、xlsx、pdf格式</span>
                                             </div>
                                         </div>
@@ -215,7 +221,9 @@
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
-<script type="text/javascript" src="/js/pageScripts/content/information/news/add_news.js"></script>
+<script type="text/javascript" src="/js/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/repository/discovery/edit_discovery.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

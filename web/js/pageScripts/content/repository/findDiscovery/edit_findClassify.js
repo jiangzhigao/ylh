@@ -27,9 +27,6 @@ jQuery(function(){
     //绑定
     _bind();
 
-    //富文本
-    var ue = new baidu.editor.ui.Editor({ initialFrameHeight:260 });
-
     function _init(){
         //初始化列表
         var parameter = $.getParameters();
@@ -44,7 +41,7 @@ jQuery(function(){
         $('#btnSave').on('click', function () {
             var id = $("#dataId").val();
             var $this = $(this);
-            _ajax($this, '保存',webBasePath+'/discoverys/'+id);
+            _ajax($this, '保存',webBasePath+'/discoveryTypes/'+id);
         });
 
         //返回
@@ -57,29 +54,16 @@ jQuery(function(){
         _setQueryAjaxData();
         jQuery.ajax({
             dataType: "json",
-            url: webBasePath + '/discoverys/'+id,
+            url: webBasePath + '/discoveryTypes/'+id,
             data: queryParam,
             type: "GET",
             success: function (result) {
                 if (result.success) {
-                    var discoverys = result.discovery;
-                    if(discoverys){
-                        $("#dataId").val(discoverys.id);
-                        $("#title").val(discoverys.title);
-                        $("#summary").val(discoverys.summary);
-                        $("#type").val(discoverys.type);
-                        $("#isDocument").val(discoverys.isDocument);
-                        $("#documentUrl").val(discoverys.documentUrl);
-                        $("#fileName").text(discoverys.documentUrl);
-                        $("#pageUrl").val(discoverys.pageUrl);
-                        $("#content").val(discoverys.content);
-                        $("#documentType").val(discoverys.documentType);
-                        $("#toPage").val(discoverys.toPage);
-                        ue.render("editor");
-                        var ueContentHtml = discoverys.content;
-                        ue.addListener("ready", function () {
-                            ue.setContent(ueContentHtml, false);
-                        });
+                    var discoveryTypes = result.discoveryType;
+                    if(discoveryTypes){
+                        $("#dataId").val(discoveryTypes.id);
+                        $("#name").val(discoveryTypes.name);
+                        $("#sortNo").val(discoveryTypes.sortNo);
                     }
                 }else{
                     FOXKEEPER_UTILS.alert('warning', result.message);
@@ -127,19 +111,12 @@ jQuery(function(){
     }
 
     function _setAjaxData () {
-        var user = $.reqHomeUrl();
-        ajaxdata.username = user._d;
-        ajaxdata.password = user._p;
+        var professionalField = $.reqHomeUrl();
+        ajaxdata.username = professionalField._d;
+        ajaxdata.password = professionalField._p;
         ajaxdata.userType = 2;
-        ajaxdata.title = $("#title").val();
-        ajaxdata.type = $("#type").val();
-        ajaxdata.documentUrl = $("#coverUrl").val();
-        ajaxdata.pageUrl =$("#pageUrl").val();
-        ajaxdata.summary = $("#summary").val();
-        ajaxdata.content = ue.getContent();
-        ajaxdata.documentType = $("#documentType").val();
-        ajaxdata.isDocument = $("input[name='isDocument']:checked").val();
-        ajaxdata.toPage = $("input[name='status']:checked").val();
-
+        ajaxdata.id = $("#dataId").val();
+        ajaxdata.name = $("#name").val();
+        ajaxdata.sortNo = $("#sortNo").val();
     }
 });

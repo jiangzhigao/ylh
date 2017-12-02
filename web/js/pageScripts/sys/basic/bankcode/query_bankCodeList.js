@@ -97,13 +97,7 @@ jQuery(function(){
 
     function _optionsHtml(id){
         var _operHtml = [];
-        _operHtml.push('<div class="btn-group">');
-        _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">编辑<span class="caret"></span></a>');
-        _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li><a bz-url="/view/sys/settings/bank/editBankCode.jsp" bid="'+id+'">编辑</a></li>');
-        _operHtml.push('<li><a href="#" bid="'+id+'">删除</a></li>');
-        _operHtml.push('</ul></div>');
-
+        _operHtml.push('<a href="/view/sys/settings/bank/editBankCode.jsp?dataId='+id+'" style="color: #337AB7;align-items: center" >编辑</a>');
         return  _operHtml.join('');
     }
 
@@ -127,20 +121,18 @@ jQuery(function(){
                             var dataId = obj.id;
                             _html.push('<tr>');
                             _html.push('<td>' + obj.id + '</td>');
-                            // _html.push('<td>' + obj.provinceName + '</td>');
                             _html.push('<td>' + obj.name + '</td>');
                             _html.push('<td>' + obj.sortNo + '</td>');
                             _html.push('<td>' + (obj.status==1?"启用":"停用") + '</td>');
-
                             _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');
                         }
                         $dataList.find('tbody').html(_html.join(''));
-                        options.totalPages = _sumTotalPages(result.banks.length);
+                        options.totalPages = _sumTotalPages(result.count);
                         $paginationContainer.bootstrapPaginator(options);
                         $('#batchDeleteDiv').show();
                         $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite"> 共'
-                             + result.banks.length + '条记录，当前为第 ' + options.currentPage + ' 页');
+                             + result.count + '条记录，当前为第 ' + options.currentPage + ' 页');
                     } else {
                         $('#batchDeleteDiv').hide();
                         $dataList.find('tbody').html('');

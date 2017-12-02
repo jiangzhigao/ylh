@@ -139,11 +139,11 @@ jQuery(function(){
                             _html.push('</tr>');
                         }
                         $dataList.find('tbody').html(_html.join(''));
-                        options.totalPages = _sumTotalPages(result.citys.length);
+                        options.totalPages = _sumTotalPages(result.count);
                         $paginationContainer.bootstrapPaginator(options);
                         $('#batchDeleteDiv').show();
                         $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite"> 共'
-                             + result.citys.length + '条记录，当前为第 ' + options.currentPage + ' 页');
+                             + result.count + '条记录，当前为第 ' + options.currentPage + ' 页');
                     } else {
                         $('#batchDeleteDiv').hide();
                         $dataList.find('tbody').html('');

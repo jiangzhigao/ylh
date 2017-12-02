@@ -47,14 +47,9 @@ jQuery(function(){
             if(index==0){
                 var bizUrl = $this.attr('bz-url');
                 window.location.href = bizUrl+'?dataId='+id;
-            }else if(index==1){//删除操作
-                //no-editable
-                // if(!($this.hasClass("no-editable"))){
-                //     var reqUrl = webBasePath+'/activitys/'+id;
-                //     _userBlocked($this,reqUrl);
-                // }
+            }else if(index==2){//删除操作
                 _delete(id,$this);
-            }else if(index==2){
+            }else if(index==1){
                 isTop(id);
             }
         });
