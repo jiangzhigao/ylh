@@ -50,7 +50,7 @@ jQuery(function(){
             }else{//删除操作
                 //no-editable
                 if(!($this.hasClass("no-editable"))){
-                    var reqUrl = webBasePath+'/banks/'+id;
+                    var reqUrl = webBasePath+'/payments/'+id;
                     _userBlocked($this,reqUrl);
                 }
             }
@@ -98,12 +98,8 @@ jQuery(function(){
     function _optionsHtml(id){
         var _operHtml = [];
         _operHtml.push('<div class="btn-group">');
-        _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">编辑<span class="caret"></span></a>');
-        _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li><a bz-url="/view/sys/settings/bank/editBankCode.jsp" bid="'+id+'">编辑</a></li>');
-        _operHtml.push('<li><a href="#" bid="'+id+'">删除</a></li>');
+        _operHtml.push('<a href= "/view/sys/settings/pay/editPayType.jsp?dataId='+ id +'" style="color: #337AB7;">编辑</a></li>');
         _operHtml.push('</ul></div>');
-
         return  _operHtml.join('');
     }
 
@@ -112,35 +108,42 @@ jQuery(function(){
         _setAjaxData();
         jQuery.ajax({
             dataType: "json",
-            url: webBasePath + '/banks',
+            url: webBasePath + '/payments',
             data: queryParams,
             type: "GET",
             success: function (result) {
                 if (result.success) {
                     var $dataList = $('#dataList');
                     var $pageTotalRecord = $('#pageTotalRecord');
-                    if (result.banks != null && result.banks.length > 0) {
+                    if (result.payments != null && result.payments.length > 0) {
                         var _html = new Array();
-                        var data = result.banks;
+                        var data = result.payments;
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
                             var dataId = obj.id;
                             _html.push('<tr>');
                             _html.push('<td>' + obj.id + '</td>');
-                            // _html.push('<td>' + obj.provinceName + '</td>');
-                            _html.push('<td>' + obj.name + '</td>');
+                            var _imageHtml = [];
+                            _imageHtml.push('<div class="profile-image" style="max-width: 80px;">');
+                            _imageHtml.push('<img src="' + obj.logoPic + '" class="" style="width: 100%;" />');
+                            _imageHtml.push('</div>');
+                            _html.push('<td>' + _imageHtml.join('') + '</td>');
+                            _html.push('<img src="' + obj.logoPic + '" class="" style="width: 100%;" />');
+                            _html.push('<td>' + (obj.payType==1?"微信":"支付宝") + '</td>');
+                            _html.push('<td>' + obj.mchId + '</td>');
+                            _html.push('<td>' + obj.partnerId + '</td>');
                             _html.push('<td>' + obj.sortNo + '</td>');
                             _html.push('<td>' + (obj.status==1?"启用":"停用") + '</td>');
-
                             _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');
+
                         }
                         $dataList.find('tbody').html(_html.join(''));
-                        options.totalPages = _sumTotalPages(result.banks.length);
-                        $paginationContainer.bootstrapPaginator(options);
-                        $('#batchDeleteDiv').show();
-                        $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite"> 共'
-                             + result.banks.length + '条记录，当前为第 ' + options.currentPage + ' 页');
+                        // options.totalPages = _sumTotalPages(result.payments.length);
+                        // $paginationContainer.bootstrapPaginator(options);
+                        // $('#batchDeleteDiv').show();
+                        // $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite"> 共'
+                        //      + result.payments.length + '条记录，当前为第 ' + options.currentPage + ' 页');
                     } else {
                         $('#batchDeleteDiv').hide();
                         $dataList.find('tbody').html('');

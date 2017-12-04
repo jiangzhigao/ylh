@@ -47,7 +47,7 @@
 <%@ include file="/view/frame/sidebar.jsp"%>
 <!--  SIDEBAR - END -->
 <script type='text/javascript'>
-    ___system_navigation_config.currentNav = ___system_navigation_config.nav.cnt_disclz_list;
+    ___system_navigation_config.currentNav = ___system_navigation_config.nav.cnt_foundclassity_list;
 </script>
 <!-- START CONTENT -->
 <section id="main-content" class=" " style="">
@@ -66,13 +66,13 @@
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
+                        <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">标题</label>
+                                        <label class="col-xs-2 control-label" for="title">标题</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入标题" value="" id="commisionName" name="commisionName"
+                                            <input type="text" class="form-control" placeholder="请输入标题" id="title" name="title"
                                                    maxlength="20" id="">
                                         </div>
                                     </div>
@@ -81,9 +81,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionClient">热线电话</label>
+                                        <label class="col-xs-2 control-label" for="hotline">热线电话</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入摘要" value="021-11111111" id="commisionClient" name="commisionClient"
+                                            <input type="text" class="form-control" placeholder="请输入热线电话" value="" id="hotline" name="hotline"
                                                    maxlength="20">
                                         </div>
                                     </div>
@@ -132,7 +132,7 @@
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
 <script type="text/javascript" src="/js/plugins/select2/select2.min.js"></script>
 <script type="text/javascript" src="/js/custom/request-util.js"></script>
-<script type="text/javascript" src="js/pageScripts/content/repository/clzdiscovery/edit_findClassify.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/repository/findDiscovery/edit_findClassify.js"></script>
 
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>

@@ -46,7 +46,13 @@ jQuery(function(){
 
     /** 初始化 **/
     function _init(){
-
+        _initInfoTypes();
+        //初始化列表
+        var parameter = $.getParameters();
+        var id = parameter.dataId;
+        if(id){
+            _initData(id);
+        }
     }
 
     /** 绑定事件 **/
@@ -63,6 +69,28 @@ jQuery(function(){
         //返回
         $('#btnBack').on('click', function () {
             window.history.back();
+        });
+
+        $(document).ready(function(){
+            $("#status_1,#status_0").click(function(){
+                var val=$('input:radio[name="isDocument"]:checked').val();
+                if(val==0){
+                    $("#documentDiv").hide();
+                    $("#addressDiv").hide();
+                }else{
+                    $("#documentDiv").show();
+                    $("#addressDiv").show();
+                }
+            });
+            $("#toPage_1,#toPage_0").click(function(){
+                var val=$('input:radio[name="toPage"]:checked').val();
+                if(val==0){
+                    $("#urlDiv").hide();
+                }else{
+                    $("#urlDiv").show();
+                }
+            });
+
         });
 
         //图片上传
@@ -93,6 +121,7 @@ jQuery(function(){
             }
         });
     }
+    //文件上传
     function ajaxFileUpload($file, fileId, $processBar) {
         var user = $.getuuuAuth();
         var fileName = $file.val();
@@ -130,26 +159,48 @@ jQuery(function(){
         return false;
     }
 
+    function _initData (id) {
+        _setQueryAjaxData();
+        jQuery.ajax({
+            dataType: "json",
+            url: webBasePath + '/discoveryTypes/'+id,
+            data: ajaxdata,
+            type: "GET",
+            success: function (result) {
+                if (result.success) {
+                    var discoveryTypes = result.discoveryType;
+                    if(discoveryTypes){
+                        // $("#dataId").val(discoveryTypes.id).attr("checked",checked);
+                        $("#infoType").val(discoveryTypes.id).attr("checked",true);
+                        // $("input[name='status'][value='"+lawyer.status+"']").attr("checked",true);
+                    }
+                }else{
+                    FOXKEEPER_UTILS.alert('warning', result.message);
+                }
+            }
+        });
+    }
+
+    //保存
     function _ajax($this, buttonText, reUrl) {
         var formValid = $form_add.validate().form();
         if (formValid) {
-            _setAjaxData();
+            if (_verifyAjaxData()) {
+                _setAjaxData();
                 jQuery.ajax({
                     dataType: "json",
                     url: reUrl,
                     data: ajaxdata,
                     type: "POST",
                     success: function (result) {
-                        var recUrl,data = result.discoverys;
+                        var recUrl, data = result.discoverys;
                         if (result.success) {
-                            FOXKEEPER_UTILS.alert('success',result.message);
-                            setTimeout(function(){
+                            FOXKEEPER_UTILS.alert('success', result.message);
+                            setTimeout(function () {
                                 location.replace("/view/contentmanager/repository/discovery/discoveryList.jsp");
                             }, 1000);
-                        }
-                        else
-                        {
-                            FOXKEEPER_UTILS.alert('warning',result.message);
+                        } else {
+                            FOXKEEPER_UTILS.alert('warning', result.message);
                             $this.html(buttonText).attr("disabled", false);
                         }
                     },
@@ -157,17 +208,63 @@ jQuery(function(){
                         $this.html('<i class=\"fa fa-spinner\"></i>&nbsp;正在' + buttonText).attr("disabled", "disabled");
                     }
                 });
+            }
         }
     }
 
+    /** 请求参数验证 */
+    function _verifyAjaxData () {
+        var type = $("#infoType").val();
+        if (!type) {
+            FOXKEEPER_UTILS.alert('warning', '请选择分类');
+            return false;
+        }
+        return true;
+    }
+
+    //分类ID
+    function _initInfoTypes(){
+        var queryInfoData = {};
+        var user = $.getuuuAuth();
+        queryInfoData.username = user._d;
+        queryInfoData.password = user._p;
+        queryInfoData.userType = 2;
+        jQuery.ajax({
+            dataType: "json",
+            url: webBasePath + '/discoveryTypes',
+            data: queryInfoData,
+            type: "GET",
+            success: function (result) {
+                if (result.success) {
+                    if (result.discoveryTypes != null && result.discoveryTypes.length > 0) {
+                        var data = result.discoveryTypes;
+                        for (var i = 0; i < data.length; i++) {
+                            var obj = data[i];
+                            var dataId = obj.id;
+                            $("#infoType").append('<option value="'+dataId+'">'+obj.name+'</option>');
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    //封装ajax提交数据
+    function _setQueryAjaxData () {
+        var user = $.reqHomeUrl();
+        ajaxdata.username = user._d;
+        ajaxdata.password = user._p;
+        ajaxdata.userType = 2;
+    }
+
+    //保存表单参数
     function _setAjaxData () {
         var user = $.reqHomeUrl();
         ajaxdata.username = user._d;
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
-
         ajaxdata.title = $("#title").val();
-        ajaxdata.type = $("#type").val();
+        ajaxdata.type = $("#infoType").val();
         ajaxdata.documentUrl = $("#coverUrl").val();
         ajaxdata.pageUrl =$("#pageUrl").val();
         ajaxdata.summary = $("#summary").val();

@@ -24,7 +24,6 @@ jQuery(function(){
         pageSize : 10
     };
 
-
     //渲染
     _init();
     //绑定
@@ -62,7 +61,7 @@ jQuery(function(){
         ajaxdata.username = user._d;
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
-        ajaxdata.status = 0;
+        ajaxdata.method= 'delete'
         jQuery.ajax({
             dataType: "json",
             url: reUrl,
@@ -71,12 +70,13 @@ jQuery(function(){
             success: function (result) {
                 if (result.success) {
                     $this.addClass("no-editable");
-                    $this.parent().parent().parent().parent().prev().text("删除")
+                    $this.parent().parent().parent().parent().prev().remove();
                     FOXKEEPER_UTILS.alert('success',result.message);
                 }
             }
         });
     }
+
     function _reset() {
         $('#batchDelete').removeClass('btn-primary').addClass('btn-default');
         $("input:checkbox").prop('checked', false);
@@ -96,13 +96,18 @@ jQuery(function(){
         return totalPages;
     }
 
-    function _optionsHtml(id){
+    function _optionsHtml(id) {
         var _operHtml = [];
         _operHtml.push('<div class="btn-group">');
-        _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">编辑<span class="caret"></span></a>');
-        _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li><a bz-url="/view/contentmanager/repository/finddiscovery/editFindClassify.jsp" bid="'+id+'">编辑</a></li>');
-        // _operHtml.push('<li><a href="javascript;" bid="'+id+'">删除</a></li>');
+
+        if (id==11 || id==12 || id==13) {
+            _operHtml.push('<a href="/view/contentmanager/repository/foundclassity/editFoundClassity.jsp?dataId=' + id + '" style="color: #337AB7;">编辑</a>');
+        }else {
+            _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" >管理<span class="caret"></span></a>');
+            _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
+            _operHtml.push('<li><a href="/view/contentmanager/repository/discovery/discoveryList.jsp?dataId=' + id + '" >管理</a>');
+            _operHtml.push('<li><a href ="/view/contentmanager/repository/discovery/addDiscovery.jsp?dataId=' + id + '" >添加</a>');
+        }
         _operHtml.push('</ul></div>');
 
         return  _operHtml.join('');
@@ -133,11 +138,7 @@ jQuery(function(){
                             _html.push('</tr>');
                         }
                         $dataList.find('tbody').html(_html.join(''));
-                        options.totalPages = _sumTotalPages(result.discoveryTypes.length);
-                        $paginationContainer.bootstrapPaginator(options);
-                        $('#batchDeleteDiv').show();
-                        $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite"> 共'
-                             + result.discoveryTypes.length + '条记录，当前为第 ' + options.currentPage + ' 页');
+
                     } else {
                         $('#batchDeleteDiv').hide();
                         $dataList.find('tbody').html('');

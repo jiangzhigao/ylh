@@ -66,7 +66,7 @@
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
+                        <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
@@ -92,15 +92,15 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="type">分类</label>
+                                        <label class="col-xs-2 control-label" for="infoType">分类</label>
                                         <div class="col-xs-5">
-                                            <select class="form-control" id="type" name="type" style="border-color: #e1e1e1;">
+                                            <select class="form-control" id="infoType" name="infoType" style="border-color: #e1e1e1;">
                                                 <option value="">请选择分类</option>
-                                                <option value="0">财务咨询</option>
-                                                <option value="1">管理资讯</option>
-                                                <option value="2">营销策划</option>
-                                                <option value="3">常用文书</option>
-                                                <option value="4">法律资源库</option>
+                                                <%--<option value="0">财务咨询</option>--%>
+                                                <%--<option value="1">管理资讯</option>--%>
+                                                <%--<option value="2">营销策划</option>--%>
+                                                <%--<option value="3">常用文书</option>--%>
+                                                <%--<option value="4">法律资源库</option>--%>
                                             </select>
                                         </div>
                                     </div>
@@ -111,14 +111,14 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">是否文档</label>
                                         <div class="col-xs-5" style="padding-top: 5px;">
-                                            <input type="radio" class="" value="1" id="isDocument_1" name="isDocument" checked>是
+                                            <input type="radio" class="" value="true" id="isDocument_1" name="isDocument">是
                                             &nbsp;&nbsp;
-                                            <input type="radio" class="" value="0" id="isDocument_2" name="isDocument">否
+                                            <input type="radio" class="" value="false" id="isDocument_0" name="isDocument">否
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" id="documentDiv">
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label" for="documentType">文档类型</label>
@@ -142,7 +142,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" id="addressDiv">
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">文档地址</label>
@@ -172,9 +172,20 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">是否跳转第三方页面</label>
                                         <div class="col-xs-5" style="padding-top: 5px;">
-                                            <input type="radio" class="" value="1" id="yes" name="status" checked>是
+                                            <input type="radio" class="" value="true" id="yes" name="toPage">是
                                             &nbsp;&nbsp;
-                                            <input type="radio" class="" value="0" id="no" name="status">否
+                                            <input type="radio" class="" value="false" id="no" name="toPage">否
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" id="urlDiv">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-xs-2 control-label" for="pageUrl">输入第三方网址</label>
+                                        <div class="col-xs-5">
+                                            <input type="text" class="form-control" placeholder="请输入第三方网址" value="" id="pageUrl" name="pageUrl"
+                                                   maxlength="100">
                                         </div>
                                     </div>
                                 </div>

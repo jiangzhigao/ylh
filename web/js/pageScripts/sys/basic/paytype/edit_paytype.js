@@ -4,13 +4,25 @@ jQuery(function(){
     var queryParam = {},ajaxdata = {};
     $form_edit.validate({
         rules:{
-            id:{
+            paymentId:{
                 required:true,
             },
-            name:{
+            payType:{
                 required:true,
             },
-            sortNo:{
+            logoPic:{
+                required:true,
+            },
+            mchId:{
+                required:true,
+            },
+            partnerId:{
+                required:true,
+            },
+            key:{
+                required:true,
+            },
+            softNo:{
                 required:true,
             },
             status:{
@@ -18,17 +30,29 @@ jQuery(function(){
             }
         },
         messages:{
-            id:{
-                required:"银行编码不能为空"
+            paymentId:{
+                required:"PaymentID不能为空",
             },
-            name:{
-                required:"银行名称不能为空"
+            payType:{
+                required:"支付方式不能为空",
             },
-            sortNo:{
-                required:"排序不能为空"
+            logoPic:{
+                required:"LOGO不能为空",
+            },
+            mchId:{
+                required:"mchId不能为空",
+            },
+            partnerId:{
+                required:"PaymentID不能为空",
+            },
+            key:{
+                required:"key不能为空",
+            },
+            softNo:{
+                required:"排序不能为空",
             },
             status:{
-                required:"状态不能为空"
+                required:"状态不能为空",
             }
         }
     });
@@ -53,12 +77,41 @@ jQuery(function(){
             var parameter = $.getParameters();
             var id = parameter.dataId;
             var $this = $(this);
-            _ajax($this, '保存',webBasePath+'/banks/'+id);
+            _ajax($this, '保存',webBasePath+'/payments/'+id);
         });
 
         //返回
         $('#btnBack').on('click', function () {
             window.history.back();
+        });
+        //图片上传
+        $('body').on('change', 'input[name$="_upload"]', function(e) {
+            var _this = $(this);
+            var fileName = $(this).val();
+            /*var $processBar = _this.parent().parent().prev('div');*/
+            /*$processBar.removeClass('hide');*/
+            if (!fileName.match('\\.(gif|png|jpe?g)$')) {
+                FOXKEEPER_UTILS.alert('warning', '只能上传图片格式，如：gif,png,jpg,jpeg!');
+                _this.val("");
+                $('#' + _this.attr("mid")).attr("src", "/images/nopica.png");
+                $('#' + _this.attr("uid")).val("");
+                $("#imgBox").show();
+                /*$processBar.addClass('hide');*/
+                return false;
+            }
+
+            //图片大小判断
+            var imgSize = document.getElementById("lcimage_upload").files[0].size;
+            if(imgSize>1024*1000){
+                FOXKEEPER_UTILS.alert('warning', '图片尺寸请小于1M');
+                $("#lcimage_upload").val("");
+                $("#imgBox").show();
+                return false;
+            }
+
+            if (fileName != "") {
+                return ajaxFileUpload(_this, _this.attr("id"), null);
+            }
         });
     }
 
@@ -66,19 +119,25 @@ jQuery(function(){
         _setQueryAjaxData();
         jQuery.ajax({
             dataType: "json",
-            url: webBasePath + '/banks/'+id,
+            url: webBasePath + '/payments/'+id,
             data: queryParam,
             type: "GET",
             success: function (result) {
                 if (result.success) {
-                    var banks = result.bank;
-                    if(banks){
-                        $("#bankCode").val(banks.id);
-                        $("#provinceName").text(banks.provinceName);
-                        $("#name").val(banks.name);
-                        $("#sortNo").val(banks.sortNo);
-                        $("option[name='status'][value='"+banks.status+"']").attr("selected","selected");
-
+                    var payments = result.payment;
+                    if(payments){
+                        var strType =["支付宝","微信"]
+                        $("#paymentId").text(payments.id);
+                        $("#payType").text(strType[payments.payType]);
+                        $("#payType").val(payments.payType);
+                        $("#mchId").val(payments.mchId);
+                        $("#partnerId").val(payments.partnerId);
+                        $("#key").val(payments.payKey);
+                        $("#sortNo").val(payments.sortNo);
+                        $("option[name='status'][value='"+payments.status+"']").attr("selected","selected");
+                        $("#coverImage").attr("src",homePath+payments.logoPic);
+                        $("#coverUrl").val(homePath+payments.logoPic);
+                        $("#imgBox").show();
                     }
                 }else{
                     FOXKEEPER_UTILS.alert('warning', result.message);
@@ -108,7 +167,7 @@ jQuery(function(){
                         if (result.success) {
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
-                                location.replace("/view/sys/settings/bank/bankCodeList.jsp");
+                                location.replace("/view/sys/settings/pay/payTypeList.jsp");
                             }, 1000);
                         }else
                         {
@@ -126,14 +185,17 @@ jQuery(function(){
     }
 
     function _setAjaxData () {
-        var professionalField = $.reqHomeUrl();
-        ajaxdata.username = professionalField._d;
-        ajaxdata.password = professionalField._p;
+        var payments = $.reqHomeUrl();
+        ajaxdata.username = payments._d;
+        ajaxdata.password = payments._p;
         ajaxdata.userType = 2;
-        ajaxdata.id = $("#bankCode").val();
-        ajaxdata.name = $("#name").val();
-        ajaxdata.status = $("#status").val();
+        ajaxdata.id = $("#paymentId").text();
+        ajaxdata.payType = $("#payType").val();
+        ajaxdata.logoPic = $("#coverUrl").val();
+        ajaxdata.mchId = $("#mchId").val();
+        ajaxdata.partnerId = $("#partnerId").val();
+        ajaxdata.payKey = $("#key").val();
         ajaxdata.sortNo = $("#sortNo").val();
-
+        ajaxdata.status = $("#status").val();
     }
 });

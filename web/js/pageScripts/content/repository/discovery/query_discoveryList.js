@@ -68,6 +68,7 @@ jQuery(function(){
         ajaxdata.username = user._d;
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
+        ajaxdata._method = 'delete'
         jQuery.ajax({
             dataType: "json",
             url: reUrl,
@@ -76,7 +77,7 @@ jQuery(function(){
             success: function (result) {
                 if (result.success) {
                     $this.addClass("no-editable");
-                    $this.parent().parent().parent().parent().prev().text("删除")
+                    $this.parent().parent().parent().parent().parent().remove();
                     FOXKEEPER_UTILS.alert('success',result.message);
                 }
             }
@@ -101,13 +102,18 @@ jQuery(function(){
         return totalPages;
     }
 
-    function _optionsHtml(id){
+    function _optionsHtml(id,types){
         var _operHtml = [];
         _operHtml.push('<div class="btn-group">');
-        _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">编辑<span class="caret"></span></a>');
-        _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li><a bz-url="/view/contentmanager/repository/discovery/editDiscovery.jsp" bid="'+id+'">编辑</a></li>');
-        _operHtml.push('<li><a href="javascript;" bid="'+id+'">删除</a></li>');
+        if (types==11 || types==12 || types==13) {
+            _operHtml.push('<a href="/view/contentmanager/repository/discovery/editDiscovery.jsp?dataId=' + id + '" style="color: #337AB7;">编辑</a>');
+        }else {
+            _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown">编辑<span class="caret"></span></a>');
+            _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
+            _operHtml.push('<li><a bz-url="/view/contentmanager/repository/discovery/editDiscovery.jsp" bid="' + id + '">编辑</a></li>');
+            _operHtml.push('<li><a href="javascript:;"bid="'+id+'" >删除</a></li>');
+
+        }
         _operHtml.push('</ul></div>');
 
         return  _operHtml.join('');
@@ -131,13 +137,18 @@ jQuery(function(){
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
                             var dataId = obj.id;
+                            var types = obj.type;
                             _html.push('<tr>');
                             _html.push('<td><input type="checkbox"  id =chkItem[]" name="chkItem[]" value="'+ dataId +'" style="width: 16px;height: 16px;"/></td>');
                             _html.push('<td>' + obj.title + '</td>');
-                            _html.push('<td>' + obj.type + '</td>');
+                            if(obj.discoveryType) {
+                                _html.push('<td>' + obj.discoveryType.name + '</td>');
+                            }else {
+                                _html.push('<td>' + obj.type + '</td>');
+                            }
                             _html.push('<td>' + obj.createdTime + '</td>');
                             _html.push('<td>' + obj.updatedTime + '</td>');
-                            _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
+                            _html.push('<td>' +  _optionsHtml(dataId,types) + '</td>');
                             _html.push('</tr>');
                         }
                         $dataList.find('tbody').html(_html.join(''));

@@ -47,7 +47,7 @@
                 "cnt_topic_list":"/view/contentmanager/activity/topic/topicList.jsp",
                 "cnt_activity_list":"/view/contentmanager/activity/activity/activityList.jsp",
                 "cnt_discovery_list":"/view/contentmanager/repository/discovery/discoveryList.jsp",
-                "cnt_disclz_list":"/view/contentmanager/repository/clzdiscovery/clzList.jsp",
+                "cnt_foundclassity_list":"/view/contentmanager/repository/foundclassity/foundClassityList.jsp",
                 "cnt_help_list":"/view/contentmanager/help/helpList.jsp",
                 "bz_service_clz_List":"/view/business/product/serviceClzList.jsp",
                 "bz_service_order_List":"/view/business/order/service/serviceOrderList.jsp",
