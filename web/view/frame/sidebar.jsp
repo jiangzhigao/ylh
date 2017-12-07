@@ -17,7 +17,7 @@
                     <ul class="sub-menu">
                     </ul>
                 </li>
-                <li class="">
+                <li class="first">
                     <a href="javascript:;">
                         <i class="fa fa-file-text"></i>
                         <span class="title">案件管理</span><span class="arrow"></span>
@@ -27,7 +27,9 @@
                             <a href="/view/legalcase/clz/caseClzList.jsp">案件分类</a>
                         </li>
                         <li>
-                            <a href="javascript:;">委托管理</a>
+                            <a href="javascript:;">
+                                <span class="title">委托管理</span><span class="arrow"></span>
+                            </a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="/view/legalcase/entrust/caseEntrustList.jsp">案件委托</a>
@@ -38,7 +40,9 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="javascript:;">平台发布</a>
+                            <a href="javascript:;">
+                                <span class="title">平台发布</span><span class="arrow"></span>
+                            </a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="/view/legalcase/publish/caseEntrustList.jsp">案件委托</a>
@@ -53,14 +57,16 @@
                         </li>
                     </ul>
                 </li>
-                <li class="">
+                <li class="first">
                     <a href="javascript:;">
                         <i class="fa fa-suitcase"></i>
                         <span class="title">商务中心</span><span class="arrow"></span>
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a class="" href="javascript:;">商品管理</a>
+                            <a class="" href="javascript:;">
+                                <span class="title">商品管理</span><span class="arrow"></span>
+                            </a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="/view/business/product/serviceClzList.jsp">服务分类</a>
@@ -68,7 +74,9 @@
                             </ul>
                         </li>
                         <li>
-                            <a class="" href="javascript:;">订单管理</a>
+                            <a class="" href="javascript:;">
+                                <span class="title">订单管理</span><span class="arrow"></span>
+                            </a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="/view/business/order/service/serviceOrderList.jsp">服务订单</a>
@@ -82,7 +90,9 @@
                             </ul>
                         </li>
                         <li>
-                            <a class="" href="javascript:;">提现管理</a>
+                            <a class="" href="javascript:;">
+                                <span class="title">提现管理</span><span class="arrow"></span>
+                            </a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="/view/business/cash/apply/withdrawCashApplyList.jsp">提现申请</a>
@@ -93,7 +103,9 @@
                             </ul>
                         </li>
                         <li>
-                            <a class="" href="javascript:;">退款管理</a>
+                            <a class="" href="javascript:;">
+                                <span class="title">退款管理</span><span class="arrow"></span>
+                            </a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="/view/business/refund/apply/refundApplyList.jsp">退款申请</a>
@@ -108,14 +120,16 @@
                         </li>
                     </ul>
                 </li>
-                <li class="">
+                <li class="first">
                     <a href="javascript:;">
                         <i class="fa fa-user"></i>
                         <span class="title">客户中心</span><span class="arrow"></span>
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="javascript:;">会员管理</a>
+                            <a href="javascript:;">
+                                <span class="title">会员管理</span><span class="arrow"></span>
+                            </a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="/view/customercenter/membermanagement/member/memberList.jsp">会员管理</a>
@@ -132,7 +146,9 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="javascript:;">律师管理</a>
+                            <a href="javascript:;">
+                                <span class="title">律师管理</span><span class="arrow"></span>
+                            </a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="/view/customercenter/lawyermanagement/lawyer/lawyerManagementList.jsp">律师管理</a>
@@ -150,14 +166,16 @@
                         </li>
                     </ul>
                 </li>
-                <li class="">
+                <li class="first">
                     <a href="javascript:;">
                         <i class="fa fa-align-justify"></i>
                         <span class="title">内容管理</span><span class="arrow"></span>
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="javascript:;">分类管理</a>
+                            <a href="javascript:;">
+                                <span class="title">分类管理</span><span class="arrow"></span>
+                            </a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="/view/contentmanager/classify/classifyList.jsp">分类列表</a>
@@ -165,7 +183,9 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="javascript:;">资讯动态</a>
+                            <a href="javascript:;">
+                                <span class="title">资讯动态</span><span class="arrow"></span>
+                            </a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="/view/contentmanager/information/news/newsList.jsp">资讯管理</a>
@@ -179,7 +199,9 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="javascript:;">活动管理</a>
+                            <a href="javascript:;">
+                                <span class="title">活动管理</span><span class="arrow"></span>
+                            </a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="/view/contentmanager/activity/topic/topicList.jsp">话题管理</a>
@@ -190,7 +212,9 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="javascript:;">资源库管理</a>
+                            <a href="javascript:;">
+                                <span class="title">资源库管理</span><span class="arrow"></span>
+                            </a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="/view/contentmanager/repository/clzdiscovery/clzList.jsp">发现分类</a>
@@ -201,7 +225,9 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="javascript:;">帮助管理</a>
+                            <a href="javascript:;">
+                                <span class="title">帮助管理</span><span class="arrow"></span>
+                            </a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="/view/contentmanager/help/helpList.jsp">协议帮助管理</a>
@@ -210,7 +236,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="">
+                <li class="first">
                     <a href="javascript:;">
                         <i class="fa fa-maxcdn"></i>
                         <span class="title">移动管理</span><span class="arrow"></span>
@@ -230,14 +256,16 @@
                         </li>
                     </ul>
                 </li>
-                <li class="">
+                <li class="first">
                     <a href="javascript:;">
                         <i class="fa fa-gear"></i>
                         <span class="title">系统管理</span><span class="arrow"></span>
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="javascript:;">基础设置</a>
+                            <a href="javascript:;">
+                                <span class="title">基础设置</span><span class="arrow"></span>
+                            </a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="/view/sys/settings/site/siteSettings.jsp">站点设置</a>
@@ -260,7 +288,9 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="javascript:;">权限管理</a>
+                            <a href="javascript:;">
+                                <span class="title">权限管理</span><span class="arrow"></span>
+                            </a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="/view/sys/permission/role/roleList.jsp">权限组管理</a>
@@ -272,14 +302,16 @@
                         </li>
                     </ul>
                 </li>
-                <li class="">
+                <li class="first">
                     <a href="javascript:;">
                         <i class="fa fa-th-large"></i>
                         <span class="title">网站管理</span><span class="arrow"></span>
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="javascript:;">基础设置</a>
+                            <a href="javascript:;">
+                                <span class="title">基础设置</span><span class="arrow"></span>
+                            </a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="/view/internet/settings/site/siteSettings.jsp">站点设置</a>
@@ -293,7 +325,9 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="javascript:;">线下律所管理</a>
+                            <a href="javascript:;">
+                                <span class="title">线下律所管理</span><span class="arrow"></span>
+                            </a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="/view/internet/lawfirm/lawFirmList.jsp">线下律所列表</a>
@@ -301,7 +335,9 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="javascript:;">法律咨询管理</a>
+                            <a href="javascript:;">
+                                <span class="title">法律咨询管理</span><span class="arrow"></span>
+                            </a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="/view/internet/legaladvice/adviceList.jsp">法律咨询列表</a>
