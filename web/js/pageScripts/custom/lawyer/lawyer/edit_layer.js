@@ -57,7 +57,7 @@ jQuery(function(){
     _bind();
 
     function _init(){
-        _initProvince();
+
         //初始化列表
         var parameter = $.getParameters();
         var id = parameter.dataId;
@@ -72,15 +72,27 @@ jQuery(function(){
         $('#btnSave').on('click', function () {
             var id = $("#dataId").val();
             var $this = $(this);
-            _ajax($this, '保存',webBasePath+'/lawyers/'+id);
+            var parameter = $.getParameters();
+            var id = parameter.dataId;
+            if(id){
+                _ajax($this, '保存',webBasePath+'/lawyers/'+id);
+            }
         });
-        //返回
-        $('#btnBack').on('click', function () {
-            window.history.back();
+
+        //律师审核
+        $('#btnApprove').on('click', function () {
+            var id = $("#dataId").val();
+            var $this = $(this);
+            var parameter = $.getParameters();
+            var id = parameter.dataId;
+            if(id){
+                _updateStatus(id);
+            }
         });
+
         $('#province').change('click', function () {
             var province = $('#province').val();
-            _initProvinces(province);
+            _initCities(province);
         });
         //图片上传
         $('body').on('change', 'input[name$="_upload"]', function(e) {
@@ -100,7 +112,7 @@ jQuery(function(){
 
             //图片大小判断
             var imgSize = document.getElementById("lcimage_upload").files[0].size;
-            if(imgSize>1024*1000){
+            if(imgSize>1024*1024){
                 FOXKEEPER_UTILS.alert('warning', '图片尺寸请小于1M');
                 $("#lcimage_upload").val("");
                 $("#imgBox").show();
@@ -170,22 +182,23 @@ jQuery(function(){
             success: function (result) {
                 if (result.success) {
                     var lawyer = result.lawyer;
-                    _initProvinces(lawyer.province);
                     if(lawyer){
                         $("#dataId").val(lawyer.id);
                         $("#userName").text(lawyer.userName);
-                        $("#password").val(lawyer.password);
                         $("#account").text(lawyer.account);
-                        // $("#userPassword").val(lawyer.password);
+                        /*$("#userPassword").val(lawyer.userPassword);*/
                         $("#name").val(lawyer.name);
-                        $("#nickname").val(lawyer.nickname);
                         $("#idcard").val(lawyer.idcard);
                         $("#licenseid").val(lawyer.licenseid);
                         $("#mobile").val(lawyer.mobile);
                         $("#email").val(lawyer.email);
-                        $("#province").val(lawyer.province).attr("checked",true);
+                        $("#level").val(lawyer.level);
+                        _initProvince(lawyer.province);
+                        _initCities(lawyer.province,lawyer.city);
+                        $("#lawUserName").val(lawyer.userName);
+                        $("#lawPwd").val(lawyer.password);
+                        /*$("#province").val(lawyer.province);*/
                         //$("#city option [value='"+lawyer.city+"']").attr("selected",true);
-                        $("#city").val(lawyer.city);
                         $("#employmentTime").val(lawyer.employmentTime);
                         $("#lastLoginIp").val(lawyer.loginIP);
                         $("#registerTime").text(lawyer.createdTime);
@@ -195,6 +208,14 @@ jQuery(function(){
                         $("#coverImage").attr("src",homePath+lawyer.picture);
                         $("#coverUrl").val(homePath+lawyer.picture);
                         $("#imgBox").show();
+                        var professionalField = lawyer.professionalField;
+                        _renderSelect2(lawyer.fieldVal);//专业领域
+                        var isVerified = lawyer.isVerified;
+                        if(!isVerified){
+                            $("#btnApprove").show();
+                        }
+                        isVerified = isVerified == true?"审核通过":"未审核";
+                        $("#isVerified").text(isVerified);
                     }
                 }else{
                     FOXKEEPER_UTILS.alert('warning', result.message);
@@ -226,7 +247,7 @@ jQuery(function(){
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
 
-                                location.replace("/view/custome/lawyer/lawyer/lawyerManagementList.jsp");
+                                location.replace("/view/customercenter/lawyermanagement/lawyer/lawyerManagementList.jsp");
                             }, 1000);
                         }else
                         {
@@ -251,10 +272,8 @@ jQuery(function(){
         ajaxdata.username = user._d;
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
-        ajaxdata.userName = $("#userName").val();
-        ajaxdata.password = $("#password").val();
-        ajaxdata.account = $("#account").val();
-        ajaxdata.userPassword = $("#userPassword").val();
+        ajaxdata.userName = $("#userName").text();
+        ajaxdata.account = $("#account").text();
         ajaxdata.name = $("#name").val();
         ajaxdata.licenseid = $("#licenseid").val();
         ajaxdata.idcard = $("#idcard").val();
@@ -267,7 +286,8 @@ jQuery(function(){
         ajaxdata.city = $("#city").val();
         ajaxdata.employmentTime = $("#employmentTime").val();
         ajaxdata.level = $("#level").val();
-
+        ajaxdata.professionalField = $("#professionalField").val().toString();//select2获取值
+        ajaxdata.userPassword = $("#lawNewUPwd").val();
     }
 
     /** 请求参数验证 */
@@ -280,7 +300,7 @@ jQuery(function(){
     }
 
     /** 加载省份信息*/
-    function _initProvince(){
+    function _initProvince(refId){
         var queryInfoData = {};
         var user = $.getuuuAuth();
         queryInfoData.username = user._d;
@@ -298,10 +318,17 @@ jQuery(function(){
                     if (result.provinces != null && result.provinces.length > 0) {
                         var data = result.provinces;
                         $("#province").find("option:not(:first)").remove()
+                        var slt = '';
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
                             var dataId = obj.id;
-                            $("#province").append('<option value="'+dataId+'">'+obj.name+'</option>');
+                            if(null != refId && refId!=''){
+                                if(dataId == refId){
+                                    slt = 'selected';
+                                }
+                            }
+                            $("#province").append('<option value="'+dataId+'" '+slt+'>'+obj.name+'</option>');
+                            slt = '';
                         }
                     }
 
@@ -310,7 +337,7 @@ jQuery(function(){
         });
     }
     /** 加载省份对应的市信息*/
-    function _initProvinces(provinceId){
+    function _initCities(provinceId,refId){
         var queryInfoData = {};
         var user = $.getuuuAuth();
         queryInfoData.username = user._d;
@@ -329,16 +356,119 @@ jQuery(function(){
                     if (result.citys != null && result.citys.length > 0) {
                         var data = result.citys;
                         $("#city").find("option:not(:first)").remove();
+                        var slt = '';
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
                             var dataId = obj.id;
-                            $("#city").append('<option value="'+dataId+'">'+obj.name+'</option>');
+                            if(null != refId && refId!=''){
+                                if(dataId == refId){
+                                    slt = 'selected';
+                                }
+                            }
+                            $("#city").append('<option value="'+dataId+'"  '+slt+'>'+obj.name+'</option>');
                         }
                     }
 
                 }
             }
         });
+    }
+
+
+    //专业领域
+    function _renderSelect2(professionalFields){
+        var queryInfoData = {};
+        var user = $.getuuuAuth();
+        queryInfoData.username = user._d;
+        queryInfoData.password = user._p;
+        queryInfoData.userType = 2;
+        jQuery.ajax({
+            dataType: "json",
+            url: webBasePath + '/professionalFields',
+            data: queryInfoData,
+            type: "GET",
+            success: function (result) {
+                if (result.success) {
+                    if (result.professionalFields != null && result.professionalFields.length > 0) {
+                        var data = result.professionalFields;
+                        /*$("#professionalField").find("option:not(:first)").remove();*/
+                        var fields = professionalFields.split(',');
+                        for (var i = 0; i < data.length; i++) {
+                            var obj = data[i];
+                            var dataId = obj.id;
+                            $("#professionalField").append('<option value="'+dataId+'">'+obj.name+'</option>');
+                        }
+                        if(null != professionalFields && professionalFields != ''){
+                            var fields = professionalFields.split(',');
+                            for(var j = 0; j < fields.length; j++){
+                                var id = fields[j];
+                                id = parseInt(id);
+                                $("#professionalField").find("option[value='"+id+"']").attr("selected",true);
+                            }
+                        }
+                        $("#professionalField").select2({
+                            placeholder: '点击选择专业领域',
+                            allowClear: true,
+                            maximumSelectionLength: 1
+                        });
+                    }
+                }
+            }
+        });
+    }
+
+
+    /**
+     * 律师审核
+     * @param id
+     * @private
+     */
+    function _updateStatus(id) {
+        var delData = {};
+        var user = $.reqHomeUrl();
+        delData.username = user._d;
+        delData.password = user._p;
+        delData.userType = 2;
+        delData.id = id;
+        delData.isVerified = 1;
+        bootbox.dialog({
+            title: "",
+            message: '<div class="row">  ' +
+            '<div class="col-xs-12"> ' +
+            '请确认是否审核通过此律师？' +
+            '</div></div>',
+            buttons: {
+                cancel: {
+                    label: "取消操作",
+                    className: "btn-cancel",
+                    callback: $.noop
+                },
+                confirm: {
+                    label: "确定审核",
+                    className: "btn-info",
+                    callback: function () {
+                        jQuery.ajax({
+                            dataType: "json",
+                            url: webBasePath+'/lawyers/'+id,
+                            data: delData,
+                            type: "POST",
+                            success: function (result) {
+                                if (result.success) {
+                                    $("#btnApprove").hide();
+                                    $("#isVerified").text("审核通过");
+                                    FOXKEEPER_UTILS.alert('success', result.message);
+                                }
+                                else
+                                {
+                                    FOXKEEPER_UTILS.alert('warning', result.message);
+                                }
+                            }
+                        });
+                        return true;
+                    }
+                }
+            }
+        })
     }
 
 });

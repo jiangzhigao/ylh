@@ -61,7 +61,7 @@
                     <div class="dataTables_wrapper no-footer">
                         <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                             <div class="row">
-                                <div class="col-xs-3 move20">
+                                <div class="col-xs-2 move20">
                                     <input type="text" id = "userName" class="form-control" placeholder="律师账号">
                                 </div>
 
@@ -92,7 +92,6 @@
                                 <th>律师账号</th>
                                 <th>律师姓名</th>
                                 <th>交易描述</th>
-                                <th></th>
                                 <th>交易类型</th>
                                 <th>收入金额</th>
                                 <th>交易时间</th>

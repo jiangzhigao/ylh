@@ -127,15 +127,16 @@ jQuery(function(){
                     if (result.incomes != null && result.incomes.length > 0) {
                         var _html = new Array();
                         var data = result.incomes;
+                        var transArray = ['服务顾问','律师预约','委托'];
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
+                            var typeInt = parseInt(obj.type);
                             var dataId = obj.id;
                             _html.push('<tr>');
                             _html.push('<td>' + obj.userName + '</td>');
                             _html.push('<td>' + obj.name + '</td>');
-                            _html.push('<td>' + obj.dealDesc + '</td>');
-                            _html.push('<td>' + obj.type + '</td>');
-                            _html.push('<td>' + obj.type + '</td>');
+                            _html.push('<td>' + obj.dealDesc + '</td>')
+                            _html.push('<td>' + transArray[typeInt] + '</td>');
                           /*  _html.push('<td>' + obj.orderId + '</td>');*/
                             _html.push('<td>' + obj.amount + '</td>');
                             _html.push('<td>' + obj.createdTime + '</td>');

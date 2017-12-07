@@ -111,5 +111,28 @@
     }
 
     _initManagerName();
+
+
+    _initNewNotices();
+    function _initNewNotices () {
+        var dd = {};
+        var user = $.reqHomeUrl();
+        dd.username = user._d;
+        dd.password = user._p;
+        dd.userType = 2;
+        jQuery.ajax({
+            dataType: "json",
+            url: webBasePath + '/statistics/todo',
+            data: dd,
+            type: "GET",
+            success: function (result) {
+                if (result.success) {
+                    $("#unCommReserveOrderCount").text("您有"+result.unCommReserveOrderCount+"条未沟通预约订单");
+                    $("#unReadConversationCount").text("您有"+result.unReadConversationCount+"条用户留言未查看");
+                    $("#nfnRecordNum1").text((result.unCommReserveOrderCount)+(result.unReadConversationCount));
+                }
+            }
+        });
+    }
 </script>
 

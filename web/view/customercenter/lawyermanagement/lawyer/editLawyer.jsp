@@ -33,9 +33,6 @@
             top: 0px;
             padding: 7px 18px;
         }
-        /*.select2-container .select2-choice abbr {
-            display: block;
-        }*/
     </style>
 </head>
 <!-- END HEAD -->
@@ -62,37 +59,40 @@
                 <header class="panel_header">
                     <h2 class="title pull-left title-bold">编辑律师</h2>
                     <div class="actions panel_actions pull-right">
+                        <div id="page_alert_container"></div>
                     </div>
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
                         <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
+                            <input type="hidden" id="bizStatus" value="0" />
                             <div class="col-md-12">
                                 <ul class="nav nav-tabs">
                                     <li class="active">
-                                        <a href="#basic" data-toggle="tab" aria-expanded="true">
+                                        <a href="#basic" data-toggle="tab" aria-expanded="true" s="0">
                                             基本资料
                                         </a>
                                     </li>
                                     <li class="">
-                                        <a href="#case" data-toggle="tab" aria-expanded="false">
+                                        <a href="#case" data-toggle="tab" aria-expanded="false" s="1">
                                             案列
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#honor" data-toggle="tab">
+                                        <a href="#honor" data-toggle="tab" aria-expanded="false" s="2">
                                             荣誉
                                         </a>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane fade active in" id="basic">
+                                        <input type="hidden" id="lawNewUPwd" >
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label" for="userName">手机号</label>
-                                                    <div class="col-xs-5">
-                                                        <label class="control-label" id="userName"></label>
+                                                    <div class="col-xs-4">
+                                                        <label class="control-label" id="userName" style="font-weight: 500"></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -101,8 +101,8 @@
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label">密码</label>
-                                                    <div class="col-xs-5">
-                                                        <button id="pwdBtn" type="button" class="btn btn-primary">修改密码</button>
+                                                    <div class="col-xs-4">
+                                                        <button id="pwdBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#pwdModal">修改密码</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -111,8 +111,8 @@
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label" for="account">账户金额</label>
-                                                    <div class="col-xs-5">
-                                                        <button type="button"  id="account" class="btn btn-primary"></button>
+                                                    <div class="col-xs-4">
+                                                        <button type="button"  id="account" class="btn btn-primary" value=""></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -121,8 +121,8 @@
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label" for="name">律师名称</label>
-                                                    <div class="col-xs-5">
-                                                        <input type="text" id="name" class="form-control" placeholder="请输入律师名称" value=""
+                                                    <div class="col-xs-4">
+                                                        <input type="text" id="name" class="form-control" placeholder="请输入律师名称"
                                                                maxlength="20">
                                                     </div>
                                                 </div>
@@ -132,7 +132,7 @@
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label" for="idcard">身份证编号</label>
-                                                    <div class="col-xs-5">
+                                                    <div class="col-xs-4">
                                                         <input type="text" class="form-control" id="idcard"  name="idcard" placeholder="请输入身份证编号" value=""
                                                                maxlength="18">
                                                     </div>
@@ -143,7 +143,7 @@
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label" for="licenseid">执照编号</label>
-                                                    <div class="col-xs-5">
+                                                    <div class="col-xs-4">
                                                         <input type="text" class="form-control" placeholder="请输入执照编号"  id="licenseid"
                                                                maxlength="18">
                                                     </div>
@@ -154,7 +154,7 @@
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label" for="employmentTime">从业时间</label>
-                                                    <div class="col-xs-5">
+                                                    <div class="col-xs-4">
                                                         <input type="text" class="form-control" placeholder="请输入从业时间" id="employmentTime"
                                                                maxlength="18">
                                                     </div>
@@ -165,8 +165,8 @@
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label" for="registerTime">注册时间</label>
-                                                    <div class="col-xs-5">
-                                                        <label class="control-label" id="registerTime"></label>
+                                                    <div class="col-xs-4">
+                                                        <label class="control-label" id="registerTime" style="font-weight: 500"></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -175,8 +175,8 @@
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label">最后登录时间</label>
-                                                    <div class="col-xs-5">
-                                                        <label class="control-label">2017-08-08</label>
+                                                    <div class="col-xs-4">
+                                                        <label class="control-label" style="font-weight: 500">2017-08-08</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -185,15 +185,15 @@
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label">最后登录IP</label>
-                                                    <div class="col-xs-5">
-                                                        <label class="control-label">10.0.0.1</label>
+                                                    <div class="col-xs-4">
+                                                        <label class="control-label" style="font-weight: 500">10.0.0.1</label>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-xs-offset-2 col-xs-12">
-                                                <div class="form-group col-xs-5" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox">
+                                                <div class="form-group col-xs-4" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox">
                                                     <img src="/images/nopica.png" class="img-thumbnail" id="coverImage"/>
                                                 </div>
                                             </div>
@@ -202,7 +202,7 @@
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label">律师照片</label>
-                                                    <div class="col-xs-5" style="margin-left: -15px;">
+                                                    <div class="col-xs-4" style="margin-left: -15px;">
                                                         <div class="col-xs-1">
                                                             <div class="img-upload">
                                                                 <input type="hidden" id="coverUrl" value="" name="coverUrl"/>
@@ -218,7 +218,7 @@
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label" for="company">所属单位</label>
-                                                    <div class="col-xs-5">
+                                                    <div class="col-xs-4">
                                                         <input type="text" class="form-control" placeholder="请输入所属单位"  id="company" name="company"
                                                                maxlength="11">
                                                     </div>
@@ -229,7 +229,7 @@
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label" for="mobile">备用号码</label>
-                                                    <div class="col-xs-5">
+                                                    <div class="col-xs-4">
                                                         <input type="text" class="form-control" placeholder="请输入备用号码" value="" id="mobile" name="mobile"
                                                                maxlength="11">
                                                     </div>
@@ -240,7 +240,7 @@
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label" for="email">邮箱</label>
-                                                    <div class="col-xs-5">
+                                                    <div class="col-xs-4">
                                                         <input type="text" class="form-control" placeholder="请输入邮箱" value="" id="email" name="email"
                                                                maxlength="36">
                                                     </div>
@@ -251,7 +251,7 @@
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label" for="province">所在地址</label>
-                                                    <div class="col-xs-5">
+                                                    <div class="col-xs-4">
                                                         <select class="form-control" id="province" name="province" style="border-color: #e1e1e1;">
                                                             <option value="0" >请选择省份</option>
                                                         </select>
@@ -263,7 +263,7 @@
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label" for="city"></label>
-                                                    <div class="col-xs-5">
+                                                    <div class="col-xs-4">
                                                         <select class="form-control" id="city" name="city" style="border-color: #e1e1e1;">
                                                             <option value="0" >请选择市</option>
                                                         </select>
@@ -275,7 +275,7 @@
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label" for="level">律师等级</label>
-                                                    <div class="col-xs-5">
+                                                    <div class="col-xs-4">
                                                         <select class="form-control" id="level" name="level" style="border-color: #e1e1e1;">
                                                             <option value="1" selected>普通</option>
                                                             <option value="2" >中级</option>
@@ -289,15 +289,8 @@
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label" for="professionalField">专业领域</label>
-                                                    <div class="col-xs-5">
+                                                    <div class="col-xs-4">
                                                         <select class="" id="professionalField" multiple="multiple">
-                                                            <%--<optgroup label="">
-
-                                                            </optgroup>--%>
-                                                            <option value="1" >民事诉讼</option>
-                                                            <option value="2" >刑事诉讼</option>
-                                                            <option value="3" >非诉案件</option>
-                                                            <option value="4" >金融保险</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -307,10 +300,20 @@
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <label class="col-xs-2 control-label">状态</label>
-                                                    <div class="col-xs-5" style="padding-top: 5px;">
+                                                    <div class="col-xs-4" style="padding-top: 5px;">
                                                         <input type="radio" class="" value="1" id="status_normal" name="status" checked>正常
                                                         &nbsp;&nbsp;
                                                         <input type="radio" class="" value="0" id="status_blocked" name="status">冻结
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="form-group">
+                                                    <label class="col-xs-2 control-label">审核状态</label>
+                                                    <div class="col-xs-4" style="padding-top: 5px;">
+                                                        <label class="control-label" id="isVerified" style="font-weight: 500"></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -323,10 +326,10 @@
                                         <div class="row">
                                             <div class="col-xs-3">
                                             </div>
-                                            <div class="col-xs-5">
+                                            <div class="col-xs-4">
                                                 <div class="form-group">
                                                     <div class="controls">
-                                                        <button type="button" class="btn btn-info" id="btnApprove">点击审核通过</button>
+                                                        <button type="button" class="btn btn-info" id="btnApprove" style="display: none;">点击审核通过</button>
                                                         &nbsp;&nbsp;
                                                         <button type="button" class="btn btn-info" id="btnSave">保存</button>
                                                     </div>
@@ -335,7 +338,80 @@
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="case">
-                                        <div class="row">
+                                        <div class="dataTables_wrapper no-footer">
+                                            <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
+                                                <div class="row">
+                                                    <div class="col-xs-2 move20">
+                                                        <input type="text" class="form-control" placeholder="委托编号或名称">
+                                                    </div>
+                                                    <div class="col-xs-2 move20">
+                                                        <input type="text move20" class="form-control" placeholder="委托人姓名或手机">
+                                                    </div>
+                                                    <div class="col-xs-2 move20">
+                                                        <input type="text" class="form-control" placeholder="代理律师姓名">
+                                                    </div>
+                                                    <div class="col-xs-2 move20">
+                                                        <select class="form-control" style="border-color: #e1e1e1;">
+                                                            <option value="">全部</option>
+                                                            <option value="0">未发布</option>
+                                                            <option value="1">已发布</option>
+                                                            <option value="2">已接案</option>
+                                                            <option value="3">进行中</option>
+                                                            <option value="4">已结案</option>
+                                                            <option value="5">已作废</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-xs-2">
+                                                        <%--<div class="form-group">--%>
+                                                        <div class="controls">
+                                                            <button id="btnSearch" type="button" class="btn btn-info">搜索</button>
+                                                        </div>
+                                                        <%--</div>--%>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <table class="table table-bordered table-hover" id="dataList">
+                                                <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>律师名称</th>
+                                                    <th>案列名称</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>1</td><td>zhang</td><td>天王盖地虎</td>
+                                                    <td style="text-align: right;width: 80px;">
+                                                        <div class="btn-group">
+                                                            <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;" aria-expanded="false">查看详情<span class="caret"></span></a>
+                                                            <ul class="dropdown-menu opt" role="menu">
+                                                                <li style="border-bottom: 1px dashed #CCC;"><a href="#" bid="14" s="0">查看详情</a></li>
+                                                                <li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="14" s="0" class="">修改</a></li>
+                                                                <li><a href="javascript:;" bid="14" s="0" class="no-editable">删除</a></li></ul></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td><td>zhang</td><td>天王盖地虎</td>
+                                                    <td style="text-align: right;width: 80px;">
+                                                        <div class="btn-group">
+                                                            <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;" aria-expanded="false">查看详情<span class="caret"></span></a>
+                                                            <ul class="dropdown-menu opt" role="menu">
+                                                                <li style="border-bottom: 1px dashed #CCC;"><a href="#" bid="14" s="0">查看详情</a></li>
+                                                                <li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="14" s="0" class="">修改</a></li>
+                                                                <li><a href="javascript:;" bid="14" s="0" class="no-editable">删除</a></li></ul></div>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="row">
+                                                <div class="col-xs-6" id="pageTotalRecord"></div>
+                                                <div class="col-xs-6">
+                                                    <div class="dataTables_paginate paging_bootstrap" id="paginationContainer"> </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <%--<div class="row">
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <div class="col-xs-2">
@@ -348,7 +424,7 @@
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <div class="col-xs-2"></div>
-                                                    <div class="col-xs-5">
+                                                    <div class="col-xs-4">
                                                         <textarea id="activityDesc" name="activityDesc" maxlength="128" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 120px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
                                                     </div>
                                                 </div>
@@ -362,20 +438,65 @@
                                         <div class="row">
                                             <div class="col-xs-3">
                                             </div>
-                                            <div class="col-xs-5">
+                                            <div class="col-xs-4">
                                                 <div class="form-group">
                                                     <div class="col-xs-2"></div>
-                                                    <div class="col-xs-5">
+                                                    <div class="col-xs-4">
                                                         <button type="button" class="btn btn-info" id="btnSave3">保存</button>
                                                         &nbsp;&nbsp;
                                                         <button type="button" class="btn btn-danger" id="btnDel2">删除</button>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>--%>
                                     </div>
                                     <div class="tab-pane fade" id="honor">
-                                        <div class="row">
+                                        <div class="dataTables_wrapper no-footer">
+                                            <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
+
+                                            </form>
+                                            <table class="table table-bordered table-hover" id="dataList">
+                                                <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>律师名称</th>
+                                                    <th>荣誉名称</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>1</td><td>zhang</td><td>天王盖地虎</td>
+                                                    <td style="text-align: right;width: 80px;">
+                                                        <div class="btn-group">
+                                                            <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;" aria-expanded="false">查看详情<span class="caret"></span></a>
+                                                            <ul class="dropdown-menu opt" role="menu">
+                                                                <li style="border-bottom: 1px dashed #CCC;"><a href="#" bid="14" s="0">查看详情</a></li>
+                                                                <li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="14" s="0" class="">修改</a></li>
+                                                                <li><a href="javascript:;" bid="14" s="0" class="no-editable">删除</a></li></ul></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td><td>zhang</td><td>天王盖地虎</td>
+                                                    <td style="text-align: right;width: 80px;">
+                                                        <div class="btn-group">
+                                                            <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;" aria-expanded="false">查看详情<span class="caret"></span></a>
+                                                            <ul class="dropdown-menu opt" role="menu">
+                                                                <li style="border-bottom: 1px dashed #CCC;"><a href="#" bid="14" s="0">查看详情</a></li>
+                                                                <li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="14" s="0" class="">修改</a></li>
+                                                                <li><a href="javascript:;" bid="14" s="0" class="no-editable">删除</a></li></ul></div>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="row">
+                                                <div class="col-xs-6" id="pageTotalRecord"></div>
+                                                <div class="col-xs-6">
+                                                    <div class="dataTables_paginate paging_bootstrap" id="paginationContainer"> </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <%--<div class="row">
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <div class="col-xs-2">
@@ -388,7 +509,7 @@
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <div class="col-xs-2"></div>
-                                                    <div class="col-xs-5">
+                                                    <div class="col-xs-4">
                                                         <textarea id="activityDesc2" name="activityDesc" maxlength="128" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 120px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
                                                     </div>
                                                 </div>
@@ -402,17 +523,17 @@
                                         <div class="row">
                                             <div class="col-xs-3">
                                             </div>
-                                            <div class="col-xs-5">
+                                            <div class="col-xs-4">
                                                 <div class="form-group">
                                                     <div class="col-xs-2"></div>
-                                                    <div class="col-xs-5">
+                                                    <div class="col-xs-4">
                                                         <button type="button" class="btn btn-info" id="btnSave2">保存</button>
                                                         &nbsp;&nbsp;
                                                         <button type="button" class="btn btn-danger" id="btnDel">删除</button>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>--%>
                                     </div>
                                 </div>
 
@@ -426,6 +547,7 @@
 
 </section>
 <!-- END CONTENT -->
+<%@ include file="/view/customercenter/lawyermanagement/lawyer/updatePwdModal.jsp"%>
 </div>
 <!-- END CONTAINER -->
 
@@ -433,11 +555,11 @@
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
 <script type="text/javascript" src="/js/plugins/select2/select2.min.js"></script>
-<script type="text/javascript" src="/js/pageScripts/custom/lawyer/lawyer/edit_layer.js"></script>
 <script type="text/javascript" src="/js/custom/request-util.js"></script>
+<script type="text/javascript" src="/js/pageScripts/custom/lawyer/lawyer/edit_layer.js"></script>
 <script type="text/javascript">
     //日期控件
-    $("#4").datepicker({
+    $("#employmentTime").datepicker({
         autoclose: true,
         clearBtn: true,
         forceParse: true,
@@ -450,14 +572,11 @@
         endDate:'+1',//结束时间，在这时间之后都不可选
     });
 
-    $("#10").select2({
+    /*$("#professionalField").select2({
         placeholder: '点击选择专业领域',
         allowClear: true,
         maximumSelectionLength: 1
-    });
-
-
-
+    });*/
 </script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>

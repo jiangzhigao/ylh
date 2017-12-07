@@ -59,7 +59,7 @@ jQuery(function(){
 
     /** 渲染 **/
     function _render() {
-
+        _renderSelect2();
     }
 
     /** 初始化 **/
@@ -204,7 +204,8 @@ jQuery(function(){
         ajaxdata.employmentTime = $("#employmentTime").val();
         ajaxdata.account = $("#account").val();
         ajaxdata.level = $("#level").val();
-
+        ajaxdata.professionalField = $("#professionalField").val().toString();//select2获取值
+        ajaxdata.account = 0;
     }
 
     /** 请求参数验证 */
@@ -267,9 +268,43 @@ jQuery(function(){
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
                             var dataId = obj.id;
-                           /* $("#province").append('<option value="'+dataId+'">'+obj.name+'</option>');*/
                             $("#city").append('<option value="'+dataId+'">'+obj.name+'</option>');
                         }
+                    }
+                }
+            }
+        });
+    }
+
+
+
+    //专业领域
+    function _renderSelect2(){
+        var queryInfoData = {};
+        var user = $.getuuuAuth();
+        queryInfoData.username = user._d;
+        queryInfoData.password = user._p;
+        queryInfoData.userType = 2;
+        jQuery.ajax({
+            dataType: "json",
+            url: webBasePath + '/professionalFields',
+            data: queryInfoData,
+            type: "GET",
+            success: function (result) {
+                if (result.success) {
+                    if (result.professionalFields != null && result.professionalFields.length > 0) {
+                        var data = result.professionalFields;
+                        /*$("#professionalField").find("option:not(:first)").remove();*/
+                        for (var i = 0; i < data.length; i++) {
+                            var obj = data[i];
+                            var dataId = obj.id;
+                            $("#professionalField").append('<option value="'+dataId+'">'+obj.name+'</option>');
+                        }
+                        $("#professionalField").select2({
+                            placeholder: '点击选择专业领域',
+                            allowClear: true,
+                            maximumSelectionLength: 1
+                        });
                     }
                 }
             }

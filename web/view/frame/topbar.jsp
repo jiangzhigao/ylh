@@ -53,34 +53,32 @@
                 <li class="">
                     <a href="#" data-toggle="dropdown" class="toggle" style="width: 40px;padding: 0;text-align: left;">
                         <i class="fa fa-bell" style="margin-right: 5px;"></i>
-                        <span class="badge badge-info" id="nfnRecordNum1" style="margin: 20px 0 0 5px;width: 20px;height: 20px;border-radius:3px;">4</span>
+                        <span class="badge badge-info" id="nfnRecordNum1" style="margin: 20px 0 0 5px;width: 20px;height: 20px;border-radius:3px;padding-left: 3px;">0</span>
                     </a>
                     <ul class="dropdown-menu notifications animated fadeIn">
 
                             <li class="">
-                                <ul class="dropdown-menu-list list-unstyled ps-scrollbar">
-                                    <li class="unread away"> <!-- available: success, warning, info, error -->
+                                <ul class="dropdown-menu-list">
+                                    <li class="unread away">
+                                        <a href="javascript:;">
+                                            <div class="notice-icon">
+                                                <i class="fa fa-qq"></i>
+                                            </div>
+                                            <div>
+                                                    <span class="name">
+                                                        <span class="" id="unCommReserveOrderCount"></span>
+                                                    </span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="unread away">
                                         <a href="javascript:;">
                                             <div class="notice-icon">
                                                 <i class="fa fa-envelope"></i>
                                             </div>
                                             <div>
                                                     <span class="name">
-                                                        <strong>45 new messages</strong>
-                                                        <span class="time small">45 mins ago</span>
-                                                    </span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class=" busy">
-                                        <a href="javascript:;">
-                                            <div class="notice-icon">
-                                                <i class="fa fa-times"></i>
-                                            </div>
-                                            <div>
-                                                    <span class="name">
-                                                        <strong>Team Meeting at 6PM</strong>
-                                                        <span class="time small">16th Mar</span>
+                                                        <span class="" id="unReadConversationCount">wwwwwwwwwwwwwwwwwwwwwwwwwwwr</span>
                                                     </span>
                                             </div>
                                         </a>

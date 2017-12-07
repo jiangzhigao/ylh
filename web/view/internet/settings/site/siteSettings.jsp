@@ -257,6 +257,9 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
 <script type="text/javascript" src="/js/pageScripts/sys/basic/site/siteSetting.js"></script>
 
 <!-- START FOOTER -->

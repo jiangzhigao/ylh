@@ -72,11 +72,21 @@
 		.m-chart .lb{
 			padding: 0;margin: 0;height: 30px;
 		}
-		.m-chart .lb h5{
+		.m-chart .lb h6{
 			display: inline-block;
+			font-size: 10px;
 		}
-		/*.page-topbar .dropdown-menu:after, .page-topbar .dropdown-menu:before{
-			right: 22px;
+
+		.lb{width: 100%;}
+
+		.cc{
+			color: #767676;
+			width: 55%;
+			margin-right: 3px;
+			text-align: right;
+		}
+		.bus-md:hover{
+			cursor: pointer;
 		}
 */
 	</style>
@@ -105,42 +115,42 @@
 				<div class="" style="padding-left: 15px;">
 					<div class="">
 						<div class="bus-tab">
-							<div class="bus-md">
+							<div class="bus-md" biz-url="/view/customercenter/membermanagement/member/memberList.jsp">
 								<div class="bus-md-fa" style="background: url('./images/bz/member.png') 0 0 no-repeat;background-size:85px 85px;">
 								</div>
 								<div class="bus-md-title">
 									<span>会员管理</span>
 								</div>
 							</div>
-							<div class="bus-md">
+							<div class="bus-md" biz-url="/view/customercenter/lawyermanagement/lawyer/lawyerManagementList.jsp">
 								<div class="bus-md-fa" style="background: url('./images/bz/lawyer.png') 0 0 no-repeat;background-size:85px 85px;">
 								</div>
 								<div class="bus-md-title">
 									<span>律师管理</span>
 								</div>
 							</div>
-							<div class="bus-md">
+							<div class="bus-md" biz-url="/view/business/order/service/serviceOrderList.jsp">
 								<div class="bus-md-fa" style="background: url('./images/bz/ser-order.png') 0 0 no-repeat;background-size:85px 85px;">
 								</div>
 								<div class="bus-md-title">
 									<span>服务订单</span>
 								</div>
 							</div>
-							<div class="bus-md" style="">
+							<div class="bus-md" biz-url="/view/business/order/reservation/orderList.jsp">
 								<div class="bus-md-fa" style="background: url('./images/bz/sub-order.png') 0 0 no-repeat;background-size:85px 85px;">
 								</div>
 								<div class="bus-md-title">
 									<span>预约订单</span>
 								</div>
 							</div>
-							<div class="bus-md">
+							<div class="bus-md" biz-url="/view/business/order/entrust/entrustOrderList.jsp">
 								<div class="bus-md-fa" style="background: url('./images/bz/entrust.png') 0 0 no-repeat;background-size:85px 85px;">
 								</div>
 								<div class="bus-md-title">
 									<span>委托订单</span>
 								</div>
 							</div>
-							<div class="bus-md">
+							<div class="bus-md" biz-url="/view/internet/settings/site/siteSettings.jsp">
 								<div class="bus-md-fa" style="background: url('./images/bz/site-setting.png') 0 0 no-repeat;background-size:85px 85px;">
 								</div>
 								<div class="bus-md-title">
@@ -164,16 +174,16 @@
 								新增会员
 							</div>
 							<div class="clz">
-								昨日<span style="color:#ff8500;font-size: 30px;padding: 0 5px;">0</span>人
+								昨日<span style="color:#ff8500;font-size: 30px;padding: 0 5px;" id="lastDayUserNumber">0</span>人
 							</div>
 							<div>
-								<div class="col-xs-6 invoice-infoblock pull-left" style="text-align: right">
-									<div class="lb"><h5 class="">上周:</h5>&nbsp;<h5 class="text-primary">10000</h5>人</div>
-									<div class="lb"><h5 class="">上月:</h5>&nbsp;<h5 class="text-primary">10000</h5>人</div>
+								<div class="col-xs-6 invoice-infoblock pull-left">
+									<div class="lb"><div class="cc pull-left">上周:</div><div class="text-primary pull-left" style="margin-left: 5px;text-align: left" id="lastWeekUserNumber">10000</div><span class="pull-left" style="display: block;text-align: left;padding-left: 3px;">人</span></div>
+									<div class="lb"><div class="cc pull-left">上月:</div><div class="text-primary pull-left" id="lastMonthUserNumber">10000</div><span class="pull-left" style="display: block;text-align: left;padding-left: 3px;">人</span></div>
 								</div>
-								<div class="col-xs-6 invoice-infoblock text-right" style="text-align: right">
-									<div class="lb"><h5 class="">前3个月:</h5>&nbsp;<h5 class="text-primary">10000</h5>人</div>
-									<div class="lb"><h5 class="">前12个月:</h5>&nbsp;<h5 class="text-primary">10000</h5>人</div>
+								<div class="col-xs-6 invoice-infoblock text-right">
+									<div class="lb"><div class="cc pull-left">前3个月:</div><div class="text-primary pull-left" style="margin-left: 5px;text-align: left" id="last3MonthUserNumber">10000</div><span class="pull-left" style="display: block;text-align: left;padding-left: 3px;">人</span></div>
+									<div class="lb"><div class="cc pull-left">前12个月:</div><div class="text-primary pull-left" style="margin-left: 5px;text-align: left" id="last12MonthUserNumber">10000</div><span class="pull-left" style="display: block;text-align: left;padding-left: 3px;">人</span></div>
 								</div>
 							</div>
 						</div>
@@ -184,16 +194,16 @@
 										消费金额
 									</div>
 									<div class="clz">
-										昨日<span style="color:#ff8500;font-size: 30px;padding: 0 5px;">0</span>元
+										昨日<span style="color:#ff8500;font-size: 30px;padding: 0 5px;" id="lastDayAmount">0</span>元
 									</div>
 									<div>
-										<div class="col-xs-6 invoice-infoblock pull-left" style="text-align: right;">
-											<div class="lb"><h5>上周:</h5>&nbsp;<h5 class="text-primary">10000</h5>元</div>
-											<div class="lb"><h5>上月:</h5>&nbsp;<h5 class="text-primary">10000</h5>元</div>
+										<div class="col-xs-6 invoice-infoblock pull-left">
+											<div class="lb"><div class="cc pull-left">上周:</div><div class="text-primary pull-left" style="margin-left: 5px;text-align: left" id="lastWeekAmount">10000</div><span class="pull-left" style="display: block;text-align: left;padding-left: 3px;">元</span></div>
+											<div class="lb"><div class="cc pull-left">上月:</div><div class="text-primary pull-left" style="margin-left: 5px;text-align: left" id="lastMonthAmount">10000</div><span class="pull-left" style="display: block;text-align: left;padding-left: 3px;">元</span></div>
 										</div>
-										<div class="col-xs-6 invoice-infoblock text-right" style="text-align: right;">
-											<div class="lb"><h5>前3个月:</h5>&nbsp;<h5 class="text-primary">10000</h5>元</div>
-											<div class="lb"><h5>前12个月:</h5>&nbsp;<h5 class="text-primary">10000</h5>元</div>
+										<div class="col-xs-6 invoice-infoblock text-right">
+											<div class="lb"><div class="cc pull-left">前3个月:</div><div class="text-primary pull-left" style="margin-left: 5px;text-align: left" id="last3MonthAmount">10000</div><span class="pull-left" style="display: block;text-align: left;padding-left: 3px;">元</span></div>
+											<div class="lb"><div class="cc pull-left">前12个月:</div><div class="text-primary pull-left" style="margin-left: 5px;text-align: left" id="last12MonthAmount">10000</div><span class="pull-left" style="display: block;text-align: left;padding-left: 3px;">元</span></div>
 										</div>
 									</div>
 								</div>
@@ -212,6 +222,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/pageScripts/main.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->
