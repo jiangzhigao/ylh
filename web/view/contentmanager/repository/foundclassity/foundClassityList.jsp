@@ -41,38 +41,35 @@
 <%@ include file="/view/frame/sidebar.jsp"%>
 <!--  SIDEBAR - END -->
 <script type='text/javascript'>
-    ___system_navigation_config.currentNav = ___system_navigation_config.nav.sys_settings_pay_type_list;
+    ___system_navigation_config.currentNav = ___system_navigation_config.nav.cnt_foundclassity_list;
 </script>
 <!-- START CONTENT -->
 <section id="main-content" class=" " style="">
     <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
         <header class="panel_header" style="background-color: #fff;margin-top:45px;">
-            <h4 class="title pull-left" style="font-size: 15px;">系统管理 / 基础设置 / 支付设置</h4>
+            <h4 class="title pull-left" style="font-size: 15px;">内容管理 / 资源库管理 / 发现分类 </h4>
         </header>
 
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">支付方式列表</h2>
-                    <%--<div class="actions panel_actions pull-right">--%>
-                        <%--<a href="addPayType.jsp" class="btn btn-info">--%>
-                            <%--<span class="glyphicon glyphicon-plus"></span>--%>
-                        <%--</a>--%>
-                    <%--</div>--%>
+                    <h4 class="title pull-left">发现分类列表</h4>
+                    <%--<div class="actions panel_actions pull-right">
+                        <a href="editClz.jsp" class="btn btn-info">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>--%>
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-
+                        <%--<form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
+                        </form>
+                        <br>--%>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
-                                <th>PaymentID</th>
-                                <th>LOGO</th>
-                                <th>支付方式</th>
-                                <th>MCHID</th>
-                                <th>PARTNER_ID</th>
-                                <th>排序</th>
-                                <th>状态</th>
+                                <th>分类ID</th>
+                                <th>分类名称</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
@@ -98,8 +95,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
-<script type="text/javascript" src="/js/pageScripts/sys/basic/paytype/query_paytypelist.js"></script>
-
+<script type="text/javascript" src="/js/pageScripts/content/repository/findDiscovery/query_findClassifyList.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

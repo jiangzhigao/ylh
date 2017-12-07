@@ -217,7 +217,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/contentmanager/repository/clzdiscovery/clzList.jsp">发现分类</a>
+                                    <a href="/view/contentmanager/repository/foundclassity/foundClassityList.jsp">发现分类</a>
                                 </li>
                                 <li>
                                     <a href="/view/contentmanager/repository/discovery/discoveryList.jsp">发现管理</a>

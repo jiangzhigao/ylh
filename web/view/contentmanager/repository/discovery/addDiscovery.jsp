@@ -92,15 +92,15 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="type">分类</label>
+                                        <label class="col-xs-2 control-label" for="infoType">分类</label>
                                         <div class="col-xs-5">
-                                            <select class="form-control" id="type" name="type" style="border-color: #e1e1e1;">
+                                            <select class="form-control" id="infoType" name="infoType" style="border-color: #e1e1e1;">
                                                 <option value="">请选择分类</option>
-                                                <option value="0">财务咨询</option>
-                                                <option value="1">管理资讯</option>
-                                                <option value="2">营销策划</option>
-                                                <option value="3">常用文书</option>
-                                                <option value="4">法律资源库</option>
+                                                <%--<option value="0">财务咨询</option>--%>
+                                                <%--<option value="1">管理资讯</option>--%>
+                                                <%--<option value="2">营销策划</option>--%>
+                                                <%--<option value="3">常用文书</option>--%>
+                                                <%--<option value="4">法律资源库</option>--%>
                                             </select>
                                         </div>
                                     </div>
@@ -113,12 +113,12 @@
                                         <div class="col-xs-5" style="padding-top: 5px;">
                                             <input type="radio" class="" value="1" id="status_1" name="isDocument" checked>是
                                             &nbsp;&nbsp;
-                                            <input type="radio" class="" value="0" id="status_2" name="isDocument">否
+                                            <input type="radio" class="" value="0" id="status_0" name="isDocument">否
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" id="documentDiv">
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label" for="documentType">文档类型</label>
@@ -142,7 +142,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" id="addressDiv">
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">文档地址</label>
@@ -171,10 +171,21 @@
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">是否跳转第三方页面</label>
-                                        <div class="col-xs-5" style="padding-top: 5px;">
-                                            <input type="radio" class="" value="1" id="toPage" name="status" checked>是
+                                        <div class="col-xs-5" style="padding-top: 5px;font-weight: inherit">
+                                            <input type="radio" class="" value="1" id="toPage_1" name="toPage" style="font-weight: inherit" checked>是
                                             &nbsp;&nbsp;
-                                            <input type="radio" class="" value="0" id="toPage_1" name="status">否
+                                            <input type="radio" class="" value="0" id="toPage_0" name="toPage" style="font-weight: inherit">否
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" id="urlDiv">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-xs-2 control-label" for="pageUrl">输入第三方网址</label>
+                                        <div class="col-xs-5">
+                                            <input type="text" class="form-control" placeholder="请输入第三方网址" value="" id="pageUrl" name="pageUrl"
+                                                   maxlength="100">
                                         </div>
                                     </div>
                                 </div>
@@ -221,6 +232,8 @@
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
+<script type="text/javascript" src="/js/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
 <script type="text/javascript" src="/js/pageScripts/content/repository/discovery/add_discovery.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>

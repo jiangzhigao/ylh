@@ -4,19 +4,19 @@ jQuery(function(){
     var queryParam = {},ajaxdata = {};
     $form_edit.validate({
         rules:{
-            name:{
+            title:{
                 required:true,
             },
-            sortNo:{
+            hotline:{
                 required:true,
             },
         },
         messages:{
-            name:{
-                required:"专业领域不能为空"
+            title:{
+                required:"标题不能为空"
             },
-            sortNo:{
-                required:"排序不能为空"
+            hotline:{
+                required:"热线电话不能为空"
             }
         }
     });
@@ -26,7 +26,8 @@ jQuery(function(){
     _init();
     //绑定
     _bind();
-
+    //富文本
+    var ue = new baidu.editor.ui.Editor({ initialFrameHeight:260 });
     function _init(){
         //初始化列表
         var parameter = $.getParameters();
@@ -39,7 +40,8 @@ jQuery(function(){
     function _bind () {
         //保存
         $('#btnSave').on('click', function () {
-            var id = $("#dataId").val();
+            var parameter = $.getParameters();
+            var id = parameter.dataId;
             var $this = $(this);
             _ajax($this, '保存',webBasePath+'/discoveryTypes/'+id);
         });
@@ -62,8 +64,14 @@ jQuery(function(){
                     var discoveryTypes = result.discoveryType;
                     if(discoveryTypes){
                         $("#dataId").val(discoveryTypes.id);
-                        $("#name").val(discoveryTypes.name);
-                        $("#sortNo").val(discoveryTypes.sortNo);
+                        $("#title").val(discoveryTypes.name);
+                        $("#hotline").val(discoveryTypes.hotline);
+                        ue.render("editor");
+                        var ueContentHtml = discoveryTypes.content;
+                        ue.addListener("ready", function () {
+                            ue.setContent(ueContentHtml, false);
+                        });
+
                     }
                 }else{
                     FOXKEEPER_UTILS.alert('warning', result.message);
@@ -93,7 +101,7 @@ jQuery(function(){
                         if (result.success) {
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
-                                location.replace("/view/customercenter/lawyermanagement/speciality/specialityList.jsp");
+                                location.replace("/view/contentmanager/repository/foundclassity/foundClassityList.jsp");
                             }, 1000);
                         }else
                         {
@@ -115,8 +123,9 @@ jQuery(function(){
         ajaxdata.username = professionalField._d;
         ajaxdata.password = professionalField._p;
         ajaxdata.userType = 2;
-        ajaxdata.id = $("#dataId").val();
-        ajaxdata.name = $("#name").val();
-        ajaxdata.sortNo = $("#sortNo").val();
+
+        ajaxdata.title = $("#title").val();
+        ajaxdata.hotline = $("#hotline").val();
+        ajaxdata.content = ue.getContent();
     }
 });

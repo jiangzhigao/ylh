@@ -1,67 +1,71 @@
 jQuery(function(){
     'use strict';
-    var $form_add = $('#form_add');
-    var ajaxdata = {};
-    $form_add.validate({
+    var $form_edit = $('#form_edit');
+    var queryParam = {},ajaxdata = {};
+    $form_edit.validate({
         rules:{
-          title:{
+            loginName:{
                 required:true,
             },
-            content:{
+            oldPwd:{
+
                 required:true,
             },
-            summary:{
+            newPwd:{
                 required:true,
             },
-            isDisplay:{
+            confirmAgainPwd:{
                 required:true,
             }
         },
         messages:{
-            title:{
-                required:"标题不能为空"
+            loginName:{
+                required:"登陆名不能为空"
             },
-            content:{
-                required:"内容不能为空"
+            oldPwd:{
+                required:"原密码不能为空"
             },
-            summary:{
-                required:"摘要不能为空"
+            newPwd:{
+                required:"新密码不能为空"
+            },
+            confirmAgainPwd:{
+                required:"再次输入新密码不能为空"
             }
         }
     });
 
+    //渲染
     _init();
-
+    //绑定
     _bind();
-
-    _render();
-
-    /** 渲染 **/
-    function _render() {
-
-    }
-
-    /** 初始化 **/
+    //初始化
     function _init(){
-
+        //初始化列表
+        var managers = $.getuuuAuth();
+        $("#loginName").val(managers._d);
+        // queryParam.username = managers._d;
+        // _initData();
     }
 
-    /** 绑定事件 **/
-    function _bind() {
+    //绑定事件
+    function _bind () {
         //保存
         $('#btnSave').on('click', function () {
+            // var parameter = $.getParameters();
+            // var id = parameter.dataId;
             var $this = $(this);
-            _ajax($this, '保存',webBasePath+'/agreementHelps');
+            _ajax($this, '保存',webBasePath+'/managers/updatePassword');
         });
+
         //返回
         $('#btnBack').on('click', function () {
             window.history.back();
         });
-
     }
 
+    //保存
     function _ajax($this, buttonText, reUrl) {
-        var formValid = $form_add.validate().form();
+        var formValid = $form_edit.validate().form();
         if (formValid) {
             _setAjaxData();
                 jQuery.ajax({
@@ -70,14 +74,12 @@ jQuery(function(){
                     data: ajaxdata,
                     type: "POST",
                     success: function (result) {
-                        var recUrl,data = result.agreementHelps;
                         if (result.success) {
                             FOXKEEPER_UTILS.alert('success',result.message);
-                            setTimeout(function(){
-                                location.replace("/view/contentmanager/help/helpList.jsp");
-                            }, 1000);
-                        }
-                        else
+                            // setTimeout(function(){
+                            //     location.replace("/view/contentmanager/help/helpList.jsp ");
+                            // }, 1000);
+                        }else
                         {
                             FOXKEEPER_UTILS.alert('warning',result.message);
                             $this.html(buttonText).attr("disabled", false);
@@ -87,15 +89,16 @@ jQuery(function(){
                         $this.html('<i class=\"fa fa-spinner\"></i>&nbsp;正在' + buttonText).attr("disabled", "disabled");
                     }
                 });
-        }
+            }
+        return false;
     }
 
     function _setAjaxData () {
-        var user = $.reqHomeUrl();
-        ajaxdata.username = user._d;
-        ajaxdata.password = user._p;
+        var managers = $.reqHomeUrl();
+        ajaxdata.username = managers._d;
+        ajaxdata.password = managers._p;
         ajaxdata.userType = 2;
-        ajaxdata.title = $("#title").val();
-
+        ajaxdata.oldPassword = $("#oldPwd").val();
+        ajaxdata.newPassword = $("#newPwd").val();
     }
 });

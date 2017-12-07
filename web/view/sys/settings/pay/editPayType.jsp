@@ -63,13 +63,13 @@
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
+                        <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="amount">PaymentID</label>
+                                        <label class="col-xs-2 control-label" for="paymentId">PaymentID</label>
                                         <div class="col-xs-4">
-                                            <label class="control-label">111</label>
+                                            <label class="control-label" id="paymentId" name="paymentId"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -77,76 +77,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="amount">支付方式</label>
+                                        <label class="col-xs-2 control-label" for="payType">支付方式</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" placeholder="请输入支付方式" id="amount" name="amount"
-                                                   value=""  maxlength="20">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label">LOGO</label>
-                                        <div class="col-xs-5" style="margin-left: -15px;">
-                                            <div class="col-xs-1">
-                                                <div class="img-upload">
-                                                    <input type="hidden" id="coverUrl" value="" name="coverUrl"/>
-                                                    <button id="btnSearch" type="button" class="btn btn-primary">点击添加或修改</button>
-                                                    <input type="file" class="img-upload-file" id="lcimage_upload" name="lcimage_upload" mid="coverImage" uid="coverUrl">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-offset-2 col-xs-12">
-                                    <div class="form-group col-xs-5" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox">
-                                        <img src="/images/nopica.png" class="img-thumbnail" id="coverImage"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="amount">MCHID</label>
-                                        <div class="col-xs-4">
-                                            <input type="text" class="form-control" id="amount" name="amount"
-                                                   value=""  maxlength="20">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="amount">PARTNER_ID</label>
-                                        <div class="col-xs-4">
-                                            <input type="text" class="form-control" id="amount" name="amount"
-                                                   value=""  maxlength="20">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="amount">KEY</label>
-                                        <div class="col-xs-4">
-                                            <textarea id="" name="" maxlength="128" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="amount">排序</label>
-                                        <div class="col-xs-4">
-                                            <input type="text" class="form-control" id="amount" name="amount"
-                                                   value=""  maxlength="20">
+                                            <label class="control-label" id="payType" name="payType"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -155,12 +88,80 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="startTime">状态</label>
+                                        <div class="col-xs-5" style="margin-left: -15px;">
+                                            <div class="col-xs-1">
+                                                <div class="img-upload">
+                                                    <input type="hidden" id="coverUrl" value="" name="coverUrl"/>
+                                                    <%--<button id="btnSearch" type="button" class="btn btn-primary">点击添加或修改</button>--%>
+                                                    <input type="file" class="img-upload-file" id="lcimage_upload" name="lcimage_upload" mid="coverImage" uid="coverUrl">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-xs-2 control-label">LOGO</label>
+                                        <div class="col-xs-4" style="max-width: 120px;max-height: 120px;display: none;" id="imgBox">
+                                            <img src="/images/nopica.png" class="img-thumbnail" id="coverImage"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-xs-2 control-label" for="mchId">MCHID</label>
                                         <div class="col-xs-4">
-                                            <select class="form-control" style="border-color: #e1e1e1;">
-                                                <option value="">状态</option>
-                                                <option value="1">启用</option>
-                                                <option value="0">停用</option>
+                                            <input type="text" class="form-control" id="mchId" name="mchId"
+                                                   value=""  maxlength="20">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-xs-2 control-label" for="partnerId">PARTNER_ID</label>
+                                        <div class="col-xs-4">
+                                            <input type="text" class="form-control" id="partnerId" name="partnerId"
+                                                     maxlength="64">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-xs-2 control-label" for="key">KEY</label>
+                                        <div class="col-xs-4">
+                                            <textarea id="key" name="key" maxlength="128" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-xs-2 control-label" for="sortNo">排序</label>
+                                        <div class="col-xs-4">
+                                            <input type="text" class="form-control" id="sortNo" name="sortNo"  maxlength="20">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-xs-2 control-label" for="status">状态</label>
+                                        <div class="col-xs-4">
+                                            <select class="form-control" style="border-color: #e1e1e1;" id="status">
+                                                <option name="status" value="">状态</option>
+                                                <option name="status" value="1">启用</option>
+                                                <option name="status" value="0">停用</option>
                                             </select>
                                         </div>
                                     </div>
@@ -212,9 +213,12 @@
 </script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
+<script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
-<script type="text/javascript" src="/js/pageScripts/business/coupon/add_coupon.js"></script>
+<script type="text/javascript" src="/js/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
+<script type="text/javascript" src="/js/pageScripts/sys/basic/paytype/edit_paytype.js"></script>
 <!--  FOOTER - END -->
 </body>
 

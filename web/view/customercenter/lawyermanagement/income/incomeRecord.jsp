@@ -69,7 +69,7 @@
                                     <input type="text"  id = "name" class="form-control" placeholder="律师姓名">
                                 </div>
                                 <div class="col-xs-2 move20">
-                                    <select class="form-control" id = "type" style="border-color: #e1e1e1;" placeholder="状态">
+                                    <select class="form-control" id = "type" style="border-color: #e1e1e1;" placeholder="交易类型">
                                         <option value="0">状态</option>
                                         <option value="1">预约</option>
                                         <option value="2">案件委托</option>

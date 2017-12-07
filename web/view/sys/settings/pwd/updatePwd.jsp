@@ -49,14 +49,14 @@
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
+                        <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="title">登陆名</label>
+                                        <label class="col-xs-2 control-label" for="loginName">登陆名</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" id="title" name="title"
-                                                   value="admin"  maxlength="20" readonly>
+                                            <input type="text" class="form-control" id="loginName" name="loginName"
+                                                   maxlength="20" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -64,10 +64,10 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="title">原始密码</label>
+                                        <label class="col-xs-2 control-label" for="oldPwd">原始密码</label>
                                         <div class="col-xs-4">
-                                            <input type="password" class="form-control" id="title" name="title"
-                                                   value="admin"  maxlength="20">
+                                            <input type="password" class="form-control" id="oldPwd" name="oldPwd"
+                                                   maxlength="20">
                                         </div>
                                     </div>
                                 </div>
@@ -75,10 +75,10 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="title">新密码</label>
+                                        <label class="col-xs-2 control-label" for="newPwd">新密码</label>
                                         <div class="col-xs-4">
-                                            <input type="password" class="form-control" id="title" name="title"
-                                                   value="admin"  maxlength="20">
+                                            <input type="password" class="form-control" id="newPwd" name="newPwd"
+                                                    maxlength="20">
                                         </div>
                                     </div>
                                 </div>
@@ -86,10 +86,10 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="title">再次确认新密码</label>
+                                        <label class="col-xs-2 control-label" for="confirmAgainPwd">再次确认新密码</label>
                                         <div class="col-xs-4">
-                                            <input type="password" class="form-control" id="title" name="title"
-                                                   value="admin"  maxlength="20">
+                                            <input type="password" class="form-control" id="confirmAgainPwd" name="confirmAgainPwd"
+                                                    maxlength="20">
                                         </div>
                                     </div>
                                 </div>
@@ -105,7 +105,7 @@
                                 <div class="col-xs-5">
                                     <div class="form-group">
                                         <div class="controls">
-                                            <button type="button" class="btn btn-info" id="btnSave">保存</button>
+                                            <button type="button" class="btn btn-info" id="btnSave">确认修改</button>
                                         </div>
                                     </div>
                                 </div>
@@ -121,8 +121,13 @@
 <!-- END CONTENT -->
 </div>
 <!-- END CONTAINER -->
-
 <script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
+<script type="text/javascript" src="/js/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
+<script type="text/javascript" src="/js/pageScripts/sys/basic/pwd/edit_pwd.js"></script>
+
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->
