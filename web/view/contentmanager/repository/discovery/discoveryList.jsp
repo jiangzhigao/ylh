@@ -65,17 +65,17 @@
                         <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-2 move20">
-                                    <input type="text" id="account" class="form-control" placeholder="请输入标题">
+                                    <input type="text" id="titles" class="form-control" placeholder="请输入标题">
                                 </div>
 
                                 <div class="col-xs-2 move20">
-                                    <select class="form-control" id="status" style="border-color: #e1e1e1;">
+                                    <select class="form-control" id="infoType" name="infoType" style="border-color: #e1e1e1;">
                                         <option value="">请选择分类</option>
-                                        <option value="0">财务咨询</option>
-                                        <option value="1">管理资讯</option>
-                                        <option value="2">营销策划</option>
-                                        <option value="3">常用文书</option>
-                                        <option value="4">法律资源库</option>
+                                        <%--<option value="0">财务咨询</option>--%>
+                                        <%--<option value="1">管理资讯</option>--%>
+                                        <%--<option value="2">营销策划</option>--%>
+                                        <%--<option value="3">常用文书</option>--%>
+                                        <%--<option value="4">法律资源库</option>--%>
                                     </select>
                                 </div>
 

@@ -31,6 +31,7 @@ jQuery(function(){
     _bind();
 
     function _init(){
+        _initInfoTypes();
         //初始化列表
         _initData();
     }
@@ -171,6 +172,33 @@ jQuery(function(){
         });
     }
 
+    //分类ID
+    function _initInfoTypes(){
+        var queryInfoData = {};
+        var user = $.getuuuAuth();
+        queryInfoData.username = user._d;
+        queryInfoData.password = user._p;
+        queryInfoData.userType = 2;
+        jQuery.ajax({
+            dataType: "json",
+            url: webBasePath + '/discoveryTypes',
+            data: queryInfoData,
+            type: "GET",
+            success: function (result) {
+                if (result.success) {
+                    if (result.discoveryTypes != null && result.discoveryTypes.length > 0) {
+                        var data = result.discoveryTypes;
+                        for (var i = 0; i < data.length; i++) {
+                            var obj = data[i];
+                            var dataId = obj.id;
+                            $("#infoType").append('<option value="'+dataId+'">'+obj.name+'</option>');
+                        }
+                    }
+                }
+            }
+        });
+    }
+
     //封装ajax提交数据
     function _setAjaxData () {
         queryParams.pageNo = options.currentPage;
@@ -178,6 +206,8 @@ jQuery(function(){
         queryParams.username = user._d;
         queryParams.password = user._p;
         queryParams.userType = 2;
+        queryParams.title = $("#titles").val();
+        queryParams.infoType = $("#infoType").val();
     }
 
     // $("#chkItemAll").click(function(){

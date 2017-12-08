@@ -4,10 +4,10 @@ jQuery(function(){
     var ajaxdata = {};
     $form_add.validate({
         rules:{
-          title:{
+            title:{
                 required:true,
             },
-          content:{
+            content:{
                 required:true,
             }
         },
@@ -66,8 +66,8 @@ jQuery(function(){
             }
             //图片大小判断
             var imgSize = document.getElementById("lcimage_upload").files[0].size;
-            if(imgSize>1024*2000){
-                FOXKEEPER_UTILS.alert('warning', '图片尺寸请小于2M');
+            if(imgSize>1024*1000){
+                FOXKEEPER_UTILS.alert('warning', '图片尺寸请小于1M');
                 $("#lcimage_upload").val("");
                 $("#imgBox").hide();
                 return false;
@@ -119,28 +119,28 @@ jQuery(function(){
         var formValid = $form_add.validate().form();
         if (formValid) {
             _setAjaxData();
-                jQuery.ajax({
-                    dataType: "json",
-                    url: reUrl,
-                    data: ajaxdata,
-                    type: "POST",
-                    success: function (result) {
-                        var recUrl,data = result.entrust;
-                        if (result.success) {
-                            FOXKEEPER_UTILS.alert('success',result.message);
-                            setTimeout(function(){
-                                location.replace("/view/contentmanager/activity/activity/activityList.jsp");
-                            }, 1000);
-                        }else
-                        {
-                            FOXKEEPER_UTILS.alert('warning',result.message);
-                            $this.html(buttonText).attr("disabled", false);
-                        }
-                    },
-                    beforeSend: function () {// 设置表单提交前方法    
-                        $this.html('<i class=\"fa fa-spinner\"></i>&nbsp;正在' + buttonText).attr("disabled", "disabled");
+            jQuery.ajax({
+                dataType: "json",
+                url: reUrl,
+                data: ajaxdata,
+                type: "POST",
+                success: function (result) {
+                    var recUrl,data = result.entrust;
+                    if (result.success) {
+                        FOXKEEPER_UTILS.alert('success',result.message);
+                        setTimeout(function(){
+                            location.replace("/view/contentmanager/activity/topic/topicList.jsp");
+                        }, 1000);
+                    }else
+                    {
+                        FOXKEEPER_UTILS.alert('warning',result.message);
+                        $this.html(buttonText).attr("disabled", false);
                     }
-                });
+                },
+                beforeSend: function () {// 设置表单提交前方法    
+                    $this.html('<i class=\"fa fa-spinner\"></i>&nbsp;正在' + buttonText).attr("disabled", "disabled");
+                }
+            });
         }
     }
 
@@ -149,7 +149,7 @@ jQuery(function(){
         ajaxdata.username = user._d;
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
-        ajaxdata.type = 1;
+        ajaxdata.type = 0;
         ajaxdata.title = $("#title").val();
         ajaxdata.content = $("#content").val();
         ajaxdata.picture = $("#coverUrl").val();

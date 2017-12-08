@@ -5,10 +5,10 @@
 
     <style type="text/css">
         .dropdown-toggle{
-            margin-right: -5px;
+            margin-right: -10px;
         }
         .move20{
-            margin-right: -10px;
+            margin-right: -20px;
         }
         .dropdown-menu {
             min-width: 40px;
@@ -29,7 +29,7 @@
             background-color: #cccccc;
         }
         a {
-            color: #333;
+            color: #666666;
         }
     </style>
 </head>
@@ -43,21 +43,21 @@
 <%@ include file="/view/frame/sidebar.jsp"%>
 <!--  SIDEBAR - END -->
 <script type='text/javascript'>
-    ___system_navigation_config.currentNav = ___system_navigation_config.nav.cnt_classifyList;
+    ___system_navigation_config.currentNav = ___system_navigation_config.nav.cnt_topic_list;
 </script>
 <!-- START CONTENT -->
 <section id="main-content" class=" " style="">
     <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
         <header class="panel_header" style="background-color: #fff;margin-top:45px;">
-            <h4 class="title pull-left" style="font-size: 15px;">内容管理 / 分类 / 分类列表 </h4>
+            <h4 class="title pull-left" style="font-size: 15px;">内容管理 / 活动管理 / 回复管理 </h4>
         </header>
 
         <div class="col-xs-12">
             <section class="box ">
                 <header class="panel_header">
-                    <h2 class="title pull-left">分类列表</h2>
+                    <h2 class="title pull-left">回复列表</h2>
                     <div class="actions panel_actions pull-right" style="line-height: 23px;">
-                        <a href="addClassify.jsp" class="btn btn-info" style="padding: 3px 6px;margin-top:9px;">
+                        <a href="addReply.jsp" class="btn btn-info"style="padding: 3px 6px;margin-top:9px;">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
@@ -65,16 +65,41 @@
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
                         <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
+                            <div class="row">
+                                <div class="col-xs-2 move20">
+                                    <input type="text" id="account" class="form-control" placeholder="请输入标题">
+                                </div>
 
+                                <div class="col-xs-2 move20">
+                                    <select class="form-control" id="status" style="border-color: #e1e1e1;">
+                                        <option value="">请选择状态</option>
+                                        <option value="0">未审核</option>
+                                        <option value="1">审核通过</option>
+                                        <option value="2">审核未通过</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-xs-2">
+                                    <%--<div class="form-group">--%>
+                                    <div class="controls">
+                                        <button id="btnSearch" type="button" class="btn btn-info">搜索</button>
+                                    </div>
+                                    <%--</div>--%>
+                                </div>
+                            </div>
                         </form>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
-                                <th>分类ID</th>
-                                <th>分类名称</th>
-                                <th>分类颜色</th>
-                                <th>排序</th>
+                                <th>ID</th>
+                                <th>标题</th>
+                                <th>点赞数</th>
+                                <th>回复数</th>
+                                <th>发布时间</th>
                                 <th>更新时间</th>
+                                <th>发布人</th>
+                                <th>置顶</th>
+                                <th>审核状态</th>
                                 <th style="text-align: right">操作</th>
                             </tr>
                             </thead>
@@ -100,7 +125,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
-<script type="text/javascript" src="/js/pageScripts/content/classify/classifyList.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/activity/topic/query_reply.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

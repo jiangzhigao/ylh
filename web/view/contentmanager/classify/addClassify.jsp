@@ -119,7 +119,7 @@
 <script type="text/javascript" src="/js/pageScripts/content/classify/add_classify.js"></script>
 <script type="text/javascript">
     $(function(){
-        $("#color").bigColorpicker("color","L",3);
+        $("#color").bigColorpicker("color","L",6);
     });
 
 </script>

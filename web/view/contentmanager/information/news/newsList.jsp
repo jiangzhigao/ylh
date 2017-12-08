@@ -9,8 +9,8 @@
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 100px;
-            width: 90px;
+            min-width: 40px;
+            width: 40px;
         }
         a:hover {
             text-decoration: none;

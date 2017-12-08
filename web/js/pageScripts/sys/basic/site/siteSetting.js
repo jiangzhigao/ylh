@@ -198,13 +198,12 @@ jQuery(function(){
                         $("#serviceStandard").val(basic.serviceStandard);
                         $("#lawyerDesc").val(basic.lawyerDesc);
                         $("#lawyerStandard").val(basic.lawyerStandard);
-                        $("#coverImage").attr("src",homePath + basic.image);
+                        $("#coverImage").attr("src",homePath + basic.servicePic);
                         // $("#coverUrl").val(homePath + loopImage.picture);
                         // $("#coverImage1").attr("src",homePath + loopImage.image2);
                         // $("#coverUrl1").val(homePath + loopImage.picture);
                         // $("#coverImage2").attr("src",homePath + loopImage.image3);
                         // $("#coverUrl2").val(homePath + loopImage.picture);
-
                         $("#imgBox").show();
                     }
                 }else{

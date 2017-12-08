@@ -4,13 +4,15 @@
     <%@ include file="/view/frame/head.jsp"%>
 
     <style type="text/css">
-
+        .dropdown-toggle{
+            margin-right: -10px;
+        }
         .move20{
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 100px;
-            width: 90px;
+            min-width: 40px;
+            width: 40px;
         }
         a:hover {
             text-decoration: none;
@@ -98,7 +100,7 @@
                                 <th>发布人</th>
                                 <th>置顶</th>
                                 <th>审核状态</th>
-                                <th>操作</th>
+                                <th style="text-align: right">操作</th>
                             </tr>
                             </thead>
                             <tbody>

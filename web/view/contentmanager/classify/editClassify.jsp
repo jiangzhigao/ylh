@@ -2,7 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <head>
     <%@ include file="/view/frame/head.jsp"%>
-    <link href="/js/plugins/colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet" type="text/css" media="screen"/>
+
+    <link rel="stylesheet" type="text/css" href="/js/plugins/xxcolorpicker/css/jquery.bigcolorpicker.css" />
     <style type="text/css">
 
         .move40{
@@ -65,10 +66,10 @@
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label" for="color">分类颜色</label>
-                                        <div class="col-xs-5">
-                                            <input type="text" class="form-control colorpicker  colorpicker-element" data-horizontal="true"
+                                        <div class="col-xs-4">
+                                            <input type="text" class="form-control"
                                                    placeholder="请选择分类颜色" value="" id="color" name="color"
-                                                   maxlength="16">
+                                                   maxlength="10">
                                         </div>
                                     </div>
                                 </div>
@@ -117,11 +118,14 @@
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
-<script type="text/javascript" src="/js/plugins/colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<%--<script type="text/javascript" src="/js/plugins/colorpicker/js/bootstrap-colorpicker.min.js"></script>--%>
+<script type="text/javascript" src="/js/plugins/xxcolorpicker/js/jquery.bigcolorpicker.min.js"></script>
 <script type="text/javascript" src="/js/custom/request-util.js"></script>
 <script type="text/javascript" src="/js/pageScripts/content/classify/edit_classify.js"></script>
 <script type="text/javascript">
-    /*$('.colorpicker').colorpicker();*/
+    $(function(){
+        $("#color").bigColorpicker("color","L",6);
+    });
 </script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>

@@ -1,6 +1,5 @@
 jQuery(function(){
     'use strict';
-
     var $paginationContainer = $('#paginationContainer');
     //分页功能
     var options = {
@@ -32,47 +31,113 @@ jQuery(function(){
 
     function _init(){
         //初始化列表
-        _initData();
+        var parameter = $.getParameters();
+        var id = parameter.dataId;
+        //初始化列表
+        _initData(id);
     }
 
     function _bind () {
         /**  检索 */
         $('#btnSearch').click(function () {
-            _initData();
+            //初始化列表
+            var parameter = $.getParameters();
+            var id = parameter.dataId;
+            _initData(id);
         });
         /** 操作列表 */
         $('body').on('click', ".opt li a", function() {
             var $this = $(this);
             var id = $this.attr('bid');
-            if($this.parent().index()==0){
+            var index = $this.parent().index();
+            if(index==0){
                 var bizUrl = $this.attr('bz-url');
                 window.location.href = bizUrl+'?dataId='+id;
-            }else{//删除操作
+            }else if(index==1){//置顶
                 //no-editable
                 if(!($this.hasClass("no-editable"))){
-                    var reqUrl = webBasePath+'/infoTypes/'+id;
-                    _userBlocked($this,reqUrl);
+                    isTop($this,id);
                 }
+            }else if(index==3){//删除操作
+                _delete(id,$this);
             }
         });
     }
-    function _userBlocked($this,reUrl){
+
+    function _delete(id,$this) {
+        var delData = {};
+        var user = $.reqHomeUrl();
+        delData.username = user._d;
+        delData.password = user._p;
+        delData.userType = 2;
+        delData._method = "delete";
+        bootbox.dialog({
+            title: "",
+            message: '<div class="row">  ' +
+            '<div class="col-xs-12"> ' +
+            '请确认是否删除该管理员？' +
+            '</div></div>',
+            buttons: {
+                cancel: {
+                    label: "取消操作",
+                    className: "btn-cancel",
+                    callback: $.noop
+                },
+                confirm: {
+                    label: "确定删除",
+                    className: "btn-info",
+                    callback: function () {
+                        jQuery.ajax({
+                            dataType: "json",
+                            url: webBasePath + '/activitys/' + id,
+                            data: delData,
+                            type: "POST",
+                            success: function (result) {
+                                if (result.success) {
+                                    FOXKEEPER_UTILS.alert('success', result.message);
+                                    $this.parent().parent().parent().parent().parent().remove();
+                                }
+                                else {
+                                    FOXKEEPER_UTILS.alert('warning', result.message);
+                                }
+                            }
+                        });
+                        return true;
+                    }
+                }
+            }
+        })
+    }
+
+
+    //置顶
+    function isTop($this,id) {
+        // var parameter = $.getParameters();
+        // var id = parameter.dataId;
         var ajaxdata = {};
         var user = $.getuuuAuth();
         ajaxdata.username = user._d;
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
-        ajaxdata._method = 'delete'
+        ajaxdata.type = 0;
+        ajaxdata.isTop = 1;
         jQuery.ajax({
             dataType: "json",
-            url: reUrl,
+            url: webBasePath+'/comments/'+id,
             data: ajaxdata,
             type: "POST",
             success: function (result) {
                 if (result.success) {
-                    $this.addClass("no-editable");
-                    $this.parent().parent().parent().parent().parent().remove();
                     FOXKEEPER_UTILS.alert('success',result.message);
+                    // window.location.reload();
+                    $this.addClass("no-editable");
+                    $this.parent().parent().parent().parent().prev().prev().text("置顶")
+                    var strStatus= ["未置顶","置顶"];
+                    $("#isTop").val(1)
+                    $("#isTop").text(strStatus[1]);
+                }else{
+                    FOXKEEPER_UTILS.alert('warning',result.message);
+                    $this.html(buttonText).attr("disabled", false);
                 }
             }
         });
@@ -101,52 +166,52 @@ jQuery(function(){
         _operHtml.push('<div class="btn-group">');
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url="/view/contentmanager/classify/editClassify.jsp" bid="'+id+'">编辑</a></li>');
-
-        _operHtml.push('<li><a href="javascript:;"bid="'+id+'" >删除</a></li>');
+        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url="/view/contentmanager/activity/topic/editTopic.jsp" bid="'+id+'">编辑</a></li>');
+        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url href="javascript:" bid="'+id+'">删除</a></li>');
         _operHtml.push('</ul></div>');
 
         return  _operHtml.join('');
     }
 
-    function _initData () {
+    function _initData (id) {
         _reset();
         _setAjaxData();
+        queryParams.activityId =id;
         jQuery.ajax({
             dataType: "json",
-            url: webBasePath + '/infoTypes',
+            url: webBasePath + '/comments',
             data: queryParams,
             type: "GET",
             success: function (result) {
                 if (result.success) {
                     var $dataList = $('#dataList');
                     var $pageTotalRecord = $('#pageTotalRecord');
-                    if (result.infoTypes != null && result.infoTypes.length > 0) {
+                    if (result.comments != null && result.comments.length > 0) {
                         var _html = new Array();
-                        var data = result.infoTypes;
+                        var data = result.comments;
+                        var  statusArray = ["未审核","审核通过","审核未通过"]
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
+                            var statusInt = parseInt(obj.status);
                             var dataId = obj.id;
                             _html.push('<tr>');
                             _html.push('<td>' + obj.id + '</td>');
-                            _html.push('<td>' + obj.name + '</td>');
-                            _html.push('<td style="color: '+obj.color+'">' + obj.color + '</td>');
-                            _html.push('<td>' + obj.sortNo + '</td>');
+                            _html.push('<td>' + obj.title + '</td>');
+                            _html.push('<td>' + obj.replyNumber + '</td>');
+                            _html.push('<td>' + obj.announceUser + '</td>');
+                            _html.push('<td>' + obj.createdTime + '</td>');
                             _html.push('<td>' + obj.updatedTime + '</td>');
-                            _html.push('<td style="text-align: right;">' +  _optionsHtml(dataId) + '</td>');
-                            // _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
+                            _html.push('<td>' + (obj.isTop==1?"置顶":"不置顶") + '</td>');
+                            _html.push('<td>' + (statusArray[statusInt]) + '</td>');
+                            _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');
                         }
-
                         $dataList.find('tbody').html(_html.join(''));
-
-                        options.totalPages = _sumTotalPages(result.infoTypes.length);
+                        options.totalPages = _sumTotalPages(result.comments.length);
                         $paginationContainer.bootstrapPaginator(options);
-
                         $('#batchDeleteDiv').show();
-
                         $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite"> 共'
-                             + result.infoTypes.length + '条记录，当前为第 ' + options.currentPage + ' 页');
+                            + result.comments.length + '条记录，当前为第 ' + options.currentPage + ' 页');
                     } else {
                         $('#batchDeleteDiv').hide();
                         $dataList.find('tbody').html('');
@@ -161,14 +226,15 @@ jQuery(function(){
         });
     }
 
-
     //封装ajax提交数据
     function _setAjaxData () {
-        queryParams.pageNo = options.currentPage;
+        // queryParams.pageNo = options.currentPage;
         var user = $.getuuuAuth();
         queryParams.username = user._d;
         queryParams.password = user._p;
         queryParams.userType = 2;
     }
-
 });
+
+
+

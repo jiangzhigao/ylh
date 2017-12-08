@@ -50,7 +50,10 @@ jQuery(function(){
             }else if(index==2){//删除操作
                 _delete(id,$this);
             }else if(index==1){
-                isTop(id);
+                //no-editable
+                if(!($this.hasClass("no-editable"))){
+                    isTop($this,id);
+                }
             }
         });
     }
@@ -123,7 +126,7 @@ jQuery(function(){
     }
 
     //置顶
-    function isTop(id) {
+    function isTop($this,id) {
         // var parameter = $.getParameters();
         // var id = parameter.dataId;
         var ajaxdata = {};
@@ -132,7 +135,7 @@ jQuery(function(){
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
         ajaxdata.type = 1;
-        ajaxdata.istop =true;
+        ajaxdata.isTop = 1;
         jQuery.ajax({
             dataType: "json",
             url: webBasePath+'/activitys/'+id,
@@ -141,6 +144,10 @@ jQuery(function(){
             success: function (result) {
                 if (result.success) {
                     FOXKEEPER_UTILS.alert('success',result.message);
+                    // window.location.reload();
+                    // $this.parent().parent().parent().parent().parent().;
+                    $this.addClass("no-editable");
+                    $this.parent().parent().parent().parent().prev().prev().text("置顶")
                     var strStatus= ["未置顶","置顶"];
                     $("#isTop").val(1)
                     $("#isTop").text(strStatus[1]);
@@ -176,7 +183,7 @@ jQuery(function(){
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
         _operHtml.push('<li><a bz-url="/view/contentmanager/activity/activity/editActivity.jsp" bid="'+id+'">编辑</a></li>');
-        _operHtml.push('<li><a no-editable href="javascript:'+isTop(id)+'">置顶</a></li>');
+        _operHtml.push('<li><a bz-url href="javascript:" bid="'+id+'">置顶</a></li>');
         _operHtml.push('<li><a href="javascript:" bid="'+id+'">删除</a></li>');
         _operHtml.push('</ul></div>');
 
@@ -209,7 +216,11 @@ jQuery(function(){
                             _html.push('<td>' + obj.announceUser + '</td>');
                             _html.push('<td>' + obj.createdTime + '</td>');
                             _html.push('<td>' + obj.updatedTime + '</td>');
-                            _html.push('<td>' + obj.userId + '</td>');
+                            if(obj.lawyer){
+                                _html.push('<td>' + obj.lawyer.name + '</td>');
+                            }else{
+                                _html.push('<td>' + obj.userId + '</td>');
+                            }
                             _html.push('<td>' + (obj.isTop==1?"置顶":"不置顶") + '</td>');
                             _html.push('<td>' + (statusArray[statusInt]) + '</td>');
                             _html.push('<td>' +  _optionsHtml(dataId) + '</td>');

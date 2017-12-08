@@ -61,14 +61,14 @@
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
+                        <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="userName">标题</label>
-                                        <div class="col-xs-5">
+                                        <label class="col-xs-2 control-label" for="title">标题</label>
+                                        <div class="col-xs-4">
                                             <input type="text" class="form-control"
-                                                   placeholder="请输入标题" value="" id="userName" name="userName"
+                                                   placeholder="请输入标题" value="" id="title" name="title"
                                                    maxlength="24">
                                         </div>
                                     </div>
@@ -76,26 +76,20 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="activityDesc">内容</label>
-                                        <div class="col-xs-5">
-                                            <textarea id="activityDesc" name="activityDesc" maxlength="128" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 120px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
+                                    <div class="form-group ">
+                                        <label class="col-xs-2 control-label" for="content">内容</label>
+                                        <div class="col-xs-4">
+                                            <textarea id="content" name="content" maxlength="128" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 60px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-xs-offset-2 col-xs-10">
-                                    <div class="form-group col-xs-5" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox">
-                                        <img src="/images/nopica.png" class="img-thumbnail" id="coverImage"/>
-                                    </div>
-                                </div>
-                            </div>
+
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">图片</label>
-                                        <div class="col-xs-5" style="margin-left: -15px;">
+                                        <div class="col-xs-4" style="margin-left: -15px;">
                                             <div class="col-xs-1">
                                                 <div class="img-upload">
                                                     <input type="hidden" id="coverUrl" value="" name="coverUrl"/>
@@ -108,11 +102,18 @@
                                 </div>
                             </div>
                             <div class="row">
+                                <div class="col-xs-offset-2 col-xs-10">
+                                    <div class="form-group col-xs-4" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox">
+                                        <img src="/images/nopica.png" class="img-thumbnail" id="coverImage"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">点赞数</label>
                                         <div class="col-xs-5">
-                                            <label class="control-label">100</label>
+                                            <label class="control-label" id="praiseNumber" name="praiseNumber">100</label>
                                         </div>
                                     </div>
                                 </div>
@@ -122,57 +123,68 @@
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label">回复数</label>
                                         <div class="col-xs-5">
-                                            <label class="control-label">100</label>
+                                            <label class="control-label" id="replyNumber" name="replyNumber">100</label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">发布时间</label>
-                                        <div class="col-xs-5">
-                                            <label class="control-label">2017-08-08 15:30:20</label>
+                                        <div class="col-xs-4">
+                                            <label id="createdTime" name="createdTime" class="control-label" style="font-weight: 500;"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">更新时间</label>
-                                        <div class="col-xs-5">
-                                            <label class="control-label">2017-08-08 15:30:20</label>
+                                        <div class="col-xs-4">
+                                            <label id="updatedTime" name="updatedTime" class="control-label" style="font-weight: 500;"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">发布人</label>
-                                        <div class="col-xs-5">
-                                            <label class="control-label">系统</label>
+                                        <div class="col-xs-4">
+                                            <label id="announceUser" name="announceUser" class="control-label" style="font-weight: 500;"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">置顶</label>
-                                        <div class="col-xs-5">
-                                            <label class="control-label">未置顶</label>
+                                        <div class="col-xs-4">
+                                            <label id="isTop" name="isTop" class="control-label" style="font-weight: 500;"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group btom">
                                         <label class="col-xs-2 control-label">审核状态</label>
-                                        <div class="col-xs-5">
-                                            <label class="control-label">审核通过</label>
+                                        <div class="col-xs-4">
+                                            <label id="status" name="status" class="control-label" style="font-weight: 500;"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="isNotPass" class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group btom">
+                                        <label class="col-xs-2 control-label">审核</label>
+                                        <div class="col-xs-4">
+                                            <button id="passBtn" type="button" class="btn btn-info">通过</button>
+                                            <button id="notPassBtn" type="button" class="btn btn-danger">不通过</button>
                                         </div>
                                     </div>
                                 </div>
@@ -185,16 +197,16 @@
                             <div class="row">
                                 <div class="col-xs-3">
                                 </div>
-                                <div class="col-xs-5">
+                                <div class="col-xs-4">
                                     <div class="form-group">
                                         <div class="controls">
                                             <button type="button" class="btn btn-danger" id="btnDel">删除</button>
                                             &nbsp;
                                             <button type="button" class="btn btn-info" id="btnSave">保存</button>
                                             &nbsp;
-                                            <button type="button" class="btn btn-info" id="btn2">置顶</button>
+                                            <button type="button" class="btn btn-info" id="btnIsTop">置顶</button>
                                             &nbsp;
-                                            <button type="button" class="btn btn-info" id="btn3">回复管理</button>
+                                            <button type="button" class="btn btn-info" id="btnRepley">回复管理</button>
                                         </div>
                                     </div>
                                 </div>
@@ -214,7 +226,9 @@
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
-<%--<script type="text/javascript" src="/js/pageScripts/custom/member/add_member.js"></script>--%>
+<script type="text/javascript" src="/js/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/activity/topic/edit_topic.js"></script>
 <script type="text/javascript">
     /*$('.colorpicker').colorpicker();*/
 </script>
