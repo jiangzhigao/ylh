@@ -5,8 +5,8 @@
     $.extend({
 
         secretKey:"ylx9572cipher",
-        homeUrl:"http://106.14.10.28:8080/",
-        /*homeUrl:"http://localhost:8080/",*/
+        /*homeUrl:"http://106.14.10.28:8080/",*/
+        homeUrl:"http://localhost:8080/",
         /**
          * 加密
          * @param str
@@ -135,13 +135,15 @@
         ,reqHomeUrl:function(){
             var user = this.getuuuAuth();
             if(typeof (user) == 'undefined'){
-                window.location.href = this.homeUrl;
+                window.parent.location.href = this.homeUrl;
+                //window.location.href = this.homeUrl;
             }
             return user;
         }
         ,loginOut:function(){
             localStorage.clear();
-            window.location.href = this.homeUrl;
+            window.parent.location.href = this.homeUrl;
+            //window.location.href = this.homeUrl;
         }
         ,getMenuList:function () {
             var data=localStorage.getItem("_ms");

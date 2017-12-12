@@ -45,7 +45,8 @@ jQuery(function(){
             var id = $this.attr('bid');
             if($this.parent().index()==0){
                 var bizUrl = $this.attr('bz-url');
-                window.location.href = bizUrl+'?dataId='+id;
+                bizUrl = bizUrl+'?dataId='+id;
+                $this.attr("href",bizUrl);
             }else{//删除操作
                 //no-editable
                 if(!($this.hasClass("no-editable"))){
@@ -98,7 +99,7 @@ jQuery(function(){
     function _optionsHtml(id){
         var _operHtml = [];
         _operHtml.push('<div class="btn-group">');
-        _operHtml.push('<a style="color: #337AB7;" href="/view/customercenter/membermanagement/feedback/feedbackDetail.jsp?dataId='+id+'">查看详情</a>');
+        _operHtml.push('<a style="color: #337AB7;" href="/view/customercenter/membermanagement/feedback/feedbackDetail_.jsp?dataId='+id+'" target="ylxmain">查看详情</a>');
         _operHtml.push('</div>');
         return  _operHtml.join('');
     }

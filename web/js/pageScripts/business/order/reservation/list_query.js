@@ -53,8 +53,9 @@ jQuery(function(){
                  }else{
                  bizUrl = "/view/legalcase/entrust/caseEntrustDetail.jsp";
                  }*/
-                bizUrl = "/view/business/order/reservation/orderDetail.jsp";
-                window.location.href = bizUrl+'?dataId='+id+'&status='+s;
+                bizUrl = "/view/business/order/reservation/orderDetail_.jsp";
+                bizUrl = bizUrl+'?dataId='+id+'&status='+s;
+                $this.attr("href",bizUrl);
             }else if(index==1){//沟通时间
                 //no-editable
                 if(!($this.hasClass("no-editable"))){
@@ -97,7 +98,7 @@ jQuery(function(){
 
     function _optionsHtml(id,clz){
         var _operHtml = [];
-        _operHtml.push('<a href="serviceOrderDetail.jsp?dataId='+id+'" style="color: #337AB7;">详情</a>');
+        _operHtml.push('<a href="serviceOrderDetail_.jsp?dataId='+id+'" style="color: #337AB7;" target="ylxmain">详情</a>');
         return  _operHtml.join('');
     }
 
@@ -148,7 +149,7 @@ jQuery(function(){
                             _operHtml.push('<div class="btn-group">');
                             _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">查看详情<span class="caret"></span></a>');
                             _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-                            _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="#" bid="'+dataId+'" s="'+reserveStatus+'">查看详情</a></li>');
+                            _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="#" bid="'+dataId+'" s="'+reserveStatus+'" target="ylxmain">查看详情</a></li>');
                             if(reserveStatus == 0){
                                 _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="'+dataId+'" s="'+reserveStatus+'" class="">沟通时间</a></li>');
                             }else{

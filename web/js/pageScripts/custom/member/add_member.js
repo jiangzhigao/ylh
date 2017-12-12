@@ -163,7 +163,7 @@ jQuery(function(){
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
 
-                                location.replace("/view/customercenter/membermanagement/member/memberList.jsp");
+                                location.replace("/view/customercenter/membermanagement/member/memberList_.jsp");
                             }, 1000);
                         }
                         else

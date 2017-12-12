@@ -117,7 +117,7 @@ jQuery(function(){
                                 if (result.success) {
                                     FOXKEEPER_UTILS.alert('success', result.message);
                                     setTimeout(function(){
-                                        location.replace("/view/business/order/service/serviceOrderList.jsp");
+                                        location.replace("/view/business/order/service/serviceOrderList_.jsp");
                                     }, 1000);
                                 }
                                 else

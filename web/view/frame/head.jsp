@@ -14,6 +14,7 @@
 <link href="/css/__base.min.css" rel="stylesheet">
 <script type="text/javascript" src="/js/__jq.js"></script>
 <script type="text/javascript" src="/js/custom/dataCipher.js"></script>
+<script type="text/javascript" src="/js/scripts.js"></script>
 <script src="http://pv.sohu.com/cityjson?ie=utf-8" charset="UTF-8"></script>
 
 <script type="text/javascript">

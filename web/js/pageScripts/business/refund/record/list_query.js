@@ -104,7 +104,7 @@ jQuery(function(){
                             _html.push('<td>' + statusArray[statusInt] + '</td>');
 
                             var _operHtml = []
-                            _operHtml.push('<a style="color: #337AB7;" href="/view/business/refund/record/recordDetail.jsp?dataId='+dataId+'">查看详情</a>');
+                            _operHtml.push('<a style="color: #337AB7;" href="/view/business/refund/record/recordDetail_.jsp?dataId='+dataId+'" target="ylxmain">查看详情</a>');
                             _html.push('<td>' +   _operHtml.join('') + '</td>');
                             _html.push('</tr>');
                         }
@@ -136,11 +136,11 @@ jQuery(function(){
         var bizUrl;
         type = parseInt(type);
         if(type == 0){
-            bizUrl = "/view/business/order/service/serviceOrderDetail.jsp?dataId="+id;
+            bizUrl = "/view/business/order/service/serviceOrderDetail_.jsp?dataId="+id;
         }else if(type == 1){
-            bizUrl = "/view/business/order/reservation/orderDetail.jsp?dataId="+id;
+            bizUrl = "/view/business/order/reservation/orderDetail_.jsp?dataId="+id;
         }else if(type == 2){
-            bizUrl = "/view/business/order/entrust/entrustOrderDetail.jsp?dataId="+id;
+            bizUrl = "/view/business/order/entrust/entrustOrderDetail_.jsp?dataId="+id;
         }
         return bizUrl;
     }

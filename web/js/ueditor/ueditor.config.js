@@ -32,9 +32,9 @@
     var localhostPath = curWwwPath.substring(0, pos);
     var rootPath = localhostPath;
 
+    var baseUrl = "http://localhost:8888/ylx/api";
 	console.info(URL , rootPath);
     URL = rootPath + "/js/ueditor/";
-
     /**
      * 配置项主体。注意，此处所有涉及到路径的配置别遗漏URL变量。
      */
@@ -44,6 +44,7 @@
         UEDITOR_HOME_URL: URL
         // 服务器统一请求接口路径
         , serverUrl: URL + "jsp/controller.jsp",
+        /*, serverUrl: webBasePath,*/
 		webRootPath:rootPath
 
         //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的重新定义
@@ -66,6 +67,7 @@
             'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|','justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|',
             'link', 'unlink', 'insertimage', 'emotion','print', 'preview', 'drafts', 'help'
         ]]
+
         //当鼠标放在工具栏上时显示的tooltip提示,留空支持自动多语言配置，否则以配置值为准
         //,labelMap:{
         //    'anchor':'', 'undo':''

@@ -106,13 +106,15 @@
 <!-- START CONTENT -->
 <section id="main-content" class=" " style="">
     <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
+		<%--<iframe id="main" frameborder="0" style="width: 100%;border: 0;height: auto;">
+		</iframe>--%>
 		<header class="panel_header" style="background-color: #fff;margin-top:45px;">
 			<h4 class="title pull-left" style="font-size: 15px;">首页</h4>
 		</header>
 
 		<%--<div class="col-xs-12">--%>
 			<%--<section class="box">--%>
-				<div class="" style="padding-left: 15px;">
+				<%--<div class="" style="padding-left: 15px;">
 					<div class="">
 						<div class="bus-tab">
 							<div class="bus-md" biz-url="/view/customercenter/membermanagement/member/memberList.jsp">
@@ -210,8 +212,8 @@
 								<div style="width: 40%;float: left;"></div>
 						</div>
 					</div>
-					<%--<div class="clearfix"></div>--%>
-				</div>
+					&lt;%&ndash;<div class="clearfix"></div>&ndash;%&gt;
+				</div>--%>
 			<%--</section>--%>
 		<%--</div>--%>
     </section>

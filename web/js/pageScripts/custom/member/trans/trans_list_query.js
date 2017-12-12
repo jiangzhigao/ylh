@@ -47,7 +47,8 @@ jQuery(function(){
             var id = $this.attr('bid');
             if($this.parent().index()==0){//编辑操作
                 var bizUrl = $this.attr('bz-url');
-                window.location.href = bizUrl+'?dataId='+id;
+                bizUrl = bizUrl+'?dataId='+id;
+                $this.attr("href",bizUrl);
             }else{//冻结操作
                 //no-editable
                 if(!($this.hasClass("no-editable"))){
@@ -80,11 +81,11 @@ jQuery(function(){
         var _operHtml = [],bizUrl;
         type = parseInt(type);
         if(type == 0){
-            bizUrl = "/view/business/order/service/serviceOrderDetail.jsp?dataId="+id;
+            bizUrl = "/view/business/order/service/serviceOrderDetail_.jsp?dataId="+id;
         }else if(type == 1){
-            bizUrl = "/view/business/order/reservation/orderDetail.jsp?dataId="+id;
+            bizUrl = "/view/business/order/reservation/orderDetail_.jsp?dataId="+id;
         }else if(type == 2){
-            bizUrl = "/view/business/order/entrust/entrustOrderDetail.jsp?dataId="+id;
+            bizUrl = "/view/business/order/entrust/entrustOrderDetail_.jsp?dataId="+id;
         }
         _operHtml.push('<a href="'+bizUrl+'" style="color: #337AB7;">查看订单详情</a>');
         return  _operHtml.join('');

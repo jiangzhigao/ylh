@@ -188,7 +188,7 @@ jQuery(function(){
                         if (result.success) {
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
-                                location.replace("/view/legalcase/publish/docEntrustList.jsp");
+                                location.replace("/view/legalcase/publish/docEntrustList_.jsp");
                             }, 1000);
                         }
                         else
@@ -282,7 +282,7 @@ jQuery(function(){
                                 if (result.success) {
                                     FOXKEEPER_UTILS.alert('success', result.message);
                                     setTimeout(function(){
-                                        location.replace("/view/legalcase/publish/caseEntrustList.jsp");
+                                        location.replace("/view/legalcase/publish/caseEntrustList_.jsp");
                                     }, 1000);
                                 }
                                 else

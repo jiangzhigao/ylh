@@ -2,12 +2,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <script type="text/javascript">
     $(function () {
-        var _target = $("#main-menu-wrapper .wraplist li ul>li a[href='" + ___system_navigation_config.currentNav + "']");
+        $(".biz").on("click",function () {
+            var _target = $(this);
+            $("#main-menu-wrapper .biz").removeClass("active");
+            _target.addClass("active");
+            /* var _target = $(this);
+             if(_target.length == 0){
+                 _target.parent().addClass("open");
+             }else {
+            s     _target.addClass("active");
+                 var $menuLi = _target.parent().parent().parent();
+                 $menuLi.addClass('open');
+                 _target.parent().parent().attr("style", "display:block;");
+
+                 var $menuLiParents = $menuLi.closest("#main-menu-wrapper .wraplist ul");
+                 if($menuLiParents.length ==1){
+                     $menuLiParents.attr("style", "display:block;");
+                     $menuLiParents.parent().addClass('open');
+                     $menuLiParents.parent().children("a").find("span:last").addClass('open');
+                 }
+             }*/
+           /* $('#main-menu-wrapper li a').trigger("click");*/
+        });
+        /*var m_f = "/view/frame/menu/";
+        var loadUrl = ___system_navigation_config.currentNav;
+        var _target = $("#main-menu-wrapper .wraplist li ul>li a[href='" +loadUrl + "']");
         if(_target.length == 0){
-            _target = $("#main-menu-wrapper .wraplist li a[href='" + ___system_navigation_config.currentNav + "']");
+            _target = $("#main-menu-wrapper .wraplist li a[href='" + loadUrl + "']");
             _target.parent().addClass("open");
         }else {
-            _target.addClass("active");
+            /!*_target.addClass("active");
             var $menuLi = _target.parent().parent().parent();
             $menuLi.addClass('open');
             _target.parent().parent().attr("style", "display:block;");
@@ -17,10 +41,34 @@
                 $menuLiParents.attr("style", "display:block;");
                 $menuLiParents.parent().addClass('open');
                 $menuLiParents.parent().children("a").find("span:last").addClass('open');
-            }
-        }
-        $('#main-menu-wrapper li a').trigger("click");
+            }*!/
+            _target.addClass("active");
+
+            var $parentUl = _target.parent().parent();
+            var $menuLi = $parentUl.parent();
+            $menuLi.addClass('open');
+            $parentUl.show();
+
+            var $levelUl = $menuLi.parent();
+            $levelUl.show();
+            $levelUl.parent().addClass("open");
+            //$levelUl.parent().remove();
+            /!*var $mainUl = $("#main-menu-wrapper .wraplist");
+            alert($mainUl.length);
+            $mainUl.show();*!/
+            /!*var $menuLiParents = $menuLi.closest("#main-menu-wrapper .wraplist ul");
+            if($menuLiParents.length ==1){
+                $menuLiParents.show();
+                /!*$menuLiParents.parent().addClass('open');
+                $menuLiParents.parent().children("a").find("span:last").addClass('open');*!/
+            }*!/
+        }*/
+        //$('#main-menu-wrapper li a').trigger("click");
     });
+
+    function _prevMenu(){
+
+    }
 
     $(document).ajaxError( function(event, jqXHR, options, errorMsg){
         if (jqXHR.status == 518) {

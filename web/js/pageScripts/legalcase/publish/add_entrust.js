@@ -90,9 +90,9 @@ jQuery(function(){
                             if (result.success) {
                                 FOXKEEPER_UTILS.alert('success',result.message);
                                 if(data.type == 0){
-                                    recUrl = "/view/legalcase/publish/caseEntrustList.jsp";
+                                    recUrl = "/view/legalcase/publish/caseEntrustList_.jsp";
                                 }else if(data.type == 1){
-                                    recUrl = "/view/legalcase/publish/docEntrustList.jsp";
+                                    recUrl = "/view/legalcase/publish/docEntrustList_.jsp";
                                 }
                                 setTimeout(function(){
                                     location.replace(recUrl);

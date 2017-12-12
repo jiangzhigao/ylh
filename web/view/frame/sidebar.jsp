@@ -5,17 +5,17 @@
     <!-- SIDEBAR - START -->
     <div class="page-sidebar ">
         <!-- MAIN MENU - START -->
-        <div class="page-sidebar-wrapper" id="main-menu-wrapper">
+        <div class="page-sidebar-wrapper" id="main-menu-wrapper" style="height: 1200px;">
             <!-- USER INFO - START -->
             <!-- USER INFO - END -->
             <ul class='wraplist'>
-                <li class="">
-                    <a href="/main.jsp">
+                <li class="first biz open">
+                    <a href="/main_.jsp" target="ylxmain">
                         <i class="fa fa-tachometer"></i>
                         <span class="title">首页</span>
                     </a>
-                    <ul class="sub-menu">
-                    </ul>
+                    <%--<ul class="sub-menu">
+                    </ul>--%>
                 </li>
                 <li class="first">
                     <a href="javascript:;">
@@ -24,7 +24,7 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="/view/legalcase/clz/caseClzList.jsp">案件分类</a>
+                            <a href="/view/legalcase/clz/caseClzList_.jsp" target="ylxmain" class="biz">案件分类</a>
                         </li>
                         <li>
                             <a href="javascript:;">
@@ -32,10 +32,10 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/legalcase/entrust/caseEntrustList.jsp">案件委托</a>
+                                    <a href="/view/legalcase/entrust/caseEntrustList_.jsp" target="ylxmain" class="biz">案件委托</a>
                                 </li>
                                 <li>
-                                    <a href="/view/legalcase/entrust/docEntrustList.jsp">文书委托</a>
+                                    <a href="/view/legalcase/entrust/docEntrustList_.jsp" target="ylxmain" class="biz">文书委托</a>
                                 </li>
                             </ul>
                         </li>
@@ -45,13 +45,13 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/legalcase/publish/caseEntrustList.jsp">案件委托</a>
+                                    <a href="/view/legalcase/publish/caseEntrustList_.jsp" target="ylxmain" class="biz">案件委托</a>
                                 </li>
                                 <li>
-                                    <a href="/view/legalcase/publish/docEntrustList.jsp">文书委托</a>
+                                    <a href="/view/legalcase/publish/docEntrustList_.jsp" target="ylxmain" class="biz">文书委托</a>
                                 </li>
                                 <li>
-                                    <a href="/view/legalcase/publish/addEntrust.jsp">添加委托</a>
+                                    <a href="/view/legalcase/publish/addEntrust_.jsp" target="ylxmain" class="biz">添加委托</a>
                                 </li>
                             </ul>
                         </li>
@@ -69,7 +69,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/business/product/serviceClzList.jsp">服务分类</a>
+                                    <a href="/view/business/product/serviceClzList_.jsp" target="ylxmain" class="biz">服务分类</a>
                                 </li>
                             </ul>
                         </li>
@@ -79,13 +79,13 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/business/order/service/serviceOrderList.jsp">服务订单</a>
+                                    <a href="/view/business/order/service/serviceOrderList_.jsp" target="ylxmain" class="biz">服务订单</a>
                                 </li>
                                 <li>
-                                    <a href="/view/business/order/reservation/orderList.jsp">预约订单</a>
+                                    <a href="/view/business/order/reservation/orderList_.jsp" target="ylxmain" class="biz">预约订单</a>
                                 </li>
                                 <li>
-                                    <a href="/view/business/order/entrust/entrustOrderList.jsp">委托订单</a>
+                                    <a href="/view/business/order/entrust/entrustOrderList_.jsp" target="ylxmain" class="biz">委托订单</a>
                                 </li>
                             </ul>
                         </li>
@@ -95,10 +95,10 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/business/cash/apply/withdrawCashApplyList.jsp">提现申请</a>
+                                    <a href="/view/business/cash/apply/withdrawCashApplyList_.jsp" target="ylxmain" class="biz">提现申请</a>
                                 </li>
                                 <li>
-                                    <a href="/view/business/cash/record/withdrawCashRecordList.jsp">提现记录</a>
+                                    <a href="/view/business/cash/record/withdrawCashRecordList_.jsp" target="ylxmain" class="biz">提现记录</a>
                                 </li>
                             </ul>
                         </li>
@@ -108,15 +108,15 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/business/refund/apply/refundApplyList.jsp">退款申请</a>
+                                    <a href="/view/business/refund/apply/refundApplyList_.jsp" target="ylxmain" class="biz">退款申请</a>
                                 </li>
                                 <li>
-                                    <a href="/view/business/refund/record/refundRecordList.jsp">退款记录</a>
+                                    <a href="/view/business/refund/record/refundRecordList_.jsp" target="ylxmain" class="biz">退款记录</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a class="" href="/view/business/coupon/couponList.jsp">抵用券管理</a>
+                            <a class="" href="/view/business/coupon/couponList_.jsp" target="ylxmain" class="biz">抵用券管理</a>
                         </li>
                     </ul>
                 </li>
@@ -132,16 +132,16 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/customercenter/membermanagement/member/memberList.jsp">会员管理</a>
+                                    <a href="/view/customercenter/membermanagement/member/memberList_.jsp" target="ylxmain" class="biz">会员管理</a>
                                 </li>
                                 <li>
-                                    <a href="/view/customercenter/membermanagement/trans/transRecordList.jsp">交易记录</a>
+                                    <a href="/view/customercenter/membermanagement/trans/transRecordList_.jsp" target="ylxmain" class="biz">交易记录</a>
                                 </li>
                                 <li>
-                                    <a href="/view/customercenter/membermanagement/message/leaveMessageList.jsp">留言管理</a>
+                                    <a href="/view/customercenter/membermanagement/message/leaveMessageList_.jsp" target="ylxmain" class="biz">留言管理</a>
                                 </li>
                                 <li>
-                                    <a href="/view/customercenter/membermanagement/feedback/feedbackList.jsp">投诉建议</a>
+                                    <a href="/view/customercenter/membermanagement/feedback/feedbackList_.jsp" target="ylxmain" class="biz">投诉建议</a>
                                 </li>
                             </ul>
                         </li>
@@ -151,16 +151,16 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/customercenter/lawyermanagement/lawyer/lawyerManagementList.jsp">律师管理</a>
+                                    <a href="/view/customercenter/lawyermanagement/lawyer/lawyerManagementList_.jsp" target="ylxmain" class="biz">律师管理</a>
                                 </li>
                                 <li>
-                                    <a href="/view/customercenter/lawyermanagement/speciality/specialityList.jsp">专业领域</a>
+                                    <a href="/view/customercenter/lawyermanagement/speciality/specialityList_.jsp" target="ylxmain" class="biz">专业领域</a>
                                 </li>
                                 <li>
-                                    <a href="/view/customercenter/lawyermanagement/complaint/complaintAndAdviceList.jsp">投诉建议</a>
+                                    <a href="/view/customercenter/lawyermanagement/complaint/complaintAndAdviceList_.jsp" target="ylxmain" class="biz">投诉建议</a>
                                 </li>
                                 <li>
-                                    <a href="/view/customercenter/lawyermanagement/income/incomeRecord.jsp">收入记录</a>
+                                    <a href="/view/customercenter/lawyermanagement/income/incomeRecord_.jsp" target="ylxmain" class="biz">收入记录</a>
                                 </li>
                             </ul>
                         </li>
@@ -178,7 +178,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/contentmanager/classify/classifyList.jsp">分类列表</a>
+                                    <a href="/view/contentmanager/classify/classifyList.jsp" target="main" class="biz">分类列表</a>
                                 </li>
                             </ul>
                         </li>
@@ -188,13 +188,13 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/contentmanager/information/news/newsList.jsp">资讯管理</a>
+                                    <a href="/view/contentmanager/information/news/newsList.jsp" target="main" class="biz">资讯管理</a>
                                 </li>
                                 <li>
-                                    <a href="/view/contentmanager/information/trend/trendList.jsp">动态管理</a>
+                                    <a href="/view/contentmanager/information/trend/trendList.jsp" target="main" class="biz">动态管理</a>
                                 </li>
                                 <li>
-                                    <a href="/view/contentmanager/information/commonweal/commonwealList.jsp">公益管理</a>
+                                    <a href="/view/contentmanager/information/commonweal/commonwealList.jsp" target="main" class="biz">公益管理</a>
                                 </li>
                             </ul>
                         </li>
@@ -204,10 +204,10 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/contentmanager/activity/topic/topicList.jsp">话题管理</a>
+                                    <a href="/view/contentmanager/activity/topic/topicList.jsp" target="main" class="biz">话题管理</a>
                                 </li>
                                 <li>
-                                    <a href="/view/contentmanager/activity/activity/activityList.jsp">活动管理</a>
+                                    <a href="/view/contentmanager/activity/activity/activityList.jsp" target="main" class="biz">活动管理</a>
                                 </li>
                             </ul>
                         </li>
@@ -217,10 +217,10 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/contentmanager/repository/foundclassity/foundClassityList.jsp">发现分类</a>
+                                    <a href="/view/contentmanager/repository/foundclassity/foundClassityList.jsp" target="main" class="biz">发现分类</a>
                                 </li>
                                 <li>
-                                    <a href="/view/contentmanager/repository/discovery/discoveryList.jsp">发现管理</a>
+                                    <a href="/view/contentmanager/repository/discovery/discoveryList.jsp" target="main" class="biz">发现管理</a>
                                 </li>
                             </ul>
                         </li>
@@ -230,7 +230,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/contentmanager/help/helpList.jsp">协议帮助管理</a>
+                                    <a href="/view/contentmanager/help/helpList.jsp" target="main" class="biz">协议帮助管理</a>
                                 </li>
                             </ul>
                         </li>
@@ -243,16 +243,16 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="/view/mobile/version/appVersionList.jsp">app更新设置</a>
+                            <a href="/view/mobile/version/appVersionList_.jsp" target="ylxmain" class="biz">app更新设置</a>
                         </li>
                         <li>
-                            <a href="/view/mobile/message/appPushList.jsp">app消息群发</a>
+                            <a href="/view/mobile/message/appPushList_.jsp" target="ylxmain" class="biz">app消息群发</a>
                         </li>
                         <li>
-                            <a href="/view/mobile/recommend/client/appClientList.jsp">客户端首页推荐管理</a>
+                            <a href="/view/mobile/recommend/client/appClientList_.jsp" target="ylxmain" class="biz">客户端首页推荐管理</a>
                         </li>
                         <li>
-                            <a href="/view/mobile/recommend/lawyer/appLawyerList.jsp">律师端首页推荐管理</a>
+                            <a href="/view/mobile/recommend/lawyer/appLawyerList_.jsp" target="ylxmain" class="biz">律师端首页推荐管理</a>
                         </li>
                     </ul>
                 </li>
@@ -268,22 +268,22 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/sys/settings/site/siteSettings.jsp">站点设置</a>
+                                    <a href="/view/sys/settings/site/siteSettings.jsp" target="main" class="biz">站点设置</a>
                                 </li>
                                 <li>
-                                    <a href="/view/sys/settings/pwd/updatePwd.jsp">密码修改</a>
+                                    <a href="/view/sys/settings/pwd/updatePwd.jsp" target="main" class="biz">密码修改</a>
                                 </li>
                                 <li>
-                                    <a href="/view/sys/settings/pay/payTypeList.jsp">支付设置</a>
+                                    <a href="/view/sys/settings/pay/payTypeList.jsp" target="main" class="biz">支付设置</a>
                                 </li>
                                 <li>
-                                    <a href="/view/sys/settings/district/districtList.jsp">区域设置</a>
+                                    <a href="/view/sys/settings/district/districtList.jsp" target="main" class="biz">区域设置</a>
                                 </li>
                                 <li>
-                                    <a href="/view/sys/settings/bank/bankCodeList.jsp">银行编码设置</a>
+                                    <a href="/view/sys/settings/bank/bankCodeList.jsp" target="main" class="biz">银行编码设置</a>
                                 </li>
                                 <li>
-                                    <a href="/view/sys/settings/coupon/couponRuleList.jsp">抵用券规则设置</a>
+                                    <a href="/view/sys/settings/coupon/couponRuleList.jsp" target="main" class="biz">抵用券规则设置</a>
                                 </li>
                             </ul>
                         </li>
@@ -293,10 +293,10 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/sys/permission/role/roleList.jsp">权限组管理</a>
+                                    <a href="/view/sys/permission/role/roleList_.jsp" target="ylxmain" class="biz">权限组管理</a>
                                 </li>
                                 <li>
-                                    <a href="/view/sys/permission/user/userList.jsp">管理员列表</a>
+                                    <a href="/view/sys/permission/user/userList_.jsp" target="ylxmain" class="biz">管理员列表</a>
                                 </li>
                             </ul>
                         </li>
@@ -314,13 +314,13 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/internet/settings/site/siteSettings.jsp">站点设置</a>
+                                    <a href="/view/internet/settings/site/siteSettings_.jsp" target="ylxmain" class="biz">站点设置</a>
                                 </li>
                                 <li>
-                                    <a href="/view/internet/settings/homepage/slideshowSettings.jsp">首页轮播图设置</a>
+                                    <a href="/view/internet/settings/homepage/slideshowSettings_.jsp" target="ylxmain" class="biz">首页轮播图设置</a>
                                 </li>
                                 <li>
-                                    <a href="/view/internet/settings/about/aboutSettings.jsp">关于设置</a>
+                                    <a href="/view/internet/settings/about/aboutSettings_.jsp" target="ylxmain" class="biz">关于设置</a>
                                 </li>
                             </ul>
                         </li>
@@ -330,7 +330,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/internet/lawfirm/lawFirmList.jsp">线下律所列表</a>
+                                    <a href="/view/internet/lawfirm/lawFirmList_.jsp" target="ylxmain" class="biz">线下律所列表</a>
                                 </li>
                             </ul>
                         </li>
@@ -340,7 +340,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/internet/legaladvice/adviceList.jsp">法律咨询列表</a>
+                                    <a href="/view/internet/legaladvice/adviceList_.jsp" target="ylxmain" class="biz">法律咨询列表</a>
                                 </li>
                             </ul>
                         </li>

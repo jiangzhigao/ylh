@@ -72,11 +72,11 @@ jQuery(function(){
         var bizUrl;
         type = parseInt(type);
         if(type == 0){
-            bizUrl = "/view/business/order/service/serviceOrderDetail.jsp?dataId="+id;
+            bizUrl = "/view/business/order/service/serviceOrderDetail_.jsp?dataId="+id;
         }else if(type == 1){
-            bizUrl = "/view/business/order/reservation/orderDetail.jsp?dataId="+id;
+            bizUrl = "/view/business/order/reservation/orderDetail_.jsp?dataId="+id;
         }else if(type == 2){
-            bizUrl = "/view/business/order/entrust/entrustOrderDetail.jsp?dataId="+id;
+            bizUrl = "/view/business/order/entrust/entrustOrderDetail_.jsp?dataId="+id;
         }
         return bizUrl;
     }
@@ -119,7 +119,7 @@ jQuery(function(){
                                 if (result.success) {
                                     FOXKEEPER_UTILS.alert('success', result.message);
                                     setTimeout(function(){
-                                        location.replace("/view/business/refund/apply/refundApplyList.jsp");
+                                        location.replace("/view/business/refund/apply/refundApplyList_.jsp");
                                     }, 1000);
                                 }
                                 else

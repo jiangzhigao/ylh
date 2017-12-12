@@ -124,7 +124,8 @@ jQuery(function(){
                         }
                         if(entrust.orderId){
                             $("#orderCode").show();
-                            $("#orderDtl").attr("href","/view/business/order/entrust/entrustOrderDetail.jsp?dataId="+entrust.orderId);
+                            $("#orderDtl").attr("href","/view/business/order/entrust/entrustOrderDetail_.jsp?dataId="+entrust.orderId);
+                            $("#orderDtl").attr("target","ylxmain");
                         }
                     }
                 }else{
@@ -219,7 +220,7 @@ jQuery(function(){
                                 if (result.success) {
                                     FOXKEEPER_UTILS.alert('success', result.message);
                                     setTimeout(function(){
-                                        location.replace("/view/legalcase/publish/caseEntrustList.jsp");
+                                        location.replace("/view/legalcase/publish/caseEntrustList_.jsp");
                                     }, 1000);
                                 }
                                 else

@@ -61,7 +61,7 @@ jQuery(function(){
                         alert(user.time);*/
                     	FOXKEEPER_UTILS.alert('success',data.message);
                     	setTimeout(function(){
-                            location.replace('/main.jsp');
+                            location.replace('/fmain.jsp');
                         }, 1000);
                     }
                     else

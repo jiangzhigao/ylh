@@ -53,8 +53,9 @@ jQuery(function(){
                  }else{
                  bizUrl = "/view/legalcase/entrust/caseEntrustDetail.jsp";
                  }*/
-                bizUrl = "/view/business/order/entrust/entrustOrderDetail.jsp";
-                window.location.href = bizUrl+'?dataId='+id+'&status='+s;
+                bizUrl = "/view/business/order/entrust/entrustOrderDetail_.jsp";
+                bizUrl = bizUrl+'?dataId='+id+'&status='+s;
+                $this.attr("href",bizUrl);
             }else{//分红
                 var percentage = 100;
                 if(index==1){
@@ -132,7 +133,7 @@ jQuery(function(){
                             _operHtml.push('<div class="btn-group">');
                             _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">查看详情<span class="caret"></span></a>');
                             _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-                            _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="#" bid="'+dataId+'" s="'+reserveStatus+'">查看详情</a></li>');
+                            _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="#" bid="'+dataId+'" s="'+reserveStatus+'" target="ylxmain">查看详情</a></li>');
                             if(orderStatus == 1){
                                 _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="'+dataId+'" s="'+reserveStatus+'" class="">2.5:7.5分红</a></li>');
                                 _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="'+dataId+'" s="'+reserveStatus+'" class="">3.5:6.5分红</a></li>');

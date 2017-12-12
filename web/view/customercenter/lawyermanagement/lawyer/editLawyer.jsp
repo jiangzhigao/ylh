@@ -339,42 +339,20 @@
                                     </div>
                                     <div class="tab-pane fade" id="case">
                                         <div class="dataTables_wrapper no-footer">
-                                            <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
-                                                <div class="row">
-                                                    <div class="col-xs-2 move20">
-                                                        <input type="text" class="form-control" placeholder="委托编号或名称">
+                                            <form class="form-horizontal" id="form_case" action="#" method="post" novalidate="novalidate">
+                                                <header class="panel_header" style="border: 0px">
+                                                    <h4 class="title pull-left title-bold"></h4>
+                                                    <div class="actions panel_actions pull-right" style="line-height: 23px;">
+                                                        <a href="addServiceClz.jsp" class="btn btn-info" style="padding: 3px 6px;">
+                                                            <span class="glyphicon glyphicon-plus"></span>
+                                                        </a>
                                                     </div>
-                                                    <div class="col-xs-2 move20">
-                                                        <input type="text move20" class="form-control" placeholder="委托人姓名或手机">
-                                                    </div>
-                                                    <div class="col-xs-2 move20">
-                                                        <input type="text" class="form-control" placeholder="代理律师姓名">
-                                                    </div>
-                                                    <div class="col-xs-2 move20">
-                                                        <select class="form-control" style="border-color: #e1e1e1;">
-                                                            <option value="">全部</option>
-                                                            <option value="0">未发布</option>
-                                                            <option value="1">已发布</option>
-                                                            <option value="2">已接案</option>
-                                                            <option value="3">进行中</option>
-                                                            <option value="4">已结案</option>
-                                                            <option value="5">已作废</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-xs-2">
-                                                        <%--<div class="form-group">--%>
-                                                        <div class="controls">
-                                                            <button id="btnSearch" type="button" class="btn btn-info">搜索</button>
-                                                        </div>
-                                                        <%--</div>--%>
-                                                    </div>
-                                                </div>
+                                                </header>
                                             </form>
                                             <table class="table table-bordered table-hover" id="dataList">
                                                 <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>律师名称</th>
                                                     <th>案列名称</th>
                                                     <th>操作</th>
                                                 </tr>
