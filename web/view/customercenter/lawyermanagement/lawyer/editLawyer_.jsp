@@ -33,6 +33,20 @@
             top: 0px;
             padding: 7px 18px;
         }
+        a {
+            color: #666666;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+        table.table tr:nth-child(odd)
+        {
+            background-color:#f9f9f9;
+        }
+        table.table tr:nth-child(even)
+        {
+            background-color:#fff;
+        }
     </style>
 </head>
 <!-- END HEAD -->
@@ -61,6 +75,7 @@
                 <div class="dataTables_wrapper no-footer">
                     <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
                         <input type="hidden" id="bizStatus" value="0" />
+                        <input type="hidden" id="lawyerBizId" value="">
                         <div class="col-md-12">
                             <ul class="nav nav-tabs">
                                 <li class="active">
@@ -68,12 +83,12 @@
                                         基本资料
                                     </a>
                                 </li>
-                                <li class="">
+                                <li class="case">
                                     <a href="#case" data-toggle="tab" aria-expanded="false" s="1">
                                         案列
                                     </a>
                                 </li>
-                                <li>
+                                <li class="honor">
                                     <a href="#honor" data-toggle="tab" aria-expanded="false" s="2">
                                         荣誉
                                     </a>
@@ -82,6 +97,7 @@
                             <div class="tab-content">
                                 <div class="tab-pane fade active in" id="basic">
                                     <input type="hidden" id="lawNewUPwd" >
+                                    <input type="hidden" id="dataId" >
                                     <div class="row">
                                         <div class="col-xs-12">
                                             <div class="form-group">
@@ -338,13 +354,13 @@
                                             <header class="panel_header" style="border: 0px">
                                                 <h4 class="title pull-left title-bold"></h4>
                                                 <div class="actions panel_actions pull-right" style="line-height: 23px;">
-                                                    <a href="addServiceClz.jsp" class="btn btn-info" style="padding: 3px 6px;">
+                                                    <a class="btn btn-info" data-toggle="modal" data-target="#addCaseModal" style="padding: 3px 6px;">
                                                         <span class="glyphicon glyphicon-plus"></span>
                                                     </a>
                                                 </div>
                                             </header>
                                         </form>
-                                        <table class="table table-bordered table-hover" id="dataList">
+                                        <table class="table table-bordered table-hover" id="caseDataList">
                                             <thead>
                                             <tr>
                                                 <th>ID</th>
@@ -353,160 +369,40 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <td>1</td><td>zhang</td><td>天王盖地虎</td>
-                                                <td style="text-align: right;width: 80px;">
-                                                    <div class="btn-group">
-                                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;" aria-expanded="false">查看详情<span class="caret"></span></a>
-                                                        <ul class="dropdown-menu opt" role="menu">
-                                                            <li style="border-bottom: 1px dashed #CCC;"><a href="#" bid="14" s="0">查看详情</a></li>
-                                                            <li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="14" s="0" class="">修改</a></li>
-                                                            <li><a href="javascript:;" bid="14" s="0" class="no-editable">删除</a></li></ul></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td><td>zhang</td><td>天王盖地虎</td>
-                                                <td style="text-align: right;width: 80px;">
-                                                    <div class="btn-group">
-                                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;" aria-expanded="false">查看详情<span class="caret"></span></a>
-                                                        <ul class="dropdown-menu opt" role="menu">
-                                                            <li style="border-bottom: 1px dashed #CCC;"><a href="#" bid="14" s="0">查看详情</a></li>
-                                                            <li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="14" s="0" class="">修改</a></li>
-                                                            <li><a href="javascript:;" bid="14" s="0" class="no-editable">删除</a></li></ul></div>
-                                                </td>
-                                            </tr>
                                             </tbody>
                                         </table>
                                         <div class="row">
-                                            <div class="col-xs-6" id="pageTotalRecord"></div>
-                                            <div class="col-xs-6">
-                                                <div class="dataTables_paginate paging_bootstrap" id="paginationContainer"> </div>
-                                            </div>
+                                            <div class="col-xs-6" id="caseLable"></div>
                                         </div>
                                     </div>
-                                    <%--<div class="row">
-                                        <div class="col-xs-12">
-                                            <div class="form-group">
-                                                <div class="col-xs-2">
-                                                    <button type="button" class="btn btn-info" id="btnAdd">新增</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <div class="form-group">
-                                                <div class="col-xs-2"></div>
-                                                <div class="col-xs-4">
-                                                    <textarea id="activityDesc" name="activityDesc" maxlength="128" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 120px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="divider-dotted"></div>
-                                    <br>
-
-                                    <div class="clearfix"></div>
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                        </div>
-                                        <div class="col-xs-4">
-                                            <div class="form-group">
-                                                <div class="col-xs-2"></div>
-                                                <div class="col-xs-4">
-                                                    <button type="button" class="btn btn-info" id="btnSave3">保存</button>
-                                                    &nbsp;&nbsp;
-                                                    <button type="button" class="btn btn-danger" id="btnDel2">删除</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>--%>
                                 </div>
                                 <div class="tab-pane fade" id="honor">
                                     <div class="dataTables_wrapper no-footer">
-                                        <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
-
+                                        <form class="form-horizontal" id="form_honor" action="#" method="post" novalidate="novalidate">
+                                            <header class="panel_header" style="border: 0px">
+                                                <h4 class="title pull-left title-bold"></h4>
+                                                <div class="actions panel_actions pull-right" style="line-height: 23px;">
+                                                    <a class="btn btn-info" data-toggle="modal" data-target="#addHonorModal" style="padding: 3px 6px;">
+                                                        <span class="glyphicon glyphicon-plus"></span>
+                                                    </a>
+                                                </div>
+                                            </header>
                                         </form>
-                                        <table class="table table-bordered table-hover" id="dataList">
+                                        <table class="table table-bordered table-hover" id="honorDataList">
                                             <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>律师名称</th>
                                                 <th>荣誉名称</th>
                                                 <th>操作</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <td>1</td><td>zhang</td><td>天王盖地虎</td>
-                                                <td style="text-align: right;width: 80px;">
-                                                    <div class="btn-group">
-                                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;" aria-expanded="false">查看详情<span class="caret"></span></a>
-                                                        <ul class="dropdown-menu opt" role="menu">
-                                                            <li style="border-bottom: 1px dashed #CCC;"><a href="#" bid="14" s="0">查看详情</a></li>
-                                                            <li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="14" s="0" class="">修改</a></li>
-                                                            <li><a href="javascript:;" bid="14" s="0" class="no-editable">删除</a></li></ul></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td><td>zhang</td><td>天王盖地虎</td>
-                                                <td style="text-align: right;width: 80px;">
-                                                    <div class="btn-group">
-                                                        <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;" aria-expanded="false">查看详情<span class="caret"></span></a>
-                                                        <ul class="dropdown-menu opt" role="menu">
-                                                            <li style="border-bottom: 1px dashed #CCC;"><a href="#" bid="14" s="0">查看详情</a></li>
-                                                            <li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="14" s="0" class="">修改</a></li>
-                                                            <li><a href="javascript:;" bid="14" s="0" class="no-editable">删除</a></li></ul></div>
-                                                </td>
-                                            </tr>
                                             </tbody>
                                         </table>
                                         <div class="row">
-                                            <div class="col-xs-6" id="pageTotalRecord"></div>
-                                            <div class="col-xs-6">
-                                                <div class="dataTables_paginate paging_bootstrap" id="paginationContainer"> </div>
-                                            </div>
+                                            <div class="col-xs-6" id="honorLable"></div>
                                         </div>
                                     </div>
-                                    <%--<div class="row">
-                                        <div class="col-xs-12">
-                                            <div class="form-group">
-                                                <div class="col-xs-2">
-                                                    <button type="button" class="btn btn-info" id="btnAdd2">新增</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <div class="form-group">
-                                                <div class="col-xs-2"></div>
-                                                <div class="col-xs-4">
-                                                    <textarea id="activityDesc2" name="activityDesc" maxlength="128" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 120px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="divider-dotted"></div>
-                                    <br>
-
-                                    <div class="clearfix"></div>
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                        </div>
-                                        <div class="col-xs-4">
-                                            <div class="form-group">
-                                                <div class="col-xs-2"></div>
-                                                <div class="col-xs-4">
-                                                    <button type="button" class="btn btn-info" id="btnSave2">保存</button>
-                                                    &nbsp;&nbsp;
-                                                    <button type="button" class="btn btn-danger" id="btnDel">删除</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>--%>
                                 </div>
                             </div>
 
@@ -519,6 +415,8 @@
 </section>
 <!-- END CONTENT -->
 <%@ include file="/view/customercenter/lawyermanagement/lawyer/updatePwdModal.jsp"%>
+<%@ include file="/view/customercenter/lawyermanagement/lawyer/inc/addCaseModal.jsp"%>
+<%@ include file="/view/customercenter/lawyermanagement/lawyer/inc/addHonorModal.jsp"%>
 </div>
 <!-- END CONTAINER -->
 
@@ -528,6 +426,8 @@
 <script type="text/javascript" src="/js/plugins/select2/select2.min.js"></script>
 <script type="text/javascript" src="/js/custom/request-util.js"></script>
 <script type="text/javascript" src="/js/pageScripts/custom/lawyer/lawyer/edit_layer.js"></script>
+<script type="text/javascript" src="/js/pageScripts/custom/lawyer/lawyer/query_case_list.js"></script>
+<script type="text/javascript" src="/js/pageScripts/custom/lawyer/lawyer/query_honor_list.js"></script>
 <script type="text/javascript">
     //日期控件
     $("#employmentTime").datepicker({
