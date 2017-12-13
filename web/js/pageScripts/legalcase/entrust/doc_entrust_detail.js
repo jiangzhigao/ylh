@@ -117,7 +117,7 @@ jQuery(function(){
      */
     function _eleEditable(){
         $("#form_query").find("input").attr("disabled",false);
-        $("#picDtl").text("");
+        $("#picDtl").text("图片");
         $("#editPic").show();
     }
 

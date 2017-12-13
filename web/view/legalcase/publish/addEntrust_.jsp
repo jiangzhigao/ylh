@@ -124,13 +124,6 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-offset-2 col-xs-10">
-                                <div class="form-group col-xs-4" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox">
-                                    <img src="/images/nopica.png" class="img-thumbnail" id="coverImage"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group">
                                     <label class="col-xs-2 control-label">图片</label>
@@ -143,6 +136,13 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-offset-2 col-xs-10">
+                                <div class="form-group col-xs-4" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox">
+                                    <img src="/images/nopica.png" class="img-thumbnail" id="coverImage"/>
                                 </div>
                             </div>
                         </div>
