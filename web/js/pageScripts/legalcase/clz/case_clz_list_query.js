@@ -59,7 +59,7 @@ jQuery(function(){
     function _optionsHtml(id){
         var _operHtml = [];
         _operHtml.push('<div class="btn-group">');
-        _operHtml.push('<a href="/view/legalcase/clz/editCaseClz.jsp?dataId='+id+'" style="color: #337AB7;">编辑</a>');
+        _operHtml.push('<a href="/view/legalcase/clz/editCaseClz_.jsp?dataId='+id+'" style="color: #337AB7;" target="ylxmain">编辑</a>');
         _operHtml.push('</div>');
 
         return  _operHtml.join('');

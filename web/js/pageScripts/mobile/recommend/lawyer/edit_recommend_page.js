@@ -118,7 +118,7 @@ jQuery(function(){
                         if (result.success) {
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
-                                location.replace("/view/mobile/recommend/lawyer/appClientList.jsp");
+                                location.replace("/view/mobile/recommend/lawyer/appClientList_.jsp");
                             }, 1000);
                         }
                         else

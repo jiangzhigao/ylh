@@ -128,7 +128,7 @@ jQuery(function(){
                         if (result.success) {
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
-                                location.replace("/view/mobile/version/appVersionList.jsp");
+                                location.replace("/view/mobile/version/appVersionList_.jsp");
                             }, 1000);
                         }
                         else

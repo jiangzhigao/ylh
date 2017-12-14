@@ -102,7 +102,7 @@ jQuery(function(){
                         if (result.success) {
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
-                                location.replace("/view/sys/permission/role/roleList.jsp");
+                                location.replace("/view/sys/permission/role/roleList_.jsp");
                             }, 1000);
                         }
                         else

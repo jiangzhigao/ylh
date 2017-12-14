@@ -48,7 +48,8 @@ jQuery(function(){
             var index = $this.parent().index();
             if(index==0){//编辑操作
                 var bizUrl = $this.attr('bz-url');
-                window.location.href = bizUrl+'?dataId='+id;
+                bizUrl = bizUrl+'?dataId='+id;
+                /*$this.attr("href",bizUrl);*/
             }else if(index == 1){//删除
                 _delete(id,$this);
             }else if(index==2){
@@ -81,7 +82,7 @@ jQuery(function(){
         _operHtml.push('<div class="btn-group">');
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown"  style="color: #337AB7;" >编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="editSysUser.jsp?dataId='+id+'">编辑</a></li>');
+        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="editSysUser_.jsp?dataId='+id+'" target="ylxmain">编辑</a></li>');
         _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url="javascript:;" bid="'+id+'">删除</a></li>');
         _operHtml.push('<li><a href="javascript:;" bid="'+id+'" us="'+u+'">重置密码</a></li>');
         _operHtml.push('</ul></div>');

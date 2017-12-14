@@ -131,7 +131,7 @@ jQuery(function(){
                                 if (result.success) {
                                     FOXKEEPER_UTILS.alert('success', result.message);
                                     setTimeout(function(){
-                                        location.replace("/view/business/order/entrust/entrustOrderList.jsp");
+                                        location.replace("/view/business/order/entrust/entrustOrderList_.jsp");
                                     }, 1000);
                                 }
                                 else

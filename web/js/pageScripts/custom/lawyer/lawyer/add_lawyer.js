@@ -165,7 +165,7 @@ jQuery(function(){
                         if (result.success) {
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
-                                location.replace("/view/customercenter/lawyermanagement/lawyer/lawyerManagementList.jsp");
+                                location.replace("/view/customercenter/lawyermanagement/lawyer/lawyerManagementList_.jsp");
                             }, 1000);
                         } else
                         {

@@ -46,7 +46,8 @@ jQuery(function(){
             var id = $this.attr('bid');
             if($this.parent().index()==0){
                 var bizUrl = $this.attr('bz-url');
-                window.location.href = bizUrl+'?dataId='+id;
+                bizUrl = bizUrl+'?dataId='+id;
+                $this.attr("href",bizUrl);
             }else{//删除操作
                 //no-editable
                 if(!($this.hasClass("no-editable"))){
@@ -101,7 +102,7 @@ jQuery(function(){
         _operHtml.push('<div class="btn-group">');
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li><a bz-url="/view/internet/lawfirm/editLawFirm.jsp" bid="'+id+'">编辑</a></li>');
+        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url="/view/internet/lawfirm/editLawFirm_.jsp" bid="'+id+'" target="ylxmain">编辑</a></li>');
         _operHtml.push('<li><a href="javascript;" bid="'+id+'">删除</a></li>');
         _operHtml.push('</ul></div>');
 

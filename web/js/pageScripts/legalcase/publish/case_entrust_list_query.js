@@ -49,11 +49,12 @@ jQuery(function(){
             if($this.parent().index()==0){//查看详情
                 var bizUrl = $this.attr('bz-url');
                 if(s == '0'){
-                    bizUrl = "/view/legalcase/publish/tempCaseEntrustDetail.jsp";
+                    bizUrl = "/view/legalcase/publish/tempCaseEntrustDetail_.jsp";
                 }else{
-                    bizUrl = "/view/legalcase/publish/caseEntrustDetail.jsp";
+                    bizUrl = "/view/legalcase/publish/caseEntrustDetail_.jsp";
                 }
-                window.location.href = bizUrl+'?dataId='+id+'&status='+s;
+                bizUrl = bizUrl+'?dataId='+id+'&status='+s;
+                $this.attr("href",bizUrl);
             }else if($this.parent().index()==1){//结案
                 //no-editable
                 if(!($this.hasClass("no-editable"))){
@@ -92,7 +93,7 @@ jQuery(function(){
         _operHtml.push('<div class="btn-group">');
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">查看详情<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="#" bid="'+id+'" s="'+s+'">查看详情</a></li>');
+        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="#" bid="'+id+'" s="'+s+'" target="ylxmain">查看详情</a></li>');
         _operHtml.push('<li><a href="javascript:;" bid="'+id+'" class="'+clz+'">结案</a></li>');
         _operHtml.push('<li><a href="javascript:;" bid="'+id+'" class="'+clz+'">作废</a></li>');
         _operHtml.push('</ul></div>');

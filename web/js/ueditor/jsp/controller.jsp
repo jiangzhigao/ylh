@@ -8,7 +8,8 @@
 	response.setHeader("Content-Type" , "text/html");
 	
 	String rootPath = application.getRealPath( "/" );
-	System.out.println(">>>>>>>>>>>>>>>>>>>>ueditor rootpath: "+rootPath);
+	String webBasePath = "http://localhost:8888/ylx/api";
+	System.out.println(">>>>>>>>>>>>>>>>>>>>ueditor rootpath: "+webBasePath);
 	out.write( new ActionEnter( request, rootPath ).exec() );
 	
 %>

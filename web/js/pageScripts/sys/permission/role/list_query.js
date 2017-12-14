@@ -47,7 +47,8 @@ jQuery(function(){
             var id = $this.attr('bid');
              if(!($this.attr("is")==1)) {
                  var bizUrl = $this.attr('biz-url');
-                 window.location.href = bizUrl;
+                 bizUrl = bizUrl;
+                 $this.attr("href",bizUrl);
              }
         });
     }
@@ -75,7 +76,7 @@ jQuery(function(){
         if(id == 1){
             is = 1;
         }
-        _operHtml.push('<a href="javascript:;" biz-url="/view/sys/permission/role/editRoleResources.jsp?dataId='+id+'" class="opt" is="'+is+'" style="color: '+clz+'">编辑</a>');
+        _operHtml.push('<a href="javascript:;" biz-url="/view/sys/permission/role/editRoleResources_.jsp?dataId='+id+'" class="opt" is="'+is+'" style="color: '+clz+'" target="ylxmain">编辑</a>');
         return  _operHtml.join('');
     }
 

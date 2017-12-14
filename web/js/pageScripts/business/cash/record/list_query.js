@@ -85,7 +85,7 @@ jQuery(function(){
 
     function _optionsHtml(id,clz){
         var _operHtml = [];
-        _operHtml.push('<a href="recordDetail.jsp?dataId='+id+'" style="color: #337AB7;">查看详情</a>');
+        _operHtml.push('<a href="recordDetail_.jsp?dataId='+id+'" style="color: #337AB7;" target="ylxmain">查看详情</a>');
         return  _operHtml.join('');
     }
 

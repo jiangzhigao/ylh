@@ -96,9 +96,9 @@ jQuery(function(){
                                     var advice = result.advice;
                                     var ss = parseInt(advice.status)==0?'未处理':'已处理';
                                     $("#status").text(ss);
-                                    var bizUrl = "/view/customercenter/membermanagement/feedback/feedbackList.jsp";
+                                    var bizUrl = "/view/customercenter/membermanagement/feedback/feedbackList_.jsp";
                                     if(parseInt(advice.userType)==1){
-                                        bizUrl = "/view/customercenter/lawyermanagement/complaint/complaintAndAdviceList.jsp";
+                                        bizUrl = "/view/customercenter/lawyermanagement/complaint/complaintAndAdviceList_.jsp";
                                     }
                                     FOXKEEPER_UTILS.alert('success', result.message);
                                     setTimeout(function(){

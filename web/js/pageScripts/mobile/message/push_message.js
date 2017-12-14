@@ -57,7 +57,7 @@ jQuery(function(){
                         if (result.success) {
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
-                                location.replace("/view/mobile/message/appPushList.jsp");
+                                location.replace("/view/mobile/message/appPushList_.jsp");
                             }, 1000);
                         }
                         else

@@ -50,7 +50,8 @@ jQuery(function(){
             if(index==0){//查看详情
                 var bizUrl = $this.attr('bz-url');
                 bizUrl = "/view/business/refund/apply/applyDetail.jsp";
-                window.location.href = bizUrl+'?dataId='+id+'&status='+s;
+                bizUrl = bizUrl+'?dataId='+id+'&status='+s;
+                $this.attr("href",bizUrl);
             }else if(index==1){//审核通过
                 //no-editable
                 if(!($this.hasClass("no-editable"))){
@@ -125,7 +126,7 @@ jQuery(function(){
                             _operHtml.push('<div class="btn-group">');
                             _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">查看详情<span class="caret"></span></a>');
                             _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-                            _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="#" bid="'+dataId+'" s="'+statusInt+'">查看详情</a></li>');
+                            _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="#" bid="'+dataId+'" s="'+statusInt+'" target="ylxmain">查看详情</a></li>');
                             if(statusInt == 0){
                                 _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="'+dataId+'" s="'+statusInt+'">审核通过</a></li>');
                                 _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="'+dataId+'" s="'+statusInt+'">驳回</a></li>');
