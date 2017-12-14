@@ -99,13 +99,12 @@ jQuery(function(){
     function _optionsHtml(id) {
         var _operHtml = [];
         _operHtml.push('<div class="btn-group">');
-
         if (id==11 || id==12 || id==13) {
             _operHtml.push('<a href="/view/contentmanager/repository/foundclassity/editFoundClassity.jsp?dataId=' + id + '" style="color: #337AB7;">编辑</a>');
         }else {
             _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" >管理<span class="caret"></span></a>');
             _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-            _operHtml.push('<li><a href="/view/contentmanager/repository/discovery/discoveryList.jsp?dataId=' + id + '" >管理</a>');
+            _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="/view/contentmanager/repository/discovery/discoveryList.jsp?dataId=' + id + '" >管理</a></li>');
             _operHtml.push('<li><a href ="/view/contentmanager/repository/discovery/addDiscovery.jsp?dataId=' + id + '" >添加</a>');
         }
         _operHtml.push('</ul></div>');
@@ -134,7 +133,7 @@ jQuery(function(){
                             _html.push('<tr>');
                             _html.push('<td>' + obj.id + '</td>');
                             _html.push('<td>' + obj.name + '</td>');
-                            _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
+                            _html.push('<td style="text-align: right;">' +  _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');
                         }
                         $dataList.find('tbody').html(_html.join(''));

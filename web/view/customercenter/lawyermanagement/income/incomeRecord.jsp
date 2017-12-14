@@ -9,8 +9,8 @@
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 100px;
-            width: 90px;
+            min-width: 50px;
+            width: 40px;
         }
         a:hover {
             text-decoration: none;
@@ -34,17 +34,10 @@
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 <body class=" boxed">
-<!-- START TOPBAR -->
-<%@ include file="/view/frame/topbar.jsp"%>
-<!-- END TOPBAR -->
-<!-- START SIDEBAR -->
-<%@ include file="/view/frame/sidebar.jsp"%>
-<!--  SIDEBAR - END -->
 <script type='text/javascript'>
     ___system_navigation_config.currentNav = ___system_navigation_config.nav.l_incomeRecord;
 </script>
 <!-- START CONTENT -->
-<section id="main-content" class=" " style="">
     <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
         <header class="panel_header" style="background-color: #fff;margin-top:45px;">
             <h4 class="title pull-left" style="font-size: 15px;">律师管理 / 收入记录 </h4>
@@ -99,24 +92,6 @@
                             </tr>
                             </thead>
                             <tbody>
-                           <%-- <tr>
-                                <td>12360</td>
-                                <td>D0001</td>
-                                <td>打官司</td>
-                                <td>13901234567</td>
-                                <td>打官司</td>
-                                <td>王麻子</td>
-                                <td>2017-09-03</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a href="/view/legalcase/publish/caseEntrustDetail.jsp?orderCode=D0001" class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                            查看订单详情
-                                            <span class="caret"></span>
-                                        </a>
-
-                                    </div>
-                                </td>
-                            </tr>--%>
 
                             </tbody>
                         </table>
@@ -131,8 +106,6 @@
             </section>
         </div>
     </section>
-
-</section>
 <!-- END CONTENT -->
 </div>
 <!-- END CONTAINER -->

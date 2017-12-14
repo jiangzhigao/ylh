@@ -135,7 +135,7 @@ jQuery(function(){
                             _html.push('<td>' + (obj.status==1?"启用":"停用") + '</td>');
                             // _html.push('<td>' + obj.createdTime + '</td>');
                             // _html.push('<td>' + obj.updatedTime + '</td>');
-                            _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
+                            _html.push('<td style="text-align: right;">' +  _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');
                         }
                         $dataList.find('tbody').html(_html.join(''));

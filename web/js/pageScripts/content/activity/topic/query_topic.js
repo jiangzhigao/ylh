@@ -224,7 +224,7 @@ jQuery(function(){
                             }
                             _html.push('<td>' + (obj.isTop==1?"置顶":"不置顶") + '</td>');
                             _html.push('<td>' + (statusArray[statusInt]) + '</td>');
-                            _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
+                            _html.push('<td style="text-align: right;">' +  _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');
                         }
                         $dataList.find('tbody').html(_html.join(''));

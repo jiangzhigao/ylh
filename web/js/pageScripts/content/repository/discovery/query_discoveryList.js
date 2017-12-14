@@ -149,7 +149,7 @@ jQuery(function(){
                             }
                             _html.push('<td>' + obj.createdTime + '</td>');
                             _html.push('<td>' + obj.updatedTime + '</td>');
-                            _html.push('<td>' +  _optionsHtml(dataId,types) + '</td>');
+                            _html.push('<td style="text-align: right;">' +  _optionsHtml(dataId,types) + '</td>');
                             _html.push('</tr>');
                         }
                         $dataList.find('tbody').html(_html.join(''));
@@ -224,7 +224,7 @@ jQuery(function(){
     //批量删除
     $("#btnDel").click(function(){
        if(confirm('确定要删除所选吗?')){
-            var checks = $("input[name='chkItem']:checked");
+            var checks = $("input[name='chkItem[]']:checked");
             if(checks.length == 0){ alert('未选中任何项！');
             return false;
             }
@@ -233,13 +233,26 @@ jQuery(function(){
             checks.each(function(){
                 checkData.push($(this).val());
             });
-            $.get("<{spUrl c=order a=delete}>",{
-                Check:checkData.toString()
-            },function(result){
-                if(result = true){
-                    window.location.reload();}
-            });
-            }
-        });
-
+           var id= checkData.toString();
+           var ajaxdata = {};
+           var reqUrl = webBasePath+'/discoverys/'+id;
+           var user = $.getuuuAuth();
+           ajaxdata.username = user._d;
+           ajaxdata.password = user._p;
+           ajaxdata.userType = 2;
+           ajaxdata._method = 'delete'
+           jQuery.ajax({
+               dataType: "json",
+               url: reqUrl,
+               data: ajaxdata,
+               type: "POST",
+               success: function (result) {
+                   if (result.success) {
+                       FOXKEEPER_UTILS.alert('success',result.message);
+                       window.location.reload();
+                   }
+               }
+           });
+       }
+    });
 });

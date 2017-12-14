@@ -99,8 +99,8 @@ jQuery(function(){
 
     function _optionsHtml(id){
         var _operHtml = [];
-        _operHtml.push('<div class="btn-group">');
-        _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">编辑<span class="caret"></span></a>');
+        _operHtml.push('<div class="btn-group" style="text-align: right">');
+        _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;text-align: right;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
         _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url="/view/contentmanager/information/news/editNews.jsp" bid="'+id+'">编辑</a></li>');
         _operHtml.push('<li><a href="javascript:;"bid="'+id+'" >删除</a></li>');
@@ -134,7 +134,7 @@ jQuery(function(){
                             _html.push('<td>' + obj.createdTime + '</td>');
                             _html.push('<td>' + obj.updatedTime + '</td>');
                             _html.push('<td>' + (obj.isDisplay==1?"显示":"不显示") + '</td>');
-                            _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
+                            _html.push('<td style="text-align: right">' +  _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');
                         }
                         $dataList.find('tbody').html(_html.join(''));

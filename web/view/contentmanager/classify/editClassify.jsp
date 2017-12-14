@@ -24,17 +24,10 @@
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 <body class=" boxed">
-<!-- START TOPBAR -->
-<%@ include file="/view/frame/topbar.jsp"%>
-<!-- END TOPBAR -->
-<!-- START SIDEBAR -->
-<%@ include file="/view/frame/sidebar.jsp"%>
-<!--  SIDEBAR - END -->
 <script type='text/javascript'>
     ___system_navigation_config.currentNav = ___system_navigation_config.nav.cnt_classifyList;
 </script>
 <!-- START CONTENT -->
-<section id="main-content" class=" " style="">
     <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
         <header class="panel_header" style="background-color: #fff;margin-top:45px;">
             <h4 class="title pull-left" style="font-size: 15px;">内容管理 / 分类管理 / 编辑分类</h4>
@@ -54,7 +47,7 @@
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label" for="name">分类名称</label>
-                                        <div class="col-xs-5">
+                                        <div class="col-xs-4">
                                             <input type="text" class="form-control"
                                                    placeholder="请输入分类名称" value="" id="name" name="name"
                                                    maxlength="24">
@@ -78,7 +71,7 @@
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label class="col-xs-2 control-label" for="sortNo">排序</label>
-                                        <div class="col-xs-5">
+                                        <div class="col-xs-4">
                                             <input type="text" class="form-control" placeholder="请输入排序号" value="" id="sortNo" name="sortNo"
                                                    maxlength="6">
                                         </div>
@@ -109,8 +102,6 @@
             </section>
         </div>
     </section>
-
-</section>
 <!-- END CONTENT -->
 </div>
 <!-- END CONTAINER -->

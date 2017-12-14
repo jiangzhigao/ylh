@@ -34,17 +34,10 @@
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 <body class=" boxed">
-<!-- START TOPBAR -->
-<%@ include file="/view/frame/topbar.jsp"%>
-<!-- END TOPBAR -->
-<!-- START SIDEBAR -->
-<%@ include file="/view/frame/sidebar.jsp"%>
-<!--  SIDEBAR - END -->
 <script type='text/javascript'>
     ___system_navigation_config.currentNav = ___system_navigation_config.nav.cnt_help_list;
 </script>
 <!-- START CONTENT -->
-<section id="main-content" class=" " style="">
     <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
         <header class="panel_header" style="background-color: #fff;margin-top:45px;">
             <h4 class="title pull-left" style="font-size: 15px;">内容管理 / 帮助管理 / 协议帮助管理</h4>
@@ -137,8 +130,6 @@
             </section>
         </div>
     </section>
-
-</section>
 <!-- END CONTENT -->
 </div>
 <!-- END CONTAINER -->

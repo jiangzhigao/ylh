@@ -9,8 +9,8 @@
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 100px;
-            width: 90px;
+            min-width: 40px;
+            width: 40px;
         }
         a:hover {
             text-decoration: none;
@@ -34,17 +34,10 @@
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 <body class=" boxed">
-<!-- START TOPBAR -->
-<%@ include file="/view/frame/topbar.jsp"%>
-<!-- END TOPBAR -->
-<!-- START SIDEBAR -->
-<%@ include file="/view/frame/sidebar.jsp"%>
-<!--  SIDEBAR - END -->
 <script type='text/javascript'>
     ___system_navigation_config.currentNav = ___system_navigation_config.nav.cnt_activity_list;
 </script>
 <!-- START CONTENT -->
-<section id="main-content" class=" " style="">
     <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
         <header class="panel_header" style="background-color: #fff;margin-top:45px;">
             <h4 class="title pull-left" style="font-size: 15px;">内容管理 / 活动管理 </h4>
@@ -98,7 +91,7 @@
                                 <th>发布人</th>
                                 <th>置顶</th>
                                 <th>审核状态</th>
-                                <th>操作</th>
+                                <th style="text-align: right;">操作</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -116,8 +109,6 @@
             </section>
         </div>
     </section>
-
-</section>
 <!-- END CONTENT -->
 </div>
 <!-- END CONTAINER -->

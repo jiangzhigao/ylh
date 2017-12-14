@@ -178,7 +178,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/contentmanager/classify/classifyList.jsp" target="main" class="biz">分类列表</a>
+                                    <a href="/view/contentmanager/classify/classifyList.jsp" target="ylxmain" class="biz">分类列表</a>
                                 </li>
                             </ul>
                         </li>
@@ -188,13 +188,13 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/contentmanager/information/news/newsList.jsp" target="main" class="biz">资讯管理</a>
+                                    <a href="/view/contentmanager/information/news/newsList.jsp" target="ylxmain" class="biz">资讯管理</a>
                                 </li>
                                 <li>
-                                    <a href="/view/contentmanager/information/trend/trendList.jsp" target="main" class="biz">动态管理</a>
+                                    <a href="/view/contentmanager/information/trend/trendList.jsp" target="ylxmain" class="biz">动态管理</a>
                                 </li>
                                 <li>
-                                    <a href="/view/contentmanager/information/commonweal/commonwealList.jsp" target="main" class="biz">公益管理</a>
+                                    <a href="/view/contentmanager/information/commonweal/commonwealList.jsp" target="ylxmain" class="biz">公益管理</a>
                                 </li>
                             </ul>
                         </li>
@@ -204,10 +204,10 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/contentmanager/activity/topic/topicList.jsp" target="main" class="biz">话题管理</a>
+                                    <a href="/view/contentmanager/activity/topic/topicList.jsp" target="ylxmain" class="biz">话题管理</a>
                                 </li>
                                 <li>
-                                    <a href="/view/contentmanager/activity/activity/activityList.jsp" target="main" class="biz">活动管理</a>
+                                    <a href="/view/contentmanager/activity/activity/activityList.jsp" target="ylxmain" class="biz">活动管理</a>
                                 </li>
                             </ul>
                         </li>
@@ -217,10 +217,10 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/contentmanager/repository/foundclassity/foundClassityList.jsp" target="main" class="biz">发现分类</a>
+                                    <a href="/view/contentmanager/repository/foundclassity/foundClassityList.jsp" target="ylxmain" class="biz">发现分类</a>
                                 </li>
                                 <li>
-                                    <a href="/view/contentmanager/repository/discovery/discoveryList.jsp" target="main" class="biz">发现管理</a>
+                                    <a href="/view/contentmanager/repository/discovery/discoveryList.jsp" target="ylxmain" class="biz">发现管理</a>
                                 </li>
                             </ul>
                         </li>
@@ -230,7 +230,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/contentmanager/help/helpList.jsp" target="main" class="biz">协议帮助管理</a>
+                                    <a href="/view/contentmanager/help/helpList.jsp" target="ylxmain" class="biz">协议帮助管理</a>
                                 </li>
                             </ul>
                         </li>
@@ -268,22 +268,22 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/sys/settings/site/siteSettings.jsp" target="main" class="biz">站点设置</a>
+                                    <a href="/view/sys/settings/site/siteSettings.jsp" target="ylxmain" class="biz">站点设置</a>
                                 </li>
                                 <li>
-                                    <a href="/view/sys/settings/pwd/updatePwd.jsp" target="main" class="biz">密码修改</a>
+                                    <a href="/view/sys/settings/pwd/updatePwd.jsp" target="ylxmain" class="biz">密码修改</a>
                                 </li>
                                 <li>
-                                    <a href="/view/sys/settings/pay/payTypeList.jsp" target="main" class="biz">支付设置</a>
+                                    <a href="/view/sys/settings/pay/payTypeList.jsp" target="ylxmain" class="biz">支付设置</a>
                                 </li>
                                 <li>
-                                    <a href="/view/sys/settings/district/districtList.jsp" target="main" class="biz">区域设置</a>
+                                    <a href="/view/sys/settings/district/districtList.jsp" target="ylxmain" class="biz">区域设置</a>
                                 </li>
                                 <li>
-                                    <a href="/view/sys/settings/bank/bankCodeList.jsp" target="main" class="biz">银行编码设置</a>
+                                    <a href="/view/sys/settings/bank/bankCodeList.jsp" target="ylxmain" class="biz">银行编码设置</a>
                                 </li>
                                 <li>
-                                    <a href="/view/sys/settings/coupon/couponRuleList.jsp" target="main" class="biz">抵用券规则设置</a>
+                                    <a href="/view/sys/settings/coupon/couponRuleList.jsp" target="ylxmain" class="biz">抵用券规则设置</a>
                                 </li>
                             </ul>
                         </li>
