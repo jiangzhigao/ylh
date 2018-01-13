@@ -8272,7 +8272,7 @@
                 timer,
                 reg = new RegExp('(\\?|&)' + callbackField + '=([^&]*)'),
                 matches;
-
+            debugger;
             if (utils.isFunction(successhandler)) {
                 callbackFnName = 'bd__editor__' + Math.floor(Math.random() * 2147483648).toString(36);
                 window[callbackFnName] = getCallBack(0);
@@ -11120,7 +11120,7 @@
 
     UE.commands['insertimage'] = {
         execCommand:function (cmd, opt) {
-
+            debugger;
             opt = utils.isArray(opt) ? opt : [opt];
             if (!opt.length) {
                 return;
@@ -23248,14 +23248,15 @@
                     success: function (r) {
                         debugger
                         try {
-                            var info = r.state !== undefined ? r:eval("(" + r.responseText + ")");
+                            /*var info = r.state !== undefined ? r:eval("(" + r.responseText + ")");*/
+                            var info = r.list;
                         } catch (e) {
                             return;
                         }
                         
                         /* 获取源路径和新路径 */
-                        var i, j, ci, cj, oldSrc, newSrc, list = info.list;
-
+                        /*var i, j, ci, cj, oldSrc, newSrc, list = info.list;*/
+                        var i, j, ci, cj, oldSrc, newSrc, list = info;
                         for (i = 0; ci = imgs[i++];) {
                             oldSrc = ci.getAttribute("_src") || ci.src || "";
                             for (j = 0; cj = list[j++];) {
@@ -23279,6 +23280,7 @@
             }
 
             function catchremoteimage(imgs, callbacks) {
+                debugger;
                 var params = utils.serializeParam(me.queryCommandValue('serverparam')) || '',
                     url = utils.formatUrl(catcherActionUrl + (catcherActionUrl.indexOf('?') == -1 ? '?':'&') + params),
                     isJsonp = utils.isCrossDomainUrl(url),
@@ -24531,6 +24533,7 @@
 
                     function callback(){
                         try{
+                            debugger;
                             var link, json, loader,
                                 body = (iframe.contentDocument || iframe.contentWindow.document).body,
                                 result = body.innerText || body.textContent || '';
@@ -24548,9 +24551,11 @@
                                 showErrorLoader && showErrorLoader(json.state);
                             }
                         }catch(er){
+                            debugger;
                             showErrorLoader && showErrorLoader(me.getLang('simpleupload.loadError'));
                         }
                         form.reset();
+                        debugger;
                         domUtils.un(iframe, 'load', callback);
                     }
                     function showErrorLoader(title){
@@ -29586,15 +29591,15 @@
          } else {
          return this._bkGetActionUrl.call(this, action);
          }*/
-        
+        debugger;
         var user = $.reqHomeUrl();
         var webRootPath = this.getOpt('webRootPath');
+        var webApiPath = "http://120.76.101.46/ylx/api";
+        /*var webApiPath = "http://localhost:8888/ylx/api";*/
         if (action == 'uploadimage') {
-            return webBasePath+'/image/upload?userType=2&username='+user._d+'&password='+user._p;
+            return webApiPath+'/image/upload?userType=2&username='+user._d+'&password='+user._p;
         } else if (action == 'catchimage') {
-            return webBasePath+'/catchimage?userType=2&username='+user._d+'&password='+user._p;
-            var test = "http://localhost:8080/rich_";
-           /* return test+'/catchimage?userType=2&username='+user._d+'&password='+user._p;*/
+            return webApiPath+'/catchimage?userType=2&username='+user._d+'&password='+user._p;
         } else {
             return this._bkGetActionUrl.call(this, action);
         }

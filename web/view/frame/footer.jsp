@@ -149,6 +149,16 @@
 
     /*});*/
 
+    /*var testJson ='{"url":"http://120.76.101.46/ylx/image/2018/1/4/2018010417291415_q6tvr2.png","title":"22.png","state":"SUCCESS"}';
+
+    function hehe(){
+        alert(Object.prototype.toString.call(testJson));
+        var a= JSON.parse(testJson);
+        alert(a);
+    }
+
+    hehe();*/
+
     function _loginOut(){
         $.loginOut();
     }

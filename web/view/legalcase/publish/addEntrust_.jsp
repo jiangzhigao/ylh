@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<%--<!DOCTYPE html>--%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <head>
     <%@ include file="/view/frame/head.jsp"%>
-    <script type="text/javascript" charset="utf-8" src="${webBasePath}/js/ueditor/ueditor.config.js"></script>
-    <script type="text/javascript" charset="utf-8" src="${webBasePath}/js/ueditor/ueditor.all.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/ueditor/ueditor.all.js"></script>
 
     <style type="text/css">
 

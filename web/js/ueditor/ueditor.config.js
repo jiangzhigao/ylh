@@ -32,9 +32,11 @@
     var localhostPath = curWwwPath.substring(0, pos);
     var rootPath = localhostPath;
 
-    var baseUrl = "http://localhost:8888/ylx/api";
 	console.info(URL , rootPath);
+
+    /*rootPath = "http://120.76.101.46/ylx";*/
     URL = rootPath + "/js/ueditor/";
+   /* URL = "http://120.76.101.46/ylx/js/ueditor/";*/
     /**
      * 配置项主体。注意，此处所有涉及到路径的配置别遗漏URL变量。
      */

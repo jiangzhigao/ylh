@@ -139,7 +139,8 @@ jQuery(function(){
                         $("#caseAmount").val(entrust.caseAmount);
                         $("#agencyFee").val(entrust.agencyFee);
                         $("#statusTxt").text(statusArray[statusInt]);
-                        $("#coverImage").attr("src",homePath+entrust.casePicture)
+                        $("#coverImage").attr("src",homePath+entrust.casePicture);
+                        $("#coverUrl").val(homePath+entrust.casePicture);
 
                         var ueContentHtml = entrust.caseDetail;
                         ue.addListener("ready", function () {

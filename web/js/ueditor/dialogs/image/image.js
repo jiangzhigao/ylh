@@ -718,8 +718,9 @@
             uploader.on('uploadSuccess', function (file, ret) {
                 var $file = $('#' + file.id);
                 try {
-                    var responseText = (ret._raw || ret),
-                        json = utils.str2json(responseText);
+                    var responseText = (ret._raw || ret);
+                    responseText = responseText.substring(1,responseText.length-1);
+                    var json = utils.str2json(responseText);
                     if (json.state == 'SUCCESS') {
                         _this.imageList.push(json);
                         $file.append('<span class="success"></span>');
@@ -776,8 +777,10 @@
             for (i = 0; i < this.imageList.length; i++) {
                 data = this.imageList[i];
                 list.push({
-                    src: prefix + data.url,
-                    _src: prefix + data.url,
+                   /* src: prefix + data.url,
+                    _src: prefix + data.url,*/
+                    src: data.url,
+                    _src: data.url,
                     title: data.title,
                     alt: data.original,
                     floatStyle: align

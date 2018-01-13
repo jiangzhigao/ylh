@@ -152,16 +152,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="form-group">
-                                    <label class="col-xs-2 control-label" id="picDtl">图片</label>
-                                    <div class="col-xs-5" style="max-width: 400px;max-height: 300px;" id="imgBox">
-                                        <img src="/images/nopica.png" class="img-thumbnail" id="coverImage"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="row" id="editPic">
                             <div class="col-xs-12">
                                 <div class="form-group">
@@ -174,6 +164,16 @@
                                                 <input type="file" class="img-upload-file" id="lcimage_upload" name="lcimage_upload" mid="coverImage" uid="coverUrl">
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label" id="picDtl"></label>
+                                    <div class="col-xs-5" style="max-width: 400px;max-height: 300px;" id="imgBox">
+                                        <img src="/images/nopica.png" class="img-thumbnail" id="coverImage"/>
                                     </div>
                                 </div>
                             </div>

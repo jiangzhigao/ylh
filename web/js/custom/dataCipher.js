@@ -161,6 +161,17 @@
                 return ms._m;
             }
         }
+        ,moneyToDecimal:function (money) {
+            if(typeof (money)=='undefined' || money == null || money == ''){
+                return '0.00';
+            }
+            var number = parseFloat(money);
+            if (isNaN(number)) {
+                return '0.00';
+            }
+            number = number/100;
+            return number;
+        }
     });
 
 })(jQuery);
