@@ -80,6 +80,7 @@
                     <table class="table table-bordered table-hover" id="dataList">
                         <thead>
                         <tr>
+                            <th>#</th>
                             <th>类型</th>
                             <th>时长</th>
                             <th>费用</th>

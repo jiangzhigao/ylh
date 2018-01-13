@@ -221,6 +221,18 @@ jQuery(function(){
         queryParams.userType = 2;
         queryParams.type = 0;
         queryParams.isPlatform = true;
+        var commisionName = $("#commisionName").val();
+        var commisionClient = $("#commisionClient").val();
+        var lawyerName = $("#lawyerName").val();
+        if(commisionName){
+            queryParams.commisionName = commisionName;
+        }
+        if(commisionClient){
+            queryParams.commisionClient = commisionClient;
+        }
+        if(lawyerName){
+            queryParams.lawyerName = lawyerName;
+        }
     }
 
 });

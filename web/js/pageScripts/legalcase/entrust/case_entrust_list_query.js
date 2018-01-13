@@ -240,6 +240,28 @@ jQuery(function(){
         queryParams.userType = 2;
         queryParams.type = 0;
         queryParams.isPlatform = false;
+        var commisionName = $("#commisionName").val();
+        var commisionClient = $("#commisionClient").val();
+        var lawyerName = $("#lawyerName").val();
+        queryParams.commisionName = commisionName;
+        queryParams.commisionClient = commisionClient;
+        queryParams.lawyerName = lawyerName;
+        queryParams.status = "";
+        /*if(commisionName){
+            queryParams.commisionName = commisionName;
+        }else{
+            delete queryParams.commisionName;
+        }
+        if(commisionClient){
+            queryParams.commisionClient = commisionClient;
+        }else{
+            delete queryParams.commisionClient;
+        }
+        if(lawyerName){
+            queryParams.lawyerName = lawyerName;
+        }else{
+            delete queryParams.lawyerName;
+        }*/
     }
 
 });

@@ -89,6 +89,7 @@ jQuery(function(){
                             var typeInt = parseInt(obj.type);
                             var ff = 0 == typeInt?"月":"小时";
                             _html.push('<tr>');
+                            _html.push('<td>' + '<input type="checkbox" name="subcheck_' +  (i+1) +'" value="' + dataId + '" s="0"/>' + '</td>');
                             _html.push('<td>' + typeArray[typeInt] + '</td>');
                             _html.push('<td>' + obj.duration+ff+ '</td>');
                             _html.push('<td>' + obj.fee + '</td>');
@@ -130,4 +131,67 @@ jQuery(function(){
         queryParams.password = user._p;
         queryParams.userType = 2;
     }
+
+    /** 全选、全不选 */
+    $('#allSelected').click(function () {
+        var $this = $(this);
+        var checkFlg = $this.prop('checked');
+        if (checkFlg) {
+            var upLen = $('input[name^="subcheck_1_"]').length;
+            var allLen = $('input:checkbox').length;
+            if (upLen == allLen -1) {
+                _reset();
+                return;
+            } else {
+                $('#batchDelete').removeClass('btn-default').addClass('btn-primary');
+                $('input[name^="subcheck_0_"]').prop('checked', checkFlg);
+            }
+        } else {
+            _reset();
+        }
+
+    });
+
+    /** 单选 */
+    $('body').on('click', 'input[name^="subcheck_"]', function () {
+        var $this = $(this);
+        var status = $this.attr('s');
+        if (status == 0) {
+            var chkFlg = $this.prop("checked");
+            var downLen = $('input[name^="subcheck_0_"]').length;
+
+            if (chkFlg) {
+                var selectLen = $('input[name^="subcheck_0_"]:checked').length;
+                if (downLen == selectLen) {
+                    $('#allSelected').prop('checked', chkFlg);
+                }
+                $('#batchDelete').removeClass('btn-default').addClass('btn-primary');
+            } else {
+                var notSelectLen = $('input[name^="subcheck_0_"]').not("input:checked").length;
+                if (downLen == notSelectLen) {
+                    _reset();
+                } else {
+                    $('#allSelected').prop('checked', chkFlg);
+                }
+            }
+        } else {
+            $this.prop("checked", false);
+            return false;
+        }
+    });
+
+    /** 批量删除 */
+    $('#batchDelete').on('click', function () {
+        var len = $('input:checkbox:checked').length;
+        if (len > 0) {
+            var ids = _getDataIds();
+            if (ids) {
+                _batchDelete(ids);
+                return false;
+            }
+        } else {
+            return false;
+        }
+    });
+
 });
