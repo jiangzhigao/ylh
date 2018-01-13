@@ -165,6 +165,42 @@ jQuery(function(){
         queryParams.password = user._p;
         queryParams.userType = 2;
         queryParams.type = 0;
+        queryParams.title = $("#title").val();
     }
+
+    //批量删除
+    $("#btnDel").click(function(){
+        if(confirm('确定要删除所选吗?')){
+            var checks = $("input[name='chkItem[]']:checked");
+            if(checks.length == 0){ alert('未选中任何项！');
+                return false;
+            }
+            //将获取的值存入数组
+            var checkData = new Array();
+            checks.each(function(){
+                checkData.push($(this).val());
+            });
+            var id= checkData.toString();
+            var ajaxdata = {};
+            var reqUrl = webBasePath+'/discoverys/'+id;
+            var user = $.getuuuAuth();
+            ajaxdata.username = user._d;
+            ajaxdata.password = user._p;
+            ajaxdata.userType = 2;
+            ajaxdata._method = 'delete'
+            jQuery.ajax({
+                dataType: "json",
+                url: reqUrl,
+                data: ajaxdata,
+                type: "POST",
+                success: function (result) {
+                    if (result.success) {
+                        FOXKEEPER_UTILS.alert('success',result.message);
+                        window.location.reload();
+                    }
+                }
+            });
+        }
+    });
 
 });

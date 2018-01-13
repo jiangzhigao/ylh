@@ -117,6 +117,7 @@
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/pageScripts/content/activity/topic/query_reply.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
 <!--  FOOTER - END -->

@@ -63,9 +63,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="commisionName">标题</label>
+                                        <label class="col-xs-2 control-label" for="title">标题</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入标题" value="" id="commisionName" name="commisionName"
+                                            <input type="text" class="form-control" placeholder="请输入标题" value="" id="title" name="title"
                                                    maxlength="20">
                                         </div>
                                     </div>
@@ -74,9 +74,9 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label" for="aa">摘要</label>
+                                        <label class="col-xs-2 control-label" for="summary">摘要</label>
                                         <div class="col-xs-5">
-                                            <input type="text" class="form-control" placeholder="请输入摘要" value="" id="aa" name="aa"
+                                            <input type="text" class="form-control" placeholder="请输入摘要" value="" id="summary" name="summary"
                                                    maxlength="20">
                                         </div>
                                     </div>
@@ -157,6 +157,7 @@
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
 <script type="text/javascript" src="/js/pageScripts/content/information/commonweal/edit_commonweal.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>

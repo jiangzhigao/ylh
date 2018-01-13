@@ -183,11 +183,16 @@ jQuery(function(){
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
         _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url="/view/contentmanager/activity/topic/editTopic.jsp" bid="'+id+'">编辑</a></li>');
         _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url href="javascript:" bid="'+id+'">置顶</a></li>');
-        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url href="/view/contentmanager/activity/topic/replyList.jsp?dataId=' + id + '" >回复管理</a></li>');
+        /*_operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url href="/view/contentmanager/activity/topic/replyList.jsp?dataId=' + id + '" onclick="topwin(id)">回复管理</a></li>');*/
+        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url href="javascript:void(0)" onclick="topwin(id)">回复管理</a></li>');
         _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url href="javascript:" bid="'+id+'">删除</a></li>');
         _operHtml.push('</ul></div>');
 
         return  _operHtml.join('');
+    }
+
+    function topwin(id){
+        window.showModalDialog("/view/contentmanager/activity/topic/replyList.jsp?dataId=" + id ,"","dialogWidth:300px;dialogHeight:300px;scroll:no;status:no")
     }
 
     function _initData () {
@@ -213,8 +218,8 @@ jQuery(function(){
                             _html.push('<tr>');
                             _html.push('<td>' + obj.id + '</td>');
                             _html.push('<td>' + obj.title + '</td>');
+                            _html.push('<td>' + obj.praiseNumber + '</td>');
                             _html.push('<td>' + obj.replyNumber + '</td>');
-                            _html.push('<td>' + obj.announceUser + '</td>');
                             _html.push('<td>' + obj.createdTime + '</td>');
                             _html.push('<td>' + obj.updatedTime + '</td>');
                             if(obj.lawyer){
@@ -255,6 +260,7 @@ jQuery(function(){
         queryParams.password = user._p;
         queryParams.userType = 2;
         queryParams.type = 0;
+        queryParams.title = $("#title").val();
     }
 });
 

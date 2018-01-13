@@ -165,6 +165,7 @@ jQuery(function(){
         queryParams.password = user._p;
         queryParams.userType = 2;
         queryParams.type = 2;
+        queryParams.title = $("#title").val();
     }
 
 });

@@ -107,7 +107,7 @@ jQuery(function(){
         var _operHtml = [];
         _operHtml.push('<div class="btn-group">');
         if (types==11 || types==12 || types==13) {
-            _operHtml.push('<a href="/view/contentmanager/repository/discovery/editDiscovery.jsp?dataId=' + id + '" style="color: #337AB7;">编辑</a>');
+            _operHtml.push('<a href="/view/contentmanager/repository/foundclassity/editFoundClassity.jsp?dataId=' + types + '" style="color: #337AB7;">编辑</a>');
         }else {
             _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown">编辑<span class="caret"></span></a>');
             _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
@@ -235,7 +235,7 @@ jQuery(function(){
             });
            var id= checkData.toString();
            var ajaxdata = {};
-           var reqUrl = webBasePath+'/discoverys/'+id;
+           var reqUrl = webBasePath+'/informations/'+id;
            var user = $.getuuuAuth();
            ajaxdata.username = user._d;
            ajaxdata.password = user._p;

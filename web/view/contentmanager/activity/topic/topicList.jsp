@@ -60,7 +60,7 @@
                         <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-2 move20">
-                                    <input type="text" id="account" class="form-control" placeholder="请输入标题">
+                                    <input type="text" id="title" class="form-control" placeholder="请输入标题">
                                 </div>
 
                                 <div class="col-xs-2 move20">
@@ -114,7 +114,7 @@
 <!-- END CONTENT -->
 </div>
 <!-- END CONTAINER -->
-
+<%--<%@ include file="/view/contentmanager/activity/topic/replyList.jsp"%>--%>
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/pageScripts/content/activity/topic/query_topic.js"></script>
 <!-- START FOOTER -->

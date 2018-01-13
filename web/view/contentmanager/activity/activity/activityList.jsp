@@ -58,7 +58,7 @@
                         <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-2 move20">
-                                    <input type="text" id="account" class="form-control" placeholder="请输入标题">
+                                    <input type="text" id="title" class="form-control" placeholder="请输入标题">
                                 </div>
 
                                 <div class="col-xs-2 move20">

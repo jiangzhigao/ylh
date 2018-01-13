@@ -9,8 +9,8 @@
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 100px;
-            width: 90px;
+            min-width: 50px;
+            width: 40px;
         }
         a:hover {
             text-decoration: none;
@@ -65,58 +65,11 @@
                                 <th>标题</th>
                                 <th>发布时间</th>
                                 <th>更新时间</th>
-                                <th>操作</th>
+                                <th style="text-align: right">操作</th>
                             </tr>
                             </thead>
                             <tbody>
-                           <%-- <tr>
-                                <td>中华人民共和国</td>
-                                <td>2017-09-03</td>
-                                <td>2017-09-03</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a href="/view/contentmanager/help/editHelp.jsp" style="color: #337AB7;">
-                                            编辑
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>中华人民共和国</td>
-                                <td>2017-09-03</td>
-                                <td>2017-09-03</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a href="/view/contentmanager/help/editHelp.jsp" style="color: #2aabd2;">
-                                            编辑
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>中华人民共和国</td>
-                                <td>2017-09-03</td>
-                                <td>2017-09-03</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a href="/view/contentmanager/help/editHelp.jsp" style="color: #2aabd2;">
-                                            编辑
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>中华人民共和国</td>
-                                <td>2017-09-03</td>
-                                <td>2017-09-03</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a href="/view/contentmanager/help/editHelp.jsp" style="color: #2aabd2;">
-                                            编辑
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>--%>
+
                             </tbody>
                         </table>
                         <div class="row">

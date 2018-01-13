@@ -213,7 +213,7 @@ jQuery(function(){
                             _html.push('<tr>');
                             _html.push('<td>' + obj.id + '</td>');
                             _html.push('<td>' + obj.title + '</td>');
-                            _html.push('<td>' + obj.announceUser + '</td>');
+                            _html.push('<td>' + obj.participantNumber + '</td>');
                             _html.push('<td>' + obj.createdTime + '</td>');
                             _html.push('<td>' + obj.updatedTime + '</td>');
                             if(obj.lawyer){
@@ -258,6 +258,7 @@ jQuery(function(){
         queryParams.password = user._p;
         queryParams.userType = 2;
         queryParams.type = 1;
+        queryParams.title = $("#title").val();
     }
 });
 
