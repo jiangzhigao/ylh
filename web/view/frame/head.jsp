@@ -18,7 +18,7 @@
 <script src="http://pv.sohu.com/cityjson?ie=utf-8" charset="UTF-8"></script>
 
 <script type="text/javascript">
-    var clientIp = returnCitySN["cip"];
+    /*var clientIp = returnCitySN["cip"];*/
     /*var webBasePath = "http://120.76.101.46/ylx/api";*/
     var webBasePath = "http://localhost:8888/ylx/api";
     var homeBasePath = "http://120.76.101.46/ylx";

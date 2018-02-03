@@ -8,14 +8,14 @@
         <div class="page-sidebar-wrapper" id="main-menu-wrapper" style="height: 1200px;">
             <!-- USER INFO - START -->
             <!-- USER INFO - END -->
-            <ul class='wraplist'>
-                <li class="first biz open">
+            <ul class='wraplist' id="menuList">
+                <%--<li class="first biz open">
                     <a href="/main_.jsp" target="ylxmain">
                         <i class="fa fa-tachometer"></i>
                         <span class="title">首页</span>
                     </a>
-                    <%--<ul class="sub-menu">
-                    </ul>--%>
+                    &lt;%&ndash;<ul class="sub-menu">
+                    </ul>&ndash;%&gt;
                 </li>
                 <li class="first">
                     <a href="javascript:;">
@@ -345,7 +345,7 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
+                </li>--%>
             </ul>
         </div>
         <!-- MAIN MENU - END -->

@@ -114,17 +114,17 @@
             if(null == uu){
                 return undefined;
             }
-            if(new Date().getTime()-uu.time>exp){
+            /*if(new Date().getTime()-uu.time>exp){
                 console.log("session已过期")
                 localStorage.clear();
                 return undefined;
-            }else{
+            }else{*/
                 uu._d = this.dataDecrypt(uu._d);
                 uu._p = this.dataDecrypt(uu._p);
                 uu._g = this.dataDecrypt(uu._g);
                 uu._n = this.dataDecrypt(uu._n);
                 return uu;
-            }
+            /*}*/
         }
         ,uuAuthInterceptor:function(){
             var winUrl = window.location.href;
@@ -153,13 +153,13 @@
             if(null == ms){
                 return undefined;
             }
-            if(new Date().getTime()-ms.time>exp){
+            /*if(new Date().getTime()-ms.time>exp){
                 console.log("session已过期")
                 localStorage.clear();
                 return undefined;
-            }else{
+            }else{*/
                 return ms._m;
-            }
+            /*}*/
         }
         ,moneyToDecimal:function (money) {
             if(typeof (money)=='undefined' || money == null || money == ''){

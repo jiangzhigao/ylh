@@ -66,7 +66,8 @@ jQuery(function(){
                     }
                     else
                     {
-                    	FOXKEEPER_UTILS.alert('warning',data.message);
+                        _loginErrorDom(data.message);
+                    	/*FOXKEEPER_UTILS.alert('warning',data.message);*/
                     }
                 },
                 beforeSend: function () {// 设置表单提交前方法    
@@ -76,6 +77,7 @@ jQuery(function(){
                     /*_this.find(".form_submit_handle").html('登录').removeAttr("disabled");*/
                 },
                 error: function () {
+                    _loginErrorDom("系统请求连接超时，请稍后登录！");
                     _this.find(".form_submit_handle").html('登录').removeAttr("disabled");
                 }
             });
@@ -87,8 +89,31 @@ jQuery(function(){
     function _setAjaxData () {
         ajaxdata.username = $("#username").val().trim();
         ajaxdata.password = $("#password").val().trim();
-        ajaxdata.loginIP = clientIp;
         ajaxdata.userType = 2;
     }
 
+    function _loginErrorDom(err){
+        var captcha_err_len = $("#captcha-error").length;
+        if(captcha_err_len != 0){
+            $("#error-message").val(err);
+        }else{
+            $("#captcha-div").append('<div id="captcha-error" class="error-mess"><span class="error-icon"></span><span id="error-message">'+err+'</span></div>');
+        }
+        $("#captcha").val("");
+        var inCode = document.getElementById("code");
+        inCode.value = createCaptcha();
+    }
+
+    $("input").on("focus",function () {
+        /*var captcha = $("#captcha").val();
+        var createdCode = $("#code").val();
+        captcha = captcha.toUpperCase();
+        if(captcha !="" && captcha != createdCode){
+
+        }*/
+        var captcha_err_len = $("#captcha-error").length;
+        if(captcha_err_len != 0){
+            $("#captcha-error").remove();
+        }
+    });
 });

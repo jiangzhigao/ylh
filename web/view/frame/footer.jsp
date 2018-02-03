@@ -86,30 +86,36 @@
         }
     });
 
-    /*$(function () {
-        var menus =  $.getMenuList();
+    $(function () {
+        var menus = $.getMenuList();
         var $menu = $("#menuList");
         var _html = new Array();
-        function _buildMenu(menus){
+
+        function _buildMenu(menus) {
             if (menus != null && menus.length > 0) {
                 for (var i = 0; i < menus.length; i++) {
                     var m = menus[i];
-                    _html.push('<li class="">');
+                    if(i==0){
+                        _html.push('<li class="first biz open">');
+                    }else{
+                        _html.push('<li class="">');
+                    }
                     _html.push('<a href="' + m.url + '">');
                     _html.push('<i class="' + m.picture + '"></i>');
                     _html.push('<span class="title">' + m.name + '</span><span class="arrow"></span>');
                     _html.push('</a>');
-                    /!*var subList = m.sub
+
+                    /*var subList = m.sub
                     if(){
 
-                    }*!/
+                    }*/
                 }
             }
-
             $menu.html(_html.join(''));
         }
 
-        _buildMenu(menus);*/
+        _buildMenu(menus);
+    });
         /*if (menus != null && menus.length > 0) {
             var _html = new Array();
             for (var i = 0; i < menus.length; i++) {
@@ -148,16 +154,6 @@
         </c:forEach>--%>
 
     /*});*/
-
-    /*var testJson ='{"url":"http://120.76.101.46/ylx/image/2018/1/4/2018010417291415_q6tvr2.png","title":"22.png","state":"SUCCESS"}';
-
-    function hehe(){
-        alert(Object.prototype.toString.call(testJson));
-        var a= JSON.parse(testJson);
-        alert(a);
-    }
-
-    hehe();*/
 
     function _loginOut(){
         $.loginOut();

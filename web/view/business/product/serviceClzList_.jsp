@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <head>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content= "no-cache, must-revalidate">
     <%@ include file="/view/frame/head.jsp"%>
 
     <style type="text/css">
@@ -71,7 +73,7 @@
                                 <%--<div class="form-group">--%>
                                 <div class="controls">
                                     <button id="btnSearch" type="button" class="btn btn-info">搜索</button>
-                                    <button type="button" class="btn btn-danger">删除</button>
+                                    <button type="button" class="btn btn-danger" id="batchDelete">删除</button>
                                 </div>
                                 <%--</div>--%>
                             </div>
@@ -80,7 +82,7 @@
                     <table class="table table-bordered table-hover" id="dataList">
                         <thead>
                         <tr>
-                            <th>#</th>
+                            <th><input type="checkbox" id="allSelected" class="icheck-minimal-grey" name="" value=""/></th>
                             <th>类型</th>
                             <th>时长</th>
                             <th>费用</th>

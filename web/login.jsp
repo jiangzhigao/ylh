@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <head>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content= "no-cache, must-revalidate">
     <%@ include file="/view/frame/head.jsp"%>
 
     <style type="text/css">
@@ -56,16 +58,6 @@
 <body class="">
     <div class="row">
         <div class="col-xs-12">
-           <%-- <div id="page_alert_container">
-                <c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION.message }">
-                    <div class="alert alert-warning alert-dismissible fade in">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                        <strong>警告:</strong>${SPRING_SECURITY_LAST_EXCEPTION.message}</div>
-                </c:if>
-            </div>--%>
-
             <div class="row">
                 <div class="col-xs-4" style="margin-left: 39%;">
                     <div style="width: 285px;">
@@ -90,7 +82,7 @@
                                             <div class="form-group">
                                                 <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
                                             </div>
-                                            <div class="form-group">
+                                            <div class="form-group" id="captcha-div">
                                                 <input style="display: inline;width: 70%" type="text" class="form-control" id="captcha" name="captcha" placeholder="请输入验证码">
                                                 <input style="display: inline;width: 28%" type = "button" id="code" onclick="setCaptcha();"/>
                                             </div>
