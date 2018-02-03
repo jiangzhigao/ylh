@@ -99,7 +99,7 @@ jQuery(function(){
         _operHtml.push('<div class="btn-group">');
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url="/view/customercenter/lawyermanagement/speciality/editspeciality_.jsp" bid="'+id+'" target="ylxmain">编辑</a></li>');
+        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url="/view/customercenter/lawyermanagement/speciality/editspeciality.jsp" bid="'+id+'" target="ylxmain">编辑</a></li>');
         _operHtml.push('<li><a href="javascript:" bid="'+id+'">删除</a></li>');
         _operHtml.push('</ul></div>');
 

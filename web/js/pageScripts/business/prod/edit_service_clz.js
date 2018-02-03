@@ -115,7 +115,7 @@ jQuery(function(){
                         if (result.success) {
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
-                                location.replace("/view/business/product/serviceClzList_.jsp");
+                                location.replace("/view/business/product/serviceClzList.jsp");
                             }, 1000);
                         }
                         else
@@ -186,7 +186,7 @@ jQuery(function(){
                                 if (result.success) {
                                     FOXKEEPER_UTILS.alert('success', result.message);
                                     setTimeout(function(){
-                                        location.replace("/view/business/product/serviceClzList_.jsp");
+                                        location.replace("/view/business/product/serviceClzList.jsp");
                                     }, 500);
                                 }
                                 else

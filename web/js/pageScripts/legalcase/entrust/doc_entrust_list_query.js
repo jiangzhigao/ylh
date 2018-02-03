@@ -53,7 +53,7 @@ jQuery(function(){
                  }else{
                  bizUrl = "/view/legalcase/entrust/caseEntrustDetail.jsp";
                  }*/
-                bizUrl = "/view/legalcase/entrust/docEntrustDetail_.jsp";
+                bizUrl = "/view/legalcase/entrust/docEntrustDetail.jsp";
                 bizUrl = bizUrl+'?dataId='+id+'&status='+s;
                 $this.attr("href",bizUrl);
             }else if($this.parent().index()==1){//审核通过

@@ -139,7 +139,7 @@ jQuery(function(){
                         if (result.success) {
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
-                                location.replace("/view/sys/permission/user/userList_.jsp");
+                                location.replace("/view/sys/permission/user/userList.jsp");
                             }, 1000);
                         }
                         else

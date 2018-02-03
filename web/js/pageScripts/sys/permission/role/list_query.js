@@ -76,7 +76,7 @@ jQuery(function(){
         if(id == 1){
             is = 1;
         }
-        _operHtml.push('<a href="javascript:;" biz-url="/view/sys/permission/role/editRoleResources_.jsp?dataId='+id+'" class="opt" is="'+is+'" style="color: '+clz+'" target="ylxmain">编辑</a>');
+        _operHtml.push('<a href="javascript:;" biz-url="/view/sys/permission/role/editRoleResources.jsp?dataId='+id+'" class="opt" is="'+is+'" style="color: '+clz+'" target="ylxmain">编辑</a>');
         return  _operHtml.join('');
     }
 

@@ -93,7 +93,7 @@ jQuery(function(){
                         if (result.success) {
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
-                                location.replace("/view/customercenter/lawyermanagement/speciality/specialityList_.jsp");
+                                location.replace("/view/customercenter/lawyermanagement/speciality/specialityList.jsp");
                             }, 1000);
                         }else
                         {

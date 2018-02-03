@@ -84,7 +84,7 @@ jQuery(function(){
         _operHtml.push('<div class="btn-group">');
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
-        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a  class="'+clz+'" bz-url="/view/customercenter/membermanagement/member/editMember_.jsp" bid="'+id+'" target="ylxmain">编辑</a></li>');
+        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a  class="'+clz+'" bz-url="/view/customercenter/membermanagement/member/editMember.jsp" bid="'+id+'" target="ylxmain">编辑</a></li>');
         _operHtml.push('<li><a href="javascript:;" bid="'+id+'" class="'+clz+'">冻结</a></li>');
         _operHtml.push('</ul></div>');
 

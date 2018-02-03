@@ -247,7 +247,7 @@ jQuery(function(){
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
 
-                                location.replace("/view/customercenter/lawyermanagement/lawyer/lawyerManagementList_.jsp");
+                                location.replace("/view/customercenter/lawyermanagement/lawyer/lawyerManagementList.jsp");
                             }, 1000);
                         }else
                         {

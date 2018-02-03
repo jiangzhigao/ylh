@@ -100,11 +100,11 @@ jQuery(function(){
         var _operHtml = [];
         var bizUrl;
         if(orderType == 0){
-            bizUrl = "/view/business/order/service/serviceOrderDetail_.jsp?dataId="+orderId;
+            bizUrl = "/view/business/order/service/serviceOrderDetail.jsp?dataId="+orderId;
         }else if(orderType == 1){
-            bizUrl = "/view/business/order/reservation/orderDetail_.jsp?dataId="+orderId;
+            bizUrl = "/view/business/order/reservation/orderDetail.jsp?dataId="+orderId;
         } else if(orderType == 2){
-            bizUrl = "/view/business/order/entrust/entrustOrderDetail_.jsp?dataId="+orderId;
+            bizUrl = "/view/business/order/entrust/entrustOrderDetail.jsp?dataId="+orderId;
         }else{
             bizUrl = "#";
         }

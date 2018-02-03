@@ -37,20 +37,20 @@
 <!-- START TOPBAR -->
 <!--  SIDEBAR - END -->
 <script type='text/javascript'>
-    ___system_navigation_config.currentNav = ___system_navigation_config.nav.bz_coupon_List;
+    ___system_navigation_config.currentNav = ___system_navigation_config.nav.app_lawyer_recommend_List;
 </script>
 <!-- START CONTENT -->
 <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
     <header class="panel_header" style="background-color: #fff;margin-top:45px;">
-        <h4 class="title pull-left" style="font-size: 15px;">商务中心 / 抵用券管理</h4>
+        <h4 class="title pull-left" style="font-size: 15px;">移动管理 / 律师端首页推荐列表 </h4>
     </header>
 
     <div class="col-xs-12">
         <section class="box ">
             <header class="panel_header">
-                <h2 class="title pull-left title-bold">抵用券列表</h2>
+                <h4 class="title pull-left title-bold">律师端首页推荐列表</h4>
                 <div class="actions panel_actions pull-right" style="line-height: 23px;">
-                    <a href="addCoupon_.jsp" class="btn btn-info" style="padding: 3px 6px;margin-top:9px;">
+                    <a href="addRecommendPage.jsp" class="btn btn-info" style="padding: 3px 6px;margin-top:9px;">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
                 </div>
@@ -64,24 +64,33 @@
                     <table class="table table-bordered table-hover" id="dataList">
                         <thead>
                         <tr>
-                            <th>抵用券ID</th>
                             <th>标题</th>
-                            <th>面额</th>
-                            <th>有效期（开始时间-结束时间）</th>
-                            <th>状态</th>
+                            <th>Banner</th>
+                            <th>链接类型</th>
+                            <th>发布时间</th>
+                            <th>更新时间</th>
+                            <th>排序</th>
+                            <th>是否显示</th>
                             <th>操作</th>
                         </tr>
                         </thead>
                         <tbody>
                         <%--<tr>
+                            <td>客户端</td>
+                            <td width="120px;">
+                                <div class="profile-image">
+                                    <img src="/images/user.png" class="" style="width: 80%;" />
+                                </div>
+                            </td>
+                            <td>站内</td>
+                            <td>2017-08-08</td>
+                            <td>2017-08-08</td>
                             <td>1</td>
-                            <td>新用户注册</td>
-                            <td>100.00</td>
-                            <td>2017-08-08 00:00 - 2018-08-08 00:00</td>
-                            <td>启用</td>
+                            <td>显示</td>
                             <td>
-                                <a href="editCoupon.jsp" style="color: #2aabd2;">
+                                <a href="editRecommendPage.jsp" style="color: #337AB7;">
                                     编辑
+                                    <span class="caret"></span>
                                 </a>
                             </td>
                         </tr>--%>
@@ -103,7 +112,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
-<script type="text/javascript" src="/js/pageScripts/business/coupon/list_query.js"></script>
+<script type="text/javascript" src="/js/pageScripts/mobile/recommend/lawyer/list_query.js"></script>
 <!-- START FOOTER -->
 <!--  FOOTER - END -->
 </body>

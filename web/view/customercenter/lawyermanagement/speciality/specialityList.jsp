@@ -4,13 +4,12 @@
     <%@ include file="/view/frame/head.jsp"%>
 
     <style type="text/css">
-
         .move20{
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 100px;
-            width: 90px;
+            min-width: 45px;
+            width: 100%;
         }
         a:hover {
             text-decoration: none;
@@ -24,7 +23,10 @@
             background-color:#fff;
         }
         .no-editable{
-            background-color: #cccccc;
+            color: #ccc;
+        }
+        .no-editable a{
+            color: #ccc;
         }
         a {
             color: #666666;
@@ -37,63 +39,54 @@
 <!-- START TOPBAR -->
 <!--  SIDEBAR - END -->
 <script type='text/javascript'>
-    ___system_navigation_config.currentNav = ___system_navigation_config.nav.app_client_recommend_List;
+    ___system_navigation_config.currentNav = ___system_navigation_config.nav.mc_speciality_list;
 </script>
 <!-- START CONTENT -->
 <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
     <header class="panel_header" style="background-color: #fff;margin-top:45px;">
-        <h4 class="title pull-left" style="font-size: 15px;">移动管理 / 客户端首页推荐列表 </h4>
+        <h4 class="title pull-left" style="font-size: 15px;">律师管理 / 专业领域 </h4>
     </header>
 
     <div class="col-xs-12">
         <section class="box ">
             <header class="panel_header">
-                <h4 class="title pull-left title-bold">客户端首页推荐列表</h4>
+                <h4 class="title pull-left title-bold">专业领域</h4>
                 <div class="actions panel_actions pull-right" style="line-height: 23px;">
-                    <a href="addRecommendPage_.jsp" class="btn btn-info" style="padding: 3px 6px;margin-top:9px;">
+                    <a href="addspeciality.jsp" class="btn btn-info" style="padding: 3px 6px;margin-top:9px;">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
                 </div>
             </header>
             <div class="content-body">
                 <div class="dataTables_wrapper no-footer">
-                    <%--<form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
-
-                    </form>
-                    <br>--%>
                     <table class="table table-bordered table-hover" id="dataList">
                         <thead>
                         <tr>
-                            <th>标题</th>
-                            <th>Banner</th>
-                            <th>链接类型</th>
-                            <th>发布时间</th>
-                            <th>更新时间</th>
+                            <th>专业领域名称</th>
                             <th>排序</th>
-                            <th>是否显示</th>
                             <th>操作</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <%--<tr>
-                            <td>客户端</td>
-                            <td width="120px;">
-                                <div class="profile-image">
-                                    <img src="/images/user.png" class="" style="width: 80%;" />
-                                </div>
-                            </td>
-                            <td>站内</td>
-                            <td>2017-08-08</td>
-                            <td>2017-08-08</td>
-                            <td>1</td>
-                            <td>显示</td>
-                            <td>
-                                <a href="editRecommendPage.jsp" style="color: #337AB7;">
-                                    编辑
-                                    <span class="caret"></span>
-                                </a>
-                            </td>
-                        </tr>--%>
+                        <%-- <tr>
+                              <td>民商诉讼</td>
+                              <td>1</td>
+                              <td>
+                                  <div class="btn-group">
+                                      <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">
+                                          编辑
+                                          <span class="caret"></span>
+                                      </a>
+                                      <ul class="dropdown-menu" role="menu">
+                                          <li><a href="/view/customercenter/lawyermanagement/speciality/addspeciality.jsp">编辑</a></li>
+                                      </ul>
+                                      <ul class="dropdown-menu" role="menu">
+                                          <li><a href="">删除</a></li>
+                                      </ul>
+                                  </div>
+                              </td>
+                          </tr>--%>
+
                         </tbody>
                     </table>
                     <div class="row">
@@ -112,7 +105,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
-<script type="text/javascript" src="/js/pageScripts/mobile/recommend/client/list_query.js"></script>
+<script type="text/javascript" src="/js/pageScripts/custom/lawyer/speciality/query_speciality.js"></script>
 <!-- START FOOTER -->
 <!--  FOOTER - END -->
 </body>

@@ -45,7 +45,7 @@
 <!--  SIDEBAR - END -->
 <!-- START CONTENT -->
 <section id="main-content" class=" " style="">
-    <iframe id="ylxmain" name="ylxmain" frameborder="0" style="width: 100%;border: 0;height: auto;" src="/main_.jsp" >
+    <iframe id="ylxmain" name="ylxmain" frameborder="0" style="width: 100%;border: 0;height: auto;" src="/main.jsp" >
     </iframe>
 </section>
 <!-- END CONTENT -->

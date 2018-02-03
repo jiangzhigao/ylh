@@ -99,7 +99,7 @@ jQuery(function(){
     function _optionsHtml(id){
         var _operHtml = [];
         _operHtml.push('<div class="btn-group">');
-        _operHtml.push('<a style="color: #337AB7;" href="/view/customercenter/membermanagement/feedback/feedbackDetail_.jsp?dataId='+id+'" target="ylxmain">查看详情</a>');
+        _operHtml.push('<a style="color: #337AB7;" href="/view/customercenter/membermanagement/feedback/feedbackDetail.jsp?dataId='+id+'" target="ylxmain">查看详情</a>');
         _operHtml.push('</div>');
         return  _operHtml.join('');
     }

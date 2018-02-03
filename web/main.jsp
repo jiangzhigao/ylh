@@ -106,42 +106,42 @@
 			<div class="" style="padding-left: 15px;">
 				<div class="">
 					<div class="bus-tab">
-						<div class="bus-md" biz-url="/view/customercenter/membermanagement/member/memberList_.jsp">
+						<div class="bus-md" biz-url="/view/customercenter/membermanagement/member/memberList.jsp">
 							<div class="bus-md-fa" style="background: url('./images/bz/member.png') 0 0 no-repeat;background-size:85px 85px;">
 							</div>
 							<div class="bus-md-title">
 								<span>会员管理</span>
 							</div>
 						</div>
-						<div class="bus-md" biz-url="/view/customercenter/lawyermanagement/lawyer/lawyerManagementList_.jsp">
+						<div class="bus-md" biz-url="/view/customercenter/lawyermanagement/lawyer/lawyerManagementList.jsp">
 							<div class="bus-md-fa" style="background: url('./images/bz/lawyer.png') 0 0 no-repeat;background-size:85px 85px;">
 							</div>
 							<div class="bus-md-title">
 								<span>律师管理</span>
 							</div>
 						</div>
-						<div class="bus-md" biz-url="/view/business/order/service/serviceOrderList_.jsp">
+						<div class="bus-md" biz-url="/view/business/order/service/serviceOrderList.jsp">
 							<div class="bus-md-fa" style="background: url('./images/bz/ser-order.png') 0 0 no-repeat;background-size:85px 85px;">
 							</div>
 							<div class="bus-md-title">
 								<span>服务订单</span>
 							</div>
 						</div>
-						<div class="bus-md" biz-url="/view/business/order/reservation/orderList_.jsp">
+						<div class="bus-md" biz-url="/view/business/order/reservation/orderList.jsp">
 							<div class="bus-md-fa" style="background: url('./images/bz/sub-order.png') 0 0 no-repeat;background-size:85px 85px;">
 							</div>
 							<div class="bus-md-title">
 								<span>预约订单</span>
 							</div>
 						</div>
-						<div class="bus-md" biz-url="/view/business/order/entrust/entrustOrderList_.jsp">
+						<div class="bus-md" biz-url="/view/business/order/entrust/entrustOrderList.jsp">
 							<div class="bus-md-fa" style="background: url('./images/bz/entrust.png') 0 0 no-repeat;background-size:85px 85px;">
 							</div>
 							<div class="bus-md-title">
 								<span>委托订单</span>
 							</div>
 						</div>
-						<div class="bus-md" biz-url="/view/internet/settings/site/siteSettings_.jsp">
+						<div class="bus-md" biz-url="/view/internet/settings/site/siteSettings.jsp">
 							<div class="bus-md-fa" style="background: url('./images/bz/site-setting.png') 0 0 no-repeat;background-size:85px 85px;">
 							</div>
 							<div class="bus-md-title">

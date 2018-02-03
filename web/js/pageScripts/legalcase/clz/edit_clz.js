@@ -95,7 +95,7 @@ jQuery(function(){
                         if (result.success) {
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
-                                location.replace("/view/legalcase/clz/caseClzList_.jsp");
+                                location.replace("/view/legalcase/clz/caseClzList.jsp");
                             }, 1000);
                         }
                         else

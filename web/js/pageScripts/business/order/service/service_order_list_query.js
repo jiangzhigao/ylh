@@ -64,7 +64,7 @@ jQuery(function(){
 
     function _optionsHtml(id,clz){
         var _operHtml = [];
-        _operHtml.push('<a href="serviceOrderDetail_.jsp?dataId='+id+'" style="color: #337AB7;" target="ylxmain">详情</a>');
+        _operHtml.push('<a href="serviceOrderDetail.jsp?dataId='+id+'" style="color: #337AB7;" target="ylxmain">详情</a>');
         return  _operHtml.join('');
     }
 

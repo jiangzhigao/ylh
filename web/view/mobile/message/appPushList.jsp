@@ -9,8 +9,8 @@
             margin-right: -20px;
         }
         .dropdown-menu {
-            min-width: 45px;
-            width: 100%;
+            min-width: 100px;
+            width: 90px;
         }
         a:hover {
             text-decoration: none;
@@ -24,15 +24,11 @@
             background-color:#fff;
         }
         .no-editable{
-            color: #ccc;
-        }
-        .no-editable a{
-            color: #ccc;
+            background-color: #cccccc;
         }
         a {
-             color: #666666;
+            color: #666666;
         }
-
     </style>
 </head>
 <!-- END HEAD -->
@@ -41,20 +37,20 @@
 <!-- START TOPBAR -->
 <!--  SIDEBAR - END -->
 <script type='text/javascript'>
-    ___system_navigation_config.currentNav = ___system_navigation_config.nav.mc_member_list;
+    ___system_navigation_config.currentNav = ___system_navigation_config.nav.app_push_List;
 </script>
 <!-- START CONTENT -->
 <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
     <header class="panel_header" style="background-color: #fff;margin-top:45px;">
-        <h4 class="title pull-left" style="font-size: 15px;">会员管理 / 会员列表 </h4>
+        <h4 class="title pull-left" style="font-size: 15px;">移动管理 / APP消息群发 </h4>
     </header>
 
     <div class="col-xs-12">
         <section class="box ">
             <header class="panel_header">
-                <h2 class="title pull-left title-bold">会员列表</h2>
+                <h4 class="title pull-left title-bold">推送列表</h4>
                 <div class="actions panel_actions pull-right" style="line-height: 23px;">
-                    <a href="addMember_.jsp" class="btn btn-info" style="padding: 3px 6px;margin-top:9px;">
+                    <a href="addPushMessage.jsp" class="btn btn-info" style="padding: 3px 6px;margin-top:9px;">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
                 </div>
@@ -64,21 +60,20 @@
                     <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-xs-2 move20">
-                                <input type="text" class="form-control" placeholder="账号">
-                            </div>
-                            <div class="col-xs-2 move20">
-                                <input type="text move20" class="form-control" placeholder="真实姓名">
-                            </div>
-                            <div class="col-xs-2 move20">
-                                <input type="text" class="form-control" placeholder="身份证编号">
-                            </div>
-                            <div class="col-xs-2 move20">
-                                <select class="form-control" style="border-color: #e1e1e1;">
-                                    <option value="">状态</option>
-                                    <option value="0">冻结</option>
-                                    <option value="1">正常</option>
+                                <select class="form-control" id="status1" style="border-color: #e1e1e1;">
+                                    <option value="">请选择APP</option>
+                                    <option value="0">用户端</option>
+                                    <option value="1">律师端</option>
                                 </select>
                             </div>
+                            <div class="col-xs-2 move20">
+                                <select class="form-control" id="status2" style="border-color: #e1e1e1;">
+                                    <option value="">是否已推送</option>
+                                    <option value="0">未推送</option>
+                                    <option value="1">已推送</option>
+                                </select>
+                            </div>
+
                             <div class="col-xs-2">
                                 <%--<div class="form-group">--%>
                                 <div class="controls">
@@ -91,39 +86,24 @@
                     <table class="table table-bordered table-hover" id="dataList">
                         <thead>
                         <tr>
-                            <th>登录账号</th>
-                            <th>昵称</th>
-                            <th>真实姓名</th>
-                            <th>身份证编号</th>
-                            <th>注册时间</th>
-                            <th>积分</th>
+                            <th>APP</th>
+                            <th>标题</th>
+                            <th>消息内容</th>
+                            <th>消息创建时间</th>
+                            <th>APP推送时间</th>
                             <th>状态</th>
-
                             <th>操作</th>
                         </tr>
                         </thead>
                         <tbody>
                         <%--<tr>
-                            <td>1</td>
-                            <td>D0001</td>
-                            <td>打官司</td>
-                            <td>王麻子</td>
-                            <td>13901234567</td>
-                            <td>2017-08-28</td>
-                            <td>张三</td>
-
-                            <td>
-                                <div class="btn-group">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">
-                                        编辑
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="/view/legalcase/publish/caseEntrustDetail.jsp?orderCode=D0001">编辑</a></li>
-                                        <li><a href="#">冻结</a></li>
-                                    </ul>
-                                </div>
-                            </td>
+                            <td>律师端</td>
+                            <td>APP律师端上线啦</td>
+                            <td>APP律师端上线啦，欧耶</td>
+                            <td>2017-08-08</td>
+                            <td>2017-08-08</td>
+                            <td>已推送</td>
+                            <td>-</td>
                         </tr>--%>
                         </tbody>
                     </table>
@@ -143,7 +123,7 @@
 <!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
-<script type="text/javascript" src="/js/pageScripts/custom/member/member_list_query.js"></script>
+<script type="text/javascript" src="/js/pageScripts/mobile/message/list_query.js"></script>
 <!-- START FOOTER -->
 <!--  FOOTER - END -->
 </body>

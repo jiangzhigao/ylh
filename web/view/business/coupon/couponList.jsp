@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <head>
     <%@ include file="/view/frame/head.jsp"%>
+
     <style type="text/css">
 
         .move20{
@@ -20,13 +21,10 @@
         }
         table.table tr:nth-child(even)
         {
-            background-color:#FFFFFF;
+            background-color:#fff;
         }
         .no-editable{
-            color: #ccc;
-        }
-        .no-editable a{
-            color: #ccc;
+            background-color: #cccccc;
         }
         a {
             color: #666666;
@@ -36,44 +34,40 @@
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 <body class=" boxed">
-
+<!-- START TOPBAR -->
+<!--  SIDEBAR - END -->
+<script type='text/javascript'>
+    ___system_navigation_config.currentNav = ___system_navigation_config.nav.bz_coupon_List;
+</script>
+<!-- START CONTENT -->
 <section class="wrapper" style='margin-top:0px;display:inline-block;width:100%;padding:15px 0 0 0;'>
     <header class="panel_header" style="background-color: #fff;margin-top:45px;">
-        <h4 class="title pull-left" style="font-size: 15px;">案件管理 / 案件分类</h4>
+        <h4 class="title pull-left" style="font-size: 15px;">商务中心 / 抵用券管理</h4>
     </header>
 
     <div class="col-xs-12">
         <section class="box ">
             <header class="panel_header">
-                <h4 class="title pull-left title-bold">案件分类</h4>
+                <h2 class="title pull-left title-bold">抵用券列表</h2>
                 <div class="actions panel_actions pull-right" style="line-height: 23px;">
-                    <a href="addCaseClz_.jsp" class="add btn btn-info" style="padding: 3px 6px;margin-top:9px;">
+                    <a href="addCoupon.jsp" class="btn btn-info" style="padding: 3px 6px;margin-top:9px;">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
                 </div>
             </header>
             <div class="content-body">
                 <div class="dataTables_wrapper no-footer">
-                    <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
-                        <div class="row">
-                            <div class="col-xs-2 move20">
-                                <input type="text" id="name" class="form-control" placeholder="案件分类名称">
-                            </div>
-                            <div class="col-xs-2">
-                                <%--<div class="form-group">--%>
-                                <div class="controls">
-                                    <button id="btnSearch" type="button" class="btn btn-info">搜索</button>
-                                </div>
-                                <%--</div>--%>
-                            </div>
-                        </div>
+                    <%--<form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
+
                     </form>
+                    <br>--%>
                     <table class="table table-bordered table-hover" id="dataList">
                         <thead>
                         <tr>
-                            <th>分类ID</th>
-                            <th>分类名称</th>
-                            <th>排序</th>
+                            <th>抵用券ID</th>
+                            <th>标题</th>
+                            <th>面额</th>
+                            <th>有效期（开始时间-结束时间）</th>
                             <th>状态</th>
                             <th>操作</th>
                         </tr>
@@ -81,36 +75,36 @@
                         <tbody>
                         <%--<tr>
                             <td>1</td>
-                            <td>X0001</td>
-                            <td>1</td>
+                            <td>新用户注册</td>
+                            <td>100.00</td>
+                            <td>2017-08-08 00:00 - 2018-08-08 00:00</td>
                             <td>启用</td>
                             <td>
-                                <div class="btn-group">
-                                    <a href="editCaseClz.jsp" style="color: #337AB7;">
-                                        编辑
-                                        &lt;%&ndash;<span class="caret"></span>&ndash;%&gt;
-                                    </a>
-                                </div>
+                                <a href="editCoupon.jsp" style="color: #2aabd2;">
+                                    编辑
+                                </a>
                             </td>
                         </tr>--%>
                         </tbody>
                     </table>
-                    <%--<div class="row">
+                    <div class="row">
                         <div class="col-xs-6" id="pageTotalRecord"></div>
                         <div class="col-xs-6">
                             <div class="dataTables_paginate paging_bootstrap" id="paginationContainer"> </div>
                         </div>
-                    </div>--%>
+                    </div>
                 </div>
             </div>
         </section>
     </div>
 </section>
+<!-- END CONTENT -->
+</div>
+<!-- END CONTAINER -->
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
-<script type="text/javascript" src="/js/pageScripts/legalcase/clz/case_clz_list_query.js"></script>
+<script type="text/javascript" src="/js/pageScripts/business/coupon/list_query.js"></script>
 <!-- START FOOTER -->
-<%--<%@ include file="/view/frame/footer.jsp"%>--%>
 <!--  FOOTER - END -->
 </body>
 

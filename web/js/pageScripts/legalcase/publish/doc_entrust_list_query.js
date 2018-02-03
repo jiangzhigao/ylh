@@ -49,9 +49,9 @@ jQuery(function(){
             if($this.parent().index()==0){//查看详情
                 var bizUrl = $this.attr('bz-url');
                 if(s == '0'){
-                    bizUrl = "/view/legalcase/publish/tempDocEntrustDetail_.jsp";
+                    bizUrl = "/view/legalcase/publish/tempDocEntrustDetail.jsp";
                 }else{
-                    bizUrl = "/view/legalcase/publish/docEntrustDetail_.jsp";
+                    bizUrl = "/view/legalcase/publish/docEntrustDetail.jsp";
                 }
                 bizUrl = bizUrl+'?dataId='+id+'&status='+s;
                 $this.attr("href",bizUrl);

@@ -53,7 +53,7 @@ jQuery(function(){
                  }else{
                  bizUrl = "/view/legalcase/entrust/caseEntrustDetail.jsp";
                  }*/
-                bizUrl = "/view/business/order/entrust/entrustOrderDetail_.jsp";
+                bizUrl = "/view/business/order/entrust/entrustOrderDetail.jsp";
                 bizUrl = bizUrl+'?dataId='+id+'&status='+s;
                 $this.attr("href",bizUrl);
             }else{//分红

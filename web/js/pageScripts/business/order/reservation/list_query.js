@@ -53,7 +53,7 @@ jQuery(function(){
                  }else{
                  bizUrl = "/view/legalcase/entrust/caseEntrustDetail.jsp";
                  }*/
-                bizUrl = "/view/business/order/reservation/orderDetail_.jsp";
+                bizUrl = "/view/business/order/reservation/orderDetail.jsp";
                 bizUrl = bizUrl+'?dataId='+id+'&status='+s;
                 $this.attr("href",bizUrl);
             }else if(index==1){//沟通时间
@@ -98,7 +98,7 @@ jQuery(function(){
 
     function _optionsHtml(id,clz){
         var _operHtml = [];
-        _operHtml.push('<a href="serviceOrderDetail_.jsp?dataId='+id+'" style="color: #337AB7;" target="ylxmain">详情</a>');
+        _operHtml.push('<a href="serviceOrderDetail.jsp?dataId='+id+'" style="color: #337AB7;" target="ylxmain">详情</a>');
         return  _operHtml.join('');
     }
 

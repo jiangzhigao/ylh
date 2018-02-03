@@ -133,7 +133,7 @@ jQuery(function(){
                                 if (result.success) {
                                     FOXKEEPER_UTILS.alert('success', result.message);
                                     setTimeout(function(){
-                                        location.replace("/view/business/order/reservation/orderList_.jsp");
+                                        location.replace("/view/business/order/reservation/orderList.jsp");
                                     }, 1000);
                                 }
                                 else

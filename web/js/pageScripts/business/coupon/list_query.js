@@ -62,7 +62,7 @@ jQuery(function(){
 
     function _optionsHtml(id,clz){
         var _operHtml = [];
-        _operHtml.push('<a href="editCoupon_.jsp?dataId='+id+'" style="color: #337AB7;" target="ylxmain">编辑</a>');
+        _operHtml.push('<a href="editCoupon.jsp?dataId='+id+'" style="color: #337AB7;" target="ylxmain">编辑</a>');
         return  _operHtml.join('');
     }
 

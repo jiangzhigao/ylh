@@ -71,7 +71,7 @@
             <header class="panel_header">
                 <h4 class="title pull-left">管理员列表</h4>
                 <div class="actions panel_actions pull-right" style="line-height: 23px;">
-                    <a href="addSysUser_.jsp" class="btn btn-info" style="padding: 3px 6px;margin-top:9px;">
+                    <a href="addSysUser.jsp" class="btn btn-info" style="padding: 3px 6px;margin-top:9px;">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
                 </div>

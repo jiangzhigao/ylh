@@ -180,7 +180,7 @@ jQuery(function(){
                         if (result.success) {
                             FOXKEEPER_UTILS.alert('success',result.message);
                             setTimeout(function(){
-                                location.replace("/view/internet/lawfirm/lawFirmList_.jsp");
+                                location.replace("/view/internet/lawfirm/lawFirmList.jsp");
                             }, 1000);
                         }else
                         {
