@@ -10,12 +10,12 @@
             <!-- USER INFO - END -->
             <ul class='wraplist' id="menuList">
                 <%--<li class="first biz open">
-                    <a href="/main.jsp" target="ylxmain">
+                    <a href="/main_.jsp" target="ylxmain">
                         <i class="fa fa-tachometer"></i>
                         <span class="title">首页</span>
                     </a>
-                    &lt;%&ndash;<ul class="sub-menu">
-                    </ul>&ndash;%&gt;
+                    <ul class="sub-menu">
+                    </ul>
                 </li>
                 <li class="first">
                     <a href="javascript:;">
@@ -243,16 +243,16 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="/view/mobile/version/appVersionList.jsp" target="ylxmain" class="biz">app更新设置</a>
+                            <a href="/view/mobile/version/appVersionList_.jsp" target="ylxmain" class="biz">app更新设置</a>
                         </li>
                         <li>
                             <a href="/view/mobile/message/appPushList.jsp" target="ylxmain" class="biz">app消息群发</a>
                         </li>
                         <li>
-                            <a href="/view/mobile/recommend/client/appClientList.jsp" target="ylxmain" class="biz">客户端首页推荐管理</a>
+                            <a href="/view/mobile/recommend/client/appClientList_.jsp" target="ylxmain" class="biz">客户端首页推荐管理</a>
                         </li>
                         <li>
-                            <a href="/view/mobile/recommend/lawyer/appLawyerList.jsp" target="ylxmain" class="biz">律师端首页推荐管理</a>
+                            <a href="/view/mobile/recommend/lawyer/appLawyerList_.jsp" target="ylxmain" class="biz">律师端首页推荐管理</a>
                         </li>
                     </ul>
                 </li>
@@ -293,10 +293,10 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/view/sys/permission/role/roleList.jsp" target="ylxmain" class="biz">权限组管理</a>
+                                    <a href="/view/sys/permission/role/roleList_.jsp" target="ylxmain" class="biz">权限组管理</a>
                                 </li>
                                 <li>
-                                    <a href="/view/sys/permission/user/userList.jsp" target="ylxmain" class="biz">管理员列表</a>
+                                    <a href="/view/sys/permission/user/userList_.jsp" target="ylxmain" class="biz">管理员列表</a>
                                 </li>
                             </ul>
                         </li>
