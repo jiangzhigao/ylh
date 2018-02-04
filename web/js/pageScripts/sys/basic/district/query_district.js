@@ -38,8 +38,7 @@ jQuery(function(){
     function _bind () {
         /**  检索 */
         $('#btnSearch').click(function () {
-            var pid = $("#province").val();
-            _initData(pid);
+            _initData();
         });
         /** 操作列表 */
         $('body').on('click', ".opt li a", function() {
@@ -109,7 +108,8 @@ jQuery(function(){
         return  _operHtml.join('');
     }
 
-    function _initData (pid) {
+    function _initData () {
+        var pid = $("#province").val();
         _initProvince(pid);
         _reset();
         _setAjaxData();
@@ -133,7 +133,6 @@ jQuery(function(){
                             _html.push('<td>' + obj.provinceName + '</td>');
                             _html.push('<td>' + obj.name + '</td>');
                             _html.push('<td>' + obj.sortNo + '</td>');
-                            // _html.push('<td>' + obj.status + '</td>');
                             _html.push('<td>' + (obj.status==1?"启用":"停用") + '</td>');
                             _html.push('<td style="text-align: right;">' +  _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');

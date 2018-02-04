@@ -197,16 +197,7 @@ jQuery(function(){
         });
     }
 
-    //封装ajax提交数据
-    function _setAjaxData () {
-        queryParams.pageNo = options.currentPage;
-        var user = $.getuuuAuth();
-        queryParams.username = user._d;
-        queryParams.password = user._p;
-        queryParams.userType = 2;
-        queryParams.title = $("#titles").val();
-        queryParams.infoType = $("#infoType").val();
-    }
+
 
     //批量删除
     $("#btnDel").click(function(){
@@ -242,4 +233,15 @@ jQuery(function(){
            });
        }
     });
+
+    //封装ajax提交数据
+    function _setAjaxData () {
+        queryParams.pageNo = options.currentPage;
+        var user = $.getuuuAuth();
+        queryParams.username = user._d;
+        queryParams.password = user._p;
+        queryParams.userType = 2;
+        queryParams.title = $("#titles").val();
+        queryParams.type = $("#infoType").val();
+    }
 });

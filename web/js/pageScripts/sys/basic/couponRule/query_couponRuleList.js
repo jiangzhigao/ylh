@@ -141,7 +141,7 @@ jQuery(function(){
                         $paginationContainer.bootstrapPaginator(options);
                         $('#batchDeleteDiv').show();
                         $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite"> 共'
-                             + result.banks.length + '条记录，当前为第 ' + options.currentPage + ' 页');
+                             + result.voucherRules.length + '条记录，当前为第 ' + options.currentPage + ' 页');
                     } else {
                         $('#batchDeleteDiv').hide();
                         $dataList.find('tbody').html('');
