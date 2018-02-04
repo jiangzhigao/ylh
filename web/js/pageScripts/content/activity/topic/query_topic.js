@@ -224,8 +224,10 @@ jQuery(function(){
                             _html.push('<td>' + obj.updatedTime + '</td>');
                             if(obj.lawyer){
                                 _html.push('<td>' + obj.lawyer.name + '</td>');
-                            }else{
-                                _html.push('<td>' + obj.userId + '</td>');
+                            }if(obj.manager){
+                                _html.push('<td>' + obj.manager.name + '</td>');
+                            }if(obj.members){
+                                _html.push('<td>' + obj.members.name + '</td>');
                             }
                             _html.push('<td>' + (obj.isTop==1?"置顶":"不置顶") + '</td>');
                             _html.push('<td>' + (statusArray[statusInt]) + '</td>');
@@ -261,6 +263,7 @@ jQuery(function(){
         queryParams.userType = 2;
         queryParams.type = 0;
         queryParams.title = $("#title").val();
+        queryParams.status = $("#status").val();
     }
 });
 

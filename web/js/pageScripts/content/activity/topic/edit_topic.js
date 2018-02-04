@@ -59,8 +59,8 @@ jQuery(function(){
             ajaxdata.username = user._d;
             ajaxdata.password = user._p;
             ajaxdata.userType = 2;
-            ajaxdata.type = 1;
-            ajaxdata.istop =true;
+            ajaxdata.type = 0;
+            ajaxdata.istop = 1;
             jQuery.ajax({
                 dataType: "json",
                 url: webBasePath+'/activitys/'+id,
@@ -231,7 +231,14 @@ jQuery(function(){
                         $("#title").val(activitys.title);
                         $("#content").text(activitys.content);
                         $("#name").text(activitys.name);
-                        $("#announceUser").text(activitys.announceUser);
+                        if(activitys.userType==1){
+                            $("#announceUser").text(activitys.lawyer.name);
+                        } if(activitys.userType==2){
+                            $("#announceUser").text(activitys.manager.name);
+                        }  if(activitys.userType==0){
+                            $("#announceUser").text(activitys.member.name);
+                        }
+
                         // $("#participantNumber").text(activitys.participantNumber);
                         $("#createdTime").text(activitys.createdTime);
                         $("#coverImage").attr("src",homePath+activitys.picture);
