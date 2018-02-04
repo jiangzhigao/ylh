@@ -90,7 +90,7 @@ jQuery(function(){
                             _html.push('<tr>');
                             _html.push('<td>' + dataId + '</td>');
                             _html.push('<td>' + obj.title+ '</td>');
-                            _html.push('<td>' + obj.amount + '</td>');
+                            _html.push('<td>' + $.moneyToDecimal(obj.amount) + '</td>');
                             _html.push('<td>' + obj.startTime+' - '+obj.endTime + '</td>');
                             _html.push('<td>' + statusArray[statusInt] + '</td>');
 

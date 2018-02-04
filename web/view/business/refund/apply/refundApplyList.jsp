@@ -58,16 +58,16 @@
                     <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-xs-2 move20">
-                                <input type="text" id="" class="form-control" placeholder="订单号">
+                                <input type="text" id="orderNo" class="form-control" placeholder="订单号">
                             </div>
                             <div class="col-xs-2 move20">
-                                <input type="text" id="" class="form-control" placeholder="用户手机号">
+                                <input type="text" id="userName" class="form-control" placeholder="用户手机号">
                             </div>
                             <div class="col-xs-2 move20">
-                                <input type="text" id="" class="form-control" placeholder="退款原因">
+                                <input type="text" id="reason" class="form-control" placeholder="退款原因">
                             </div>
                             <div class="col-xs-2 move20">
-                                <select class="form-control" id="status1" style="border-color: #e1e1e1;">
+                                <select class="form-control" id="status" style="border-color: #e1e1e1;">
                                     <option value="">请选择状态</option>
                                     <option value="0">未审核</option>
                                     <option value="1">审核通过</option>
@@ -97,28 +97,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <%--<tr>
-                            <td>110066</td>
-                            <td>20170000001</td>
-                            <td>想要退款</td>
-                            <td>2017-08-08</td>
-                            <td>1000.00</td>
-                            <td>已通过</td>
-                            <td>
-                                <div class="btn-group">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">
-                                        查看详情
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="applyDetail.jsp">查看详情</a></li>
-                                        <li><a href="#">审核通过</a></li>
-                                        <li><a href="#">驳回</a></li>
-                                        <li><a href="#">退款</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>--%>
                         </tbody>
                     </table>
                     <div class="row">

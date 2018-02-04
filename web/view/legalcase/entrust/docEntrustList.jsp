@@ -70,9 +70,9 @@
                                 <input type="text" id="lawyerName" class="form-control" placeholder="代理律师姓名">
                             </div>
                             <div class="col-xs-2 move20">
-                                <select class="form-control" style="border-color: #e1e1e1;">
+                                <select class="form-control" style="border-color: #e1e1e1;" id="status">
                                     <option value="">全部</option>
-                                    <option value="0">未审核</option>
+                                    <option value="0">审核中</option>
                                     <option value="1">审核通过</option>
                                     <option value="5">审核驳回</option>
                                     <option value="2">已受理</option>
@@ -106,32 +106,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <%--<tr>
-                            <td>1</td>
-                            <td>D0001</td>
-                            <td>打官司</td>
-                            <td>王麻子</td>
-                            <td>13901234567</td>
-                            <td>2017-08-28</td>
-                            <td>张三</td>
-                            <td>XXXXX</td>
-                            <td>10000.00</td>
-                            <td>审核中</td>
-                            <td>
-                                <div class="btn-group">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                        查看详情
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="/view/legalcase/entrust/docEntrustDetail.jsp?orderCode=D0001">查看详情</a></li>
-                                        <li><a href="#">审核通过</a></li>
-                                        <li><a href="#">不通过</a></li>
-                                        <li><a href="#">结案</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>--%>
                         </tbody>
                     </table>
                     <div class="row">

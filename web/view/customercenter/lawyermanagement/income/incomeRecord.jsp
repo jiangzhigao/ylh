@@ -59,7 +59,6 @@
                             <div class="col-xs-2 move20">
                                 <input type="text" id = "userName" class="form-control" placeholder="律师账号">
                             </div>
-
                             <div class="col-xs-2 move20">
                                 <input type="text"  id = "name" class="form-control" placeholder="律师姓名">
                             </div>
@@ -94,25 +93,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <%-- <tr>
-                             <td>12360</td>
-                             <td>D0001</td>
-                             <td>打官司</td>
-                             <td>13901234567</td>
-                             <td>打官司</td>
-                             <td>王麻子</td>
-                             <td>2017-09-03</td>
-                             <td>
-                                 <div class="btn-group">
-                                     <a href="/view/legalcase/publish/caseEntrustDetail.jsp?orderCode=D0001" class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                         查看订单详情
-                                         <span class="caret"></span>
-                                     </a>
-
-                                 </div>
-                             </td>
-                         </tr>--%>
-
                         </tbody>
                     </table>
                     <div class="row">

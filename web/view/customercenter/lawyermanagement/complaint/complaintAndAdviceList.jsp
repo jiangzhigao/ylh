@@ -44,10 +44,10 @@
                     <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-xs-2 move20">
-                                <input type="text" class="form-control" placeholder="账号">
+                                <input type="text" id="userName" class="form-control" placeholder="账号">
                             </div>
                             <div class="col-xs-2 move20">
-                                <select class="form-control" style="border-color: #e1e1e1;">
+                                <select class="form-control" style="border-color: #e1e1e1;" id="status">
                                     <option value="">状态</option>
                                     <option value="0">未处理</option>
                                     <option value="1">已处理</option>
@@ -74,7 +74,6 @@
                         </tr>
                         </thead>
                         <tbody>
-
                         </tbody>
                     </table>
                     <div class="row">

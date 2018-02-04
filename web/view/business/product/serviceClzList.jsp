@@ -62,7 +62,7 @@
                     <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-xs-2 move20">
-                                <select class="form-control" id="status" style="border-color: #e1e1e1;">
+                                <select class="form-control" id="type" style="border-color: #e1e1e1;">
                                     <option value="">请选择类型</option>
                                     <option value="0">服务</option>
                                     <option value="1">预约</option>
@@ -92,18 +92,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <%-- <tr>
-                             <td>服务</td>
-                             <td>1年</td>
-                             <td>5000</td>
-                             <td>1</td>
-                             <td>2017-08-08 15:30</td>
-                             <td>
-                                 <a href="editServiceClz.jsp" style="color: #337AB7;">
-                                     编辑
-                                 </a>
-                             </td>
-                         </tr>--%>
                         </tbody>
                     </table>
                     <div class="row">

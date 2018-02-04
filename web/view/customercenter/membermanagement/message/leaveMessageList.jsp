@@ -60,16 +60,16 @@
                     <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-xs-2 move20">
-                                <input type="text" class="form-control" placeholder="会员手机">
+                                <input type="text" id="mobile" class="form-control" placeholder="会员手机">
                             </div>
                             <div class="col-xs-2 move20">
-                                <input type="text move20" class="form-control" placeholder="会员名称或者昵称">
+                                <input type="text" id="nickname" class="form-control" placeholder="会员名称或者昵称">
                             </div>
                             <div class="col-xs-2 move20">
-                                <input type="text" class="form-control" placeholder="律师姓名">
+                                <input type="text" id="lawyerName" class="form-control" placeholder="律师姓名">
                             </div>
                             <div class="col-xs-2 move20">
-                                <select class="form-control" style="border-color: #e1e1e1;">
+                                <select class="form-control" style="border-color: #e1e1e1;" id="isRead">
                                     <option value="">全部</option>
                                     <option value="0">未查看</option>
                                     <option value="1">已查看</option>
@@ -96,18 +96,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <%--<tr>
-                            <td>13901234567</td>
-                            <td>小二</td>
-                            <td>周润发</td>
-                            <td>已经查看</td>
-                            <td>已经回复</td>
-                            <td>
-                                <a href="leaveMessageDetail.jsp" style="color: #337AB7;">
-                                    查看留言详情
-                                </a>
-                            </td>
-                        </tr>--%>
                         </tbody>
                     </table>
                     <div class="row">

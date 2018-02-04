@@ -136,8 +136,8 @@ jQuery(function(){
                             _html.push('<td>' + obj.contactPhone + '</td>');
                             _html.push('<td>' + obj.createdTime + '</td>');
                             _html.push('<td>' +(null != (obj.lawyer)?(obj.lawyer.name):'')+ '</td>');
-                            _html.push('<td>' + obj.caseAmount + '</td>');
-                            _html.push('<td>' + obj.agencyFee + '</td>');
+                            _html.push('<td>' + $.moneyToDecimal(obj.caseAmount) + '</td>');
+                            _html.push('<td>' + $.moneyToDecimal(obj.agencyFee) + '</td>');
                             _html.push('<td>' + statusArray[statusInt] + '</td>');
 
                             var _operHtml = [];
@@ -243,15 +243,10 @@ jQuery(function(){
         var commisionName = $("#commisionName").val();
         var commisionClient = $("#commisionClient").val();
         var lawyerName = $("#lawyerName").val();
-        if(commisionName){
-            queryParams.commisionName = commisionName;
-        }
-        if(commisionClient){
-            queryParams.commisionClient = commisionClient;
-        }
-        if(lawyerName){
-            queryParams.lawyerName = lawyerName;
-        }
+        queryParams.commisionName = commisionName;
+        queryParams.commisionClient = commisionClient;
+        queryParams.lawyerName = lawyerName;
+        queryParams.status = $("#status").val();
     }
 
 });

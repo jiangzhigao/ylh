@@ -102,7 +102,7 @@ jQuery(function(){
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
         ajaxdata.title = $("#title").val();
-        ajaxdata.amount = $("#amount").val();
+        ajaxdata.amount = $.moneyToMul100($("#amount").val());
         ajaxdata.startTime = $("#startTime").val();
         ajaxdata.endTime = $("#endTime").val();
         ajaxdata.status = $("input[name='status']:checked").val();

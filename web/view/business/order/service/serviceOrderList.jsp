@@ -61,16 +61,16 @@
                     <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-xs-2 move20">
-                                <input type="text" id="" class="form-control" placeholder="订单号">
+                                <input type="text" id="orderNo" class="form-control" placeholder="订单号">
                             </div>
                             <div class="col-xs-2 move20">
-                                <input type="text" id="" class="form-control" placeholder="用户注册手机号">
+                                <input type="text" id="userName" class="form-control" placeholder="用户注册手机号">
                             </div>
                             <div class="col-xs-2 move20">
-                                <input type="text" id="" class="form-control" placeholder="服务时长">
+                                <input type="text" id="duration" class="form-control" placeholder="服务时长">
                             </div>
                             <div class="col-xs-2 move20">
-                                <select class="form-control" id="status" style="border-color: #e1e1e1;">
+                                <select class="form-control" id="orderStatus" style="border-color: #e1e1e1;">
                                     <option value="">请选择状态</option>
                                     <option value="0">未支付</option>
                                     <option value="1">已支付</option>

@@ -60,12 +60,12 @@
                     <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-xs-2 move20">
-                                <input type="text" class="form-control" placeholder="请输入咨询者姓名">
+                                <input type="text" id="name" class="form-control" placeholder="请输入咨询者姓名">
                             </div>
                             <div class="col-xs-2">
                                 <div class="controls">
                                     <button id="btnSearch" type="button" class="btn btn-info">搜索</button>
-                                    <button type="button" class="btn btn-danger">删除</button>
+                                    <button id="batchDelete" type="button" class="btn btn-danger">删除</button>
                                 </div>
 
                             </div>
@@ -74,6 +74,9 @@
                     <table class="table table-bordered table-hover" id="dataList">
                         <thead>
                         <tr>
+                            <th>
+                                <input type="checkbox" id="allSelected" class="icheck-minimal-grey" name="" value="">
+                            </th>
                             <th>ID</th>
                             <th>姓名</th>
                             <th>电话</th>
@@ -86,36 +89,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <%--<tr>
-                            <td>1</td>
-                            <td>王麻子</td>
-                            <td>13901234567</td>
-                            <td>13901234567@qq.com</td>
-                            <td>纠纷</td>
-                            <td>2017-08-08 15:30:30</td>
-                            <td>网页</td>
-                            <td>未处理</td>
-                            <td>
-                                <a href="adviceDetail.jsp" style="color: #337AB7;">
-                                    编辑
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>王麻子</td>
-                            <td>13901234567</td>
-                            <td>13901234567@qq.com</td>
-                            <td>纠纷</td>
-                            <td>2017-08-08 15:30:30</td>
-                            <td>网页</td>
-                            <td>未处理</td>
-                            <td>
-                                <a href="adviceDetail.jsp" style="color: #337AB7;">
-                                    编辑
-                                </a>
-                            </td>
-                        </tr>--%>
                         </tbody>
                     </table>
                     <div class="row">

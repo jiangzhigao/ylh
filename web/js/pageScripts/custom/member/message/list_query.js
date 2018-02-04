@@ -129,6 +129,10 @@ jQuery(function(){
         queryParams.username = user._d;
         queryParams.password = user._p;
         queryParams.userType = 2;
+        queryParams.mobile = $("#mobile").val();
+        queryParams.nickname = $("#nickname").val();
+        queryParams.lawyerName = $("#lawyerName").val();
+        queryParams.isRead = $("#isRead").val();
     }
 
 });

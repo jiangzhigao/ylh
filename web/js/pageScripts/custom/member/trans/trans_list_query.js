@@ -77,9 +77,12 @@ jQuery(function(){
         return totalPages;
     }
 
-    function _optionsHtml(id,type){
-        var _operHtml = [],bizUrl;
-        type = parseInt(type);
+    function _optionsHtml(order){
+        var _operHtml = [],bizUrl="",type=-1,id;
+        if(typeof(order) != 'undefined' && order != null){
+            type = parseInt(order.orderType);
+            id=order.id;
+        }
         if(type == 0){
             bizUrl = "/view/business/order/service/serviceOrderDetail.jsp?dataId="+id;
         }else if(type == 1){
@@ -116,10 +119,10 @@ jQuery(function(){
                             _html.push('<td>' + obj.user.name + '</td>');
                             _html.push('<td>' + obj.user.nickname + '</td>');
                             _html.push('<td>' + typeArray[type] + '</td>');
-                            _html.push('<td>' + obj.amount + '</td>');
+                            _html.push('<td>' + $.moneyToDecimal(obj.amount) + '</td>');
                             _html.push('<td>' + obj.createdTime + '</td>');
 
-                            _html.push('<td>' +  _optionsHtml(obj.order.id,obj.order.orderStatus) + '</td>');
+                            _html.push('<td>' +  _optionsHtml(obj.order) + '</td>');
                             _html.push('</tr>');
                         }
 
@@ -175,6 +178,8 @@ jQuery(function(){
         queryParams.username = user._d;
         queryParams.password = user._p;
         queryParams.userType = 2;
+        queryParams.userName=$("#userName").val();
+        queryParams.type=$("#type").val();
     }
 
 });

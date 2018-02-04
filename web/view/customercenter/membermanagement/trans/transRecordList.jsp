@@ -60,10 +60,10 @@
                     <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-xs-2 move20">
-                                <input type="text" class="form-control" placeholder="账号">
+                                <input type="text" id="userName" class="form-control" placeholder="账号">
                             </div>
                             <div class="col-xs-2 move20">
-                                <select class="form-control" style="border-color: #e1e1e1;" placeholder="交易类型">
+                                <select class="form-control" style="border-color: #e1e1e1;" placeholder="交易类型" id="type">
                                     <option value="">交易类型</option>
                                     <option value="0">服务顾问</option>
                                     <option value="1">律师预约</option>
@@ -92,58 +92,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <%--<tr>
-                            <td>1</td>
-                            <td>大状师</td>
-                            <td>王麻子</td>
-                            <td>委托</td>
-                            <td>5000.00</td>
-                            <td>2017-08-28</td>
-                            <td>
-                                <a href="" style="color: #337AB7;">
-                                    查看订单详情
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>大状师</td>
-                            <td>王麻子</td>
-                            <td>委托</td>
-                            <td>5000.00</td>
-                            <td>2017-08-28</td>
-                            <td>
-                                <a class="" style="color: #337AB7;">
-                                    查看订单详情
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>大状师</td>
-                            <td>王麻子</td>
-                            <td>委托</td>
-                            <td>5000.00</td>
-                            <td>2017-08-28</td>
-                            <td>
-                                <a class="" style="color: #337AB7;">
-                                    查看订单详情
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>大状师</td>
-                            <td>王麻子</td>
-                            <td>委托</td>
-                            <td>5000.00</td>
-                            <td>2017-08-28</td>
-                            <td>
-                                <a class="" style="color: #337AB7;">
-                                    查看订单详情
-                                </a>
-                            </td>
-                        </tr>--%>
                         </tbody>
                     </table>
                     <div class="row">

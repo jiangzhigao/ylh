@@ -82,8 +82,8 @@ jQuery(function(){
                         $("#commisionClient").text(entrust.commisionClient);
                         $("#contactPhone").text(entrust.contactPhone);
                         $("#createdTime").text(entrust.createdTime);
-                        $("#caseAmount").text(entrust.caseAmount);
-                        $("#agencyFee").text(entrust.agencyFee);
+                        $("#caseAmount").text($.moneyToDecimal(entrust.caseAmount));
+                        $("#agencyFee").text($.moneyToDecimal(entrust.agencyFee));
                         $("#statusTxt").text(statusArray[statusInt]);
                         $("#coverImage").attr("src",entrust.casePicture);
                         $("#agentLawyer").text((null != (entrust.lawyer)?(entrust.lawyer.name):''));

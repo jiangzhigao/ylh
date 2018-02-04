@@ -117,7 +117,7 @@ jQuery(function(){
                             _html.push('<td>' + obj.lawyerName+ '</td>');
                             _html.push('<td>' + obj.lawyerMobile+ '</td>');
                             _html.push('<td>' + obj.withdrawalsTime+ '</td>');
-                            _html.push('<td>' + obj.amount + '</td>');
+                            _html.push('<td>' + $.moneyToDecimal(obj.amount) + '</td>');
                             _html.push('<td>' + statusArray[statusInt] + '</td>');
                             _html.push('<td style="text-align:center">' +  _optionsHtml(dataId,clz) + '</td>');
                             _html.push('</tr>');
@@ -184,5 +184,8 @@ jQuery(function(){
         queryParams.username = user._d;
         queryParams.password = user._p;
         queryParams.userType = 2;
+        queryParams.withdrawalsNo=$("#withdrawalsNo").val();
+        queryParams.lawyerName=$("#lawyerName").val();
+        queryParams.amount=$.moneyToMul100($("#amount").val());
     }
 });

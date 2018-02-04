@@ -136,8 +136,8 @@ jQuery(function(){
                         $("#commisionClient").val(entrust.commisionClient);
                         $("#contactPhone").val(entrust.contactPhone);
                         $("#createdTime").text(entrust.createdTime);
-                        $("#caseAmount").val(entrust.caseAmount);
-                        $("#agencyFee").val(entrust.agencyFee);
+                        $("#caseAmount").val($.moneyToDecimal(entrust.caseAmount));
+                        $("#agencyFee").val($.moneyToDecimal(entrust.agencyFee));
                         $("#statusTxt").text(statusArray[statusInt]);
                         $("#coverImage").attr("src",homePath+entrust.casePicture);
                         $("#coverUrl").val(homePath+entrust.casePicture);
@@ -316,8 +316,8 @@ jQuery(function(){
         ajaxdata.commisionName = $("#commisionName").val();
         ajaxdata.commisionClient = $("#commisionClient").val();
         ajaxdata.contactPhone = $("#contactPhone").val();
-        ajaxdata.caseAmount = $("#caseAmount").val();
-        ajaxdata.agencyFee = $("#agencyFee").val();
+        ajaxdata.caseAmount = $.moneyToMul100($("#caseAmount").val());
+        ajaxdata.agencyFee = $.moneyToMul100($("#agencyFee").val());
         ajaxdata.casePicture = $("#coverUrl").val();
         ajaxdata.type = $("#type").val();
         ajaxdata.isPlatform = true;

@@ -56,7 +56,57 @@ jQuery(function(){
                 }
             }
         });
+
+        /** 单选 */
+        $('body').on('click', 'input[name^="subcheck_"]', function () {
+            var $this = $(this);
+            var status = $this.attr('s');
+            if (status == 0) {
+                var chkFlg = $this.prop("checked");
+                var downLen = $('input[name^="subcheck_"]').length;
+
+                if (chkFlg) {
+                    var selectLen = $('input[name^="subcheck_"]:checked').length;
+                    if (downLen == selectLen) {
+                        $('#allSelected').prop('checked', chkFlg);
+                    }
+                } else {
+                    var notSelectLen = $('input[name^="subcheck_"]').not("input:checked").length;
+                    if (downLen == notSelectLen) {
+                        _reset();
+                    } else {
+                        $('#allSelected').prop('checked', chkFlg);
+                    }
+                }
+            } else {
+                $this.prop("checked", false);
+                return false;
+            }
+        });
+
+        /** 批量删除 */
+        $('#batchDelete').on('click', function () {
+            var len = $('input:checkbox:checked').length;
+            if (len > 0) {
+                var ids = _getDataIds();
+                if (ids) {
+                    _batchDelete(ids);
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        });
+
+        /** 全选、全不选 */
+        /** 全选、全不选 */
+        $('#allSelected').click(function () {
+            var $this = $(this);
+            var checkFlg = $this.prop('checked');
+            $('input[name^="subcheck_"]').prop('checked', checkFlg);
+        });
     }
+
     function _userBlocked($this,reUrl){
         var ajaxdata = {};
         var user = $.getuuuAuth();
@@ -79,7 +129,6 @@ jQuery(function(){
         });
     }
     function _reset() {
-        $('#batchDelete').removeClass('btn-primary').addClass('btn-default');
         $("input:checkbox").prop('checked', false);
     }
 
@@ -128,6 +177,7 @@ jQuery(function(){
                             var obj = data[i];
                             var dataId = obj.id;
                             _html.push('<tr>');
+                            _html.push('<td>' + '<input type="checkbox" name="subcheck_' +  (i+1) +'" value="' + dataId + '" s="0"/>' + '</td>');
                             _html.push('<td>' + obj.id + '</td>');
                             _html.push('<td>' + obj.name + '</td>');
                             _html.push('<td>' + obj.sortNo + '</td>');
@@ -138,11 +188,9 @@ jQuery(function(){
                         $dataList.find('tbody').html(_html.join(''));
                         options.totalPages = _sumTotalPages(result.lawFirms.length);
                         $paginationContainer.bootstrapPaginator(options);
-                        $('#batchDeleteDiv').show();
                         $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite"> 共'
                              + result.lawFirms.length + '条记录，当前为第 ' + options.currentPage + ' 页');
                     } else {
-                        $('#batchDeleteDiv').hide();
                         $dataList.find('tbody').html('');
                         $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite">无查询记录</div>');
                         $paginationContainer.html('');
@@ -162,6 +210,68 @@ jQuery(function(){
         queryParams.username = user._d;
         queryParams.password = user._p;
         queryParams.userType = 2;
+        queryParams.name=$("#name").val();
     }
 
+    function _batchDelete(ids) {
+        var delData = {};
+        var user = $.reqHomeUrl();
+        delData.username = user._d;
+        delData.password = user._p;
+        delData.userType = 2;
+        delData._method = "delete";
+        bootbox.dialog({
+            title: "",
+            message: '<div class="row">  ' +
+            '<div class="col-xs-12"> ' +
+            '请确认是否该律所信息？' +
+            '</div></div>',
+            buttons: {
+                cancel: {
+                    label: "取消操作",
+                    className: "btn-cancel",
+                    callback: $.noop
+                },
+                confirm: {
+                    label: "确定删除",
+                    className: "btn-info",
+                    callback: function () {
+                        jQuery.ajax({
+                            dataType: "json",
+                            url: webBasePath+'/lawFirms/'+ids,
+                            data: delData,
+                            type: "POST",
+                            success: function (result) {
+                                if (result.success) {
+                                    FOXKEEPER_UTILS.alert('success', result.msg);
+                                    _initData();
+                                }
+                                else
+                                {
+                                    FOXKEEPER_UTILS.alert('warning', result.msg);
+                                }
+                            }
+                        });
+                        return true;
+                    }
+                }
+            }
+        })
+    }
+
+    function _getDataIds() {
+        var selects = $("input:checkbox:checked");
+        var ids = [];
+        selects.each(function(){
+            var $this = $(this);
+            var id = $this.val();
+            if (id) {
+                /*var status = $this.attr("s");
+                 if (status == 0) {*/
+                ids.push(id);
+                /*}*/
+            }
+        });
+        return ids.join(',');
+    }
 });

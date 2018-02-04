@@ -64,10 +64,10 @@
                     <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-xs-2 move20">
-                                <input type="text" id="account" class="form-control" placeholder="账号">
+                                <input type="text" id="lawyerUsername" class="form-control" placeholder="账号">
                             </div>
                             <div class="col-xs-2 move20">
-                                <input type="text" id="realName" class="form-control" placeholder="真实姓名">
+                                <input type="text" id="name" class="form-control" placeholder="真实姓名">
                             </div>
                             <div class="col-xs-2 move20">
                                 <input type="text" id="idcard" class="form-control" placeholder="身份证编号">
@@ -109,28 +109,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <%--<tr>
-                            <td>1</td>
-                            <td>D0001</td>
-                            <td>打官司</td>
-                            <td>王麻子</td>
-                            <td>13901234567</td>
-                            <td>2017-08-28</td>
-                            <td>13901234567</td>
-                            <td>2017-08-28</td>
-                            <td>13901234567</td>
-                            <td>
-                                <div class="btn-group">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                        编辑
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="/view/legalcase/publish/caseEntrustDetail.jsp?orderCode=D0001">查看订单详情</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>--%>
                         </tbody>
                     </table>
                     <div class="row">

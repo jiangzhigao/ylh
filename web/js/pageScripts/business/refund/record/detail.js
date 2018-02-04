@@ -49,7 +49,7 @@ jQuery(function(){
                         $("#cardholder").text(refund.cardholder);
                         $("#bankAccount").text(refund.bankAccount);
                         $("#bankAddress").text(refund.bankAddress);
-                        $("#amount").text(refund.amount);
+                        $("#amount").text($.moneyToDecimal(refund.amount));
                         $("#reason").text(refund.reason);
                         $("#userName").text(refund.userName);
                         $("#status").text(statusArray[statusInt]);

@@ -61,19 +61,19 @@
                     <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-xs-2 move20">
-                                <input type="text" id="" class="form-control" placeholder="订单号">
+                                <input type="text" id="orderNo" class="form-control" placeholder="订单号">
                             </div>
                             <div class="col-xs-2 move20">
-                                <input type="text" id="" class="form-control" placeholder="用户注册手机号">
+                                <input type="text" id="userName" class="form-control" placeholder="用户注册手机号">
                             </div>
                             <div class="col-xs-2 move20">
-                                <input type="text" id="" class="form-control" placeholder="服务时长">
+                                <input type="text" id="duration" class="form-control" placeholder="服务时长">
                             </div>
                             <div class="col-xs-2 move20">
-                                <input type="text" id="" class="form-control" placeholder="律师姓名">
+                                <input type="text" id="lawyerName" class="form-control" placeholder="律师姓名">
                             </div>
                             <div class="col-xs-2 move20">
-                                <select class="form-control" id="status1" style="border-color: #e1e1e1;">
+                                <select class="form-control" id="orderStatus" style="border-color: #e1e1e1;">
                                     <option value="">订单状态</option>
                                     <option value="0">未支付</option>
                                     <option value="1">已支付</option>
@@ -83,7 +83,7 @@
                                 </select>
                             </div>
                             <div class="col-xs-2 move20">
-                                <select class="form-control" id="status2" style="border-color: #e1e1e1;">
+                                <select class="form-control" id="reserveStatus" style="border-color: #e1e1e1;">
                                     <option value="">预约状态</option>
                                     <option value="0">未沟通</option>
                                     <option value="1">已沟通</option>
@@ -119,35 +119,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <%--<tr>
-                            <td>201700000001</td>
-                            <td>13861234567</td>
-                            <td>王麻子</td>
-                            <td>1年</td>
-                            <td>100.00</td>
-                            <td>微信</td>
-                            <td>0</td>
-                            <td>100.00</td>
-                            <td>2017-08-08</td>
-                            <td>2017-08-08</td>
-                            <td>已支付</td>
-                            <td>未沟通</td>
-                            <td>
-                                <div class="btn-group">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">
-                                        查看详情
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="reservationOrderDetail.jsp">查看详情</a></li>
-                                        <li><a href="#">沟通时间</a></li>
-                                        <li><a href="#">2.5:7.5分红</a></li>
-                                        <li><a href="#">3.5:6.5分红</a></li>
-                                        <li><a href="#">10:0分红</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>--%>
                         </tbody>
                     </table>
                     <div class="row">

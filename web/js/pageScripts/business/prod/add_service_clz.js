@@ -103,7 +103,7 @@ jQuery(function(){
         ajaxdata.userType = 2;
         ajaxdata.type = $("#type").val();
         ajaxdata.sortNo = $("#sortNo").val();
-        ajaxdata.fee = $("#fee").val();
+        ajaxdata.fee = $.moneyToMul100($("#fee").val());
         ajaxdata.duration = $("#duration").val();
     }
 
