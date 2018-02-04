@@ -238,7 +238,7 @@ jQuery(function(){
                 if (result.success) {
                     if (result.discoveryTypes != null && result.discoveryTypes.length > 0) {
                         var data = result.discoveryTypes;
-                        for (var i = 0; i < data.length; i++) {
+                        for (var i = 3; i < data.length; i++) {
                             var obj = data[i];
                             var dataId = obj.id;
                             $("#infoType").append('<option value="'+dataId+'">'+obj.name+'</option>');

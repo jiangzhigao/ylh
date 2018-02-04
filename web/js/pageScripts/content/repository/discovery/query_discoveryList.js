@@ -43,7 +43,6 @@ jQuery(function(){
         });
 
         $("#chkItemAll").click(function(){
-
             $("input[name='chkItem[]']").prop("checked",this.checked);
         });
 
@@ -113,10 +112,9 @@ jQuery(function(){
             _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
             _operHtml.push('<li><a bz-url="/view/contentmanager/repository/discovery/editDiscovery.jsp" bid="' + id + '">编辑</a></li>');
             _operHtml.push('<li><a href="javascript:;"bid="'+id+'" >删除</a></li>');
-
+            _operHtml.push('</ul>');
         }
-        _operHtml.push('</ul></div>');
-
+        _operHtml.push('</div>');
         return  _operHtml.join('');
     }
 
@@ -210,17 +208,6 @@ jQuery(function(){
         queryParams.infoType = $("#infoType").val();
     }
 
-    // $("#chkItemAll").click(function(){
-    //     function _checkAll(){
-    //     $("input[name='chkItem[]']").prop("checked",this.checked);
-    //     //显示删除按钮
-    //     /*if(this.checked == true){
-    //      $("input[name='Delete'").css("display",'block');
-    //      }else{
-    //      $("input[name='Delete'").css("display",'none');
-    //      */
-    //     }
-
     //批量删除
     $("#btnDel").click(function(){
        if(confirm('确定要删除所选吗?')){
@@ -235,7 +222,7 @@ jQuery(function(){
             });
            var id= checkData.toString();
            var ajaxdata = {};
-           var reqUrl = webBasePath+'/informations/'+id;
+           var reqUrl = webBasePath+'/discoverys/'+id;
            var user = $.getuuuAuth();
            ajaxdata.username = user._d;
            ajaxdata.password = user._p;

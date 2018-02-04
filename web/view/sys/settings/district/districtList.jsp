@@ -58,17 +58,17 @@
                         <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-2 move20">
-                                    <select class="form-control" id="status1" style="border-color: #e1e1e1;">
+                                    <select class="form-control" id="province" name="province" style="border-color: #e1e1e1;">
                                         <option value="">请选择省</option>
-                                        <option value="0">上海市</option>
-                                        <option value="1">北京市</option>
+                                        <%--<option value="0">上海市</option>--%>
+                                        <%--<option value="1">北京市</option>--%>
                                     </select>
                                 </div>
                                 <div class="col-xs-2 move20">
-                                    <select class="form-control" id="status2" style="border-color: #e1e1e1;">
+                                    <select class="form-control" id="status" style="border-color: #e1e1e1;">
                                         <option value="">请选择状态</option>
-                                        <option value="0">开启</option>
-                                        <option value="1">关闭</option>
+                                        <option value="1">开启</option>
+                                        <option value="0">停用</option>
                                     </select>
                                 </div>
 

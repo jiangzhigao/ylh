@@ -55,21 +55,7 @@
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
-                            <div class="row">
-                                <div class="col-xs-2 move20">
-                                    <input type="text" class="form-control" placeholder="银行名称">
-                                </div>
 
-                                <div class="col-xs-2">
-                                    <%--<div class="form-group">--%>
-                                    <div class="controls">
-                                        <button id="btnSearch" type="button" class="btn btn-info">搜索</button>
-                                    </div>
-                                    <%--</div>--%>
-                                </div>
-                            </div>
-                        </form>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>

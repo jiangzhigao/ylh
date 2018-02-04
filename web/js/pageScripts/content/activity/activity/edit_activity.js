@@ -90,6 +90,7 @@ jQuery(function(){
             ajaxdata.password = user._p;
             ajaxdata.userType = 2;
             ajaxdata.type =1;
+            ajaxdata.status =1;//审核状态1-审核通过
             jQuery.ajax({
                 dataType: "json",
                 url: webBasePath+'/activitys/'+id,
@@ -120,6 +121,7 @@ jQuery(function(){
             ajaxdata.password = user._p;
             ajaxdata.userType = 2;
             ajaxdata.type =1;
+            ajaxdata.status =2;//审核状态-审核未通过
             jQuery.ajax({
                 dataType: "json",
                 url: webBasePath+'/activitys/'+id,
@@ -135,8 +137,7 @@ jQuery(function(){
                         // setTimeout(function(){
                         //     location.replace("/view/contentmanager/activity/activity/activityList.jsp");
                         // }, 1000);
-                    }else
-                    {
+                    }else{
                         FOXKEEPER_UTILS.alert('warning',result.message);
                         $this.html(buttonText).attr("disabled", false);
                     }

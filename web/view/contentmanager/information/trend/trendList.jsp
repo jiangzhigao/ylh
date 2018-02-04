@@ -65,7 +65,7 @@
                                     <%--<div class="form-group">--%>
                                     <div class="controls">
                                         <button id="btnSearch" type="button" class="btn btn-info">搜索</button>
-                                        <button type="button" class="btn btn-danger">删除</button>
+                                        <button type="button" id="btnDel" class="btn btn-danger">删除</button>
                                     </div>
                                     <%--</div>--%>
                                 </div>
@@ -74,6 +74,7 @@
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
+                                <th><input id ="chkItemAll" name="chkItemAll" type="checkbox" style="width: 16px;height: 16px;" value="" /></th>
                                 <th>ID</th>
                                 <th>标题</th>
                                 <th>发布时间</th>

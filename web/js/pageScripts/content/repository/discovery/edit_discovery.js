@@ -4,19 +4,19 @@ jQuery(function(){
     var queryParam = {},ajaxdata = {};
     $form_edit.validate({
         rules:{
-            name:{
+            title:{
                 required:true,
             },
-            sortNo:{
+            infoType:{
                 required:true,
             },
         },
         messages:{
             name:{
-                required:"专业领域不能为空"
+                required:"标题不能为空"
             },
             sortNo:{
-                required:"排序不能为空"
+                required:"分类不能为空"
             }
         }
     });
@@ -57,7 +57,7 @@ jQuery(function(){
         $(document).ready(function(){
             $("#isDocument_1,#isDocument_0").click(function(){
                 var val=$('input:radio[name="isDocument"]:checked').val();
-                if(val==false){
+                if(val=="false"){
                     $("#documentDiv").hide();
                     $("#addressDiv").hide();
                 }else{
@@ -67,7 +67,7 @@ jQuery(function(){
             });
             $("#yes,#no").click(function(){
                 var val=$('input:radio[name="toPage"]:checked').val();
-                if(val==false){
+                if(val=="false"){
                     $("#urlDiv").hide();
                 }else{
                     $("#urlDiv").show();
@@ -156,8 +156,7 @@ jQuery(function(){
                         $("#dataId").val(discoverys.id);
                         $("#title").val(discoverys.title);
                         $("#summary").val(discoverys.summary);
-                        // $("#type").val(discoverys.type);
-                        $("#infoType").val(discoverys.id).attr("checked",true);
+                        $("#infoType").val(discoverys.type).attr("checked",true);
                         // $("isDocument").val(discoverys.isDocument).attr("checked",true);
                         $("input[name='isDocument'][value='"+discoverys.isDocument+"']").attr("checked",true);
                         if(discoverys.isDocument==false){
@@ -256,7 +255,7 @@ jQuery(function(){
                 if (result.success) {
                     if (result.discoveryTypes != null && result.discoveryTypes.length > 0) {
                         var data = result.discoveryTypes;
-                        for (var i = 0; i < data.length; i++) {
+                        for (var i = 3; i < data.length; i++) {
                             var obj = data[i];
                             var dataId = obj.id;
                             $("#infoType").append('<option value="'+dataId+'">'+obj.name+'</option>');
@@ -280,7 +279,7 @@ jQuery(function(){
         ajaxdata.content = ue.getContent();
         ajaxdata.documentType = $("#documentType").val();
         ajaxdata.isDocument = $("input[name='isDocument']:checked").val();
-        ajaxdata.toPage = $("input[name='status']:checked").val();
+        ajaxdata.toPage = $("input[name='toPage']:checked").val();
 
     }
 });

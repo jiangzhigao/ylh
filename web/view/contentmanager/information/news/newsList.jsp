@@ -84,6 +84,7 @@
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
+                                <th><input id ="chkItemAll" name="chkItemAll" type="checkbox" style="width: 16px;height: 16px;" value="" /></th>
                                 <th>ID</th>
                                 <th>标题</th>
                                 <th>分类</th>

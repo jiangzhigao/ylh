@@ -59,7 +59,7 @@
                         <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xs-2 move20">
-                                    <input type="text" class="form-control" placeholder="银行名称">
+                                    <input type="text" id="bankName" class="form-control" placeholder="银行名称">
                                 </div>
 
                                 <div class="col-xs-2">

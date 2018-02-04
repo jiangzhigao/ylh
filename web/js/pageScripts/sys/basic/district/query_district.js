@@ -38,7 +38,8 @@ jQuery(function(){
     function _bind () {
         /**  检索 */
         $('#btnSearch').click(function () {
-            _initData();
+            var pid = $("#province").val();
+            _initData(pid);
         });
         /** 操作列表 */
         $('body').on('click', ".opt li a", function() {
@@ -108,7 +109,8 @@ jQuery(function(){
         return  _operHtml.join('');
     }
 
-    function _initData () {
+    function _initData (pid) {
+        _initProvince(pid);
         _reset();
         _setAjaxData();
         jQuery.ajax({
@@ -133,8 +135,6 @@ jQuery(function(){
                             _html.push('<td>' + obj.sortNo + '</td>');
                             // _html.push('<td>' + obj.status + '</td>');
                             _html.push('<td>' + (obj.status==1?"启用":"停用") + '</td>');
-                            // _html.push('<td>' + obj.createdTime + '</td>');
-                            // _html.push('<td>' + obj.updatedTime + '</td>');
                             _html.push('<td style="text-align: right;">' +  _optionsHtml(dataId) + '</td>');
                             _html.push('</tr>');
                         }
@@ -157,6 +157,43 @@ jQuery(function(){
         });
     }
 
+    /** 加载省份信息*/
+    function _initProvince(refId){
+        var queryInfoData = {};
+        var user = $.getuuuAuth();
+        queryInfoData.username = user._d;
+        queryInfoData.password = user._p;
+        queryInfoData.userType = 2;
+        queryInfoData.pageNo = 1;
+        queryInfoData.pageSize = 1000;
+        jQuery.ajax({
+            dataType: "json",
+            url: webBasePath + '/provinces',
+            data: queryInfoData,
+            type: "GET",
+            success: function (result) {
+                if (result.success) {
+                    if (result.provinces != null && result.provinces.length > 0) {
+                        var data = result.provinces;
+                        $("#province").find("option:not(:first)").remove()
+                        var slt = '';
+                        for (var i = 0; i < data.length; i++) {
+                            var obj = data[i];
+                            var dataId = obj.id;
+                            if(null != refId && refId!=''){
+                                if(dataId == refId){
+                                    slt = 'selected';
+                                }
+                            }
+                            $("#province").append('<option value="'+dataId+'" '+slt+'>'+obj.name+'</option>');
+                            slt = '';
+                        }
+                    }
+
+                }
+            }
+        });
+    }
     //封装ajax提交数据
     function _setAjaxData () {
         queryParams.pageNo = options.currentPage;
@@ -164,6 +201,8 @@ jQuery(function(){
         queryParams.username = user._d;
         queryParams.password = user._p;
         queryParams.userType = 2;
+        queryParams.status = $("#status").val();
+        queryParams.provinceId = $("#province").val();
     }
 
 });

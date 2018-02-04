@@ -31,7 +31,7 @@ jQuery(function(){
                 required:true,
             },
             infoType:{
-                required:"摘要不能为空"
+                required:"分类不能为空"
             }
         }
     });

@@ -18,12 +18,10 @@ jQuery(function(){
             _initData();
         }
     }
-
     var queryParams = {
         page : 1,
         pageSize : 10
     };
-
 
     //渲染
     _init();
@@ -34,11 +32,13 @@ jQuery(function(){
         //初始化列表
         _initData();
     }
-
     function _bind () {
         /**  检索 */
         $('#btnSearch').click(function () {
             _initData();
+        });
+        $("#chkItemAll").click(function(){
+            $("input[name='chkItem[]']").prop("checked",this.checked);
         });
         /** 操作列表 */
         $('body').on('click', ".opt li a", function() {
@@ -128,6 +128,7 @@ jQuery(function(){
                             var obj = data[i];
                             var dataId = obj.id;
                             _html.push('<tr>');
+                            _html.push('<td><input type="checkbox"  id =chkItem[]" name="chkItem[]" value="'+ dataId +'" style="width: 16px;height: 16px;"/></td>');
                             _html.push('<td>' + obj.id + '</td>');
                             _html.push('<td>' + obj.title + '</td>');
                             _html.push('<td>' + obj.infoType.name + '</td>');
@@ -149,7 +150,6 @@ jQuery(function(){
                         $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite">无查询记录</div>');
                         $paginationContainer.html('');
                     }
-
                 }else{
                     FOXKEEPER_UTILS.alert('warning', result.message);
                 }
@@ -182,7 +182,7 @@ jQuery(function(){
             });
             var id= checkData.toString();
             var ajaxdata = {};
-            var reqUrl = webBasePath+'/discoverys/'+id;
+            var reqUrl = webBasePath+'/informations/'+id;
             var user = $.getuuuAuth();
             ajaxdata.username = user._d;
             ajaxdata.password = user._p;

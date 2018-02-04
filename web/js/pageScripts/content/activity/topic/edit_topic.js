@@ -254,9 +254,9 @@ jQuery(function(){
 
     //封装ajax提交数据
     function _setQueryAjaxData () {
-        var professionalField = $.getuuuAuth();
-        queryParam.username = professionalField._d;
-        queryParam.password = professionalField._p;
+        var activitys = $.getuuuAuth();
+        queryParam.username = activitys._d;
+        queryParam.password = activitys._p;
         queryParam.userType = 2;
     }
 

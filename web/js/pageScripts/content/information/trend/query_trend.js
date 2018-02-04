@@ -36,6 +36,10 @@ jQuery(function(){
         $('#btnSearch').click(function () {
             _initData();
         });
+        /** 全选，返选 */
+        $("#chkItemAll").click(function(){
+            $("input[name='chkItem[]']").prop("checked",this.checked);
+        });
         /** 操作列表 */
         $('body').on('click', ".opt li a", function() {
             var $this = $(this);
@@ -123,6 +127,7 @@ jQuery(function(){
                             var obj = data[i];
                             var dataId = obj.id;
                             _html.push('<tr>');
+                            _html.push('<td><input type="checkbox"  id =chkItem[]" name="chkItem[]" value="'+ dataId +'" style="width: 16px;height: 16px;"/></td>');
                             _html.push('<td>' + obj.id + '</td>');
                             _html.push('<td>' + obj.title + '</td>');
                             _html.push('<td>' + obj.createdTime + '</td>');
@@ -151,6 +156,41 @@ jQuery(function(){
             }
         });
     }
+
+    //批量删除
+    $("#btnDel").click(function(){
+        if(confirm('确定要删除所选吗?')){
+            var checks = $("input[name='chkItem[]']:checked");
+            if(checks.length == 0){ alert('未选中任何项！');
+                return false;
+            }
+            //将获取的值存入数组
+            var checkData = new Array();
+            checks.each(function(){
+                checkData.push($(this).val());
+            });
+            var id= checkData.toString();
+            var ajaxdata = {};
+            var reqUrl = webBasePath+'/informations/'+id;
+            var user = $.getuuuAuth();
+            ajaxdata.username = user._d;
+            ajaxdata.password = user._p;
+            ajaxdata.userType = 2;
+            ajaxdata._method = 'delete'
+            jQuery.ajax({
+                dataType: "json",
+                url: reqUrl,
+                data: ajaxdata,
+                type: "POST",
+                success: function (result) {
+                    if (result.success) {
+                        FOXKEEPER_UTILS.alert('success',result.message);
+                        window.location.reload();
+                    }
+                }
+            });
+        }
+    });
 
     //封装ajax提交数据
     function _setAjaxData () {
