@@ -60,7 +60,7 @@
                     <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-xs-2 move20">
-                                <input type="text" id="account" class="form-control" placeholder="账号">
+                                <input type="text" id="userName" class="form-control" placeholder="账号">
                             </div>
                             <div class="col-xs-2 move20">
                                 <select class="form-control" id="status" style="border-color: #e1e1e1;" placeholder="状态">
@@ -91,54 +91,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>13901234567</td>
-                            <td>王麻子</td>
-                            <td>天王盖地虎</td>
-                            <td>2017-08-28</td>
-                            <td>已处理</td>
-                            <td>
-                                <a href="feedbackDetail.jsp" style="color: #337AB7;">
-                                    查看详情
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>13901234567</td>
-                            <td>王麻子</td>
-                            <td>天王盖地虎</td>
-                            <td>2017-08-28</td>
-                            <td>已处理</td>
-                            <td>
-                                <a href="feedbackDetail.jsp" style="color: #337AB7;">
-                                    查看详情
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>13901234567</td>
-                            <td>王麻子</td>
-                            <td>天王盖地虎</td>
-                            <td>2017-08-28</td>
-                            <td>已处理</td>
-                            <td>
-                                <a href="feedbackDetail.jsp" style="color: #337AB7;">
-                                    查看详情
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>13901234567</td>
-                            <td>王麻子</td>
-                            <td>天王盖地虎</td>
-                            <td>2017-08-28</td>
-                            <td>已处理</td>
-                            <td>
-                                <a href="feedbackDetail.jsp" style="color: #337AB7;">
-                                    查看详情
-                                </a>
-                            </td>
-                        </tr>
                         </tbody>
                     </table>
                     <div class="row">

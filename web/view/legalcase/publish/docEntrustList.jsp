@@ -70,7 +70,7 @@
                                 <input type="text" id="lawyerName" class="form-control" placeholder="代理律师姓名">
                             </div>
                             <div class="col-xs-2 move20">
-                                <select class="form-control" style="border-color: #e1e1e1;">
+                                <select class="form-control" style="border-color: #e1e1e1;" id="status">
                                     <option value="">全部</option>
                                     <option value="0">未发布</option>
                                     <option value="1">已发布</option>

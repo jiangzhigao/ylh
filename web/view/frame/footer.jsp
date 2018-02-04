@@ -32,7 +32,6 @@
         var $menu = $("#menuList");
         var _html = new Array();
         function _buildMenu(menus) {
-            debugger;
             if (menus != null && menus.length > 0) {
                 for (var i = 0; i < menus.length; i++) {
                     var m = menus[i];

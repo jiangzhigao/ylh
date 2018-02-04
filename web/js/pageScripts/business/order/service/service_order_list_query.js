@@ -95,11 +95,11 @@ jQuery(function(){
                             _html.push('<tr>');
                             _html.push('<td>' + obj.orderNo+ '</td>');
                             _html.push('<td>' + obj.duration+ff+ '</td>');
-                            _html.push('<td>' + obj.userId + '</td>');
-                            _html.push('<td>' + obj.totalAmount + '</td>');
+                            _html.push('<td>' + (obj.user==null?"":obj.user.userName) + '</td>');
+                            _html.push('<td>' + $.moneyToDecimal(obj.totalAmount) + '</td>');
                             _html.push('<td>' + payArray[payType] + '</td>');
                             _html.push('<td>' + obj.discountAmount + '</td>');
-                            _html.push('<td>' + obj.payAmount + '</td>');
+                            _html.push('<td>' + $.moneyToDecimal(obj.payAmount) + '</td>');
                             _html.push('<td>' + obj.orderTime + '</td>');
                             _html.push('<td>' + obj.payTime + '</td>');
                             _html.push('<td>' + orderArray[orderStatus] + '</td>');
@@ -139,6 +139,10 @@ jQuery(function(){
         queryParams.password = user._p;
         queryParams.userType = 2;
         queryParams.orderType = 0;
+        queryParams.orderNo=$("#orderNo").val();
+        queryParams.userName=$("#userName").val();
+        queryParams.duration=$("#duration").val();
+        queryParams.orderStatus=$("#orderStatus").val();
     }
 });
 

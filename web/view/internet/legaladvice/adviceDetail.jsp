@@ -44,86 +44,87 @@
             </header>
             <div class="content-body">
                 <div class="dataTables_wrapper no-footer">
-                    <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
+                    <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
                         <input type="hidden" id="status-tag">
+                        <input type="hidden" id="dataId">
                         <div class="row">
                             <div class="col-xs-12">
-                                <div class="form-group">
+                                <div class="form-group btom">
                                     <label class="col-xs-2 control-label">姓名</label>
                                     <div class="col-xs-5">
-                                        <label class="control-label" id="commisionName"></label>
+                                        <label class="control-label" id="name" style="font-weight: 500;"></label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <div class="form-group">
+                                <div class="form-group btom">
                                     <label class="col-xs-2 control-label">电话</label>
                                     <div class="col-xs-5">
-                                        <label class="control-label" id="commisionClient"></label>
+                                        <label class="control-label" id="telephone" style="font-weight: 500;"></label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <div class="form-group">
+                                <div class="form-group btom">
                                     <label class="col-xs-2 control-label">邮箱</label>
                                     <div class="col-xs-5">
-                                        <label class="control-label" id="contactPhone"></label>
+                                        <label class="control-label" id="email" style="font-weight: 500;"></label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <div class="form-group">
+                                <div class="form-group btom">
                                     <label class="col-xs-2 control-label">咨询类别</label>
                                     <div class="col-xs-5">
-                                        <label class="control-label" id="createdTime"></label>
+                                        <label class="control-label" id="typeName" style="font-weight: 500;"></label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <div class="form-group">
+                                <div class="form-group btom">
                                     <label class="col-xs-2 control-label">咨询时间</label>
                                     <div class="col-xs-5">
-                                        <label class="control-label" id="caseAmount"></label>
+                                        <label class="control-label" id="createdTime" style="font-weight: 500;"></label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <div class="form-group">
+                                <div class="form-group btom">
                                     <label class="col-xs-2 control-label">咨询内容</label>
                                     <div class="col-xs-5">
-                                        <textarea id="" name="" maxlength="256" disabled class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
+                                        <textarea id="content" name="content" maxlength="256" disabled class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <div class="form-group">
+                                <div class="form-group btom">
                                     <label class="col-xs-2 control-label">设备</label>
                                     <div class="col-xs-5">
-                                        <label class="control-label" id="statusTxt"></label>
+                                        <label class="control-label" id="device" style="font-weight: 500;"></label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <div class="form-group">
-                                    <label class="col-xs-2 control-label" for="userPassword">状态</label>
+                                <div class="form-group btom">
+                                    <label class="col-xs-2 control-label" >状态</label>
                                     <div class="col-xs-5" style="padding-top: 5px;">
-                                        <input type="radio" class="" value="1" id="status_normal" name="status" checked="">已处理
+                                        <input type="radio" class="" value="1" id="status_normal" name="isDealed" checked="">已处理
                                         &nbsp;&nbsp;
-                                        <input type="radio" class="" value="0" id="status_blocked" name="status">未处理
+                                        <input type="radio" class="" value="0" id="status_blocked" name="isDealed">未处理
                                     </div>
                                 </div>
                             </div>
@@ -133,7 +134,7 @@
                                 <div class="form-group">
                                     <label class="col-xs-2 control-label">备注</label>
                                     <div class="col-xs-5">
-                                        <textarea id="" name="" maxlength="256" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
+                                        <textarea id="memo" name="memo" maxlength="256" class="bootstrap-wysihtml5-textarea" placeholder="" style="width: 100%; height: 100px; font-size: 14px; line-height: 23px;padding:15px;"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -164,7 +165,7 @@
 </div>
 <!-- END CONTAINER -->
 <script type="text/javascript" src="/js/__base.min.js"></script>
-<script type="text/javascript" src="/js/pageScripts/legalcase/publish/case_entrust_detail.js"></script>
+<script type="text/javascript" src="/js/pageScripts/internet/legaladvice/edit_adviceDetail.js"></script>
 <script type="text/javascript" src="/js/custom/request-util.js"></script>
 <!-- START FOOTER -->
 <!--  FOOTER - END -->

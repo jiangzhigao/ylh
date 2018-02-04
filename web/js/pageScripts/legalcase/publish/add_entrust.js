@@ -190,8 +190,8 @@ jQuery(function(){
         ajaxdata.commisionName = $("#commisionName").val();
         ajaxdata.commisionClient = $("#commisionClient").val();
         ajaxdata.contactPhone = $("#contactPhone").val();
-        ajaxdata.caseAmount = $("#caseAmount").val();
-        ajaxdata.agencyFee = $("#agencyFee").val();
+        ajaxdata.caseAmount = $.moneyToMul100($("#caseAmount").val());
+        ajaxdata.agencyFee = $.moneyToMul100($("#agencyFee").val());
         ajaxdata.casePicture = $("#coverUrl").val();
         ajaxdata.type = $("#type").val();
         ajaxdata.isPlatform = true;

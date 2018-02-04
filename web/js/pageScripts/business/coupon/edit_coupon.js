@@ -75,7 +75,7 @@ jQuery(function(){
                     if(voucher){
                         $("#dataId").val(voucher.id);
                         $("#title").val(voucher.title);
-                        $("#amount").val(voucher.amount);
+                        $("#amount").val($.moneyToDecimal(voucher.amount));
                         $("#startTime").val(voucher.startTime);
                         $("#endTime").val(voucher.endTime);
                         $("input[name='status'][value='"+voucher.status+"']").attr("checked",true);
@@ -135,7 +135,7 @@ jQuery(function(){
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
         ajaxdata.title = $("#title").val();
-        ajaxdata.amount = $("#amount").val();
+        ajaxdata.amount = $.moneyToMul100($("#amount").val());
         ajaxdata.startTime = $("#startTime").val();
         ajaxdata.endTime = $("#endTime").val();
         ajaxdata.status = $("input[name='status']:checked").val();

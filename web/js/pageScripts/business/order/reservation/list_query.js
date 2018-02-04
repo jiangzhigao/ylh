@@ -131,8 +131,8 @@ jQuery(function(){
                             var ff = 0 == typeInt?"月":"小时";
                             _html.push('<tr>');
                             _html.push('<td>' + obj.orderNo+ '</td>');
-                            _html.push('<td>' + obj.user.userName+ '</td>');
-                            _html.push('<td>' + obj.lawyer.name+ '</td>');
+                            _html.push('<td>' + (obj.user==null?"":obj.user.userName)+ '</td>');
+                            _html.push('<td>' + obj.lawyerName+ '</td>');
                             _html.push('<td>' + obj.duration+ff+ '</td>');
                             _html.push('<td>' + obj.totalAmount + '</td>');
                             _html.push('<td>' + payArray[payType] + '</td>');
@@ -289,5 +289,11 @@ jQuery(function(){
         queryParams.password = user._p;
         queryParams.userType = 2;
         queryParams.orderType = 1;
+        queryParams.orderNo=$("#orderNo").val();
+        queryParams.userName=$("#userName").val();
+        queryParams.duration=$("#duration").val();
+        queryParams.orderStatus=$("#orderStatus").val();
+        queryParams.reserveStatus=$("#reserveStatus").val();
+        queryParams.lawyerName=$("#lawyerName").val();
     }
 });

@@ -178,6 +178,10 @@ jQuery(function(){
         queryParams.username = user._d;
         queryParams.password = user._p;
         queryParams.userType = 2;
+        queryParams.userName=$("#userName").val();
+        queryParams.name=$("#name").val();
+        queryParams.status=$("#status").val();
+        queryParams.idcard=$("#idcard").val();
     }
 
 });

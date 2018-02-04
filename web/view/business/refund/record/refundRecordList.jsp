@@ -58,13 +58,13 @@
                     <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-xs-2 move20">
-                                <input type="text" id="" class="form-control" placeholder="订单号">
+                                <input type="text" id="orderNo" class="form-control" placeholder="订单号">
                             </div>
                             <div class="col-xs-2 move20">
-                                <input type="text" id="" class="form-control" placeholder="用户手机号">
+                                <input type="text" id="userName" class="form-control" placeholder="用户手机号">
                             </div>
                             <div class="col-xs-2 move20">
-                                <input type="text" id="" class="form-control" placeholder="退款原因">
+                                <input type="text" id="reason" class="form-control" placeholder="退款原因">
                             </div>
 
                             <div class="col-xs-2">

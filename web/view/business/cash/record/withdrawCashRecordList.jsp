@@ -57,13 +57,13 @@
                     <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-xs-2 move20">
-                                <input type="text" id="" class="form-control" placeholder="请输入提现编号">
+                                <input type="text" id="withdrawalsNo" class="form-control" placeholder="请输入提现编号">
                             </div>
                             <div class="col-xs-2 move20">
-                                <input type="text" id="" class="form-control" placeholder="请输入律师名称">
+                                <input type="text" id="lawyerName" class="form-control" placeholder="请输入律师名称">
                             </div>
                             <div class="col-xs-2 move20">
-                                <input type="text" id="" class="form-control" placeholder="请输入提现金额">
+                                <input type="text" id="amount" class="form-control" placeholder="请输入提现金额">
                             </div>
 
                             <div class="col-xs-2">
@@ -88,19 +88,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <%--<tr>
-                            <td>201700000001</td>
-                            <td>王麻子</td>
-                            <td>13861234567</td>
-                            <td>2017-08-08</td>
-                            <td>1000.00</td>
-                            <td>已支付</td>
-                            <td>
-                                <a href="recordDetail.jsp" style="color: #2aabd2;">
-                                    查看详情
-                                </a>
-                            </td>
-                        </tr>--%>
                         </tbody>
                     </table>
                     <div class="row">

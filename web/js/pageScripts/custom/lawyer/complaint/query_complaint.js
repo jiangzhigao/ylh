@@ -142,6 +142,8 @@ jQuery(function(){
         queryParams.password = user._p;
         queryParams.userType = 2;
         queryParams.type = 1;
+        queryParams.userName=$("#userName").val();
+        queryParams.status=$("#status").val();
     }
 
 });

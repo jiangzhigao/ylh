@@ -74,7 +74,7 @@
                             <div class="col-xs-2 move20">
                                 <select class="form-control" style="border-color: #e1e1e1;" id="status">
                                     <option value="">全部</option>
-                                    <option value="0">未审核</option>
+                                    <option value="0">审核中</option>
                                     <option value="1">审核通过</option>
                                     <option value="5">审核驳回</option>
                                     <option value="2">已受理</option>

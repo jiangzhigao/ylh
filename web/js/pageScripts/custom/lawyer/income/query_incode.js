@@ -172,16 +172,6 @@ jQuery(function(){
         queryParams.username = user._d;
         queryParams.password = user._p;
         queryParams.userType = 2;
-
-    }
-
-    //封装ajax提交数据
-    function _setAjaxData1 () {
-        queryParams.pageNo = options.currentPage;
-        var user = $.getuuuAuth();
-        queryParams.username = user._d;
-        queryParams.password = user._p;
-        queryParams.userType = 2;
         queryParams.userName = $("#userName").val();
         queryParams.name = $("#name").val();
         queryParams.type = $("#type").val();

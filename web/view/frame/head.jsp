@@ -6,6 +6,8 @@
 <meta charset="utf-8"/>
 <title>一律行后台管理系统</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content= "no-cache, must-revalidate">
 <meta content="ylx" name="description"/>
 <meta content="ylx" name="author"/>
 <!-- Favicons -->
@@ -22,6 +24,8 @@
     /*var webBasePath = "http://120.76.101.46/ylx/api";*/
     var webBasePath = "http://localhost:8888/ylx/api";
     var homeBasePath = "http://120.76.101.46/ylx";
+    /*var homeBasePath = "http://120.76.101.46/ylx";
+    var webBasePath = "http://106.14.10.28:8888/ylx/api";*/
     /*var webBasePath = "http://106.14.10.28:8888/ylx/api";*/
     /*var homePath = "http://120.76.101.46";*/
     var homePath = "";

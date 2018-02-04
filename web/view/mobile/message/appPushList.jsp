@@ -60,14 +60,14 @@
                     <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-xs-2 move20">
-                                <select class="form-control" id="status1" style="border-color: #e1e1e1;">
+                                <select class="form-control" id="type" style="border-color: #e1e1e1;">
                                     <option value="">请选择APP</option>
                                     <option value="0">用户端</option>
                                     <option value="1">律师端</option>
                                 </select>
                             </div>
                             <div class="col-xs-2 move20">
-                                <select class="form-control" id="status2" style="border-color: #e1e1e1;">
+                                <select class="form-control" id="status" style="border-color: #e1e1e1;">
                                     <option value="">是否已推送</option>
                                     <option value="0">未推送</option>
                                     <option value="1">已推送</option>
@@ -96,15 +96,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <%--<tr>
-                            <td>律师端</td>
-                            <td>APP律师端上线啦</td>
-                            <td>APP律师端上线啦，欧耶</td>
-                            <td>2017-08-08</td>
-                            <td>2017-08-08</td>
-                            <td>已推送</td>
-                            <td>-</td>
-                        </tr>--%>
                         </tbody>
                     </table>
                     <div class="row">

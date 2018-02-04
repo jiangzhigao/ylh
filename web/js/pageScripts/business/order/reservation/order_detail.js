@@ -69,13 +69,13 @@ jQuery(function(){
                         $("#dataId").text(order.id);
                         $("#orderNo").text(order.orderNo);
                         $("#clientPhone").text(order.user.userName);
-                        $("#userPhone").text(order.user.mobile);
+                        $("#userPhone").text((order.user==null?"":order.user.userName));
                         $("#duration").text(order.duration+ff);
-                        $("#reservLawName").text(order.lawyer.name);
-                        $("#orderAmount").text(order.totalAmount);
+                        $("#reservLawName").text(order.lawyerName);
+                        $("#orderAmount").text($.moneyToDecimal(order.totalAmount));
                         $("#payType").text(payArray[payType]);
                         $("#discountAmount").text(order.discountAmount);
-                        $("#payAmount").text(order.payAmount);
+                        $("#payAmount").text($.moneyToDecimal(order.payAmount));
                         $("#payTime").text(order.payTime);
                         $("#orderTime").text(order.orderTime);
                         $("#orderStatus").text(orderArray[statusInt]);

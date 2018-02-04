@@ -64,7 +64,7 @@ jQuery(function(){
                         $("#orderNo").text(order.orderNo);
                         $("#duration").text(order.duration+ff);
                         $("#userId").text(order.user.userName);
-                        $("#totalAmount").text(order.totalAmount);
+                        $("#totalAmount").text($.moneyToDecimal(order.totalAmount));
                         $("#orderTime").text(order.orderTime);
                         $("#orderStatus").text(orderArray[statusInt]);
 

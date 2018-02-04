@@ -81,7 +81,7 @@ jQuery(function(){
                         $("#dataId").val(serviceType.id);
                         $("#type").val(serviceType.type);
                         $("#duration").val(serviceType.duration);
-                        $("#fee").val(serviceType.fee);
+                        $("#fee").val($.moneyToDecimal(serviceType.fee));
                         $("#sortNo").val(serviceType.sortNo);
                         $("#publishTime").text(serviceType.createdTime);
                         $("#updateTime").text(serviceType.updatedTime);
@@ -144,7 +144,7 @@ jQuery(function(){
         ajaxdata.type = $("#type").val();
         ajaxdata.duration = $("#duration").val();
         ajaxdata.sortNo = $("#sortNo").val();
-        ajaxdata.fee = $("#fee").val();
+        ajaxdata.fee = $.moneyToMul100($("#fee").val());
     }
 
     /** 请求参数验证 */

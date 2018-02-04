@@ -5,8 +5,8 @@
     $.extend({
 
         secretKey:"ylx9572cipher",
-        homeUrl:"http://106.14.10.28:8080/",
-        /*homeUrl:"http://localhost:8080/",*/
+        /*homeUrl:"http://106.14.10.28:8080/",*/
+        homeUrl:"http://localhost:8080/",
         /**
          * 加密
          * @param str
@@ -162,14 +162,28 @@
             /*}*/
         }
         ,moneyToDecimal:function (money) {
-            if(typeof (money)=='undefined' || money == null || money == ''){
+            if(typeof (money)=='undefined' || money == null || money == '' || money == '0'){
                 return '0.00';
             }
             var number = parseFloat(money);
             if (isNaN(number)) {
                 return '0.00';
             }
-            number = number/100;
+            if(number%100==0){
+                return  (number/100)+'.00'
+            }else{
+                return number/100;
+            }
+        }
+        ,moneyToMul100:function (money) {
+            if(typeof (money)=='undefined' || money == null || money == '' || money == '0'){
+                return '0';
+            }
+            var number = parseFloat(money);
+            if (isNaN(number)) {
+                return '0';
+            }
+            number = number*100;
             return number;
         }
     });

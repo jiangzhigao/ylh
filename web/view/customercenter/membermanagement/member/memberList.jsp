@@ -64,16 +64,16 @@
                     <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-xs-2 move20">
-                                <input type="text" class="form-control" placeholder="账号">
+                                <input type="text" id="userName" class="form-control" placeholder="账号">
                             </div>
                             <div class="col-xs-2 move20">
-                                <input type="text move20" class="form-control" placeholder="真实姓名">
+                                <input type="text move20" id="name" class="form-control" placeholder="真实姓名">
                             </div>
                             <div class="col-xs-2 move20">
-                                <input type="text" class="form-control" placeholder="身份证编号">
+                                <input type="text" id="idcard" class="form-control" placeholder="身份证编号">
                             </div>
                             <div class="col-xs-2 move20">
-                                <select class="form-control" style="border-color: #e1e1e1;">
+                                <select class="form-control" style="border-color: #e1e1e1;" id="status">
                                     <option value="">状态</option>
                                     <option value="0">冻结</option>
                                     <option value="1">正常</option>
@@ -103,28 +103,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <%--<tr>
-                            <td>1</td>
-                            <td>D0001</td>
-                            <td>打官司</td>
-                            <td>王麻子</td>
-                            <td>13901234567</td>
-                            <td>2017-08-28</td>
-                            <td>张三</td>
-
-                            <td>
-                                <div class="btn-group">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">
-                                        编辑
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="/view/legalcase/publish/caseEntrustDetail.jsp?orderCode=D0001">编辑</a></li>
-                                        <li><a href="#">冻结</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>--%>
                         </tbody>
                     </table>
                     <div class="row">

@@ -63,12 +63,12 @@
                     <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-xs-2 move20">
-                                <input type="text" class="form-control" placeholder="请输入律师名称">
+                                <input type="text" id="name" class="form-control" placeholder="请输入律师名称">
                             </div>
                             <div class="col-xs-2">
                                 <div class="controls">
                                     <button id="btnSearch" type="button" class="btn btn-info">搜索</button>
-                                    <button type="button" class="btn btn-danger">删除</button>
+                                    <button  id="batchDelete" type="button" class="btn btn-danger">删除</button>
                                 </div>
 
                             </div>
@@ -77,6 +77,9 @@
                     <table class="table table-bordered table-hover" id="dataList">
                         <thead>
                         <tr>
+                            <th>
+                                <input type="checkbox" id="allSelected" class="icheck-minimal-grey" name="" value="">
+                            </th>
                             <th>ID</th>
                             <th>律所名称</th>
                             <th>排序</th>
@@ -85,28 +88,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <%--<tr>
-                            <td>1</td>
-                            <td>XXxx</td>
-                            <td>1</td>
-                            <td>显示</td>
-                            <td>
-                                <a href="editLawFirm.jsp" style="color: #2aabd2;">
-                                    编辑
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>XXxx</td>
-                            <td>1</td>
-                            <td>显示</td>
-                            <td>
-                                <a href="editLawFirm.jsp" style="color: #2aabd2;">
-                                    编辑
-                                </a>
-                            </td>
-                        </tr>--%>
                         </tbody>
                     </table>
                     <div class="row">

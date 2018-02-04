@@ -68,14 +68,14 @@ jQuery(function(){
                         var ff = 0 == typeInt?"月":"小时";
                         $("#dataId").text(order.id);
                         $("#orderNo").text(order.orderNo);
-                        $("#clientPhone").text(order.user.userName);
-                        $("#entrustLawyerName").text(order.lawyer.name);
+                        $("#clientPhone").text((order.user==null?"":order.user.userName));
+                        $("#entrustLawyerName").text(order.lawyerName);
                         $("#duration").text(order.duration+ff);
                         $("#reservLawName").text(order.lawyer.name);
-                        $("#orderAmount").text(order.totalAmount);
+                        $("#orderAmount").text($.moneyToDecimal(order.totalAmount));
                         $("#payType").text(payArray[payType]);
                         $("#discountAmount").text(order.discountAmount);
-                        $("#payAmount").text(order.payAmount);
+                        $("#payAmount").text($.moneyToDecimal(order.payAmount));
                         $("#payTime").text(order.payTime);
                         $("#orderTime").text(order.orderTime);
                         $("#orderStatus").text(orderArray[statusInt]);

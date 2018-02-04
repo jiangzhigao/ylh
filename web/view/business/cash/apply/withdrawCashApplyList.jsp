@@ -63,16 +63,16 @@
                     <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-xs-2 move20">
-                                <input type="text" id="" class="form-control" placeholder="请输入提现编号">
+                                <input type="text" id="withdrawalsNo" class="form-control" placeholder="请输入提现编号">
                             </div>
                             <div class="col-xs-2 move20">
-                                <input type="text" id="" class="form-control" placeholder="请输入律师名称">
+                                <input type="text" id="lawyerName" class="form-control" placeholder="请输入律师名称">
                             </div>
                             <div class="col-xs-2 move20">
-                                <input type="text" id="" class="form-control" placeholder="请输入提现金额">
+                                <input type="text" id="amount" class="form-control" placeholder="请输入提现金额">
                             </div>
                             <div class="col-xs-2 move20">
-                                <select class="form-control" id="status1" style="border-color: #e1e1e1;">
+                                <select class="form-control" id="status" style="border-color: #e1e1e1;">
                                     <option value="">请选择状态</option>
                                     <option value="0">未审核</option>
                                     <option value="1">通过审核</option>
@@ -101,33 +101,7 @@
                             <th>操作</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <%--<tr>
-                            <td>201700000001</td>
-                            <td>13861234567</td>
-                            <td>王麻子</td>
-                            <td>100.00</td>
-                            <td>微信</td>
-                            <td>0</td>
-                            <td>100.00</td>
-                            <td>2017-08-08</td>
-                            <td>2017-08-08</td>
-                            <td>已支付</td>
-                            <td>
-                                <div class="btn-group">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" style="color: #2aabd2;">
-                                        查看详情
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="entrustOrderDetail.jsp">查看详情</a></li>
-                                        <li><a href="#">2.5:7.5分红</a></li>
-                                        <li><a href="#">3.5:6.5分红</a></li>
-                                        <li><a href="#">10:0分红</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>--%>
+                        <tbody
                         </tbody>
                     </table>
                     <div class="row">

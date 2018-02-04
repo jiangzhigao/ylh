@@ -140,7 +140,7 @@ jQuery(function(){
                             _html.push('<td>' + obj.licenseid + '</td>');
                             _html.push('<td>' + obj.employmentTime + '</td>');
                             _html.push('<td>' + obj.createdTime + '</td>');
-                            _html.push('<td>' + obj.account + '</td>');
+                            _html.push('<td>' + $.moneyToDecimal(obj.account) + '</td>');
                             _html.push('<td>' + (obj.isVerified==true?"是":"否") + '</td>');
                             _html.push('<td>' + (obj.isSigned==true?"是":"否") + '</td>');
                             _html.push('<td>' + statusArray[statusInt] + '</td>');
@@ -179,7 +179,11 @@ jQuery(function(){
         queryParams.username = user._d;
         queryParams.password = user._p;
         queryParams.userType = 2;
-
+        queryParams.lawyerUsername=$("#lawyerUsername").val();
+        queryParams.name=$("#name").val();
+        queryParams.idcard=$("#idcard").val();
+        queryParams.licenseid=$("#licenseid").val();
+        queryParams.status=$("#status").val();
     }
 
 });

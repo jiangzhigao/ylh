@@ -185,7 +185,7 @@ jQuery(function(){
                     if(lawyer){
                         $("#dataId").val(lawyer.id);
                         $("#userName").text(lawyer.userName);
-                        $("#account").text(lawyer.account);
+                        $("#account").text($.moneyToDecimal(lawyer.account));
                         /*$("#userPassword").val(lawyer.userPassword);*/
                         $("#name").val(lawyer.name);
                         $("#idcard").val(lawyer.idcard);
@@ -273,7 +273,7 @@ jQuery(function(){
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
         ajaxdata.userName = $("#userName").text();
-        ajaxdata.account = $("#account").text();
+        ajaxdata.account = $.moneyToMul100($("#account").text());
         ajaxdata.name = $("#name").val();
         ajaxdata.licenseid = $("#licenseid").val();
         ajaxdata.idcard = $("#idcard").val();

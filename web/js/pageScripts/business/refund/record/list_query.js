@@ -100,7 +100,7 @@ jQuery(function(){
                             _html.push('<td><a style="color: #337AB7;" href="'+ _buildOrderUrl(obj.orderId,obj.orderType) +'">' + obj.orderNo+ '</a></td>');
                             _html.push('<td  style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">' + obj.reason+ '</td>');
                             _html.push('<td>' + obj.createdTime+ '</td>');
-                            _html.push('<td>' + obj.amount + '</td>');
+                            _html.push('<td>' + $.moneyToDecimal(obj.amount) + '</td>');
                             _html.push('<td>' + statusArray[statusInt] + '</td>');
 
                             var _operHtml = []
@@ -153,5 +153,8 @@ jQuery(function(){
         queryParams.password = user._p;
         queryParams.userType = 2;
         queryParams.status = 3;
+        queryParams.orderNo=$("#orderNo").val();
+        queryParams.userName=$("#userName").val();
+        queryParams.reason=$("#reason").val();
     }
 });

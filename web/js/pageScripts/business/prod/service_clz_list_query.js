@@ -138,7 +138,7 @@ jQuery(function(){
                             _html.push('<td>' + '<input type="checkbox" name="subcheck_' +  (i+1) +'" value="' + dataId + '" s="0"/>' + '</td>');
                             _html.push('<td>' + typeArray[typeInt] + '</td>');
                             _html.push('<td>' + obj.duration+ff+ '</td>');
-                            _html.push('<td>' + obj.fee + '</td>');
+                            _html.push('<td>' + $.moneyToDecimal(obj.fee) + '</td>');
                             _html.push('<td>' + obj.sortNo + '</td>');
                             _html.push('<td>' + obj.updatedTime + '</td>');
 
@@ -176,6 +176,7 @@ jQuery(function(){
         queryParams.username = user._d;
         queryParams.password = user._p;
         queryParams.userType = 2;
+        queryParams.type = $("#type").val();
     }
 
     function _reset() {
