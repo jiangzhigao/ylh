@@ -137,14 +137,18 @@ jQuery(function(){
                             _html.push('</tr>');
                         }
                         $dataList.find('tbody').html(_html.join(''));
-
+                        $dataList.find('tbody').html(_html.join(''));
+                        options.totalPages = _sumTotalPages(result.discoveryTypes.length);
+                        $paginationContainer.bootstrapPaginator(options);
+                        $('#batchDeleteDiv').show();
+                        $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite"> 共'
+                            + result.discoveryTypes.length + '条记录，当前为第 ' + options.currentPage + ' 页');
                     } else {
                         $('#batchDeleteDiv').hide();
                         $dataList.find('tbody').html('');
                         $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite">无查询记录</div>');
                         $paginationContainer.html('');
                     }
-
                 }else{
                     FOXKEEPER_UTILS.alert('warning', result.message);
                 }

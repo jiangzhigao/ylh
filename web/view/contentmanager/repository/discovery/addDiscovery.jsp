@@ -128,13 +128,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                           <%-- <div class="row">
                                 <div class="col-xs-offset-2 col-xs-10">
                                     <div class="form-group col-xs-5" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox">
                                         <img src="/images/nopica.png" class="img-thumbnail" id="coverImage"/>
                                     </div>
                                 </div>
-                            </div>
+                            </div>--%>
                             <div class="row" id="addressDiv">
                                 <div class="col-xs-12">
                                     <div class="form-group">
@@ -153,7 +153,7 @@
                                         <label class="col-xs-2 control-label"></label>
                                         <div class="col-xs-5">
                                             <div class="form-group">
-                                                <%--<label class="form-label" for="field-1">Name</label>--%>
+                                                <label class="form-label" id="fileName" name="fileName" ></label>
                                                 <span class="desc" style="color: red;">* 文件大小不能超过20M,支持doc、docx、xls、xlsx、pdf格式</span>
                                             </div>
                                         </div>

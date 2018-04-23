@@ -21,7 +21,6 @@ jQuery(function(){
         }
     });
 
-
     //渲染
     _init();
     //绑定
@@ -83,13 +82,14 @@ jQuery(function(){
         //通过
         $('#passBtn').on('click', function () {
             var parameter = $.getParameters();
+            _setAjaxData();
             var id = parameter.dataId;
-            var ajaxdata = {};
-            var user = $.getuuuAuth();
-            ajaxdata.username = user._d;
-            ajaxdata.password = user._p;
-            ajaxdata.userType = 2;
-            ajaxdata.type =0;
+            // var ajaxdata = {};
+            // var user = $.getuuuAuth();
+            // ajaxdata.username = user._d;
+            // ajaxdata.password = user._p;
+            // ajaxdata.userType = 2;
+            // ajaxdata.type =0;
             ajaxdata.status =1;//审核状态1-审核通过
             jQuery.ajax({
                 dataType: "json",
@@ -101,10 +101,9 @@ jQuery(function(){
                         FOXKEEPER_UTILS.alert('success',result.message);
                         $("#isNotPass").hide();
                         var strStatus= ["未审核","审核通过","审核不通过"];
-                        $("#status").val(1)
+                        $("#status").val(1);
                         $("#status").text(strStatus[1]);
-                    }else
-                    {
+                    }else {
                         FOXKEEPER_UTILS.alert('warning',result.message);
                         $this.html(buttonText).attr("disabled", false);
                     }
@@ -132,21 +131,18 @@ jQuery(function(){
                         FOXKEEPER_UTILS.alert('success',result.message);
                         $("#isNotPass").hide();
                         var strStatus= ["未审核","审核通过","审核未通过"];
-                        $("#status").val(2)
+                        $("#status").val(2);
                         $("#status").text(strStatus[2]);
                         // setTimeout(function(){
                         //     location.replace("/view/contentmanager/activity/activity/activityList.jsp");
                         // }, 1000);
-                    }else
-                    {
+                    }else{
                         FOXKEEPER_UTILS.alert('warning',result.message);
                         $this.html(buttonText).attr("disabled", false);
                     }
                 }
             });
         });
-
-
 
         //图片上传
         $('body').on('change', 'input[name$="_upload"]', function(e) {
@@ -283,8 +279,7 @@ jQuery(function(){
                         setTimeout(function(){
                             location.replace("/view/contentmanager/activity/topic/topicList.jsp");
                         }, 1000);
-                    }else
-                    {
+                    }else{
                         FOXKEEPER_UTILS.alert('warning',result.message);
                         $this.html(buttonText).attr("disabled", false);
                     }
@@ -311,8 +306,8 @@ jQuery(function(){
         ajaxdata.createdTime =$("#createdTime").val();
         // ajaxdata.praiseNumber =$("#praiseNumber").val();
         ajaxdata.replyNumber =$("#replyNumber").val();
-        ajaxdata.updatedTime =$("#updatedTime").val();
         ajaxdata.isTop =$("#isTop").val();
+        ajaxdata.updatedTime =$("#updatedTime").val();
         ajaxdata.status =$("#status").val();
         ajaxdata.picture = $("#coverUrl").val();
     }

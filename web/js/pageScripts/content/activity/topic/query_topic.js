@@ -47,6 +47,9 @@ jQuery(function(){
             if(index==0){
                 var bizUrl = $this.attr('bz-url');
                 window.location.href = bizUrl+'?dataId='+id;
+            }else if(index==2){
+                window.open("/view/contentmanager/activity/topic/replyList.jsp?dataId=" + id ,"","dialogWidth:400px;dialogHeight:300px;scroll:no;status:no");
+
             }else if(index==1){//置顶
                 //no-editable
                 if(!($this.hasClass("no-editable"))){
@@ -57,6 +60,10 @@ jQuery(function(){
             }
         });
     }
+
+  /*  function topwin(id){
+        window.open("/view/contentmanager/activity/topic/replyList.jsp?dataId=" + id ,"","dialogWidth:600px;dialogHeight:300px;scroll:no;status:no")
+    }*/
 
     function _delete(id,$this) {
         var delData = {};
@@ -184,16 +191,14 @@ jQuery(function(){
         _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url="/view/contentmanager/activity/topic/editTopic.jsp" bid="'+id+'">编辑</a></li>');
         _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url href="javascript:" bid="'+id+'">置顶</a></li>');
         /*_operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url href="/view/contentmanager/activity/topic/replyList.jsp?dataId=' + id + '" onclick="topwin(id)">回复管理</a></li>');*/
-        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url href="javascript:void(0)" onclick="topwin(id)">回复管理</a></li>');
+        /*_operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url="/view/contentmanager/activity/topic/replyList.jsp" bid="'+id+'">回复管理</a></li>');*/
+        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url href="javascript:" bid="'+id+'">回复管理</a></li>');
         _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url href="javascript:" bid="'+id+'">删除</a></li>');
         _operHtml.push('</ul></div>');
-
         return  _operHtml.join('');
     }
 
-    function topwin(id){
-        window.showModalDialog("/view/contentmanager/activity/topic/replyList.jsp?dataId=" + id ,"","dialogWidth:300px;dialogHeight:300px;scroll:no;status:no")
-    }
+
 
     function _initData () {
         _reset();

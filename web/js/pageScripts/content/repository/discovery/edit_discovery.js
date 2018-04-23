@@ -76,12 +76,12 @@ jQuery(function(){
 
         });
 
-        //图片上传
+        //上传
         $('body').on('change', 'input[name$="_upload"]', function() {
             var _this = $(this);
             var fileName = $(this).val();
             if (!fileName.match('\\.(doc|docx|xls|xlsx、pdf)$')) {
-                FOXKEEPER_UTILS.alert('warning', '只能上传图片格式，如：doc、docx、xls、xlsx、pdf!');
+                FOXKEEPER_UTILS.alert('warning', '只能上传文件格式，如：doc、docx、xls、xlsx、pdf!');
                 _this.val("");
                 $('#' + _this.attr("mid")).attr("src", "/images/nopica.png");
                 $('#' + _this.attr("uid")).val("");
@@ -92,13 +92,12 @@ jQuery(function(){
 
             //文件大小判断
             var imgSize = document.getElementById("lcimage_upload").files[0].size;
-            if(imgSize>1024*20000){
-                FOXKEEPER_UTILS.alert('warning', '图片尺寸请小于2M');
+            if(imgSize>1024*100000){
+                FOXKEEPER_UTILS.alert('warning', '文件请小于10M');
                 $("#lcimage_upload").val("");
-                $("#imgBox").show();
+                // $("#imgBox").show();
                 return false;
             }
-
             if (fileName != "") {
                 return ajaxFileUpload(_this, _this.attr("id"), null);
             }
@@ -130,7 +129,7 @@ jQuery(function(){
                     var url = data.url;
                     $('#' + $file.attr("mid")).attr("src", url);
                     $('#' + $file.attr("uid")).val(url);
-                    $("#imgBox").show();
+                    // $("#imgBox").show();
                 } else {
                     FOXKEEPER_UTILS.alert('warning', data.message);
                 }
@@ -139,7 +138,7 @@ jQuery(function(){
                 FOXKEEPER_UTILS.alert('warning', '上传出错，请重试');
             }
         });
-        return false;
+        // return false;
     }
 
     function _initData (id) {

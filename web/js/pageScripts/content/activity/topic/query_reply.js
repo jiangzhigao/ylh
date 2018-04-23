@@ -64,88 +64,6 @@ jQuery(function(){
         });
     }
 
-    function _delete(id,$this) {
-        var delData = {};
-        var user = $.reqHomeUrl();
-        delData.username = user._d;
-        delData.password = user._p;
-        delData.userType = 2;
-        delData._method = "delete";
-        bootbox.dialog({
-            title: "",
-            message: '<div class="row">  ' +
-            '<div class="col-xs-12"> ' +
-            '请确认是否删除该管理员？' +
-            '</div></div>',
-            buttons: {
-                cancel: {
-                    label: "取消操作",
-                    className: "btn-cancel",
-                    callback: $.noop
-                },
-                confirm: {
-                    label: "确定删除",
-                    className: "btn-info",
-                    callback: function () {
-                        jQuery.ajax({
-                            dataType: "json",
-                            url: webBasePath + '/activitys/' + id,
-                            data: delData,
-                            type: "POST",
-                            success: function (result) {
-                                if (result.success) {
-                                    FOXKEEPER_UTILS.alert('success', result.message);
-                                    $this.parent().parent().parent().parent().parent().remove();
-                                }
-                                else {
-                                    FOXKEEPER_UTILS.alert('warning', result.message);
-                                }
-                            }
-                        });
-                        return true;
-                    }
-                }
-            }
-        })
-    }
-
-
-    //置顶
-    function isTop($this,id) {
-        // var parameter = $.getParameters();
-        // var id = parameter.dataId;
-        var ajaxdata = {};
-        var user = $.getuuuAuth();
-        ajaxdata.username = user._d;
-        ajaxdata.password = user._p;
-        ajaxdata.userType = 2;
-        ajaxdata.type = 0;
-        ajaxdata.isTop = 1;
-        jQuery.ajax({
-            dataType: "json",
-            url: webBasePath+'/comments/'+id,
-            data: ajaxdata,
-            type: "POST",
-            success: function (result) {
-                if (result.success) {
-                    FOXKEEPER_UTILS.alert('success',result.message);
-                    // window.location.reload();
-                    $this.addClass("no-editable");
-                    $this.parent().parent().parent().parent().prev().prev().text("置顶")
-                    var strStatus= ["未置顶","置顶"];
-                    $("#isTop").val(1)
-                    $("#isTop").text(strStatus[1]);
-                }else{
-                    FOXKEEPER_UTILS.alert('warning',result.message);
-                    $this.html(buttonText).attr("disabled", false);
-                }
-            }
-        });
-    }
-    function _reset() {
-        $('#batchDelete').removeClass('btn-primary').addClass('btn-default');
-        $("input:checkbox").prop('checked', false);
-    }
 
     function _sumTotalPages(count){
         var totalPages = 0;
@@ -169,12 +87,10 @@ jQuery(function(){
         _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url="/view/contentmanager/activity/topic/editTopic.jsp" bid="'+id+'">编辑</a></li>');
         _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url href="javascript:" bid="'+id+'">删除</a></li>');
         _operHtml.push('</ul></div>');
-
         return  _operHtml.join('');
     }
 
     function _initData (id) {
-        _reset();
         _setAjaxData();
         queryParams.activityId =id;
         jQuery.ajax({
@@ -189,36 +105,26 @@ jQuery(function(){
                     if (result.comments != null && result.comments.length > 0) {
                         var _html = new Array();
                         var data = result.comments;
-                        var  statusArray = ["未审核","审核通过","审核未通过"]
                         for (var i = 0; i < data.length; i++) {
                             var obj = data[i];
-                            var statusInt = parseInt(obj.status);
                             var dataId = obj.id;
                             _html.push('<tr>');
-                            _html.push('<td>' + obj.id + '</td>');
-                            _html.push('<td>' + obj.title + '</td>');
-                            _html.push('<td>' + obj.replyNumber + '</td>');
-                            _html.push('<td>' + obj.announceUser + '</td>');
-                            _html.push('<td>' + obj.createdTime + '</td>');
-                            _html.push('<td>' + obj.updatedTime + '</td>');
-                            _html.push('<td>' + (obj.isTop==1?"置顶":"不置顶") + '</td>');
-                            _html.push('<td>' + (statusArray[statusInt]) + '</td>');
-                            _html.push('<td>' +  _optionsHtml(dataId) + '</td>');
+                            _html.push('<td>' + obj.activityId + '</td>');
+                            _html.push('<td>' + obj.content + '</td>');
                             _html.push('</tr>');
                         }
                         $dataList.find('tbody').html(_html.join(''));
-                        options.totalPages = _sumTotalPages(result.comments.length);
+                        options.totalPages = _sumTotalPages(result.count);
                         $paginationContainer.bootstrapPaginator(options);
                         $('#batchDeleteDiv').show();
                         $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite"> 共'
-                            + result.comments.length + '条记录，当前为第 ' + options.currentPage + ' 页');
+                            + result.count + '条记录，当前为第 ' + options.currentPage + ' 页');
                     } else {
                         $('#batchDeleteDiv').hide();
                         $dataList.find('tbody').html('');
                         $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite">无查询记录</div>');
                         $paginationContainer.html('');
                     }
-
                 }else{
                     FOXKEEPER_UTILS.alert('warning', result.message);
                 }

@@ -57,43 +57,12 @@
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
-                            <div class="row">
-                                <div class="col-xs-2 move20">
-                                    <input type="text" id="account" class="form-control" placeholder="请输入标题">
-                                </div>
 
-                                <div class="col-xs-2 move20">
-                                    <select class="form-control" id="status" style="border-color: #e1e1e1;">
-                                        <option value="">请选择状态</option>
-                                        <option value="0">未审核</option>
-                                        <option value="1">审核通过</option>
-                                        <option value="2">审核未通过</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-xs-2">
-                                    <%--<div class="form-group">--%>
-                                    <div class="controls">
-                                        <button id="btnSearch" type="button" class="btn btn-info">搜索</button>
-                                    </div>
-                                    <%--</div>--%>
-                                </div>
-                            </div>
-                        </form>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>标题</th>
-                                <th>点赞数</th>
-                                <th>回复数</th>
-                                <th>发布时间</th>
-                                <th>更新时间</th>
-                                <th>发布人</th>
-                                <th>置顶</th>
-                                <th>审核状态</th>
-                                <th style="text-align: right">操作</th>
+                                <th>话题</th>
+                                <th>评论内容</th>
                             </tr>
                             </thead>
                             <tbody>
