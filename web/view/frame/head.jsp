@@ -23,7 +23,7 @@
     /*var clientIp = returnCitySN["cip"];*/
     /*var webBasePath = "http://120.76.101.46/ylx/api";*/
     var webBasePath = "http://localhost:8888/ylx/api";
-    var homeBasePath = "http://120.76.101.46/ylx";
+//    var homeBasePath = "http://api.xishicode.com/ylx";
     /*var homeBasePath = "http://120.76.101.46/ylx";
     var webBasePath = "http://106.14.10.28:8888/ylx/api";*/
     /*var webBasePath = "http://106.14.10.28:8888/ylx/api";*/

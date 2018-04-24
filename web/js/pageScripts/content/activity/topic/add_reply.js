@@ -34,13 +34,20 @@ jQuery(function(){
 
     /** 初始化 **/
     function _init(){
-
+        //初始化列表
+        var parameter = $.getParameters();
+        var id = parameter.dataId;
+        if(id){
+            _initData(id);
+        }
     }
 
     /** 绑定事件 **/
     function _bind() {
         //保存
         $('#btnSave').on('click', function () {
+            var parameter = $.getParameters();
+            var id = parameter.dataId;
             var $this = $(this);
             _ajax($this, '保存', webBasePath + '/comments');
         });
@@ -77,12 +84,43 @@ jQuery(function(){
             }
         }
 
+        //初始化加载
+        function _initData (id) {
+            _setQueryAjaxData();
+            jQuery.ajax({
+                dataType: "json",
+                url: webBasePath + '/comments/'+id,
+                data: queryParam,
+                type: "GET",
+                success: function (result) {
+                    if (result.success) {
+                        var comments = result.comments ;
+                        if(comments){
+                            $("#title").val(comments.title);
+                            $("#content").text(comments.content);
+                            $("#activityId").text(comments.activityId);
+                            $("#activityId").val(comments.activityId);
+                        }
+                    }else{
+                        FOXKEEPER_UTILS.alert('warning', result.message);
+                    }
+                }
+            });
+        }
+
+
+        function _setQueryAjaxData () {
+            var comments = $.getuuuAuth();
+            queryParam.username = comments._d;
+            queryParam.password = comments._p;
+            queryParam.userType = 2;
+        }
+
         function _setAjaxData() {
             var user = $.reqHomeUrl();
             ajaxdata.username = user._d;
             ajaxdata.password = user._p;
             ajaxdata.userType = 2;
-            ajaxdata.title = $("#title").val();
             ajaxdata.content = $("#content").val();
             ajaxdata.activityId = $("#activityId").val();
         }

@@ -241,6 +241,7 @@ jQuery(function(){
                         $("#participantNumber").text(activitys.participantNumber);
                         $("#createdTime").text(activitys.createdTime);
                         $("#coverImage").attr("src",homePath+activitys.picture);
+                        $("#coverUrl").val(homePath+activitys.picture);
                         $("#praiseNumber").text(activitys.praiseNumber);
                         $("#replyNumber").text(activitys.replyNumber );
                         $("#summary").text(activitys.summary);

@@ -55,18 +55,7 @@
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
                         <form class="form-horizontal" id="form_add" action="#" method="post" novalidate="novalidate">
-                            <%--<div class="row">--%>
-                                <%--<div class="col-xs-12">--%>
-                                    <%--<div class="form-group">--%>
-                                        <%--<label class="col-xs-2 control-label" for="title">标题</label>--%>
-                                        <%--<div class="col-xs-5">--%>
-                                            <%--<input type="text" class="form-control"--%>
-                                                   <%--placeholder="请输入标题" value="" id="title" name="title"--%>
-                                                   <%--maxlength="24">--%>
-                                        <%--</div>--%>
-                                    <%--</div>--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
+
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
@@ -89,29 +78,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <%--<div class="row">--%>
-                                <%--<div class="col-xs-offset-2 col-xs-10">--%>
-                                    <%--<div class="form-group col-xs-5" style="max-width: 400px;max-height: 300px;display: none;" id="imgBox">--%>
-                                        <%--<img src="/images/nopica.png" class="img-thumbnail" id="coverImage"/>--%>
-                                    <%--</div>--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
-                            <%--<div class="row">--%>
-                                <%--<div class="col-xs-12">--%>
-                                    <%--<div class="form-group">--%>
-                                        <%--<label class="col-xs-2 control-label">图片</label>--%>
-                                        <%--<div class="col-xs-5" style="margin-left: -15px;">--%>
-                                            <%--<div class="col-xs-1">--%>
-                                                <%--<div class="img-upload">--%>
-                                                    <%--<input type="hidden" id="coverUrl" value="" name="coverUrl"/>--%>
-                                                    <%--<button id="btnSearch" type="button" class="btn btn-primary">点击添加或修改</button>--%>
-                                                    <%--<input type="file" class="img-upload-file" id="lcimage_upload" name="lcimage_upload" mid="coverImage" uid="coverUrl">--%>
-                                                <%--</div>--%>
-                                            <%--</div>--%>
-                                        <%--</div>--%>
-                                    <%--</div>--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
 
                             <div class="divider-dotted"></div>
                             <br>
@@ -142,6 +108,7 @@
 <script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
 <script type="text/javascript" src="/js/pageScripts/content/activity/topic/add_reply.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
 <script type="text/javascript">
     /*$('.colorpicker').colorpicker();*/
 </script>
