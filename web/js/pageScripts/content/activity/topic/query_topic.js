@@ -47,6 +47,9 @@ jQuery(function(){
             if(index==0){
                 var bizUrl = $this.attr('bz-url');
                 window.location.href = bizUrl+'?dataId='+id;
+            }else if(index==2){
+                window.open("/view/contentmanager/activity/topic/replyList.jsp?dataId=" + id ,"","dialogWidth:400px;dialogHeight:300px;scroll:no;status:no");
+
             }else if(index==1){//置顶
                 //no-editable
                 if(!($this.hasClass("no-editable"))){
@@ -57,6 +60,10 @@ jQuery(function(){
             }
         });
     }
+
+  /*  function topwin(id){
+        window.open("/view/contentmanager/activity/topic/replyList.jsp?dataId=" + id ,"","dialogWidth:600px;dialogHeight:300px;scroll:no;status:no")
+    }*/
 
     function _delete(id,$this) {
         var delData = {};
@@ -182,18 +189,14 @@ jQuery(function(){
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
         _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url="/view/contentmanager/activity/topic/editTopic.jsp" bid="'+id+'">编辑</a></li>');
-        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url href="javascript:" bid="'+id+'">置顶</a></li>');
-        /*_operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url href="/view/contentmanager/activity/topic/replyList.jsp?dataId=' + id + '" onclick="topwin(id)">回复管理</a></li>');*/
-        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url href="javascript:void(0)" onclick="topwin(id)">回复管理</a></li>');
+        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url href="javascript:" bid="'+id+'">置顶</a></li>')
+        _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url href="javascript:" bid="'+id+'">回复管理</a></li>');
         _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a bz-url href="javascript:" bid="'+id+'">删除</a></li>');
         _operHtml.push('</ul></div>');
-
         return  _operHtml.join('');
     }
 
-    function topwin(id){
-        window.showModalDialog("/view/contentmanager/activity/topic/replyList.jsp?dataId=" + id ,"","dialogWidth:300px;dialogHeight:300px;scroll:no;status:no")
-    }
+
 
     function _initData () {
         _reset();
@@ -224,8 +227,10 @@ jQuery(function(){
                             _html.push('<td>' + obj.updatedTime + '</td>');
                             if(obj.lawyer){
                                 _html.push('<td>' + obj.lawyer.name + '</td>');
-                            }else{
-                                _html.push('<td>' + obj.userId + '</td>');
+                            }if(obj.manager){
+                                _html.push('<td>' + obj.manager.name + '</td>');
+                            }if(obj.members){
+                                _html.push('<td>' + obj.members.name + '</td>');
                             }
                             _html.push('<td>' + (obj.isTop==1?"置顶":"不置顶") + '</td>');
                             _html.push('<td>' + (statusArray[statusInt]) + '</td>');
@@ -244,7 +249,6 @@ jQuery(function(){
                         $pageTotalRecord.html('<div class="dataTables_info" role="status" aria-live="polite">无查询记录</div>');
                         $paginationContainer.html('');
                     }
-
                 }else{
                     FOXKEEPER_UTILS.alert('warning', result.message);
                 }
@@ -261,6 +265,7 @@ jQuery(function(){
         queryParams.userType = 2;
         queryParams.type = 0;
         queryParams.title = $("#title").val();
+        queryParams.status = $("#status").val();
     }
 });
 

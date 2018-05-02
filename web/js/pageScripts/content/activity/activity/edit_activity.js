@@ -230,10 +230,18 @@ jQuery(function(){
                         $("#title").val(activitys.title);
                         $("#content").text(activitys.content);
                         $("#name").text(activitys.name);
-                        $("#announceUser").text(activitys.announceUser);
+                        // $("#announceUser").text(activitys.announceUser);
+                        if(activitys.userType==1){
+                            $("#announceUser").text(activitys.lawyer.name);
+                        } if(activitys.userType==2){
+                            $("#announceUser").text(activitys.manager.name);
+                        }  if(activitys.userType==0){
+                            $("#announceUser").text(activitys.member.name);
+                        }
                         $("#participantNumber").text(activitys.participantNumber);
                         $("#createdTime").text(activitys.createdTime);
                         $("#coverImage").attr("src",homePath+activitys.picture);
+                        $("#coverUrl").val(homePath+activitys.picture);
                         $("#praiseNumber").text(activitys.praiseNumber);
                         $("#replyNumber").text(activitys.replyNumber );
                         $("#summary").text(activitys.summary);

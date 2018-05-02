@@ -50,54 +50,22 @@
                 <header class="panel_header">
                     <h2 class="title pull-left">回复列表</h2>
                     <div class="actions panel_actions pull-right" style="line-height: 23px;">
-                        <a href="addReply.jsp" class="btn btn-info"style="padding: 3px 6px;margin-top:9px;">
+
+                        <a class="btn btn-info" data-toggle="modal" data-target="#addReplyModal" style="padding: 3px 6px;">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-                        <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
-                            <div class="row">
-                                <div class="col-xs-2 move20">
-                                    <input type="text" id="account" class="form-control" placeholder="请输入标题">
-                                </div>
-
-                                <div class="col-xs-2 move20">
-                                    <select class="form-control" id="status" style="border-color: #e1e1e1;">
-                                        <option value="">请选择状态</option>
-                                        <option value="0">未审核</option>
-                                        <option value="1">审核通过</option>
-                                        <option value="2">审核未通过</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-xs-2">
-                                    <%--<div class="form-group">--%>
-                                    <div class="controls">
-                                        <button id="btnSearch" type="button" class="btn btn-info">搜索</button>
-                                    </div>
-                                    <%--</div>--%>
-                                </div>
-                            </div>
-                        </form>
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>标题</th>
-                                <th>点赞数</th>
-                                <th>回复数</th>
-                                <th>发布时间</th>
-                                <th>更新时间</th>
-                                <th>发布人</th>
-                                <th>置顶</th>
-                                <th>审核状态</th>
-                                <th style="text-align: right">操作</th>
+                                <th>话题</th>
+                                <th>评论内容</th>
                             </tr>
                             </thead>
                             <tbody>
-
                             </tbody>
                         </table>
                         <div class="row">
@@ -115,12 +83,19 @@
 </div>
 <!-- END CONTAINER -->
 
-<script type="text/javascript" src="/js/__base.min.js"></script>
-<script type="text/javascript" src="/js/pageScripts/content/activity/topic/query_reply.js"></script>
-<script type="text/javascript" src="/js/custom/request-util.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
+<%@ include file="/view/contentmanager/activity/topic/addReplyModal.jsp"%>
 <!--  FOOTER - END -->
+
+<script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
+<script type="text/javascript" src="/js/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/activity/topic/query_reply.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/activity/topic/add_reply.js"></script>
+
 </body>
 
 </html>

@@ -102,7 +102,7 @@ jQuery(function(){
                 _this.val("");
                 $('#' + _this.attr("mid")).attr("src", "/images/nopica.png");
                 $('#' + _this.attr("uid")).val("");
-                $("#imgBox").hide();
+                // $("#imgBox").hide();
 
                 return false;
             }
@@ -110,9 +110,9 @@ jQuery(function(){
             //文件大小判断
             var imgSize = document.getElementById("lcimage_upload").files[0].size;
             if(imgSize>1024*20000){
-                FOXKEEPER_UTILS.alert('warning', '图片尺寸请小于2M');
+                FOXKEEPER_UTILS.alert('warning', '文件请小于20M');
                 $("#lcimage_upload").val("");
-                $("#imgBox").show();
+                // $("#imgBox").show();
                 return false;
             }
 
@@ -147,7 +147,7 @@ jQuery(function(){
                     var url = data.url;
                     $('#' + $file.attr("mid")).attr("src", url);
                     $('#' + $file.attr("uid")).val(url);
-                    $("#imgBox").show();
+                    // $("#imgBox").show();
                 } else {
                     FOXKEEPER_UTILS.alert('warning', data.message);
                 }

@@ -21,7 +21,6 @@ jQuery(function(){
         }
     });
 
-
     //渲染
     _init();
     //绑定
@@ -50,6 +49,22 @@ jQuery(function(){
             window.history.back();
         });
 
+        //删除
+        $('#btnDel').on('click', function () {
+            var parameter = $.getParameters();
+            var id = parameter.dataId;
+            var $this = $(this);
+            _delete(id,$this);
+        });
+        //回复管理
+        $('#btnRepley').on('click', function () {
+            var parameter = $.getParameters();
+            var id = parameter.dataId;
+            var $this = $(this);
+            window.open("/view/contentmanager/activity/topic/replyList.jsp?dataId=" + id ,"","dialogWidth:400px;dialogHeight:300px;scroll:no;status:no");
+        });
+
+
         //置顶
         $('#btnIsTop').on('click', function () {
             var parameter = $.getParameters();
@@ -59,8 +74,8 @@ jQuery(function(){
             ajaxdata.username = user._d;
             ajaxdata.password = user._p;
             ajaxdata.userType = 2;
-            ajaxdata.type = 1;
-            ajaxdata.istop =true;
+            ajaxdata.type = 0;
+            ajaxdata.istop = 1;
             jQuery.ajax({
                 dataType: "json",
                 url: webBasePath+'/activitys/'+id,
@@ -70,7 +85,7 @@ jQuery(function(){
                     if (result.success) {
                         FOXKEEPER_UTILS.alert('success',result.message);
                         var strStatus= ["未置顶","置顶"];
-                        $("#isTop").val(1)
+                        $("#isTop").val(1);
                         $("#isTop").text(strStatus[1]);
                     }else{
                         FOXKEEPER_UTILS.alert('warning',result.message);
@@ -83,13 +98,14 @@ jQuery(function(){
         //通过
         $('#passBtn').on('click', function () {
             var parameter = $.getParameters();
+            _setAjaxData();
             var id = parameter.dataId;
-            var ajaxdata = {};
-            var user = $.getuuuAuth();
-            ajaxdata.username = user._d;
-            ajaxdata.password = user._p;
-            ajaxdata.userType = 2;
-            ajaxdata.type =0;
+            // var ajaxdata = {};
+            // var user = $.getuuuAuth();
+            // ajaxdata.username = user._d;
+            // ajaxdata.password = user._p;
+            // ajaxdata.userType = 2;
+            // ajaxdata.type =0;
             ajaxdata.status =1;//审核状态1-审核通过
             jQuery.ajax({
                 dataType: "json",
@@ -101,10 +117,9 @@ jQuery(function(){
                         FOXKEEPER_UTILS.alert('success',result.message);
                         $("#isNotPass").hide();
                         var strStatus= ["未审核","审核通过","审核不通过"];
-                        $("#status").val(1)
+                        $("#status").val(1);
                         $("#status").text(strStatus[1]);
-                    }else
-                    {
+                    }else {
                         FOXKEEPER_UTILS.alert('warning',result.message);
                         $this.html(buttonText).attr("disabled", false);
                     }
@@ -132,21 +147,18 @@ jQuery(function(){
                         FOXKEEPER_UTILS.alert('success',result.message);
                         $("#isNotPass").hide();
                         var strStatus= ["未审核","审核通过","审核未通过"];
-                        $("#status").val(2)
+                        $("#status").val(2);
                         $("#status").text(strStatus[2]);
                         // setTimeout(function(){
                         //     location.replace("/view/contentmanager/activity/activity/activityList.jsp");
                         // }, 1000);
-                    }else
-                    {
+                    }else{
                         FOXKEEPER_UTILS.alert('warning',result.message);
                         $this.html(buttonText).attr("disabled", false);
                     }
                 }
             });
         });
-
-
 
         //图片上传
         $('body').on('change', 'input[name$="_upload"]', function(e) {
@@ -210,6 +222,52 @@ jQuery(function(){
         return false;
     }
 
+    function _delete(id,$this) {
+        var delData = {};
+        var user = $.reqHomeUrl();
+        delData.username = user._d;
+        delData.password = user._p;
+        delData.userType = 2;
+        delData._method = "delete";
+        bootbox.dialog({
+            title: "",
+            message: '<div class="row">  ' +
+            '<div class="col-xs-12"> ' +
+            '请确认是否删除该管理员？' +
+            '</div></div>',
+            buttons: {
+                cancel: {
+                    label: "取消操作",
+                    className: "btn-cancel",
+                    callback: $.noop
+                },
+                confirm: {
+                    label: "确定删除",
+                    className: "btn-info",
+                    callback: function () {
+                        jQuery.ajax({
+                            dataType: "json",
+                            url: webBasePath + '/activitys/' + id,
+                            data: delData,
+                            type: "POST",
+                            success: function (result) {
+                                if (result.success) {
+                                    FOXKEEPER_UTILS.alert('success', result.message);
+                                    setTimeout(function(){
+                                        location.replace("/view/contentmanager/activity/topic/topicList.jsp");
+                                    }, 1000);
+                                }else {
+                                    FOXKEEPER_UTILS.alert('warning', result.message);
+                                }
+                            }
+                        });
+                        return true;
+                    }
+                }
+            }
+        })
+    }
+
     //初始化加载
     function _initData (id) {
         _setQueryAjaxData();
@@ -231,10 +289,16 @@ jQuery(function(){
                         $("#title").val(activitys.title);
                         $("#content").text(activitys.content);
                         $("#name").text(activitys.name);
-                        $("#announceUser").text(activitys.announceUser);
-                        // $("#participantNumber").text(activitys.participantNumber);
+                        if(activitys.userType==1){
+                            $("#announceUser").text(activitys.lawyer.name);
+                        } if(activitys.userType==2){
+                            $("#announceUser").text(activitys.manager.name);
+                        }  if(activitys.userType==0){
+                            $("#announceUser").text(activitys.member.name);
+                        }
                         $("#createdTime").text(activitys.createdTime);
                         $("#coverImage").attr("src",homePath+activitys.picture);
+                        $("#coverUrl").val(homePath+activitys.picture);
                         $("#praiseNumber").text(activitys.praiseNumber);
                         $("#replyNumber").text(activitys.replyNumber );
                         $("#summary").text(activitys.summary);
@@ -287,7 +351,6 @@ jQuery(function(){
                 }
             });
         }
-
         return false;
     }
 
@@ -300,12 +363,10 @@ jQuery(function(){
         ajaxdata.title = $("#title").val();
         ajaxdata.content =$("#content").val();
         ajaxdata.announceUser =$("#announceUser").val();
-        // ajaxdata.participantNumber =$("#participantNumber").val();
         ajaxdata.createdTime =$("#createdTime").val();
-        // ajaxdata.praiseNumber =$("#praiseNumber").val();
         ajaxdata.replyNumber =$("#replyNumber").val();
-        ajaxdata.updatedTime =$("#updatedTime").val();
         ajaxdata.isTop =$("#isTop").val();
+        ajaxdata.updatedTime =$("#updatedTime").val();
         ajaxdata.status =$("#status").val();
         ajaxdata.picture = $("#coverUrl").val();
     }
