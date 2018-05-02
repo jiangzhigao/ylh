@@ -1,8 +1,8 @@
 jQuery(function(){
     'use strict';
-    var $form_add = $('#form_add');
+    var $form_add_reply= $('#form_add_reply');
     var ajaxdata = {};
-    $form_add.validate({
+    $form_add_reply.validate({
         rules:{
             title:{
                 required:true,
@@ -38,14 +38,15 @@ jQuery(function(){
         var parameter = $.getParameters();
         var id = parameter.dataId;
         if(id){
-            _initData(id);
+            $("#activityId").text(id);
+            $("#activityId").val(id);
         }
     }
 
     /** 绑定事件 **/
     function _bind() {
         //保存
-        $('#btnSave').on('click', function () {
+        $('#btnSaveReply').on('click', function () {
             var parameter = $.getParameters();
             var id = parameter.dataId;
             var $this = $(this);
@@ -57,7 +58,7 @@ jQuery(function(){
         });
 
         function _ajax($this, buttonText, reUrl) {
-            var formValid = $form_add.validate().form();
+            var formValid = $form_add_reply.validate().form();
             if (formValid) {
                 _setAjaxData();
                 jQuery.ajax({
@@ -66,8 +67,9 @@ jQuery(function(){
                     data: ajaxdata,
                     type: "POST",
                     success: function (result) {
-                        var recUrl, data = result.comments;
+                        //var recUrl, data = result.comments;
                         if (result.success) {
+                            $("#addReplyModal").modal('hide');
                             FOXKEEPER_UTILS.alert('success', result.message);
                             setTimeout(function () {
                                 location.replace("/view/contentmanager/activity/topic/replyList.jsp");
@@ -85,28 +87,28 @@ jQuery(function(){
         }
 
         //初始化加载
-        function _initData (id) {
-            _setQueryAjaxData();
-            jQuery.ajax({
-                dataType: "json",
-                url: webBasePath + '/comments/'+id,
-                data: queryParam,
-                type: "GET",
-                success: function (result) {
-                    if (result.success) {
-                        var comments = result.comments ;
-                        if(comments){
-                            $("#title").val(comments.title);
-                            $("#content").text(comments.content);
-                            $("#activityId").text(comments.activityId);
-                            $("#activityId").val(comments.activityId);
-                        }
-                    }else{
-                        FOXKEEPER_UTILS.alert('warning', result.message);
-                    }
-                }
-            });
-        }
+        // function _initData (id) {
+        //     _setQueryAjaxData();
+        //     jQuery.ajax({
+        //         dataType: "json",
+        //         url: webBasePath + '/comments/'+id,
+        //         data: queryParam,
+        //         type: "GET",
+        //         success: function (result) {
+        //             if (result.success) {
+        //                 var comments = result.comments ;
+        //                 if(comments){
+        //                     $("#title").val(comments.title);
+        //                     $("#content").text(comments.content);
+        //                     $("#activityId").text(comments.activityId);
+        //                     $("#activityId").val(comments.activityId);
+        //                 }
+        //             }else{
+        //                 FOXKEEPER_UTILS.alert('warning', result.message);
+        //             }
+        //         }
+        //     });
+        // }
 
 
         function _setQueryAjaxData () {

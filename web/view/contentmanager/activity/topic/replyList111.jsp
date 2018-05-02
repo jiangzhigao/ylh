@@ -12,7 +12,6 @@
     }
 </style>
 
-
 <div class="modal fade" id="replyModal" tabindex="-1" role="dialog" aria-labelledby="replyModal-Label" aria-hidden="true" style="display: none;">
     <div class="modal-dialog" style="width: 60%">
         <div class="modal-content xxx">
@@ -22,38 +21,6 @@
             </div>
             <div class="modal-body" style="padding: 15px;">
                 <div class="dataTables_wrapper no-footer">
-                    <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
-                        <input type="hidden" id="lawName">
-                        <div class="row">
-                            <div class="col-xs-2">
-                                <div class="controls">
-                                    <button type="button" class="btn btn-info" id="sltLawyerBtn">选择律师</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" style="margin-bottom: -10px;">
-                            <div class="col-xs-3 move20">
-                                <input type="text" class="form-control" placeholder="律师姓名">
-                            </div>
-                            <div class="col-xs-3 move20">
-                                <input type="text move20" class="form-control" placeholder="律师电话">
-                            </div>
-                            <div class="col-xs-2 move20">
-                                <select class="form-control" style="border-color: #e1e1e1;">
-                                    <option value="">状态</option>
-                                    <option value="0">未审核</option>
-                                    <option value="1">审核中</option>
-                                </select>
-                            </div>
-                            <div class="col-xs-2">
-                                <%--<div class="form-group">--%>
-                                <div class="controls">
-                                    <button id="btnLySearch" type="button" class="btn btn-info">搜索</button>
-                                </div>
-                                <%--</div>--%>
-                            </div>
-                        </div>
-                    </form>
                     <table class="table table-bordered table-hover" id="syreplyList">
                         <thead>
                         <tr>

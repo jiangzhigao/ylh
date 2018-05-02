@@ -50,14 +50,14 @@
                 <header class="panel_header">
                     <h2 class="title pull-left">回复列表</h2>
                     <div class="actions panel_actions pull-right" style="line-height: 23px;">
-                        <a href="addReply.jsp?dataId={}" class="btn btn-info"style="padding: 3px 6px;margin-top:9px;">
+
+                        <a class="btn btn-info" data-toggle="modal" data-target="#addReplyModal" style="padding: 3px 6px;">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
                 </header>
                 <div class="content-body">
                     <div class="dataTables_wrapper no-footer">
-
                         <table class="table table-bordered table-hover" id="dataList">
                             <thead>
                             <tr>
@@ -66,7 +66,6 @@
                             </tr>
                             </thead>
                             <tbody>
-
                             </tbody>
                         </table>
                         <div class="row">
@@ -84,12 +83,19 @@
 </div>
 <!-- END CONTAINER -->
 
-<script type="text/javascript" src="/js/__base.min.js"></script>
-<script type="text/javascript" src="/js/pageScripts/content/activity/topic/query_reply.js"></script>
-<script type="text/javascript" src="/js/custom/request-util.js"></script>
 <!-- START FOOTER -->
 <%@ include file="/view/frame/footer.jsp"%>
+<%@ include file="/view/contentmanager/activity/topic/addReplyModal.jsp"%>
 <!--  FOOTER - END -->
+
+<script type="text/javascript" src="/js/__base.min.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
+<script type="text/javascript" src="/js/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="/js/custom/request-util.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/activity/topic/query_reply.js"></script>
+<script type="text/javascript" src="/js/pageScripts/content/activity/topic/add_reply.js"></script>
+
 </body>
 
 </html>
