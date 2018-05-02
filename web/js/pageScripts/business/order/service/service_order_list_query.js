@@ -91,14 +91,14 @@ jQuery(function(){
                             var dataId = obj.id;
                             var orderStatus = parseInt(obj.orderStatus);
                             var payType = parseInt(obj.payType);
-                            var ff = 0 == orderStatus?"月":"小时";
+                            var ff = "月";
                             _html.push('<tr>');
                             _html.push('<td>' + obj.orderNo+ '</td>');
                             _html.push('<td>' + obj.duration+ff+ '</td>');
                             _html.push('<td>' + (obj.user==null?"":obj.user.userName) + '</td>');
                             _html.push('<td>' + $.moneyToDecimal(obj.totalAmount) + '</td>');
                             _html.push('<td>' + payArray[payType] + '</td>');
-                            _html.push('<td>' + obj.discountAmount + '</td>');
+                            _html.push('<td>' + $.moneyToDecimal(obj.discountAmount) + '</td>');
                             _html.push('<td>' + $.moneyToDecimal(obj.payAmount) + '</td>');
                             _html.push('<td>' + obj.orderTime + '</td>');
                             _html.push('<td>' + obj.payTime + '</td>');

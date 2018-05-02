@@ -84,7 +84,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group btom">
-                                    <label class="col-xs-2 control-label">退款金额</label>
+                                    <label class="col-xs-2 control-label">退款金额(元)</label>
                                     <div class="col-xs-4">
                                         <label class="control-label" style="font-weight: 500;" id="amount"></label>
                                     </div>

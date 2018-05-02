@@ -66,12 +66,16 @@ jQuery(function(){
                         var typeInt = parseInt(order.type);
                         var reserveStatus = parseInt(order.reserveStatus);
                         var ff = 0 == typeInt?"月":"小时";
+                        var lawyer = order.lawyer;
+                        if(typeof(lawyer)!='undefined'){
+                            $("#reservLawName").text(lawyer.name);
+                        }
                         $("#dataId").text(order.id);
                         $("#orderNo").text(order.orderNo);
                         $("#clientPhone").text(order.user.userName);
                         $("#userPhone").text((order.user==null?"":order.user.userName));
                         $("#duration").text(order.duration+ff);
-                        $("#reservLawName").text(order.lawyerName);
+
                         $("#orderAmount").text($.moneyToDecimal(order.totalAmount));
                         $("#payType").text(payArray[payType]);
                         $("#discountAmount").text(order.discountAmount);
@@ -84,7 +88,7 @@ jQuery(function(){
                         $("#orderTime").text(order.orderTime);
                         $("#orderStatus").text(reserveArray[reserveStatus]);
                         //订单已支付，并且预约状态已完成，才能分红
-                        if(statusInt == 1 && reserveStatus == 2){
+                        if(statusInt == 1 && reserveStatus == 1){
                             $("#optionsBtn").show();
                         }
                     }

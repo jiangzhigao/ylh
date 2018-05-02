@@ -88,7 +88,7 @@ jQuery(function(){
 
     function _setAjaxData () {
         ajaxdata.username = $("#username").val().trim();
-        ajaxdata.password = $("#password").val().trim();
+        ajaxdata.password = hex_md5($("#password").val().trim());
         ajaxdata.userType = 2;
     }
 

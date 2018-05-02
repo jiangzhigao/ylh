@@ -1,7 +1,21 @@
 jQuery(function(){
     'use strict';
-
+    var $form_dtl = $('#form_dtl');
     var queryParam = {},ajaxdata = {};
+
+    $form_dtl.validate({
+        rules:{
+            agencyFee:{
+                required:true,
+                amount:true
+            }
+        },
+        messages:{
+            agencyFee:{
+                required:"委托名称不能为空"
+            }
+        }
+    });
 
     //渲染
     _init();
@@ -97,6 +111,11 @@ jQuery(function(){
                         }
                         if(statusInt == 4 || statusInt == 5){
                             $("#agentLawyerRow").show();
+                        }
+                        if(statusInt==1){
+                            $("#agencyFeeIn").show();
+                            $("#agencyFee").hide();
+                            $("#agencyFeeIn").val($.moneyToDecimal(entrust.agencyFee));
                         }
                         if(entrust.orderId){
                             $("#orderCode").show();

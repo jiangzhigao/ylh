@@ -36,7 +36,6 @@ jQuery(function(){
     }
 
     function _bind () {
-        /**  检索 */
         $('#sltLawyerBtn').click(function () {
             var isSlted = $("input[name='sltLwy']:checked").length;
             if(isSlted != 0){
@@ -80,7 +79,7 @@ jQuery(function(){
 
     function _optionsHtml(id,clz,s){
         var _operHtml = [];
-        _operHtml.push('<a href="#" style="color: #337AB7;">查看详情</a>');
+        _operHtml.push('<a href="/view/customercenter/lawyermanagement/lawyer/editLawyer.jsp?dataId='+id+'" style="color: #337AB7;">查看详情</a>');
         return  _operHtml.join('');
     }
 
@@ -92,13 +91,14 @@ jQuery(function(){
         if (lawyerList != null && lawyerList.length > 0) {
             var data = lawyerList;
             var _html = new Array(),clz="";
-            var statusArray = ['正常', '冻结'];
+            var statusArray = ['冻结','正常'];
             for (var i = 0; i < data.length; i++) {
                 var obj = data[i];
                 var dataId = obj.id;
                 var statusInt = parseInt(obj.status);
                 _html.push('<tr>');
                 _html.push('<td>' + '<input type="radio" name="sltLwy" id="subcheck_' + i +'" class="" value="' + dataId + '"  lname="'+obj.name+'"/>' + '</td>');
+                _html.push('<td>' + $.moneyToDecimal(obj.agencyFee) + '</td>');
                 _html.push('<td>' + obj.name + '</td>');
                 _html.push('<td>' + obj.mobile + '</td>');
                 var _imageHtml = [];
@@ -139,6 +139,8 @@ jQuery(function(){
         ajaxdata.userType = 2;
         ajaxdata.lawyerId = $("input[name='sltLwy']:checked").val();
         ajaxdata.status = s;
+        var agencyFee= $("#agencyFeeIn").val();
+        ajaxdata.agencyFee=$.moneyToMul100(agencyFee);
     }
 
 
@@ -157,6 +159,9 @@ jQuery(function(){
                     $("#agentLawyerRow").show();
                     $("#agentLawyer").text($("#lawName").val());
                     $("#statusTxt").text("进行中");
+                    $("#agencyFeeIn").hide();
+                    $("#agencyFee").show();
+                    $("#agencyFee").text($.moneyToDecimal(result.entrust.agencyFee));
                     FOXKEEPER_UTILS.alert('success',result.message);
                 }
                 else

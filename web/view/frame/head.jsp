@@ -81,9 +81,8 @@
                 "internet_home_page_slideshow":"/view/internet/settings/homepage/slideshowSettings.jsp",
                 "internet_law_firm_List":"/view/internet/lawfirm/lawFirmList.jsp",
                 "internet_legal_advice_List":"/view/internet/legaladvice/adviceList.jsp",
-
-
-
+                "resume_student_List":"/view/resume/student/studentResumeList.jsp",
+                "resume_practice_list":"/view/resume/practice/practiceList.jsp",
             },
             "currentNav": "/"
         };

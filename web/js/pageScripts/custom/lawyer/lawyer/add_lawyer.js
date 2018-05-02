@@ -190,7 +190,7 @@ jQuery(function(){
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
         ajaxdata.userName = $("#userName").val();
-        ajaxdata.userPassword = $("#userPassword").val();
+        ajaxdata.userPassword = hex_md5($("#userPassword").val());
         ajaxdata.name = $("#name").val();
         ajaxdata.licenseid = $("#licenseid").val();
         ajaxdata.idcard = $("#idcard").val();

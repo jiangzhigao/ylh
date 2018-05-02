@@ -196,7 +196,7 @@ jQuery(function(){
                         _initProvince(lawyer.province);
                         _initCities(lawyer.province,lawyer.city);
                         $("#lawUserName").val(lawyer.userName);
-                        $("#lawPwd").val(lawyer.password);
+                        /*$("#lawPwd").val(lawyer.password);*/
                         /*$("#province").val(lawyer.province);*/
                         //$("#city option [value='"+lawyer.city+"']").attr("selected",true);
                         $("#employmentTime").val(lawyer.employmentTime);
@@ -287,7 +287,7 @@ jQuery(function(){
         ajaxdata.employmentTime = $("#employmentTime").val();
         ajaxdata.level = $("#level").val();
         ajaxdata.professionalField = $("#professionalField").val().toString();//select2获取值
-        ajaxdata.userPassword = $("#lawNewUPwd").val();
+        ajaxdata.userPassword = hex_md5($("#loadNewPwd").val());
     }
 
     /** 请求参数验证 */

@@ -74,7 +74,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group btom">
-                                    <label class="col-xs-2 control-label">订单金额</label>
+                                    <label class="col-xs-2 control-label">订单金额(元)</label>
                                     <div class="col-xs-4">
                                         <label class="control-label" id="orderAmount" style="font-weight: 500;"></label>
                                     </div>
@@ -94,7 +94,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group btom">
-                                    <label class="col-xs-2 control-label">折扣金额</label>
+                                    <label class="col-xs-2 control-label">折扣金额(元)</label>
                                     <div class="col-xs-4">
                                         <label class="control-label" id="discountAmount" style="font-weight: 500;"></label>
                                     </div>
@@ -104,7 +104,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group btom">
-                                    <label class="col-xs-2 control-label">支付金额</label>
+                                    <label class="col-xs-2 control-label">支付金额(元)</label>
                                     <div class="col-xs-4">
                                         <label class="control-label" id="payAmount" style="font-weight: 500;"></label>
                                     </div>

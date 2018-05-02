@@ -126,6 +126,7 @@
         }
     </script>
     <script type="text/javascript" src="/js/pageScripts/login.js"></script>
+    <script type="text/javascript" src="/js/custom/md5.js"></script>
 </body>
 
 </html>

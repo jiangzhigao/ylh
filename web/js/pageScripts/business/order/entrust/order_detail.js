@@ -66,10 +66,14 @@ jQuery(function(){
                         var typeInt = parseInt(order.type);
                         var reserveStatus = parseInt(order.reserveStatus);
                         var ff = 0 == typeInt?"月":"小时";
+                        var lawyer = order.lawyer;
+                        if(typeof(lawyer)!='undefined'){
+                            $('#entrustLawyerName').text(lawyer.name);
+                        }
                         $("#dataId").text(order.id);
                         $("#orderNo").text(order.orderNo);
                         $("#clientPhone").text((order.user==null?"":order.user.userName));
-                        $("#entrustLawyerName").text(order.lawyerName);
+                        /*$("#entrustLawyerName").text(order.lawyerName);*/
                         $("#duration").text(order.duration+ff);
                         $("#reservLawName").text(order.lawyer.name);
                         $("#orderAmount").text($.moneyToDecimal(order.totalAmount));

@@ -7,10 +7,10 @@ jQuery(function(){
             userName:{
                 required:true,
             },
-            userPassword:{
+            userPassword1:{
                 required:true,
             },
-            reuserPassword:{
+            reuserPassword1:{
                 required:true,
             },
             name:{
@@ -21,10 +21,10 @@ jQuery(function(){
             userName:{
                 required:"请输入用户名"
             },
-            userPassword:{
+            userPassword1:{
                 required:"请输入密码"
             },
-            reuserPassword:{
+            reuserPassword1:{
                 required:"请确认密码"
             },
             name:{
@@ -79,8 +79,8 @@ jQuery(function(){
                     if(user){
                         $("#dataId").val(user.id);
                         $("#userName1").val(user.userName);
-                        $("#userPassword1").val(user.password);
-                        $("#reuserPassword1").val("");
+                        /*$("#userPassword1").val(user.password);
+                        $("#reuserPassword1").val("");*/
                         $("#name").val(user.name);
                         $("#userGroupId").val(user.userGroupId);
                         $("#memo").val(user.memo);
@@ -162,7 +162,7 @@ jQuery(function(){
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
         ajaxdata.userName = $("#userName1").val();
-        ajaxdata.userPassword = $("#userPassword1").val();
+        ajaxdata.userPassword = hex_md5($("#userPassword1").val());
         ajaxdata.name = $("#name").val();
         ajaxdata.userGroupId = $("#userGroupId").val();
         ajaxdata.status = $("input[name='status']:checked").val();
@@ -172,7 +172,8 @@ jQuery(function(){
     /** 请求参数验证 */
     function _verifyAjaxData () {
         var reInputPwd = $("#reuserPassword1").val();
-        if (ajaxdata.userPassword != reInputPwd) {
+        var userPwd = $("#userPassword1").val()
+        if (userPwd != reInputPwd) {
             FOXKEEPER_UTILS.alert('warning', '输入确认密码不一致');
             return false;
         }

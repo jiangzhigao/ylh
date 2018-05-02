@@ -40,7 +40,7 @@
             </div>
             <div class="modal-body" style="padding: 15px;">
                 <div class="dataTables_wrapper no-footer">
-                    <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
+                    <form class="form-horizontal" id="form_update_pwd" action="#" method="post" novalidate="novalidate">
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group">
@@ -55,10 +55,10 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group">
-                                    <label class="col-xs-3 control-label" for="lawPwd">原始密码</label>
+                                    <label class="col-xs-3 control-label" for="newPwd">新密码</label>
                                     <div class="col-xs-7">
-                                        <input type="password" class="form-control" id="lawPwd" name="lawPwd"
-                                                maxlength="20">
+                                        <input type="password" class="form-control" id="newPwd" name="newPwd"
+                                                maxlength="20" required="required">
                                     </div>
                                 </div>
                             </div>
@@ -66,26 +66,14 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group">
-                                    <label class="col-xs-3 control-label" for="lawNewPwd">新密码</label>
+                                    <label class="col-xs-3 control-label" for="confirmPwd">确认密码</label>
                                     <div class="col-xs-7">
-                                        <input type="password" class="form-control" id="lawNewPwd" name="lawNewPwd"
-                                                maxlength="20">
+                                        <input type="password" class="form-control" id="confirmPwd" name="confirmPwd"
+                                               maxlength="20" required="required">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <%--<div class="row">
-                            <div class="col-xs-12">
-                                <div class="form-group">
-                                    <label class="col-xs-3 control-label" for="lawNewCPwd">确认新密码</label>
-                                    <div class="col-xs-7">
-                                        <input type="password" class="form-control" id="lawNewCPwd" name="lawNewCPwd"
-                                               value="admin"  maxlength="20">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>--%>
-
                         <div class="divider-dotted"></div>
                         <div class="clearfix"></div>
                         <div class="row">
@@ -111,9 +99,42 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
+        var $form_pwd = $('#form_update_pwd');
+        $form_pwd.validate({
+            rules:{
+                newPwd:{
+                    required:true,
+                },
+                confirmPwd: {
+                    required: true,
+                }
+            },
+            messages:{
+                newPwd:{
+                    required:"请输入新密码"
+                },
+                confirmPwd:{
+                    required:"请输入确认密码"
+                }
+            }
+        });
+
         $('#btnSaveLawPwd').on('click', function () {
-            $("#lawNewUPwd").val($("#lawNewPwd").val());
-            $('#pwdModal').modal('hide');
+            var formValid = $form_pwd.validate().form();
+            if (formValid) {
+                var newPwd=$("#newPwd").val();
+                var confirmPwd=$("#confirmPwd").val();
+                if(newPwd==confirmPwd){
+                    $("#loadNewPwd").val($("#newPwd").val());
+
+                    $("#newPwd").val("");
+                    $("#confirmPwd").val("");
+                    $('#pwdModal').modal('hide');
+                }else{
+                    alert("确认密码不一致");
+                    console.log(hex_md5("123"));
+                }
+            }
         });
     });
 </script>

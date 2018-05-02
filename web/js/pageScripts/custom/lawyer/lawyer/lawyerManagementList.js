@@ -52,20 +52,23 @@ jQuery(function(){
                 }
             }else{//冻结操作
                 //no-editable
-                if(!($this.hasClass("no-editable"))){
-                    var reqUrl = webBasePath+'/lawyers/'+id;
-                    _userBlocked($this,reqUrl);
+                var reqUrl = webBasePath+'/lawyers/'+id;
+                alert();
+                if(($this.attr("s")=='0')){//解冻
+                    _userBlocked($this,reqUrl,1);
+                }else{//冻结
+                    _userBlocked($this,reqUrl,0);
                 }
             }
         });
     }
-    function _userBlocked($this,reUrl){
+    function _userBlocked($this,reUrl,s){
         var ajaxdata = {};
         var user = $.getuuuAuth();
         ajaxdata.username = user._d;
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
-        ajaxdata.status = 0;
+        ajaxdata.status = s;
         jQuery.ajax({
             dataType: "json",
             url: reUrl,
@@ -73,9 +76,11 @@ jQuery(function(){
             type: "POST",
             success: function (result) {
                 if (result.success) {
-                    $this.addClass("no-editable");
-                    $this.parent().prev().find("a").addClass("no-editable");
-                    $this.parent().parent().parent().parent().prev().text("冻结")
+                    var labText = '冻结';
+                    if(result.lawyer.status=='0'){
+                        labText ='解冻';
+                    }
+                    $this.parent().parent().parent().parent().prev().text(labText)
                     FOXKEEPER_UTILS.alert('success',result.message);
                 }
             }
@@ -100,13 +105,17 @@ jQuery(function(){
         return totalPages;
     }
 
-    function _optionsHtml(id,clz){
+    function _optionsHtml(id,clz,s){
         var _operHtml = [];
         _operHtml.push('<div class="btn-group">');
         _operHtml.push('<a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">编辑<span class="caret"></span></a>');
         _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
         _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a  class="'+clz+'" bz-url="/view/customercenter/lawyermanagement/lawyer/editLawyer.jsp" bid="'+id+'" target="ylxmain">编辑</a></li>');
-        _operHtml.push('<li><a href="javascript:;" bid="'+id+'" class="'+clz+'">冻结</a></li>');
+        var labText = '冻结';
+        if(s=='0'){
+            labText ='解冻';
+        }
+        _operHtml.push('<li><a href="javascript:;" bid="'+id+'" s="'+s+'">'+labText+'</a></li>');
         _operHtml.push('</ul></div>');
 
         return  _operHtml.join('');
@@ -145,7 +154,7 @@ jQuery(function(){
                             _html.push('<td>' + (obj.isSigned==true?"是":"否") + '</td>');
                             _html.push('<td>' + statusArray[statusInt] + '</td>');
 
-                            _html.push('<td>' +  _optionsHtml(dataId,clz) + '</td>');
+                            _html.push('<td>' +  _optionsHtml(dataId,clz,statusInt) + '</td>');
                             _html.push('</tr>');
                         }
 

@@ -123,7 +123,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group">
-                                    <label class="col-xs-2 control-label">案件标的</label>
+                                    <label class="col-xs-2 control-label">案件标的(元)</label>
                                     <div class="col-xs-5">
                                         <input type="text" class="form-control" placeholder="请输入案件标的" id="caseAmount" name="caseAmount"
                                                maxlength="20">
@@ -134,7 +134,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group">
-                                    <label class="col-xs-2 control-label">代理费用</label>
+                                    <label class="col-xs-2 control-label">代理费用(元)</label>
                                     <div class="col-xs-5">
                                         <input type="text" class="form-control" placeholder="请输入代理费用" id="agencyFee" name="agencyFee"
                                                maxlength="20">

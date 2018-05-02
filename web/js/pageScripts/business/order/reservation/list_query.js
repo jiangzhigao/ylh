@@ -128,16 +128,16 @@ jQuery(function(){
                             var orderStatus = parseInt(obj.orderStatus);
                             var payType = parseInt(obj.payType);
                             var typeInt = parseInt(obj.orderType);
-                            var ff = 0 == typeInt?"月":"小时";
+                            var ff = "小时";
                             _html.push('<tr>');
                             _html.push('<td>' + obj.orderNo+ '</td>');
                             _html.push('<td>' + (obj.user==null?"":obj.user.userName)+ '</td>');
                             _html.push('<td>' + obj.lawyerName+ '</td>');
                             _html.push('<td>' + obj.duration+ff+ '</td>');
-                            _html.push('<td>' + obj.totalAmount + '</td>');
+                            _html.push('<td>' + $.moneyToDecimal(obj.totalAmount) + '</td>');
                             _html.push('<td>' + payArray[payType] + '</td>');
-                            _html.push('<td>' + obj.discountAmount + '</td>');
-                            _html.push('<td>' + obj.payAmount + '</td>');
+                            _html.push('<td>' + $.moneyToDecimal(obj.discountAmount) + '</td>');
+                            _html.push('<td>' + $.moneyToDecimal(obj.payAmount) + '</td>');
                             _html.push('<td>' + obj.orderTime + '</td>');
                             _html.push('<td>' + obj.payTime + '</td>');
                             _html.push('<td>' + orderArray[orderStatus] + '</td>');
@@ -151,9 +151,13 @@ jQuery(function(){
                             _operHtml.push('<ul class="dropdown-menu opt" role="menu">');
                             _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="#" bid="'+dataId+'" s="'+reserveStatus+'" target="ylxmain">查看详情</a></li>');
                             if(reserveStatus == 0){
-                                _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="'+dataId+'" s="'+reserveStatus+'" class="">沟通时间</a></li>');
+                                if(orderStatus == 1){
+                                    _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="'+dataId+'" s="'+reserveStatus+'" class="">已沟通</a></li>');
+                                }else{
+                                    _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="'+dataId+'" s="'+reserveStatus+'" class="no-editable">已沟通</a></li>');
+                                }
                             }else{
-                                _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="'+dataId+'" s="'+reserveStatus+'" class="no-editable">沟通时间</a></li>');
+                                _operHtml.push('<li style="border-bottom: 1px dashed #CCC;"><a href="javascript:;" bid="'+dataId+'" s="'+reserveStatus+'" class="no-editable">已沟通</a></li>');
                             }
                             if(orderStatus == 1){//订单已支付，并且预约状态已完成，才能分红
                                 if(reserveStatus == 2){

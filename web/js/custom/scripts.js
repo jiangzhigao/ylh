@@ -3,7 +3,7 @@ jQuery(function ($) {
     'use strict';
     
     
-    //»ñµÃä¯ÀÀÆ÷²ÎÊý
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     $.extend({
         getUrlVars: function () {
             var vars = [], hash;
@@ -210,7 +210,6 @@ jQuery(function ($) {
         var projectinfo = $(".project-info").innerHeight();
         
         var height = $(window).innerHeight() - topbar - projectinfo;
-        
         //$('#main-menu-wrapper').height(height).perfectScrollbar({
         //    suppressScrollX: true
         //});

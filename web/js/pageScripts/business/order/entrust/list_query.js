@@ -123,7 +123,7 @@ jQuery(function(){
                             _html.push('<td>' + obj.lawyerName+ '</td>');
                             _html.push('<td>' + $.moneyToDecimal(obj.totalAmount) + '</td>');
                             _html.push('<td>' + payArray[payType] + '</td>');
-                            _html.push('<td>' + obj.discountAmount + '</td>');
+                            _html.push('<td>' + $.moneyToDecimal(obj.discountAmount) + '</td>');
                             _html.push('<td>' + $.moneyToDecimal(obj.payAmount) + '</td>');
                             _html.push('<td>' + obj.orderTime + '</td>');
                             _html.push('<td>' + obj.payTime + '</td>');

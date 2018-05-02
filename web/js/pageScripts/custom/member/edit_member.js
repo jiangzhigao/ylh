@@ -103,7 +103,8 @@ jQuery(function(){
                         $("#lastLoginIp").text(user.loginIP);
                         $("#registerTime").text(user.createdTime);
                         $("#score").val(user.score);
-
+                        $("#lawUserName").val(user.userName);
+                        /*$("#lawPwd").val(user.password);*/
                         $("input[name='status'][value='"+user.status+"']").attr("checked",true);
                         /*$("input[name='status']").val(user.status);*/
                         $("#coverImage").attr("src",homePath+user.picture);
@@ -166,7 +167,12 @@ jQuery(function(){
         ajaxdata.userType = 2;
         ajaxdata.id = $("#dataId").val();
         ajaxdata.userName = $("#userName").val();
-        ajaxdata.userPassword = ''/*$("#userPassword").val()*/;
+        var newPWd = $("#loadNewPwd").val();
+        if(newPWd){
+            ajaxdata.userPassword = hex_md5(newPWd);
+        }else{
+            ajaxdata.userPassword = '';
+        }
         ajaxdata.name = $("#name").val();
         ajaxdata.nickname = $("#nickname").val();
         ajaxdata.idcard = $("#idcard").val();

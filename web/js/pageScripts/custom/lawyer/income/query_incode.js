@@ -139,7 +139,7 @@ jQuery(function(){
                             _html.push('<td>' + obj.dealDesc + '</td>')
                             _html.push('<td>' + transArray[typeInt] + '</td>');
                           /*  _html.push('<td>' + obj.orderId + '</td>');*/
-                            _html.push('<td>' + obj.amount + '</td>');
+                            _html.push('<td>' + $.moneyToDecimal(obj.amount) + '</td>');
                             _html.push('<td>' + obj.createdTime + '</td>');
                             // _html.push('<td>' + (obj.status==1?"已处理":"未处理") + '</td>');
                             _html.push('<td>' +  _optionsHtml(obj.orderId,obj.type) + '</td>');

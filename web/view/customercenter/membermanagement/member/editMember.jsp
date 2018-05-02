@@ -61,6 +61,7 @@
             <div class="content-body">
                 <div class="dataTables_wrapper no-footer">
                     <form class="form-horizontal" id="form_edit" action="#" method="post" novalidate="novalidate">
+                        <input type="hidden" id="loadNewPwd" >
                         <input type="hidden" id="dataId">
                         <div class="row">
                             <div class="col-xs-12">
@@ -77,7 +78,7 @@
                                 <div class="form-group">
                                     <label class="col-xs-2 control-label">密码</label>
                                     <div class="col-xs-5">
-                                        <button id="pwdBtn" type="button" class="btn btn-primary">修改密码</button>
+                                        <button id="pwdBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#pwdModal">修改密码</button>
                                     </div>
                                 </div>
                             </div>
@@ -238,6 +239,7 @@
     </div>
 </section>
 <!-- END CONTENT -->
+<%@ include file="/view/customercenter/lawyermanagement/lawyer/updatePwdModal.jsp"%>
 </div>
 <!-- END CONTAINER -->
 
@@ -246,6 +248,7 @@
 <script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
 <script type="text/javascript" src="/js/pageScripts/custom/member/edit_member.js"></script>
 <script type="text/javascript" src="/js/custom/request-util.js"></script>
+<script type="text/javascript" src="/js/custom/md5.js"></script>
 <!-- START FOOTER -->
 <!--  FOOTER - END -->
 </body>

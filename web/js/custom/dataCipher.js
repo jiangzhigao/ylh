@@ -9,7 +9,7 @@
         homeUrl:"http://localhost:8080/",
         /**
          * 加密
-         * @param str
+         * @param st    r
          * @returns 加密后的值
          */
         dataEncrypt : function(str){

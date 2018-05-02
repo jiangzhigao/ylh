@@ -98,6 +98,11 @@ jQuery(function(){
                         if(statusInt == 4 || statusInt == 5){
                             $("#agentLawyerRow").show();
                         }
+                        if(statusInt==1){
+                            $("#agencyFeeIn").show();
+                            $("#agencyFee").hide();
+                            $("#agencyFeeIn").val($.moneyToDecimal(entrust.agencyFee));
+                        }
                         if(entrust.orderId){
                             $("#orderCode").show();
                             $("#orderDtl").attr("href","/view/business/order/entrust/entrustOrderDetail.jsp?dataId="+entrust.orderId);

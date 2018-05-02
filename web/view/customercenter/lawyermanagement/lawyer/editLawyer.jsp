@@ -97,6 +97,7 @@
                             <div class="tab-content">
                                 <div class="tab-pane fade active in" id="basic">
                                     <input type="hidden" id="lawNewUPwd" >
+                                    <input type="hidden" id="loadNewPwd" >
                                     <input type="hidden" id="dataId" >
                                     <div class="row">
                                         <div class="col-xs-12">
@@ -121,7 +122,7 @@
                                     <div class="row">
                                         <div class="col-xs-12">
                                             <div class="form-group">
-                                                <label class="col-xs-2 control-label" for="account">账户金额</label>
+                                                <label class="col-xs-2 control-label" for="account">账户金额(元)</label>
                                                 <div class="col-xs-4">
                                                     <button type="button"  id="account" class="btn btn-primary" value=""></button>
                                                 </div>
@@ -428,6 +429,7 @@
 <script type="text/javascript" src="/js/pageScripts/custom/lawyer/lawyer/edit_layer.js"></script>
 <script type="text/javascript" src="/js/pageScripts/custom/lawyer/lawyer/query_case_list.js"></script>
 <script type="text/javascript" src="/js/pageScripts/custom/lawyer/lawyer/query_honor_list.js"></script>
+<script type="text/javascript" src="/js/custom/md5.js"></script>
 <script type="text/javascript">
     //日期控件
     $("#employmentTime").datepicker({

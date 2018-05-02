@@ -1049,9 +1049,14 @@ $.validator.addMethod( "zipcodeUS", function( value, element ) {
 	return this.optional( element ) || /^\d{5}(-\d{4})?$/.test( value );
 }, "The specified US ZIP Code is invalid" );
 
-$.validator.addMethod( "ziprange", function( value, element ) {
+$.validator.addMethod("ziprange", function( value, element ) {
 	return this.optional( element ) || /^90[2-5]\d\{2\}-\d{4}$/.test( value );
 }, "Your ZIP-code must be in the range 902xx-xxxx to 905xx-xxxx" );
+
+
+$.validator.addMethod("amount",function(value,element){
+	return this.optional(element)|| /^(([1-9]\d*)|\d)(\.\d{1,2})?$/.test(value);
+},"请输入正确的金额")
 
     $.validator.addMethod( "inputCaptcha", function( value, element ) {
     	var validCode = $("#code").val();

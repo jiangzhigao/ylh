@@ -119,7 +119,7 @@ jQuery(function(){
         ajaxdata.password = user._p;
         ajaxdata.userType = 2;
         ajaxdata.userName = $("#userName").val();
-        ajaxdata.userPassword = $("#userPassword").val();
+        ajaxdata.userPassword = hex_md5($("#userPassword").val());
         ajaxdata.name = $("#name").val();
         ajaxdata.userGroupId = $("#userGroupId").val();
         ajaxdata.status = $("input[name='status']:checked").val();
@@ -129,7 +129,8 @@ jQuery(function(){
     /** 请求参数验证 */
     function _verifyAjaxData () {
         var reInputPwd = $("#reuserPassword").val();
-        if (ajaxdata.userPassword != reInputPwd) {
+        var userPwd = $("#userPassword").val()
+        if (userPwd != reInputPwd) {
             FOXKEEPER_UTILS.alert('warning', '输入确认密码不一致');
             return false;
         }

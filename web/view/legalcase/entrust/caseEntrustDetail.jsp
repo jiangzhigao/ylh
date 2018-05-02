@@ -58,7 +58,7 @@
             </header>
             <div class="content-body">
                 <div class="dataTables_wrapper no-footer">
-                    <form class="form-horizontal" id="form_query" action="#" method="post" novalidate="novalidate">
+                    <form class="form-horizontal" id="form_dtl" action="#" method="post" novalidate="novalidate">
                         <input type="hidden" id="status-tag">
                         <input type="hidden" id="dataId">
                         <div class="row" id="orderCode" style="display: none;">
@@ -129,7 +129,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group btom">
-                                    <label class="col-xs-2 control-label">案件标的</label>
+                                    <label class="col-xs-2 control-label">案件标的(元)</label>
                                     <div class="col-xs-5">
                                         <label class="control-label" id="caseAmount" style="font-weight: 500;"></label>
                                     </div>
@@ -139,9 +139,11 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group btom">
-                                    <label class="col-xs-2 control-label">代理费用</label>
-                                    <div class="col-xs-5">
+                                    <label class="col-xs-2 control-label">代理费用(元)</label>
+                                    <div class="col-xs-3">
                                         <label class="control-label" id="agencyFee" style="font-weight: 500;"></label>
+                                        <input type="text" class="form-control" placeholder="请输入代理费用" id="agencyFeeIn" name="agencyFee"
+                                               maxlength="20" style="display: none;">
                                     </div>
                                 </div>
                             </div>
@@ -231,6 +233,8 @@
 <script type="text/javascript" src="/js/pageScripts/legalcase/entrust/case_entrust_detail.js"></script>
 <script type="text/javascript" src="/js/custom/request-util.js"></script>
 <script type="text/javascript" src="/js/pageScripts/legalcase/inc/select_lawyer_list_query.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.js"></script>
 
 <!--  FOOTER - END -->
 </body>

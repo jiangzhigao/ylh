@@ -14,7 +14,7 @@
 
 
 <div class="modal fade" id="lawyerModal" tabindex="-1" role="dialog" aria-labelledby="lawyerModal-Label" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog" style="width: 60%">
+    <div class="modal-dialog" style="width: 65%">
         <div class="modal-content xxx">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="padding-bottom: 10px;">×</button>
@@ -58,6 +58,7 @@
                         <thead>
                         <tr>
                             <th>#</th>
+                            <th>代理费用(元)</th>
                             <th>律师姓名</th>
                             <th>律师电话</th>
                             <th>律师头像</th>
@@ -68,33 +69,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <%--<tr>
-                            <td style="vertical-align:middle;"><input type="radio" name="lawyerId"></td>
-                            <td>王麻子</td>
-                            <td>13901234567</td>
-                            <td width="120px;">
-                                <div class="profile-image">
-                                    <img src="/images/user.png" class="" style="width: 80%;" />
-                                </div>
-                            </td>
-                            <td>2017-08-28</td>
-                            <td>审核中</td>
-                            <td>2017-08-28</td>
-                            <td>
-                                <div class="btn-group">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" style="color: #337AB7;">
-                                        查看详情
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="/view/legalcase/publish/caseEntrustDetail.jsp?orderCode=D0001">查看详情</a></li>
-                                        <li><a href="#">审核通过</a></li>
-                                        <li><a href="#">不通过</a></li>
-                                        <li><a href="#">结案</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>--%>
                         </tbody>
                     </table>
                     <div class="row">

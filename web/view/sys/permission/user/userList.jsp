@@ -161,6 +161,7 @@
 
 <script type="text/javascript" src="/js/__base.min.js"></script>
 <script type="text/javascript" src="/js/pageScripts/sys/permission/user/list_query.js"></script>
+<script type="text/javascript" src="/js/custom/md5.js"></script>
 <!-- START FOOTER -->
 <!--  FOOTER - END -->
 </body>
